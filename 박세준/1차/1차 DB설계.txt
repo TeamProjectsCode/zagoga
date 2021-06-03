@@ -1,0 +1,50 @@
+manager
+	m_no 		- number(10), primary key
+	m_name 		- varchar2(20)
+	m_pwd		- varchar2(12)
+
+
+
+
+user
+	u_no 		- number(10), primary key
+	u_name 		- varchar2(20)
+	u_nick		- varchar2(20)
+	u_jumin 		- varchar2(13)
+	u_address	- varchar2(50)
+	u_email		- varchar2(20)
+	u_pwd		- varchar2(20)
+	u_phone		- varhcar2(13)
+
+reserve
+	re_no		- number(10), primary key
+	re_room_no	- number(10), foreign key(rooms - ro_no)
+	re_user_no	- number(10), foreign key(user - u_no)
+	re_s_date		- date
+	re_f_date		- date
+	re_num_people	- number(5)
+	re_pay_type	_ varchar2(10)
+
+review
+	댓글, 평점, 닉네임, 날짜
+
+
+
+buisness
+	b_no		- number(10), primary key
+	b_name		- varchar2(20)
+	b_jumin		- varchar2(13)
+	b_address	- varchar2(50)
+	b_email		- varchar2(20)
+	b_pwd		- varchar2(20)
+	b_phone		- varhcar2(13)
+	b_buisno		- varchar2(20)
+	b_room_name	- varchar2(20), foreign key(rooms - ro_name)
+rooms
+	ro_no		- number(10), primary key
+	ro_name		- varchar2(20)
+	ro_address	- varchar2(50)
+	ro_type		- varchar2(10)
+	ro_count		- number(5)
+	ro_fee		- number(10)
+	ro_owner_num	- number(10), foreign key(buisness - b_no)
