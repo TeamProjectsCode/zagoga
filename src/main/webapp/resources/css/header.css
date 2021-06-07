@@ -1,0 +1,79 @@
+@charset "EUC-KR";
+
+@font-face {
+	font-family: 'twaysky';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twaysky.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+nav{
+	box-sizing: border-box;
+	font-family: 'twaysky';
+}
+
+header {
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'twaysky';
+	height:600px;
+	background-image: url(../img/header.png);
+	background-size:cover;
+	background-repeat: no-repeat;
+	color:#fff;
+	padding:50px;
+}
+
+.navbox {
+	background-color: #000;
+	float: right;
+}
+
+.dropbtn {
+	background-color: #000;
+	color: white;
+	padding: 16px 30px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+}
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown:last-child {
+	margin-right: 200px;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.dropdown:hover .dropbtn {
+	background-color: #84898a;
+}
+.space{
+	height:200px;
+}
