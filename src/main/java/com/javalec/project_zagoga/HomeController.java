@@ -38,8 +38,72 @@ public class HomeController {
 		return "home";
 	}
 	@RequestMapping("/header") 
-	public String admin() {
+	public String header() {
 		return "header";
 	}
+	
+	@RequestMapping("/footer") 
+	public String footer() {
+		return "footer";
+	}
+
+	@RequestMapping("administration_list") 
+	public String administration_list() {
+		return "administration_list";
+	}
+	@RequestMapping("administration_reading") 
+	public String administration_reading() {
+		return "administration_reading";
+	}
+	@RequestMapping("booking_confirm") 
+	public String booking_confirm() {
+		return "booking_confirm";
+	}
+	
+	@RequestMapping("/booking_detail") 
+	public String booking_detail() {
+		return "booking_detail";
+	}
+	
+	@RequestMapping("booking_list") 
+	public String booking_list() {
+		return "booking_list";
+	}
+	
+	@RequestMapping("customer_list") 
+	public String customer_list() {
+		return "customer_list";
+	}
+	@RequestMapping("login") 
+	public String login() {
+		return "login";
+	}
+	@RequestMapping("main") 
+	public String main() {
+		return "main";
+	}
+	@RequestMapping("regist_business") 
+	public String regist_business() {
+		return "regist_business";
+	}
+
+	@RequestMapping("room_detail") 
+	public String room_detail() {
+		return "room_detail";
+	}
+	@RequestMapping("roomcancel") 
+	public String roomcancel() {
+		return "roomcancel";
+	}
+	@RequestMapping("signup_user") 
+	public String signup_user() {
+		return "signup_user";
+	}
+	@RequestMapping("write") 
+	public String write() {
+		return "write";
+	}
+	
+
 	
 }
