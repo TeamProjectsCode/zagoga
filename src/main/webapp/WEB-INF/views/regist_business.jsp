@@ -27,7 +27,7 @@
             <tr><td class="input"><input type="text" id="userID" name="userID" placeholder="아이디" disabled></td></tr>
             <tr>
                 <td class="inputPW"><input type="password" id="userPW" name="userPW" placeholder="비밀번호" disabled></td>
-                <td class="inputPWShow"><input type="image" id="userPWShow" onclick="pwShowToggle(); return false;" src="img/visibility.png" alt="show password" disabled/></td>
+                <td class="inputPWShow"><input type="image" id="userPWShow" onclick="pwShowToggle(); return false;" src="resources/img/visibility.png" alt="show password" disabled/></td>
             </tr>
             <tr><td class="inputPW"><input type="password" id="userPWCheck" name="userPWCheck" placeholder="비밀번호 재입력" disabled></td></tr>
             <tr>
@@ -59,7 +59,7 @@
     </form>
 <%@ include file="./footer.jsp" %>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="regist_business.js" type="text/javascript"></script>
-    <script src="pwShowToggle.js" type="text/javascript"></script>
+    <script src="resources/js/regist_business.js" type="text/javascript"></script>
+    <script src="resources/js/pwShowToggle.js" type="text/javascript"></script>
 </body>
 </html>

@@ -41,6 +41,47 @@ public class HomeController {
 	public String header() {
 		return "header";
 	}
+	@RequestMapping("/footer") 
+	public String footer() {
+		return "footer";
+	}
+	@RequestMapping("/main") 
+	public String main() {
+		return "main";
+	}
+	@RequestMapping("/administration_list") 
+	public String administration_list() {
+		return "administration_list";
+	}
+	@RequestMapping("/administration_reading") 
+	public String administration_reading() {
+		return "administration_reading";
+	}
+	@RequestMapping("/customer_list") 
+	public String customer_list() {
+		return "customer_list";
+	}
+	@RequestMapping("/login") 
+	public String login() {
+		return "login";
+	}
+	@RequestMapping("/regist_business") 
+	public String regist_business() {
+		return "regist_business";
+	}
+	@RequestMapping("/reservation_confrim") 
+	public String reservation_confrim() {
+		return "reservation_confrim";
+	}
+	@RequestMapping("/signup_user") 
+	public String signup_user() {
+		return "signup_user";
+	}
+	@RequestMapping("/write") 
+	public String write() {
+		return "write";
+	}
+	
 	
 	@RequestMapping("/footer") 
 	public String footer() {

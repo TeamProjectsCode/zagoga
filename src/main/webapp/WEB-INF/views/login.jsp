@@ -23,7 +23,7 @@
                 <tr><td class="inputHead">비밀번호</td></tr>
                 <tr>
                     <td class="inputPW"><input type="password" id="userPW" name="userPW" placeholder="please enter your password"></td>
-                    <td class="inputPWShow"><input type="image" id="userPWShow" onclick="pwShowToggle(); return false;" src="img/visibility.png" alt="show password"/></td>
+                    <td class="inputPWShow"><input type="image" id="userPWShow" onclick="pwShowToggle(); return false;" src="resources/img/visibility.png" alt="show password"/></td>
                 </tr>
                 <tr><td colspan="2"><input class="inputButton" type="submit" value="로그인"></td></tr>
                 <tr>
@@ -35,7 +35,7 @@
     </form>
     <%@ include file="./footer.jsp" %>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="login.js" type="text/javascript"></script>
-    <script src="pwShowToggle.js" type="text/javascript"></script>
+    <script src="resources/js/login.js" type="text/javascript"></script>
+    <script src="resources/js/pwShowToggle.js" type="text/javascript"></script>
 </body>
 </html>
