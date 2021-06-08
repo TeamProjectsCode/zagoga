@@ -7,7 +7,7 @@
 <html>
   <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="css/write.css" type="text/css">
+	<link rel="stylesheet" href="resources/css/write.css" type="text/css">
 	<title>Insert title here</title>
 	<script type="text/javascript" src="script.js" charset="utf-8"></script>
   </head>

@@ -5,14 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css"
-	href="css/administration_reading.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/administration_reading.css" />
 </head>
 <body>
-	<%@ include file="/header.jsp"%>
+	<%@ include file="./header.jsp"%>
 	<div class="mainbox">
 		<div class="imgbox">
-			<img src="img/busan.jpg">
+			<img src="resources/img/busan.jpg">
 		</div>
 		<div class = "table">
 		<h2>사업자 정보</h2>
@@ -45,6 +44,6 @@
 			</table>
 		</div>
 	</div>
-	<%@ include file="/footer.jsp"%>
+	<%@ include file="./footer.jsp"%>
 </body>
 </html>

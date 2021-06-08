@@ -8,7 +8,10 @@
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
- <link rel="stylesheet" type="text/css" href="css/main2.css">
+<%
+String path= request.getContextPath();
+%>
+ <link rel="stylesheet" type="text/css" href="<%=path%>/resources/css/main2.css">
  <script type="text/javascript">
     $(document).ready(function () {
             $.datepicker.setDefaults($.datepicker.regional['ko']); 
@@ -89,7 +92,7 @@
                            <a href="#">무더위엔 바다아이가!</a>
                        </dt>
                        <dd class="img">
-                           <a href="#"><img src="img/busan.jpg" alt=""></a>
+                           <a href="#"><img src="resources/img/busan.jpg" alt=""></a>
                        </dd>
                        <dd class="price">여름에 가기 좋은 부산 숙소</dd>
                        <dd class="btm">
@@ -102,7 +105,7 @@
                            <a href="#">떠나요 둘이서 제주섬으로~</a>
                        </dt>
                        <dd class="img">
-                           <a href="#"><img src="img/jeju.jpg" alt=""></a>
+                           <a href="#"><img src="resources/img/jeju.jpg" alt=""></a>
                        </dd>
                        <dd class="price">힐링여행 푸른밤 제주 숙소</dd>
                        </dd>
@@ -114,7 +117,7 @@
                            <a href="#">동해바다가 아름다운 강릉으로~</a>
                        </dt>
                        <dd class="img">
-                           <a href="#"><img src="img/kang.jpg" alt=""></a>
+                           <a href="#"><img src="resources/img/kang.jpg" alt=""></a>
                        </dd>
                        <dd class="price">산과 바다를 아우르는 강릉숙소</dd>
                        </dd>

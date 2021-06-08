@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/administration_list.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/administration_list.css" />
 </head>
 <body>
 	<%@ include file="./header.jsp" %>
