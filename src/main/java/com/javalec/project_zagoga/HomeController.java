@@ -18,133 +18,148 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class HomeController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-		
+
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
+
 		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
+
+		model.addAttribute("serverTime", formattedDate);
+
 		return "home";
 	}
-	@RequestMapping("/header") 
+
+	@RequestMapping("/header")
 	public String header() {
 		return "header";
 	}
-	@RequestMapping("/footer") 
+
+	@RequestMapping("/footer")
 	public String footer() {
 		return "footer";
 	}
-	@RequestMapping("/main") 
+
+	@RequestMapping("/main")
 	public String main() {
 		return "main";
 	}
-	@RequestMapping("/administration_list") 
+
+	@RequestMapping("/administration_list")
 	public String administration_list() {
 		return "administration_list";
 	}
-	@RequestMapping("/administration_reading") 
+
+	@RequestMapping("/administration_reading")
 	public String administration_reading() {
 		return "administration_reading";
 	}
-	@RequestMapping("/customer_list") 
+
+	@RequestMapping("/customer_list")
 	public String customer_list() {
 		return "customer_list";
 	}
-	@RequestMapping("/login") 
+
+	@RequestMapping("/login")
 	public String login() {
 		return "login";
 	}
-	@RequestMapping("/regist_business") 
+
+	@RequestMapping("/regist_business")
 	public String regist_business() {
 		return "regist_business";
 	}
-	@RequestMapping("/reservation_confrim") 
+
+	@RequestMapping("/reservation_confrim")
 	public String reservation_confrim() {
 		return "reservation_confrim";
 	}
-	@RequestMapping("/signup_user") 
+
+	@RequestMapping("/signup_user")
 	public String signup_user() {
 		return "signup_user";
 	}
-	@RequestMapping("/write") 
+
+	@RequestMapping("/write")
 	public String write() {
 		return "write";
 	}
-	
-	
-	@RequestMapping("/footer") 
+
+	@RequestMapping("/footer")
 	public String footer() {
 		return "footer";
 	}
 
-	@RequestMapping("administration_list") 
+	@RequestMapping("administration_list")
 	public String administration_list() {
 		return "administration_list";
 	}
-	@RequestMapping("administration_reading") 
+
+	@RequestMapping("administration_reading")
 	public String administration_reading() {
 		return "administration_reading";
 	}
-	@RequestMapping("booking_confirm") 
+
+	@RequestMapping("booking_confirm")
 	public String booking_confirm() {
 		return "booking_confirm";
 	}
-	
-	@RequestMapping("/booking_detail") 
+
+	@RequestMapping("/booking_detail")
 	public String booking_detail() {
 		return "booking_detail";
 	}
-	
-	@RequestMapping("booking_list") 
+
+	@RequestMapping("booking_list")
 	public String booking_list() {
 		return "booking_list";
 	}
-	
-	@RequestMapping("customer_list") 
+
+	@RequestMapping("customer_list")
 	public String customer_list() {
 		return "customer_list";
 	}
-	@RequestMapping("login") 
+
+	@RequestMapping("login")
 	public String login() {
 		return "login";
 	}
-	@RequestMapping("main") 
+
+	@RequestMapping("main")
 	public String main() {
 		return "main";
 	}
-	@RequestMapping("regist_business") 
+
+	@RequestMapping("regist_business")
 	public String regist_business() {
 		return "regist_business";
 	}
 
-	@RequestMapping("room_detail") 
+	@RequestMapping("room_detail")
 	public String room_detail() {
 		return "room_detail";
 	}
-	@RequestMapping("roomcancel") 
+
+	@RequestMapping("roomcancel")
 	public String roomcancel() {
 		return "roomcancel";
 	}
-	@RequestMapping("signup_user") 
+
+	@RequestMapping("signup_user")
 	public String signup_user() {
 		return "signup_user";
 	}
-	@RequestMapping("write") 
+
+	@RequestMapping("write")
 	public String write() {
 		return "write";
 	}
-	
-
-	
 }
