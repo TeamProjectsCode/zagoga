@@ -16,7 +16,6 @@ nav{
 header {
 	margin: 0;
 	box-sizing: border-box;
-	font-family: 'twaysky';
 	height:600px;
 	background-image: url(../img/header.png);
 	background-size:cover;

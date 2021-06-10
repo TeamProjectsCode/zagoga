@@ -27,16 +27,18 @@
 	        </div>
 				<div class="detail">
 						<h3>상세 내용</h3>
-						<h4>
-							카테고리 &nbsp;&nbsp;&nbsp; 
+						<h4>인원수&nbsp;&nbsp;&nbsp; 
 							<select name="category" id="category">
-								<option value='1'>개인실</option>
-								<option value='2'>다인실</option>
+								<option value='1'>1인실</option>
+								<option value='2'>2인실</option>
+								<option value='3'>4인실</option>
+								<option value='4'>8인실</option>
+								<option value='4'>16인실</option>
 							</select>
 						</h4>
 						<h4>
 							<!-- 주소 입력 -->
-							<script type="text/javascript" src="../util/juso2.js" ></script>
+							<script type="text/javascript" src="resources/js/juso2.js" ></script>
 							도로명 주소 
 							<input  type="text"  style="width:auto;" id="location_addr" name="location_addr" readonly/>
 							<input type="button" onClick="goPopup();" value="주소 찾기"/><br>

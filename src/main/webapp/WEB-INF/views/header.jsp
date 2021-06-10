@@ -32,13 +32,18 @@ String path= request.getContextPath();
             <a href="#">Link 3</a>
           </div>
         </div>
+        <!-- 세션에 따라 버튼 변경 추가 필요 -->
         <div class="dropdown">
-          <button class="dropbtn">Dropdown</button>
+          <button class="dropbtn">마이 페이지</button>
           <div class="dropdown-content">
             <a href="#">Link 1</a>
             <a href="#">Link 2</a>
             <a href="#">Link 3</a>
           </div>
+        </div>
+        <!-- 세션에 따라 버튼 변경 추가 필요 -->
+        <div class="dropdown">
+          <button class="dropbtn">login</button>
         </div>
       </div>
     </nav>
