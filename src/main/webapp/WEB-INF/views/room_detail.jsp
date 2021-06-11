@@ -114,9 +114,9 @@
                     <p>취소 규정</p>
                     <ul>
                         <li>취소 및 환불 불가</li>
-                        <li>상세한 취소 규정은 <a href="roomcancel.jsp" style="text-decoration: none">자세히보기</a>에서 확인하실 수 있습니다. </li>
+                        <li>상세한 취소 규정은 <a href="roomcancel" style="text-decoration: none">자세히보기</a>에서 확인하실 수 있습니다. </li>
                     </ul>
-                    <input type="button" value="예약하기" class="room_spec" onclick="location.href='reservation_confirm.jsp'">
+                    <input type="button" value="예약하기" class="room_spec" onclick="location.href='booking_confirm'">
                 </div>
             </div>
         </div>

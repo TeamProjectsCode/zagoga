@@ -57,7 +57,7 @@
             <h1><a href="#">ZAGOGA</a></h1>
             <div class="nav">
                 <ul>
-                    <li><a href="#">LOGIN</a></li>
+                    <li><a href="login">LOGIN</a></li>
                     <li><a href="#">JOIN</a></li>
                 </ul>
             </div>

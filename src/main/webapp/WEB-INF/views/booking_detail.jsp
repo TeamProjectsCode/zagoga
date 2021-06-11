@@ -102,26 +102,26 @@
            				for(int i =0 ; i<5 ; i++){
            					//리스트 추가
            	%>
-                        <a href="room_detail.jsp" style="text-decoration-line: none; color: black;" >
                             <tr>
                                 <td>
-                                    <img src="<%=R_image %>" width="300px" style="float: left;">
-                                    <p>
-                                        <h6><%=R_name%></h6>
-                                    </p>
-                                        <br>
-                                    <p>
-                              		       기준 <%=R_pmin%>명 / 최대 <%=R_pmax%>명
-                                    </p>
-                                     <p>침대 <%=R_pmax%></p>
-                                     <br>
-                                     <br>
-                                     <br>
-                                     <p style="text-align: right;">1박 <%=R_fee%>원  </p>
-                                     <p>기타사항 <%=R_detail %></p>
+                       				 <a href="room_detail" style="text-decoration-line: none; color: black;" >
+	                                    <img src="<%=R_image %>" width="300px" style="float: left;">
+	                                    <p>
+	                                        <h6><%=R_name%></h6>
+	                                    </p>
+	                                        <br>
+	                                    <p>
+	                              		       기준 <%=R_pmin%>명 / 최대 <%=R_pmax%>명
+	                                    </p>
+	                                     <p>침대 <%=R_pmax%></p>
+	                                     <br>
+	                                     <br>
+	                                     <br>
+	                                     <p style="text-align: right;">1박 <%=R_fee%>원  </p>
+	                                     <p>기타사항 <%=R_detail %></p>
+		                            </a>
                                 </td>
                             </tr>
-                            </a>
               <%
           			}
               %>

@@ -41,7 +41,7 @@
                }else{
     %>
             	    <td style="padding-right: 3px; padding-top: 3px;">
-                        <a href="booking_detail.jsp" style="text-decoration-line: none; color: black;" >
+                        <a href="booking_detail" style="text-decoration-line: none; color: black;" >
                         <div class="w-100 p-3" style="background-color: #eee;" >
                             <p><img src="Images/2.jpg" width="300px" height="270px" ></p>
                             <!--src = 경로 변경-->
