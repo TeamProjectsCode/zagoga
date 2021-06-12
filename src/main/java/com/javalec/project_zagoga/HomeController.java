@@ -125,4 +125,20 @@ public class HomeController {
 	public String mypage_room_fix() {
 		return "mypage_room_fix";
 	}
+	@RequestMapping("/user_mypage")
+	public String user_mypage() {
+		return "user_mypage";
+	}
+	@RequestMapping("/user_fix")
+	public String user_fix() {
+		return "user_fix";
+	}
+	@RequestMapping("/review")
+	public String review() {
+		return "review";
+	}
+	@RequestMapping("/check")
+	public String check() {
+		return "check";
+	}
 }
