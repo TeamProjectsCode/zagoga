@@ -69,22 +69,18 @@ public class HomeController {
 	public String booking_confirm() {
 		return "booking_confirm";
 	}
-
 	@RequestMapping("/booking_detail")
 	public String booking_detail() {
 		return "booking_detail";
 	}
-
 	@RequestMapping("booking_list")
 	public String booking_list() {
 		return "booking_list";
 	}
-
 	@RequestMapping("customer_list")
 	public String customer_list() {
 		return "customer_list";
 	}
-
 	@RequestMapping("login")
 	public String login() {
 		return "login";
@@ -93,22 +89,18 @@ public class HomeController {
 	public String regist_business() {
 		return "regist_business";
 	}
-
 	@RequestMapping("room_detail")
 	public String room_detail() {
 		return "room_detail";
 	}
-
 	@RequestMapping("roomcancel")
 	public String roomcancel() {
 		return "roomcancel";
 	}
-
 	@RequestMapping("signup_user")
 	public String signup_user() {
 		return "signup_user";
 	}
-
 	@RequestMapping("write")
 	public String write() {
 		return "write";
@@ -124,6 +116,10 @@ public class HomeController {
 	@RequestMapping("mypage_room_fix")
 	public String mypage_room_fix() {
 		return "mypage_room_fix";
+	}
+	@RequestMapping("mypage_booking")
+	public String mypage_booking() {
+		return "mypage_booking";
 	}
 	@RequestMapping("/user_mypage")
 	public String user_mypage() {
