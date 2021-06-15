@@ -13,8 +13,8 @@ String path= request.getContextPath();
 <body>
 <header>
 	<h2>Zagoga</h2>
-</header>
-    <nav>
+	<div class = "imgbox">
+	</div>
       <div class="navbox">
         <div class="dropdown">
           <button class="dropbtn">Dropdown</button>
@@ -46,7 +46,7 @@ String path= request.getContextPath();
           <button class="dropbtn" onclick="location.href='login'">login</button>
         </div>
       </div>
-    </nav>
+</header>
     <!-- 공간 비우기용-->
     <div class = "space"></div>
 </body>
