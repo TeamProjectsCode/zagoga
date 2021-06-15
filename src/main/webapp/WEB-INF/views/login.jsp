@@ -10,6 +10,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
     <link href="resources/css/login.css" media="all" rel="Stylesheet" type="text/css" />
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="resources/js/login.js" type="text/javascript"></script>
+    <script src="resources/js/pwShowToggle.js" type="text/javascript"></script>
 </head>
 <body>
 <%@ include file="./header.jsp" %>
@@ -34,8 +38,6 @@
     </div>
     </form>
     <%@ include file="./footer.jsp" %>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="resources/js/login.js" type="text/javascript"></script>
-    <script src="resources/js/pwShowToggle.js" type="text/javascript"></script>
+
 </body>
 </html>

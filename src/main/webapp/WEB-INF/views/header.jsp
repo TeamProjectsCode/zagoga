@@ -43,7 +43,7 @@ String path= request.getContextPath();
         </div>
         <!-- 세션에 따라 버튼 변경 추가 필요 -->
         <div class="dropdown">
-          <button class="dropbtn" onclick="location.href='login'">login</button>
+          <button class="dropbtn" onclick="location.href='../login'">login</button>
         </div>
       </div>
 </header>

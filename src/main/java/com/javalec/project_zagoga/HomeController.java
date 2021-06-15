@@ -51,90 +51,85 @@ public class HomeController {
 		return "main";
 	}
 
-	@RequestMapping("/administration_list")
-	public String administration_list() {
-		return "administration_list";
+	@RequestMapping("admin/host_list")
+	public String host_list() {
+		return "admin/host_list";
 	}
 
-	@RequestMapping("/administration_reading")
-	public String administration_reading() {
-		return "administration_reading";
+	@RequestMapping("admin/host_reading")
+	public String host_reading() {
+		return "admin/host_reading";
 	}
-	@RequestMapping("/reservation_confrim")
-	public String reservation_confrim() {
-		return "reservation_confrim";
-	}
-
-	@RequestMapping("booking_confirm")
+	@RequestMapping("user/booking_confirm")
 	public String booking_confirm() {
-		return "booking_confirm";
+		return "user/booking_confirm";
 	}
-	@RequestMapping("/booking_detail")
+	@RequestMapping("user/booking_detail")
 	public String booking_detail() {
-		return "booking_detail";
+		return "user/booking_detail";
 	}
-	@RequestMapping("booking_list")
+	@RequestMapping("user/booking_list")
 	public String booking_list() {
-		return "booking_list";
+		return "user/booking_list";
 	}
-	@RequestMapping("customer_list")
-	public String customer_list() {
-		return "customer_list";
+	@RequestMapping("user/user_list")
+	public String user_list() {
+		return "user/user_list";
 	}
 	@RequestMapping("login")
 	public String login() {
 		return "login";
 	}
-	@RequestMapping("regist_business")
-	public String regist_business() {
-		return "regist_business";
+	@RequestMapping("host/host_join")
+	public String host_join() {
+		return "host/host_join";
 	}
-	@RequestMapping("room_detail")
+	@RequestMapping("user/room_detail")
 	public String room_detail() {
-		return "room_detail";
+		return "user/room_detail";
 	}
-	@RequestMapping("roomcancel")
+	@RequestMapping("user/roomcancel")
 	public String roomcancel() {
-		return "roomcancel";
+		return "user/roomcancel";
 	}
-	@RequestMapping("signup_user")
-	public String signup_user() {
-		return "signup_user";
+	@RequestMapping("user/user_join")
+	public String user_join() {
+		return "user/user_join";
 	}
-	@RequestMapping("write")
-	public String write() {
-		return "write";
+	@RequestMapping("host/gh_write")
+	public String gh_write() {
+		return "host/gh_write";
 	}
-	@RequestMapping("mypage_regist_business")
-	public String mypage_regist_business() {
-		return "mypage_regist_business";
+	@RequestMapping("host/mypage_host_fix")
+	public String mypage_host_fix() {
+		return "host/mypage_host_fix";
 	}
-	@RequestMapping("mypage_house_fix")
+	@RequestMapping("host/mypage_house_fix")
 	public String mypage_house_fix() {
-		return "mypage_house_fix";
+		return "host/mypage_house_fix";
 	}
-	@RequestMapping("mypage_room_fix")
+	@RequestMapping("host/mypage_room_fix")
 	public String mypage_room_fix() {
-		return "mypage_room_fix";
+		return "host/mypage_room_fix";
 	}
-	@RequestMapping("mypage_booking")
-	public String mypage_booking() {
-		return "mypage_booking";
-	}
-	@RequestMapping("/user_mypage")
+//	@RequestMapping("mypage_booking")
+//	public String mypage_booking() {
+//		return "mypage_booking";
+//	}
+	@RequestMapping("user/user_mypage")
 	public String user_mypage() {
-		return "user_mypage";
+		return "user/user_mypage";
 	}
-	@RequestMapping("/user_fix")
+	@RequestMapping("user/user_fix")
 	public String user_fix() {
-		return "user_fix";
+		return "user/user_fix";
 	}
-	@RequestMapping("/review")
+	@RequestMapping("user/review")
 	public String review() {
-		return "review";
+		return "user/review";
 	}
-	@RequestMapping("/check")
-	public String check() {
-		return "check";
+	@RequestMapping("join_check")
+	public String join_check() {
+		return "join_check";
 	}
 }
