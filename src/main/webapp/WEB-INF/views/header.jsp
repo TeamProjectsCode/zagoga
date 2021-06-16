@@ -8,7 +8,7 @@
 <%
 String path= request.getContextPath();
 %>
-<link rel="stylesheet" type="text/css" href="<%=path%>/resources/css/header.css" />
+<link rel="stylesheet" type="text/css" href="<%=path%>/css/header.css" />
 </head>
 <body>
 <header>
@@ -32,11 +32,10 @@ String path= request.getContextPath();
             <a href="#">Link 3</a>
           </div>
         </div>
-        <!-- 세션에 따라 버튼 변경 추가 필요 -->
         <div class="dropdown">
-          <button class="dropbtn">마이 페이지</button>
+          <button class="dropbtn">Dropdown</button>
           <div class="dropdown-content">
-            <a href="#">회원정보 변경</a>
+            <a href="#">Link 1</a>
             <a href="#">Link 2</a>
             <a href="#">Link 3</a>
           </div>

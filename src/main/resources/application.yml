@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    include:
+      - db
+#      - oauth
+
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+    static-path-pattern: /resources/**
+
+
+
