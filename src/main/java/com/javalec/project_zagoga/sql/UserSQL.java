@@ -2,9 +2,11 @@ package com.javalec.project_zagoga.sql;
 
 import org.apache.ibatis.jdbc.SQL;
 
+import java.util.Map;
+
 public class UserSQL {
 
-    private static final String TABLE = "users";
+    private static final String TABLE = "USERS";
 
     public static final String GET_USERS_LIST = "select * from "+TABLE;
 
@@ -29,13 +31,17 @@ public class UserSQL {
                 .toString();
     }
 
-//    public String insertUser() {
-//        return new SQL()
-//                .INSERT_INTO(TABLE)
-//                .VALUES("U_MAIL", "#{}")
-//                .VALUES()
-//                .toString();
-//    }
+    public String insertUser(Map<String, Object> user_map) {
+        return new SQL() {{
+            INSERT_INTO(TABLE);
+            for(String key: user_map.keySet()){
+                if(key.equals("u_no")){ continue; }
+                VALUES(key.toUpperCase(), "#{"+key+"}");
+            }
+//
+//            VALUES("U_MAIL", "#{u_mail}");
 
+        }}.toString();
+    }
 
 }

@@ -10,24 +10,12 @@
 <body>
 <%@ include file="header.jsp" %>
 	<center>
-		<form action="#" method="post">
+		<form action="/regist/user" method="post">
 		<div class="container">
 			<table class="table table-hover">
 				<tr>
-					<td>이름</td>
-					<td><input type="text" name="u_name" required="required">
-				</tr>
-				<tr>
-					<td>주민번호</td>
-					<td><input type="text" name="u_jumin" required="required">
-				</tr>
-				<tr>
-					<td>주소</td>
-					<td><input type="text" name="u_address" required="required">
-				</tr>
-				<tr>
 					<td>이메일</td>
-					<td><input type="email" name="u_email" required="required">
+					<td><input type="email" name="u_mail" required="required">
 				</tr>
 				<tr>
 					<td>비밀번호</td>
@@ -36,6 +24,18 @@
 				<tr>
 					<td>비밀번호 확인</td>
 					<td><input type="password" name="u_pwd2" required="required">
+				</tr>
+				<tr>
+				<td>이름</td>
+				<td><input type="text" name="u_name" required="required">
+				</tr>
+				<tr>
+				<td>주민번호</td>
+				<td><input type="text" name="u_jumin" required="required">
+				</tr>
+				<tr>
+				<td>주소</td>
+				<td><input type="text" name="u_address" required="required">
 				</tr>
 				<tr>
 					<td>휴대폰 번호</td>
