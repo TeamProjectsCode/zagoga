@@ -6,13 +6,12 @@
     font-style: normal;
 }
 *{
-    margin: 0px;
+  /*   margin: 0px;
     padding: 0px;
-    list-style: none;
+    list-style: none; */
     text-decoration: none;
-    color: black;
+  /*   color: black; */
 	font-family: 'GmarketSansMedium';
-
 }
 
 .mainbox {

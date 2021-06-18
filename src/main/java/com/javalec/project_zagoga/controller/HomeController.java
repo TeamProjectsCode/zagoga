@@ -36,102 +36,80 @@ public class HomeController {
 		return "home";
 	}
 
-	@RequestMapping("/header")
-	public String header() {
-		return "header";
-	}
-
-	@RequestMapping("/footer")
-	public String footer() {
-		return "footer";
-	}
-
-	@RequestMapping("/main")
-	public String main() {
-		return "main";
-	}
-
-	@RequestMapping("admin/host_list")
-	public String host_list() {
-		return "admin/host_list";
-	}
-
-	@RequestMapping("admin/host_reading")
-	public String host_reading() {
-		return "admin/host_reading";
-	}
-	@RequestMapping("/booking_confirm")
-	public String booking_confirm() {
-		return "booking_confirm";
-	}
-	@RequestMapping("/room/booking_confirm")
-	public String roombooking_confirm() {
-		return "room/booking_confirm";
-	}
-	@RequestMapping("user/booking_detail")
-	public String booking_detail() {
-		return "user/booking_detail";
-	}
-	@RequestMapping("user/booking_list")
-	public String booking_list() {
-		return "user/booking_list";
-	}
-	@RequestMapping("user/user_list")
-	public String user_list() {
-		return "user/user_list";
-	}
-	@RequestMapping("login")
+	 @RequestMapping("/header") public String header() { return "header"; }
+	/* 
+	 * @RequestMapping("/footer") public String footer() { return "footer"; }
+	 * 
+	 * @RequestMapping("/main") public String main() { return "main"; }
+	 */
+	@RequestMapping("/login")
 	public String login() {
 		return "login";
 	}
-	@RequestMapping("host/host_join")
-	public String host_join() {
-		return "host/host_join";
+	@RequestMapping("/host_list")
+	public String host_list() {
+		return "admin/host_list";
 	}
-	@RequestMapping("user/room_detail")
+	@RequestMapping("/host_reading")
+	public String host_reading() {
+		return "admin/host_reading";
+	}
+	@RequestMapping("/mypage_host_customerList")
+	public String mypage_host_customerList() {
+		return "mypage/mypage_host_customerList";
+	}
+	@RequestMapping("/mypage_host_info")
+	public String mypage_host_info() {
+		return "mypage/mypage_host_info";
+	}
+	@RequestMapping("/mypage_house_info")
+	public String mypage_house_info() {
+		return "mypage/mypage_house_info";
+	}
+	@RequestMapping("/mypage_user_booking")
+	public String mypage_user_booking() {
+		return "mypage/mypage_user_booking";
+	}
+	@RequestMapping("/mypage_user_info")
+	public String mypage_user_info() {
+		return "mypage/mypage_user_info";
+	}
+	@RequestMapping("/mypage_user")
+	public String mypage_user() {
+		return "mypage/mypage_user";
+	}
+	@RequestMapping("/booking_confirm")
+	public String booking_confirm() {
+		return "room/booking_confirm";
+	}
+	@RequestMapping("/gHouse_detail")
+	public String gHouse_detail() {
+		return "room/gHouse_detail";
+	}
+	@RequestMapping("/gHouse_list")
+	public String gHouse_list() {
+		return "room/gHouse_list";
+	}
+	@RequestMapping("/review_write")
+	public String review_write() {
+		return "room/review_write";
+	}
+	@RequestMapping("/room_cancel")
+	public String room_cancel() {
+		return "room/room_cancel";
+	}
+	@RequestMapping("/room_detail")
 	public String room_detail() {
-		return "user/room_detail";
+		return "room/room_detail";
 	}
-	@RequestMapping("user/roomcancel")
-	public String roomcancel() {
-		return "user/roomcancel";
-	}
-	@RequestMapping("user/user_join")
+	@RequestMapping("/user_join")
 	public String user_join() {
 		return "user/user_join";
-	}
-	@RequestMapping("host/gh_write")
-	public String gh_write() {
-		return "host/gh_write";
-	}
-	@RequestMapping("host/mypage_host_fix")
-	public String mypage_host_fix() {
-		return "host/mypage_host_fix";
-	}
-	@RequestMapping("host/mypage_house_fix")
-	public String mypage_house_fix() {
-		return "host/mypage_house_fix";
-	}
-	@RequestMapping("host/mypage_room_fix")
-	public String mypage_room_fix() {
-		return "host/mypage_room_fix";
 	}
 //	@RequestMapping("mypage_booking")
 //	public String mypage_booking() {
 //		return "mypage_booking";
 //	}
-	@RequestMapping("user/user_mypage")
-	public String user_mypage() {
-		return "user/user_mypage";
-	}
-	@RequestMapping("user/user_fix")
-	public String user_fix() {
-		return "user/user_fix";
-	}
-	@RequestMapping("user/review")
-	public String review() {
-		return "user/review";
-	}
 	@RequestMapping("join_check")
 	public String join_check() {
 		return "join_check";

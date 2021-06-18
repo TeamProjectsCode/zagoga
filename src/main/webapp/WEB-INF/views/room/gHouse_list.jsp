@@ -6,8 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css"
-	href="resources/css/bookingList.css">
+<link rel="stylesheet" type="text/css" href="resources/css/bookingList.css">
 </head>
 <body>
 	<%@ include file="../header.jsp"%>

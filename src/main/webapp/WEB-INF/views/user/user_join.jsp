@@ -7,7 +7,7 @@
 <title>사용자 회원가입(user용)</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script type="text/javascript" src="../resources/js/user.js" charset="utf-8"></script>
+	<script type="text/javascript" src="resources/js/user.js" charset="utf-8"></script>
 </head>
 <body>
 <%@ include file="../header.jsp" %>
