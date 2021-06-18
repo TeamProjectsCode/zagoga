@@ -8,7 +8,7 @@
 <%
 String path= request.getContextPath();
 %>
-<link rel="stylesheet" type="text/css" href="<%=path%>/css/header.css" />
+<link rel="stylesheet" type="text/css" href="<%=path%>/resources/css/header.css" />
 </head>
 <body>
 <header>
