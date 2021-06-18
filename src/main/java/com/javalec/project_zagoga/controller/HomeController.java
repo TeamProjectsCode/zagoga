@@ -60,9 +60,13 @@ public class HomeController {
 	public String host_reading() {
 		return "admin/host_reading";
 	}
-	@RequestMapping("user/booking_confirm")
+	@RequestMapping("/booking_confirm")
 	public String booking_confirm() {
-		return "user/booking_confirm";
+		return "booking_confirm";
+	}
+	@RequestMapping("/room/booking_confirm")
+	public String roombooking_confirm() {
+		return "room/booking_confirm";
 	}
 	@RequestMapping("user/booking_detail")
 	public String booking_detail() {

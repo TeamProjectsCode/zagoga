@@ -12,7 +12,7 @@
 	<script type="text/javascript" src="script.js" charset="utf-8"></script>
   </head>
   <body>
-  <%@ include file="header.jsp" %>
+  <%@ include file="../header.jsp" %>
 	<div class="total">
 	  <form>
 	    <h1>게스트 하우스 소개</h1>
@@ -62,6 +62,6 @@
 	  </form>
 	  <div class="clear"></div>
 	</div>
-	 <%@ include file="footer.jsp" %>
+	 <%@ include file="../footer.jsp" %>
   </body>
 </html>

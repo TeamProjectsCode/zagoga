@@ -10,7 +10,7 @@
 	href="resources/css/bookingList.css">
 </head>
 <body>
-	<%@ include file="./header.jsp"%>
+	<%@ include file="../header.jsp"%>
 	<div class="total">
 
 		<center>
@@ -92,6 +92,6 @@
 			</div>
 		</center>
 		</div>
-		<%@ include file="./footer.jsp"%>
+		<%@ include file="../footer.jsp"%>
 </body>
 </html>

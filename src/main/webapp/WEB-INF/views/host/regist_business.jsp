@@ -12,7 +12,7 @@
     <link href="css/regist_business.css" media="all" rel="Stylesheet" type="text/css" />
 </head>
 <body>
-<%@ include file="header.jsp" %>
+<%@ include file="../header.jsp" %>
 	<form action="#" method="POST" onsubmit="return blankCheck();">
         <div class="inputHead">
             <h2>사업자 인증</h2>
@@ -57,7 +57,7 @@
             </tr>
         </table>
     </form>
-<%@ include file="footer.jsp" %>
+<%@ include file="../footer.jsp" %>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="regist_business.js" type="text/javascript"></script>
     <script src="pwShowToggle.js" type="text/javascript"></script>

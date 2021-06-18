@@ -16,7 +16,7 @@ Timestamp check_in = null, check_out = null;
 <title>Document</title>
 </head>
 <body>
-	<%@ include file="header.jsp"%>
+	<%@ include file="../header.jsp"%>
 	<form>
 		<div id = "mainbox">
 		<table>
@@ -57,6 +57,6 @@ Timestamp check_in = null, check_out = null;
 		</table>
 		</div>
 	</form>
-	<%@ include file="footer.jsp"%>
+	<%@ include file="../footer.jsp"%>
 </body>
 </html>

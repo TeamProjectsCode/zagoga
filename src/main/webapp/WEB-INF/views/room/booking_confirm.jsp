@@ -16,7 +16,7 @@ Timestamp check_in = null, check_out = null;
 <title>Document</title>
 </head>
 <body>
-	<%@ include file="./header.jsp"%>
+	<%@ include file="../header.jsp"%>
 	<center>
 	        <div class="mainbox">
             <h1>고객님의 예약정보를 확인해주세요!</h1>
@@ -76,6 +76,6 @@ Timestamp check_in = null, check_out = null;
             </div>
         </div>
         </center>
-	 <%@ include file="./footer.jsp"%>
+	 <%@ include file="../footer.jsp"%>
 </body>
 </html>
