@@ -15,10 +15,9 @@ public class RegisterService {
 
     private UsersMapper usersMapper;
 
-//    int userInsert(Users user){
-//        ObjectMapper objectMapper = new ObjectMapper();
-//        Map user_map = objectMapper.convertValue(user, HashMap.class);
-//        System.out.println(user_map.toString());
-//        return usersMapper.insert(user_map);
-//    }
+    public int userInsert(Users user){
+        ObjectMapper objectMapper = new ObjectMapper();
+        HashMap<String, Object> user_map = objectMapper.convertValue(user, HashMap.class);
+        return usersMapper.insert(user_map);
+    }
 }

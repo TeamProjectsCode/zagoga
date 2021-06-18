@@ -22,8 +22,8 @@ public interface UsersMapper {
     @SelectProvider(type = UserSQL.class, method = "getUserByUNo")
     Users get(@Param("u_no") int u_no);
 
-//    @InsertProvider(type = UserSQL.class, method = "insertUser")
-//    int insert(Map)
+    @InsertProvider(type = UserSQL.class, method = "insertUser")
+    int insert(HashMap<String, Object> user_map);
 
 
 }
