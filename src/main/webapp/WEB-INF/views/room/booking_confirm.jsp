@@ -32,7 +32,7 @@ Timestamp check_in = null, check_out = null;
                 </table>
             </div>
             <br>
-            <h4><img src="resources/img/placeholder.png" >서울,연주로517</h4>
+            <h4><img src="resources/img/placeholder.png" class="addr">서울,연주로517</h4>
             <br>
             <div class="info-table">
             <table  border="2" class="info" >
