@@ -78,6 +78,10 @@ public class HomeController {
 	public String mypage_user() {
 		return "mypage/mypage_user";
 	}
+	@RequestMapping("/mypage_host")
+	public String mypage_host() {
+		return "mypage/mypage_host";
+	}
 	@RequestMapping("/booking_confirm")
 	public String booking_confirm() {
 		return "room/booking_confirm";
