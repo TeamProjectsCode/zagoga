@@ -9,8 +9,8 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/main2.css">
- <script type="text/javascript">
-    $(document).ready(function () {
+ <script type = "text/javascript">
+ 		$(document).ready(function () {
             $.datepicker.setDefaults($.datepicker.regional['ko']); 
             $( "#startDate" ).datepicker({
                  changeMonth: true, 

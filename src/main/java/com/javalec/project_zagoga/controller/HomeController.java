@@ -28,7 +28,7 @@ public class HomeController {
 	public String host_reading() {
 		return "/admin/host_reading";
 	}
-	
+
 	// USER: user 예약 페이지 최종
 	@RequestMapping("/user/booking_confirm")
 	public String booking_confirm() {

@@ -19,7 +19,7 @@
     <title>승인/거부</title>
 </head>
 <body>
-	<%@ include file="header.jsp" %>
+	<%@ include file="../header.jsp" %>
   	<div id = "mainbox">
       <h1>승인 거부 페이지</h1>
   <section>
@@ -75,6 +75,6 @@
         </table>
     </section>
   	</div>
-    	<%@ include file="footer.jsp" %>
+    	<%@ include file="../footer.jsp" %>
 </body>
 </html>
