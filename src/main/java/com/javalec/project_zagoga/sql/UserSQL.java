@@ -38,10 +38,27 @@ public class UserSQL {
                 if(key.equals("u_no")){ continue; }
                 VALUES(key.toUpperCase(), "#{"+key+"}");
             }
-//
-//            VALUES("U_MAIL", "#{u_mail}");
-
         }}.toString();
+    }
+
+    public String updateUser(Map<String, Object> user_map) {
+        return new SQL() {{
+            UPDATE(TABLE);
+            SET("U_NAME = #{u_name}");
+            SET("U_NICK = #{u_nick}");
+            SET("U_MAIL = #{u_mail}");
+            SET("U_PWD = #{u_pwd}");
+            SET("U_GENDER = #{u_gender}");
+            SET("U_JUMIN = #{u_jumin}");
+            SET("U_PHONE = #{u_phone}");
+        }}.toString();
+    }
+
+    public String deleteUser(int u_no) {
+        return new SQL()
+                .DELETE_FROM(TABLE)
+                .WHERE("U_NO = #{u_no}")
+                .toString();
     }
 
 }

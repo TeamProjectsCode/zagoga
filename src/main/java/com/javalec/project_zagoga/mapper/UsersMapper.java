@@ -15,7 +15,6 @@ public interface UsersMapper {
     @Select(UserSQL.GET_USERS_LIST)
     List<Users> getUsersList();
 
-//    @Select("select * from users where U_MAIL=#{u_mail} and U_PWD=#{u_pwd}")
     @SelectProvider(type= UserSQL.class, method = "checkUserMailAndPwd")
     Users checkUserMailAndPwd(@Param("u_mail") String u_mail, @Param("u_pwd") String u_pwd);
 
@@ -25,5 +24,9 @@ public interface UsersMapper {
     @InsertProvider(type = UserSQL.class, method = "insertUser")
     int insert(HashMap<String, Object> user_map);
 
+    @UpdateProvider(type = UserSQL.class, method = "updateUser")
+    int update(HashMap<String, Object> user_map);
 
+    @DeleteProvider(type = UserSQL.class, method = "deleteUser")
+    int delete(int u_no);
 }
