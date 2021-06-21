@@ -12,9 +12,9 @@
     <link href="resources/css/login.css" media="all" rel="Stylesheet" type="text/css" />
     
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="resources/js/login.js" type="text/javascript"></script>
-    <script src="resources/js/pwShowToggle.js" type="text/javascript"></script>
-    <script src="resources/js/guesthouse.js" type="text/javascript"></script>
+    <script src="/resources/js/login.js" type="text/javascript"></script>
+    <script src="/resources/js/pwShowToggle.js" type="text/javascript"></script>
+    <script src="/resources/js/guesthouse.js" type="text/javascript"></script>
 </head>
 <body>
 <%@ include file="./header.jsp" %>
@@ -39,7 +39,7 @@
     </div>
     </form>
     <div>
-        <a href="/oauth2/authorization/google"><img src="/images/btn_google_signin_light_normal_web.png" alt="구글 로그인"></a>
+        <a href="/oauth2/authorization/google"><img src="/resources/images/btn_google_signin_light_normal_web.png" alt="구글 로그인"></a>
     </div>
     <%@ include file="./footer.jsp" %>
 

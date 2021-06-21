@@ -1,7 +1,10 @@
 package com.javalec.project_zagoga.sql;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.javalec.project_zagoga.dto.Users;
 import org.apache.ibatis.jdbc.SQL;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class UserSQL {
@@ -31,26 +34,28 @@ public class UserSQL {
                 .toString();
     }
 
-    public String insertUser(Map<String, Object> user_map) {
+    public String insertUser(Users user) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        HashMap<String, Object> user_map = objectMapper.convertValue(user, HashMap.class);
         return new SQL() {{
             INSERT_INTO(TABLE);
             for(String key: user_map.keySet()){
                 if(key.equals("u_no")){ continue; }
-                VALUES(key.toUpperCase(), "#{"+key+"}");
+                VALUES(key.toUpperCase(), "#{user."+key+"}");
             }
         }}.toString();
     }
 
-    public String updateUser(Map<String, Object> user_map) {
+    public String updateUser(Users user) {
         return new SQL() {{
             UPDATE(TABLE);
-            SET("U_NAME = #{u_name}");
-            SET("U_NICK = #{u_nick}");
-            SET("U_MAIL = #{u_mail}");
-            SET("U_PWD = #{u_pwd}");
-            SET("U_GENDER = #{u_gender}");
-            SET("U_JUMIN = #{u_jumin}");
-            SET("U_PHONE = #{u_phone}");
+            SET("U_NAME = #{user.u_no}");
+            SET("U_NICK = #{user.u_nick}");
+            SET("U_MAIL = #{user.u_mail}");
+            SET("U_PWD = #{user.u_pwd}");
+            SET("U_GENDER = #{user.u_gender}");
+            SET("U_JUMIN = #{user.u_jumin}");
+            SET("U_PHONE = #{user.u_phone}");
         }}.toString();
     }
 

@@ -19,9 +19,10 @@ public class UsersService {
     }
 
     public int userInsert(Users user) {
-        ObjectMapper objectMapper = new ObjectMapper();
-        HashMap<String, Object> user_map = objectMapper.convertValue(user, HashMap.class);
-        return usersMapper.insert(user_map);
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        HashMap<String, Object> user_map = objectMapper.convertValue(user, HashMap.class);
+//        return usersMapper.insert(user_map);
+        return usersMapper.insert(user);
     }
 
     public int userDelete(Users user) {

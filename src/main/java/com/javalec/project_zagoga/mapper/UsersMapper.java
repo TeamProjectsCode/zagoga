@@ -22,10 +22,12 @@ public interface UsersMapper {
     Users get(@Param("u_no") int u_no);
 
     @InsertProvider(type = UserSQL.class, method = "insertUser")
-    int insert(HashMap<String, Object> user_map);
+    int insert(@Param("user") Users user);
+//    int insert(HashMap<String, Object> user_map);
 
     @UpdateProvider(type = UserSQL.class, method = "updateUser")
-    int update(HashMap<String, Object> user_map);
+//    int update(HashMap<String, Object> user_map);
+    int update(@Param("user") Users user);
 
     @DeleteProvider(type = UserSQL.class, method = "deleteUser")
     int delete(int u_no);

@@ -85,11 +85,6 @@ public class HomeController {
 
 //	-----------------------------------------------------------------------------------------------------------------------------
 
-	@RequestMapping("/user/user_join")
-	public String user_join() {
-		return "/user/user_join";
-	}
-
 	@RequestMapping("/host/gh_write")
 	public String gh_write() {
 		return "/host/gh_write";
