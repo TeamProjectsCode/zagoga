@@ -64,7 +64,7 @@ public class HomeController {
 
     //	 ◆◆◆ URL 변경
     // "": host 회원 가입 페이지
-	@RequestMapping("/regist/host")
+	@RequestMapping("/register/host")
 	public String host_join() {
 		return "/host/host_join";
 	}
