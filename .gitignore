@@ -1,9 +1,15 @@
+## Gradle ###
 HELP.md
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+
+gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties
+gradlew
+gradlew.bat
 
 ## Eclipse ##
 .settings/org.eclipse.jdt.core.prefs
@@ -47,14 +53,6 @@ out/
 ### VS Code ###
 .vscode/
 
-gradle/wrapper/gradle-wrapper.jar
-
-gradle/wrapper/gradle-wrapper.properties
-
-gradlew
-
-gradlew.bat
-
+### Own configure ###
 src/main/resources/application-db.yml
-
 src/main/resources/application-oauth.yml

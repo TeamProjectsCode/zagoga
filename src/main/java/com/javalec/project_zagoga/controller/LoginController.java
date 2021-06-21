@@ -1,7 +1,7 @@
 package com.javalec.project_zagoga.controller;
 
 import com.javalec.project_zagoga.dto.Users;
-import com.javalec.project_zagoga.services.LoginService;
+import com.javalec.project_zagoga.services.UsersService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/login")
 public class LoginController {
 
-    private final LoginService loginService;
-    public LoginController(LoginService loginService) {
-        this.loginService = loginService;
+    private final UsersService usersService;
+    public LoginController(UsersService usersService) {
+        this.usersService = usersService;
     }
 
     @GetMapping("")
@@ -21,7 +21,7 @@ public class LoginController {
     @PostMapping("/user")
     public String loginUser(Users user, Model model) {
         System.out.println(user.toString());
-        Users u = loginService.checkUserMailAndPwd(user);
+        Users u = usersService.checkUserMailAndPwd(user);
         model.addAttribute("user", u);
         if (u == null){
             return "login";
@@ -30,8 +30,8 @@ public class LoginController {
         return "main";
     }
 
-    @PostMapping("/login/business")
-    public void loginBusiness(){
+    @PostMapping("/host")
+    public void loginHost(){
         // 사업자 로그인
 
     }

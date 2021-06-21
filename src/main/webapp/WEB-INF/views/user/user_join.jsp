@@ -12,7 +12,7 @@
 <body>
 <%@ include file="../header.jsp" %>
 	<center>
-		<form action="#" method="post">
+		<form action="/register/user" method="post">
 		<div class="container">
 			<table class="table table-hover">
 				<tr>
@@ -29,7 +29,7 @@
 				</tr>
                 <tr>
                     <td>이메일 : </td>
-                    <td><input type="text" name="u_jumin" required="required">
+                    <td><input type="text" name="u_mail" required="required">
                 </tr>
 				<tr>
 					<td>비밀번호</td>
