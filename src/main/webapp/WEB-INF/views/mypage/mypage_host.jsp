@@ -25,7 +25,7 @@
                     <p>email : ads @adsd.com</p>
                     <p>사업자 번호 : 000-000-0000</p>
                     <p style="float:right">
-                      <input type="button" value="정보수정" onclick="location.href='../user/user_fix'"> &nbsp;&nbsp;&nbsp;
+                      <input type="button" value="정보수정" onclick="location.href='mypage_host_info'"> &nbsp;&nbsp;&nbsp;
                       <input type="button" value="회원탈퇴" onclick="">
                     </p>
                   </div>
@@ -39,7 +39,7 @@
                     <p>등록 연락처: 000-0000-000</p>
                     <br>
                     <p style="float: right;">
-                      <input type="button" value="수정하기" onclick="#">
+                      <input type="button" value="수정하기" onclick="location.href='mypage_house_info'">
                     </p>
                   </div>
             </div>
