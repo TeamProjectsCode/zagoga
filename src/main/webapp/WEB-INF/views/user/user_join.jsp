@@ -54,7 +54,7 @@
 				<tr align="center">
 					<td colspan="4">
 						<input type="submit" value="등록">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="button" value="취소" onclick="location.href='../main'">
+						<input type="button" value="취소" onclick="location.href='main'">
 					</td>
 				</tr>
 			</table>

@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>사업자 정보보기(admin 용)</title>
-<link rel="stylesheet" type="text/css" href="../resources/css/administration_reading.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/administration_reading.css" />
+	<script type="text/javascript" src="resources/js/admin.js" charset="utf-8"></script>
 </head>
 <body>
 	<%@ include file="../header.jsp"%>
@@ -38,8 +39,8 @@
 					<td></td>
 				</tr>
 				<tr>
-					<td><button>승인</button></td>
-					<td><button>승인해제</button></td>
+					<td><button onclick="admin_approve()">승인</button></td>
+					<td><button onclick="admin_delete()">승인해제</button></td>
 				</tr>
 			</table>
 		</div>

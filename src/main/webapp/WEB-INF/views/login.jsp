@@ -14,6 +14,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="resources/js/login.js" type="text/javascript"></script>
     <script src="resources/js/pwShowToggle.js" type="text/javascript"></script>
+    <script src="resources/js/guesthouse.js" type="text/javascript"></script>
 </head>
 <body>
 <%@ include file="./header.jsp" %>
@@ -32,7 +33,7 @@
                 <tr><td colspan="2"><input class="inputButton" type="submit" value="로그인"></td></tr>
                 <tr>
                     <td class="inputFinder"><a href="#">아이디/비밀번호 찾기</a></td>
-                    <td class="inputRegister"><a href="#">회원가입</a></td>
+                    <td class="inputRegister"><a href="javascript:checkPopup()">회원가입</a></td>
                 </tr>
         </table>
     </div>
