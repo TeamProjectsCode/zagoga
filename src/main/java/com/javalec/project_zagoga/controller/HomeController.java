@@ -121,4 +121,83 @@ public class HomeController {
 	public String join_check() {
 		return "/join_check";
 	}
+
+
+//	ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+//	이름짓기: /권한/페이지이름/세부동작
+
+	@RequestMapping("/login")
+	public String login() {
+		return "login";
+	}
+	@RequestMapping("/host_list")
+	public String host_list() {
+		return "admin/host_list";
+	}
+	@RequestMapping("/host_reading")
+	public String host_reading() {
+		return "admin/host_reading";
+	}
+	@RequestMapping("/mypage_host_customerList")
+	public String mypage_host_customerList() {
+		return "mypage/mypage_host_customerList";
+	}
+	@RequestMapping("/mypage_host_info")
+	public String mypage_host_info() {
+		return "mypage/mypage_host_info";
+	}
+	@RequestMapping("/mypage_house_info")
+	public String mypage_house_info() {
+		return "mypage/mypage_house_info";
+	}
+	@RequestMapping("/mypage_user_booking")
+	public String mypage_user_booking() {
+		return "mypage/mypage_user_booking";
+	}
+	@RequestMapping("/mypage_user_info")
+	public String mypage_user_info() {
+		return "mypage/mypage_user_info";
+	}
+	@RequestMapping("/mypage_user")
+	public String mypage_user() {
+		return "mypage/mypage_user";
+	}
+	@RequestMapping("/booking_confirm")
+	public String booking_confirm() {
+		return "room/booking_confirm";
+	}
+	@RequestMapping("/gHouse_detail")
+	public String gHouse_detail() {
+		return "room/gHouse_detail";
+	}
+	@RequestMapping("/gHouse_list")
+	public String gHouse_list() {
+		return "room/gHouse_list";
+	}
+	@RequestMapping("/review_write")
+	public String review_write() {
+		return "room/review_write";
+	}
+	@RequestMapping("/room_cancel")
+	public String room_cancel() {
+		return "room/room_cancel";
+	}
+	@RequestMapping("/room_detail")
+	public String room_detail() {
+		return "room/room_detail";
+	}
+	@RequestMapping("/user_join")
+	public String user_join() {
+		return "user/user_join";
+	}
+	//	@RequestMapping("mypage_booking")
+//	public String mypage_booking() {
+//		return "mypage_booking";
+//	}
+	@RequestMapping("join_check")
+	public String join_check() {
+		return "join_check";
+	}
 }
+
