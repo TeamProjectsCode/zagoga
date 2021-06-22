@@ -16,10 +16,13 @@ public class Board {
     private String gh_detail;
     private int gh_hno;
 
-    @Override
-    public String toString(){
-        return "board [no=" + no + ", gh_name=" + gh_name + ", gh_image=" + gh_image +
-                ", gh_addr1=" + gh_addr1 + ", gh_addr2=" + gh_addr2 +
-                ", gh_detail=" + gh_detail + ", gh_hno=" + gh_hno + "]\n";
-    }
+
+
+//    @Override
+//    public String toString(){
+//        return "board [no=" + no + ", gh_name=" + gh_name + ", gh_image=" + gh_image +
+//                ", gh_addr1=" + gh_addr1 + ", gh_addr2=" + gh_addr2 +
+//                ", gh_detail=" + gh_detail + ", gh_hno=" + gh_hno + "]\n";
+//    }
+
 }
