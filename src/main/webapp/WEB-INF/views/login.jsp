@@ -30,17 +30,19 @@
                     <td class="inputPW"><input type="password" id="userPW" name="userPW" placeholder="please enter your password"></td>
                     <td class="inputPWShow"><input type="image" id="userPWShow" onclick="pwShowToggle(); return false;" src="resources/img/visibility.png" alt="show password"/></td>
                 </tr>
+                <tr><td><input type="radio" name = "1">호스트<input type="radio" name = "1">여행객</td></tr>
+                <tr></tr>
                 <tr><td colspan="2"><input class="inputButton" type="submit" value="로그인"></td></tr>
                 <tr>
                     <td class="inputFinder"><a href="#">아이디/비밀번호 찾기</a></td>
                     <td class="inputRegister"><a href="javascript:checkPopup()">회원가입</a></td>
                 </tr>
         </table>
+    <div>
+        <a href="/oauth2/authorization/google"><img src="resources/img/btn_google_signin_light_normal_web.png" alt="구글 로그인"></a>
+    </div>
     </div>
     </form>
-    <div>
-        <a href="/oauth2/authorization/google"><img src="/resources/images/btn_google_signin_light_normal_web.png" alt="구글 로그인"></a>
-    </div>
     <%@ include file="./footer.jsp" %>
 
 </body>
