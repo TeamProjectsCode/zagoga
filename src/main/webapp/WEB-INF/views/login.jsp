@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
-    <link href="resources/css/login.css" media="all" rel="Stylesheet" type="text/css" />
+    <link href="/resources/css/login.css" media="all" rel="Stylesheet" type="text/css" />
     
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/resources/js/login.js" type="text/javascript"></script>
