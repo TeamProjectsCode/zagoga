@@ -161,7 +161,7 @@
           <li>
             <div><h1>호스트가 되어보세요</h1></div>
             <div>숙소를 공유하여 수입을 올리고 새로운 가능성을 만나세요.</div>
-            <a class="host_register" href="#"><div class="more2">숙소등록하기</div></a>
+            <a class="host_register" href="/host/host_join"><div class="more2">숙소등록하기</div></a>
           </li>
           <li></li>
         </ul>
