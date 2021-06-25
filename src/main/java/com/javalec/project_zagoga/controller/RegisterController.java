@@ -24,12 +24,12 @@ public class RegisterController {
     @PostMapping("/user")
     public String insertUser(Users user) {
         usersService.userInsert(user);
-        return "main";
+        return "/main";
     }
 
-    @PostMapping("/host")
+    @PostMapping("/host_join")
     public String insertHost(Host host) {
-        return "main";
+        return "/main";
     }
 
 }
