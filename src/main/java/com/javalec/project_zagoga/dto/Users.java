@@ -17,4 +17,8 @@ public class Users {
     private String u_jumin;
     private String u_phone;
     private String u_join;
+
+    private String u_role;
+
+    public Users (String u_mail) { this.u_mail=u_mail; }
 }
