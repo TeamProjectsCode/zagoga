@@ -16,20 +16,21 @@ public class UserSQL {
 
 //    작성 방법은 아래 페이지 참조
 //    https://mybatis.org/mybatis-3/ko/statement-builders.html
-    public String loadUserByName(String u_mail) {
+    public String loadUserByName(String username) {
         return new SQL()
                 .SELECT("*")
                 .FROM(TABLE)
-                .WHERE("U_MAIL = #{u_mail}")
+                .WHERE("U_MAIL = #{username}")
                 .toString();
     }
 
-    public String loadUserBySNS(String providerID) {
+    public String loadUserBySNS(String snsID) {
+        System.out.println("loadUserBySNS: "+snsID);
         return new SQL()
                 .SELECT(TABLE+".*")
                 .FROM(TABLE)
                 .JOIN(SNS_TABLE+" SNS on "+TABLE+".U_NO = SNS.U_NO" )
-                .WHERE("SNS.ID", "#{providerID}")
+                .WHERE("SNS.ID = #{snsID}")
                 .toString();
 //        테이블 만들어서 조인 문 확인하고 작성하기
     }
@@ -55,10 +56,10 @@ public class UserSQL {
         }}.toString();
     }
 
-    public String insertBySNS(String providerID, Users user) {
+    public String insertBySNS(String snsID, Users user) {
         return new SQL() {{
             INSERT_INTO(SNS_TABLE);
-            VALUES("ID", "#{providerID}");
+            VALUES("ID", "#{snsID}");
             VALUES("U_NO", "#{user.u_no}");
         }}.toString();
     }
