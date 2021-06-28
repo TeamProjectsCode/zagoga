@@ -25,7 +25,7 @@ public class ProjectZagogaApplication {
 
     @GetMapping("/sessionCheck")
     public @ResponseBody String sessionCheck(@AuthenticationPrincipal PrincipalUser principalUser) {
-        return principalUser.getAttributes().toString();
+        return principalUser.getUser().toString();
     }
 
 }

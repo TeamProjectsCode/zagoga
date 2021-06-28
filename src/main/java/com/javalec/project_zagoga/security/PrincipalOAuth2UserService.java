@@ -50,7 +50,6 @@ public class PrincipalOAuth2UserService extends DefaultOAuth2UserService {
         }
         user.setU_role("USER");
 //        System.out.println(user.toString());
-
         return new PrincipalUser(user, oAuth2User.getAttributes());
     }
 }
