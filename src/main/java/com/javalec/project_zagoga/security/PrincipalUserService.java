@@ -14,7 +14,7 @@ public class PrincipalUserService implements UserDetailsService {
 
     private final UsersMapper usersMapper;
 
-//    sercurity 로 일반 로그인 시 자동으로 호출 되는 메소드
+//    security 로 일반 로그인 시 자동으로 호출 되는 메소드
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Users user = usersMapper.loadUserByName(username);
