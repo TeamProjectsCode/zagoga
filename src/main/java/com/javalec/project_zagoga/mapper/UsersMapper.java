@@ -13,10 +13,10 @@ public interface UsersMapper {
     List<Users> getUsersList();
 
     @SelectProvider(type= UserSQL.class, method = "loadUserByName")
-    Users loadUserByName(@Param("username") String username);
+    Users loadUserByName(@Param("u_mail") String u_mail);
 
     @SelectProvider(type = UserSQL.class, method = "loadUserBySNS")
-    Users loadUserBySNS(@Param("snsID") String snsID);
+    Users loadUserBySNS(@Param("providerID") String providerID);
 
     @SelectProvider(type = UserSQL.class, method = "getUserByUNo")
     Users get(@Param("u_no") int u_no);
@@ -27,7 +27,7 @@ public interface UsersMapper {
 //    int insert(HashMap<String, Object> user_map);
 
     @InsertProvider(type = UserSQL.class, method = "insertBySNS")
-    void insertBySNS(@Param("snsID") String snsID, @Param("user") Users user);
+    void insertBySNS(@Param("providerID") String providerID, @Param("user") Users user);
 
     @UpdateProvider(type = UserSQL.class, method = "updateUser")
 //    int update(HashMap<String, Object> user_map);
