@@ -9,17 +9,12 @@ function write_check_ok(){
         form.gh_image.focus();
 		return;
     
-    }else if(document.form.gh_addr1.value == ""){
+    }else if(document.form.gh_addr.value == ""){
         alert("주소를 입력해주세요");
     	form.gh_addr1.focus();
 		return;
-    }else if(document.form.gh_addr2.value == ""){
-        alert("상세주소를 입력해주세요");
-        form.gh_addr2.focus();
-		return;
-    
-    }else if(document.form.gh_detail.value == ""){
-        alert("소개를 입력해주세요");
+    } else if(document.form.gh_detail.value == ""){
+        alert("게스트하우스 소개를 입력해주세요");
         form.gh_detail.focus();
 		return;
     }
@@ -74,36 +69,6 @@ function sample6_execDaumPostcode() {
         }).open();
     }
 
-//휴대폰 '-'넣기
-function inputPhoneNumber(obj) { 
-	var number = obj.value.replace(/[^0-9]/g, ""); 
-	var phone = ""; 
-	
-	if(number.length < 4) {
-		return number; 
-		} 
-	else if(number.length < 7) { 
-			phone += number.substr(0, 3);
-			phone += "-"; 
-			phone += number.substr(3); 
-		}
-	else if(number.length < 11) {
-		phone += number.substr(0, 3);
-		phone += "-";
-		phone += number.substr(3, 3); 
-		phone += "-"; 
-		phone += number.substr(6); 
-		}
-	else { 
-		phone += number.substr(0, 3);
-		phone += "-"; 
-		phone += number.substr(3, 4);
-		phone += "-"; 
-		phone += number.substr(7); 
-		} 
-	obj.value = phone; 
-	}    
-	
 //체크인 체크아웃
 $(document).ready(
 			function() {

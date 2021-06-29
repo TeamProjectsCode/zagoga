@@ -32,7 +32,7 @@ public class HomeController {
 	// USER: user 예약 페이지
 	@RequestMapping("/user/booking_confirm")
 	public String booking_confirm() {
-		return "/user/booking_confirm";
+		return "/room/booking_confirm";
 	}
 
     //■■■ URL 변경
@@ -73,7 +73,7 @@ public class HomeController {
 	// "":  룸 상세 정보페이지  ( 예약하기  )
 	@RequestMapping("/board/ghouse/room/{r_no}")
 	public String room_detail() {
-		return "/user/room_detail";
+		return "/room/room_detail";
 	}
 
     //	■■■ URL 변경
@@ -144,6 +144,10 @@ public class HomeController {
 	public String mypage_host_info() {
 		return "mypage/mypage_host_info";
 	}
+	@RequestMapping("host/mypage_host")
+	public String mypage_host() {
+		return "mypage/mypage_host";
+	}
 	//host : 마이페이지 게스트 하우스 정보 변경
 	@RequestMapping("host/mypage_house_info")
 	public String mypage_house_info() {
@@ -193,5 +197,9 @@ public class HomeController {
 //	public String mypage_booking() {
 //		return "mypage_booking";
 //	}
+	@RequestMapping("/board/ghouse/room/1")
+	public String room_l() {
+		return "/room/room_detail";
+	}
 }
 

@@ -25,6 +25,9 @@ header {
 	color:#fff;
 	padding:50px;
 }
+header h2 a{
+	color: white;
+}
 .imgbox{
 	height:430px;
 }

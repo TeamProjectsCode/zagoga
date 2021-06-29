@@ -33,12 +33,12 @@
             <tr><td class="inputPW"><input type="password" id="userPWCheck" name="userPWCheck" placeholder="비밀번호 재입력" disabled></td></tr>
             <tr>
                 <td>
-                    <select class="phoneNum" disabled>
+                    <select  class="phoneNum" disabled>
                         <option>선택</option>
-                        <option>010</option>
+                        <option selected >010</option>
                     </select>
-                    - <input type="text" class="phoneNum" maxlength="4" disabled>
-                    - <input type="text" class="phoneNum" maxlength="4" disabled>
+                    - <input type="text" id="phone1" class="phoneNum" maxlength="4" onkeyup="$(this).val($(this).val().replace(/\D/g,''));" disabled>
+                    - <input type="text" id="phone2" class="phoneNum" maxlength="4"  onkeyup="$(this).val($(this).val().replace(/\D/g,''));" disabled>
                 </td>
             </tr>
             <tr>
