@@ -22,6 +22,7 @@ String path= request.getContextPath();
         <div class="dropdown">
           <button class="dropbtn">예약 하기</button>
           <div class="dropdown-content">
+            <a href="#">전체 보기</a>
             <a href="#">서울 특별시</a>
             <a href="#">부산 광역시</a>
             <a href="#">인천 광역시</a>

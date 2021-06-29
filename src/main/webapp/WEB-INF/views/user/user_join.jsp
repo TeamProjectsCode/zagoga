@@ -20,16 +20,30 @@
 					<td><input type="text" name="u_name" required="required">
 				</tr>
 				<tr>
+					<td>성별</td>
+					<td><input type="radio" id="man" name = "u_gender" value="남"><label for="man">남성</label>
+						<input type="radio" id="woman" name = "u_gender" value="여" ><label for="woman">여성</label></td>
+				</tr>
+				<tr>
 					<td>닉네임</td>
 					<td><input type="text" name="u_nick" required="required">
 				</tr>
 				<tr>
 					<td>주민번호</td>
-					<td><input type="text" name="u_jumin" required="required"> <!-- 주민등록번호 중간에 - 추가 -->
+					<td><input type="text" name="u_jumin" required="required"> - <input type="password" name="u_jumin" required="required"> </td>
 				</tr>
                 <tr>
                     <td>이메일 : </td>
-                    <td><input type="text" name="u_mail" required="required">
+					<td >
+						<input type="text" id="emailID" name="u_mail" placeholder="이메일" >
+						@ <select id="emailAddr" name="u_mail" >
+						<option>선택</option>
+						<option value="@naver.com" >naver.com</option>
+						<option value="@daum.net">daum.net</option>
+						<option value="@gmail.com">gmail.com</option>
+						<option value="@nate.com">nate.com</option>
+					</select>
+					</td>
                 </tr>
 				<tr>
 					<td>비밀번호</td>
@@ -49,7 +63,14 @@
                 </tr>
 				<tr>
 					<td>휴대폰 번호</td>
-					<td><input type="text" name="u_phone" onkeyup="inputPhoneNumber(this);" maxlength="13" required="required">
+					<td>
+						<select class="u_phone">
+							<option>선택</option>
+							<option>010</option>
+						</select>
+						- <input type="text" class="u_phone" maxlength="4">
+						- <input type="text" class="u_phone" maxlength="4">
+					</td>
 				</tr>
 				<tr align="center">
 					<td colspan="4">

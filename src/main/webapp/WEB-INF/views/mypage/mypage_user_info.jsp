@@ -52,7 +52,7 @@
         </div>
 
         <div class="btn">
-           <a href="#"><button class="btn-m">수정하기</button></a>
+           <a href="#"><button class="btn-m">수정완료</button></a>
            <a href="#"><button class="btn-m">탈퇴하기</button></a>
         </div>
     </div>

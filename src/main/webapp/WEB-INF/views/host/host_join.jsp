@@ -46,10 +46,10 @@
                     <input type="text" id="emailID" name="emailID" placeholder="이메일" disabled>
                     @ <select id="emailAddr" name="emailAddr" disabled>
                         <option>선택</option>
-                        <option>naver.com</option>
-                        <option>daum.net</option>
-                        <option>gmail.com</option>
-                        <option>nate.com</option>
+                        <option value="@naver.com" >naver.com</option>
+                        <option value="@daum.net">daum.net</option>
+                        <option value="@gmail.com">gmail.com</option>
+                        <option value="@nate.com">nate.com</option>
                     </select>
                 </td>
             </tr>

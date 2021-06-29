@@ -167,7 +167,7 @@ $(document).ready(
 
 function checkPopup(){
 	
-	window.open("join_check","check","width=1030, height=350,left=700,top=300");
+	window.open("join_check","check","width=700, height=350,left=700,top=300");
 	
 }		
 		
