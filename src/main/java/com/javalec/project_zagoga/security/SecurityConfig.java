@@ -41,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/loginNormal")
                 .defaultSuccessUrl("/main")
                 .failureUrl("/login")
-//                접근 권한 에러인 경우 다음 uri로 이동합니다.
+//                �젒洹� 沅뚰븳 �뿉�윭�씤 寃쎌슦 �떎�쓬 uri濡� �씠�룞�빀�땲�떎.
             .and()
                 .exceptionHandling().accessDeniedPage("/error")
             .and()

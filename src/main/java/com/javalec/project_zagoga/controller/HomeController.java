@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -49,13 +51,6 @@ public class HomeController {
 		return "/user/booking_list";
 	}
 
-    //	■■■ URL 변경
-	// HOST: 게스트하우스 예약 신청한 유저에 대한 승인/거절 페이지
-	@RequestMapping("/host/booking/????")
-	public String user_list() {
-		return "/user/user_list";
-	}
-
 	// HOST: 게스트 하우스 이용 고객 출력 페이지
 //	@RequestMapping("/host/booking/list")
 //    public String booking_llksdlfjwoeir() {
@@ -64,10 +59,10 @@ public class HomeController {
 
     //	 ■■■ URL 변경
     // "": host 회원가입 페이지 -- 완: RegisterController.java
-//	@RequestMapping("/register/host_join")
-//	public String host_join() {
-//		return "/host/host_join";
-//	}
+	@RequestMapping("/host/host_join")
+	public String host_join() {
+		return "/host/host_join";
+	}
 
     //	■■■ URL 변경
 	// "":  룸 상세 정보페이지  ( 예약하기  )
@@ -140,10 +135,10 @@ public class HomeController {
 		return "mypage/mypage_host_customerList";
 	}
 	//host : 마이페이지 호스트 개인정보 변경
-	@RequestMapping("host/mypage_host_info")
-	public String mypage_host_info() {
-		return "mypage/mypage_host_info";
-	}
+	/*
+	 * @RequestMapping("host/mypage_host_info") public String mypage_host_info() {
+	 * return "mypage/mypage_host_info"; }
+	 */
 	//host : 마이페이지 게스트 하우스 정보 변경
 	@RequestMapping("host/mypage_house_info")
 	public String mypage_house_info() {
@@ -155,10 +150,10 @@ public class HomeController {
 		return "mypage/mypage_user_booking";
 	}
 	//user : 마이페이지 유저 회원정보 변경 
-	@RequestMapping("user/mypage_user_info")
-	public String mypage_user_info() {
-		return "mypage/mypage_user_info";
-	}
+	/*
+	 * @RequestMapping("user/mypage_user_info") public String mypage_user_info() {
+	 * return "mypage/mypage_user_info"; }
+	 */
 	//user: 유저 마이페이지 메인(회원정보와  예약상태 같이 보여줌)
 	@RequestMapping("user/mypage_user")
 	public String mypage_user() {
@@ -188,6 +183,30 @@ public class HomeController {
 	@RequestMapping("user/user_join")
 	public String user_join() {
 		return "user/user_join";
+	}
+	@RequestMapping("host/opner")
+	public String opner(HttpServletRequest request , Model model) {
+		String id = request.getParameter("type");
+		String val = request.getParameter("val");
+		model.addAttribute("val",val);
+		model.addAttribute("type",id);
+		return "mypage/opner";
+	}
+	@RequestMapping("/user/mypage_check")
+	public String mypage_user_check(HttpServletRequest request , Model model) {
+		String id = request.getParameter("id");
+		model.addAttribute("id",id);
+		return "mypage/mypage_check";
+	}
+	@RequestMapping("/host/mypage_check")
+	public String mypage_host_check(HttpServletRequest request , Model model) {
+		String id = request.getParameter("id");
+		model.addAttribute("id",id);
+		return "mypage/mypage_check";
+	}
+	@RequestMapping("admin/user_list")
+	public String user_list() {
+		return "admin/user_list";
 	}
 	//	@RequestMapping("mypage_booking")
 //	public String mypage_booking() {

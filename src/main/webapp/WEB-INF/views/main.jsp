@@ -60,6 +60,7 @@
         <div class="header">
             <h1><a href="#">ZAGOGA</a></h1>
             <div class="nav">
+				${user}		
                 <ul>
                     <li><a href="login">LOGIN</a></li>
                     <li><a href="javascript:checkPopup()">JOIN</a></li>
