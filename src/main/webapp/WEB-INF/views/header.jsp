@@ -38,7 +38,8 @@ String path= request.getContextPath();
         </div>
         <!-- 세션에 따라 버튼 변경 추가 필요 -->
         <div class="dropdown">
-          <button class="dropbtn" onclick="check(this.id)" id = "mypage_user">마이 페이지</button>
+          <button class="dropbtn" onclick="location.href='/user/mypage_user'" id = "mypage_user">마이 페이지</button>
+<!--           <button class="dropbtn" onclick="check(this.id)" id = "mypage_user">마이 페이지</button> -->
 <!--  
 			호스트용 마이페이지 세션 활성후 추가 예정
          <button class="dropbtn" onclick="location.href='/host/mypage_host'">마이 페이지</button>
