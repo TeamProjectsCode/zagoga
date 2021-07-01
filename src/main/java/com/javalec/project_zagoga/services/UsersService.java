@@ -24,11 +24,15 @@ public class UsersService {
 //    }
 
     public void userInsert(Users user) {
-//        ObjectMapper objectMapper = new ObjectMapper();
-//        HashMap<String, Object> user_map = objectMapper.convertValue(user, HashMap.class);
-//        return usersMapper.insert(user_map);
+        String eMail = user.getU_mail().replace(",", "");
         String encPwd = passwordEncoder.encode(user.getU_pwd());
+        String jumin = user.getU_jumin().replace(",", "");
+        String phone = user.getU_phone().replace(",", "");
+        user.setU_mail(eMail);
         user.setU_pwd(encPwd);
+        user.setU_jumin(jumin);
+        user.setU_phone(phone);
+
         usersMapper.insertUser(user);
     }
 

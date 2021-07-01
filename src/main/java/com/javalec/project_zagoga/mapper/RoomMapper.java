@@ -1,7 +1,7 @@
 package com.javalec.project_zagoga.mapper;
 
 import com.javalec.project_zagoga.dto.Room;
-import com.javalec.project_zagoga.sql.RoomSQL;
+import com.javalec.project_zagoga.mapper.sql.RoomSQL;
 import org.apache.ibatis.annotations.*;
 
 

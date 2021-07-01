@@ -64,12 +64,12 @@
 				<tr>
 					<td>휴대폰 번호</td>
 					<td>
-						<select class="u_phone">
+						<select class="u_phone" name="u_phone">
 							<option>선택</option>
 							<option>010</option>
 						</select>
-						- <input type="text" class="u_phone" maxlength="4">
-						- <input type="text" class="u_phone" maxlength="4">
+						- <input type="text" class="u_phone" name="u_phone" maxlength="4">
+						- <input type="text" class="u_phone" name="u_phone" maxlength="4">
 					</td>
 				</tr>
 				<tr align="center">

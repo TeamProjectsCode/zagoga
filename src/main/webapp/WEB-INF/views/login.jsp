@@ -31,9 +31,9 @@
                     <td class="inputPWShow"><input type="image" id="userPWShow" onclick="pwShowToggle(); return false;" src="resources/img/visibility.png" alt="show password"/></td>
                 </tr>
                 <tr>
-                    <td><input type="radio" id="host" name = "user_type" value="2"><label for="host">호스트</label>
-                    <input type="radio" id="user" name = "user_type" value="1" ><label for="user"> 여행객</label>
-                    <input type="radio" id="admin" name = "user_type" value="0"><label for="admin"> 관리자</label>
+                    <td><input type="radio" id="host" name = "user_type" value="HOST"><label for="host">호스트</label>
+                    <input type="radio" id="user" name = "user_type" value="USER" ><label for="user"> 여행객</label>
+                    <input type="radio" id="admin" name = "user_type" value="ADMIN"><label for="admin"> 관리자</label>
                     </td>
                 </tr>
                 <tr></tr>

@@ -139,11 +139,9 @@ public class HomeController {
 	public String mypage_host_customerList() {
 		return "mypage/mypage_host_customerList";
 	}
-	//host : 마이페이지 호스트 개인정보 변경
-	@RequestMapping("host/mypage_host_info")
-	public String mypage_host_info() {
-		return "mypage/mypage_host_info";
-	}
+
+	//host : 마이페이지 호스트 개인정보 변경 ( 이동: HostController.java )
+
 	//host : 마이페이지 게스트 하우스 정보 변경
 	@RequestMapping("host/mypage_house_info")
 	public String mypage_house_info() {
@@ -154,11 +152,8 @@ public class HomeController {
 	public String mypage_user_booking() {
 		return "mypage/mypage_user_booking";
 	}
-	//user : 마이페이지 유저 회원정보 변경 
-	@RequestMapping("user/mypage_user_info")
-	public String mypage_user_info() {
-		return "mypage/mypage_user_info";
-	}
+	//user : 마이페이지 유저 회원정보 변경  ( 이동: UserController.java )
+
 	//user: 유저 마이페이지 메인(회원정보와  예약상태 같이 보여줌)
 	@RequestMapping("user/mypage_user")
 	public String mypage_user() {

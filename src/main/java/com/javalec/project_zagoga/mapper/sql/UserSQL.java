@@ -1,11 +1,10 @@
-package com.javalec.project_zagoga.sql;
+package com.javalec.project_zagoga.mapper.sql;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.javalec.project_zagoga.dto.Users;
 import org.apache.ibatis.jdbc.SQL;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class UserSQL {
 

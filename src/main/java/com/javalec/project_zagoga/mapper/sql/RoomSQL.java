@@ -1,4 +1,4 @@
-package com.javalec.project_zagoga.sql;
+package com.javalec.project_zagoga.mapper.sql;
 
 import com.javalec.project_zagoga.dto.Room;
 import org.apache.ibatis.jdbc.SQL;

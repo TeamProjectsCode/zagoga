@@ -2,6 +2,7 @@ package com.javalec.project_zagoga.controller;
 
 import com.javalec.project_zagoga.dto.Host;
 import com.javalec.project_zagoga.dto.Users;
+import com.javalec.project_zagoga.services.HostService;
 import com.javalec.project_zagoga.services.UsersService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class RegisterController {
 
     private final UsersService usersService;
+    private final HostService hostService;
 
     @GetMapping("/{user_type}_join")
     public String registerPage(@PathVariable("user_type") String user_type) {
@@ -28,8 +30,10 @@ public class RegisterController {
         return "redirect:/main";
     }
 
-    @PostMapping("/host_join")
+    @PostMapping("/host")
     public String insertHost(Host host) {
+        System.out.println(host.toString());
+//        hostService.hostInsert(host);
         return "redirect:/main";
     }
 

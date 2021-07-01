@@ -1,7 +1,7 @@
 package com.javalec.project_zagoga.mapper;
 
 import com.javalec.project_zagoga.dto.Users;
-import com.javalec.project_zagoga.sql.UserSQL;
+import com.javalec.project_zagoga.mapper.sql.UserSQL;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

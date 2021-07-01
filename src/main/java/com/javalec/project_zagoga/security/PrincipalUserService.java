@@ -7,6 +7,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @AllArgsConstructor
 @Service
@@ -19,6 +21,7 @@ public class PrincipalUserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Users user = usersMapper.loadUserByName(username);
         if(user != null) {
+            user.setU_role("USER");
             return new PrincipalUser(user);
         }
         return null;
