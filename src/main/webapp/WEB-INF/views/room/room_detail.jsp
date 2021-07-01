@@ -1,4 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.sql.Timestamp"%>
+<%@ page import="com.javalec.project_zagoga.dto.Ghouse" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,6 +9,7 @@
 <meta charset="UTF-8">
 <title>방 정보(user용)</title>
 <%
+    Ghouse ghouse = null;
 	String GH_name ="111111", GH_image ="",GH_addr1 ="위치테스트", GH_addr2 ="";
 	String R_name="",R_detail="",R_image="";
 	int R_pmin=0, R_pmax=0, R_fee=0;
@@ -16,17 +19,20 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/resources/css/room.css" />
-	<script type="text/javascript" src="/resources/js/guesthouse.js" charset="utf-8"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<script type="text/javascript" src="resources/js/guesthouse.js" charset="utf-8"></script>
 </head>
 <body>
 	<%@ include file="../header.jsp" %>
     <section>
-        <div class="main">
-            <div>
-                <h3><%=R_name %></h3>
-                <p><%=GH_name %></p>
+<%--        <c:set value="${getDetail}" var="dt">--%>
+        <c:forEach items="${getDetail}" var="dt">
+        <div class="p-3 mb-2 bg-light text-dark">
+            <div class="mx-auto" style="width: 650px;">
+                <h3>${dt.r_name}</h3>
+<%--                <p><%=ghouse.getGh_name()%></p>--%>
                 <br>
-                <p>기준 인원 <%=R_pmin %> (최대: <%= R_pmax %>)</p>
+                <p>기준 인원 ${dt.r_pmin} (최대: ${dt.r_pmax})</p>
                 <p><img src="<%=R_image %>" width="650px"></p>
                 <div class="room_date">
                       <form>
@@ -41,13 +47,13 @@
                         체크인: 15:00~<br>
                         체크아웃 : ~ 12:00
                     </p>
-                    <p> 시간을 준수해주세요</p>
                     <br>
                     <p style="text-align: right;">
                         가격<br>
-                        <%=R_fee%> 원
+                        ${dt.r_fee} 원
                     </p>
                 </div>
+        </c:forEach>
                 <div class="room_spec">
                     <p>기본 정보</p>
                     <ul>

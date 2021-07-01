@@ -1,8 +1,11 @@
 package com.javalec.project_zagoga.mapper;
 
+import com.javalec.project_zagoga.dto.GhouseRoomImages;
 import com.javalec.project_zagoga.dto.Room;
 import com.javalec.project_zagoga.mapper.sql.RoomSQL;
 import org.apache.ibatis.annotations.*;
+
+import java.util.List;
 
 
 @Mapper
@@ -16,6 +19,9 @@ public interface RoomMapper {
 	@SelectProvider(type = RoomSQL.class, method = "getDetail")
 	Room getDetail(@Param("r_no")int r_no);
 
+	@SelectProvider(type = RoomSQL.class, method = "list")
+	Room list(@Param("r_ghno")int r_ghno);
+
 //	@Insert("INSERT INTO ROOMS(R_NAME, R_PMIN, R_PMAX, R_FEE, R_DETAIL, R_GHNO) VALUES(#{R_NAME}, #{R_NAME}, #{R_PMAX}, #{R_FEE}, #{R_DETAIL}, #{R_GHNO})")
 //	public void insert(@Param("R_NAME")String R_NAME,@Param("R_PMIN")int R_PMIN,@Param("R_PMAX")int R_PMAX,@Param("R_FEE")int R_FEE,@Param("R_DETAIL")String R_DETAIL,@Param("R_GHNO")int R_GHNO);
 
@@ -24,6 +30,9 @@ public interface RoomMapper {
 
 	@UpdateProvider(type = RoomSQL.class, method = "update")
 	int update(@Param("room") Room room);
+
+	@InsertProvider(type = RoomSQL.class, method = "imageInsert")
+	List<GhouseRoomImages> imageInsert(@Param("ghouseRoomImages") GhouseRoomImages ghouseRoomImages);
 
 	@DeleteProvider(type = RoomSQL.class, method = "delete")
 	int delete(@Param("r_no")int r_no, @Param("r_ghno")int r_ghno);

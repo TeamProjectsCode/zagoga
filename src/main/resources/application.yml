@@ -12,6 +12,8 @@ spring:
     include:
       - db
       - oauth
+      - images
+
 
   mvc:
     view:
@@ -19,6 +21,9 @@ spring:
       suffix: .jsp
     static-path-pattern: /resources/**
 
+#custom:
+#  path:
+#    upload-images: 'c://uploadImages/'
   mail:
     host: smtp.gmail.com
     port: 465

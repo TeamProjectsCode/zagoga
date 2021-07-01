@@ -7,33 +7,42 @@
 <html>
   <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="resources/css/write.css" type="text/css">
+	<link rel="stylesheet" href="/resources/css/write.css" type="text/css">
 	<title>Insert title here</title>
-	<script type="text/javascript" src="resources/js/guesthouse.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/resources/js/guesthouse.js" charset="utf-8"></script>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   </head>
   <body>
   <%@ include file="../header.jsp" %>
 	<div class="total">
-	  <form name="form" action="#" method="post">
+	  <form name="form" action="/room/room_write" method="post" enctype="multipart/form-data">
 	    <h1>방 소개</h1>
 	    <div class="section">
 		    <div class="title">
-		     <h3>제목&nbsp;&nbsp;&nbsp;<input type="text" name="title" id="title" width="100"></h3>
+		     <h3>제목&nbsp;&nbsp;&nbsp;<input type="text" name="gh_name" id="gh_name" width="100"></h3>
 		    </div>
 	        <div class="title2">
 			    <h4>이미지 업로드&nbsp;&nbsp;&nbsp;</h4>
-			    <input type="file" name="gh_image" id="gh_image" size="10">
+			    <input type="file" name="files" id="files" size="10" multiple>
 	        </div>
 		<div class="detail">
 						<h3>상세 내용</h3>
-						<h4>최대 인원수&nbsp;&nbsp;&nbsp; 
-							<select name="category" id="category">
+						<h4>최저 인원수&nbsp;&nbsp;
+							<select name="r_pmin" id="r_pmin">
 								<option value='1'>1인실</option>
 								<option value='2'>2인실</option>
-								<option value='3'>4인실</option>
-								<option value='4'>8인실</option>
-								<option value='4'>16인실</option>
+								<option value='4'>4인실</option>
+								<option value='8'>8인실</option>
+								<option value='16'>16인실</option>
+							</select>
+						</h4>
+						<h4>최대 인원수&nbsp;&nbsp;&nbsp;
+							<select name="r_pmax" id="r_pmax">
+								<option value='1'>1인실</option>
+								<option value='2'>2인실</option>
+								<option value='4'>4인실</option>
+								<option value='8'>8인실</option>
+								<option value='16'>16인실</option>
 							</select>
 						</h4>
 				</div>
@@ -41,10 +50,10 @@
 	        <h4>소개</h4>
 	        <textarea 
 	        	style="overflow: auto;" 
-	        	rows="20" cols="70" name="gh_detail" id="gh_detail">방소개 글</textarea>
+	        	rows="20" cols="70" name="r_detail" id="gh_detail">방소개 글</textarea>
 	      </div>
 	      <div class="button">
-	        <input type="button" onclick="write_check()" class="but" value="글 올리기">
+	        <input type="button" onclick="write_check_ok()" class="but" value="글 올리기">
 	        <button type="reset" class="but">다시쓰기</button>
 	        <span><button type="button" value="뒤로가기" onclick="history.back()" class="but">뒤로가기</button></span>
 	      </div>
