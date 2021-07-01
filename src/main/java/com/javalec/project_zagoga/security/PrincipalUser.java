@@ -2,6 +2,7 @@ package com.javalec.project_zagoga.security;
 
 import com.javalec.project_zagoga.dto.Users;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -11,6 +12,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+@NoArgsConstructor
 @Data
 public class PrincipalUser implements UserDetails, OAuth2User {
 
@@ -26,7 +28,7 @@ public class PrincipalUser implements UserDetails, OAuth2User {
         this.attributes = attributes;
     }
 
-//   for OAuth2User
+    //   for OAuth2User
     @Override
     public <A> A getAttribute(String name) {
         return OAuth2User.super.getAttribute(name);

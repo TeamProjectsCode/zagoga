@@ -11,7 +11,6 @@
 <%@ include file="../header.jsp"%>
     <center>
         <div class="mainbox">
-
         <fieldset class="main_a"> ${user.u_name}님의 소중한 개인정보입니다.</fieldset>
 
         <div class="info-table">
