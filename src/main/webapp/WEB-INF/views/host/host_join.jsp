@@ -17,42 +17,40 @@
 	<form action="#" method="POST" onsubmit="return blankCheck();">
         <div class="inputHead">
             <h2>사업자 인증</h2>
-            <input type="text" class="businessNum" name="h_bizno" maxlength="3" pattern="[0-9]+"> - <input type="text" class="businessNum" name="h_bizno" maxlength="2" pattern="[0-9]+"> - <input type="text" class="businessNum" name="h_bizno" maxlength="5" pattern="[0-9]+">
+            <input type="text" class="businessNum" maxlength="3" pattern="[0-9]+"> - <input type="text" class="businessNum" maxlength="2" pattern="[0-9]+"> - <input type="text" class="businessNum" maxlength="5" pattern="[0-9]+">
             <button type="button" id="checkBusinessNumberBtn" onclick="checkBusinessNumber();">인증하기</button>
         </div>
         <h2>정보입력</h2>
         <table aria-describedby="registBusinessTable">
             <th id="registBusinessTable"></th>
-            <tr><td class="input"><input type="text" id="brand" name="h_brandname" placeholder="상호명" disabled></td></tr>
-            <tr><td class="input"><input type="text" id="owner" name="h_owner" placeholder="대표자명" disabled></td></tr>
-<%--            <tr><td class="input"><input type="text" id="userID" name="userID" placeholder="아이디" disabled></td></tr>--%>
+            <tr><td class="input"><input type="text" id="brand" name="brand" placeholder="상호명" disabled></td></tr>
+            <tr><td class="input"><input type="text" id="owner" name="owner" placeholder="대표자명" disabled></td></tr>
+            <tr><td class="input"><input type="text" id="userID" name="userID" placeholder="아이디" disabled></td></tr>
             <tr>
-                <td >
-                    <input type="text" id="emailID" name="h_mail" placeholder="이메일" disabled>
-                    @ <select id="emailAddr" name="h_mail" disabled>
-                    <option>선택</option>
-                    <option value="@naver.com" >naver.com</option>
-                    <option value="@daum.net">daum.net</option>
-                    <option value="@gmail.com">gmail.com</option>
-                    <option value="@nate.com">nate.com</option>
-                    <option value="@kakao.com">kakao.com</option>
-                </select>
-                </td>
-            </tr>
-            <tr>
-                <td class="inputPW"><input type="password" id="userPW" name="h_pwd" placeholder="비밀번호" disabled></td>
+                <td class="inputPW"><input type="password" id="userPW" name="userPW" placeholder="비밀번호" disabled></td>
                 <td class="inputPWShow"><input type="image" id="userPWShow" onclick="pwShowToggle(); return false;" src="../resources/img/visibility.png" alt="show password" disabled/></td>
             </tr>
             <tr><td class="inputPW"><input type="password" id="userPWCheck" name="userPWCheck" placeholder="비밀번호 재입력" disabled></td></tr>
             <tr>
                 <td>
-                    <select class="phoneNum" name="h_phone" disabled>
+                    <select  class="phoneNum" disabled>
                         <option>선택</option>
-                        <option>010</option>
-                        <option>011</option>
+                        <option selected >010</option>
                     </select>
-                    - <input type="text" class="phoneNum" name="h_phone" maxlength="4" disabled>
-                    - <input type="text" class="phoneNum" name="h_phone" maxlength="4" disabled>
+                    - <input type="text" id="phone1" class="phoneNum" maxlength="4" onkeyup="$(this).val($(this).val().replace(/\D/g,''));" disabled>
+                    - <input type="text" id="phone2" class="phoneNum" maxlength="4"  onkeyup="$(this).val($(this).val().replace(/\D/g,''));" disabled>
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <input type="text" id="emailID" name="emailID" placeholder="이메일" disabled>
+                    @ <select id="emailAddr" name="emailAddr" disabled>
+                        <option>선택</option>
+                        <option value="@naver.com" >naver.com</option>
+                        <option value="@daum.net">daum.net</option>
+                        <option value="@gmail.com">gmail.com</option>
+                        <option value="@nate.com">nate.com</option>
+                    </select>
                 </td>
             </tr>
             <tr>

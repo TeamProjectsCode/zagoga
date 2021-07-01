@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 정보 변경 (host용)</title>
-<link href="/resources/css/mypage_regist_business.css" media="all"
+<link href="/resources/css/mypage_host_info.css" media="all"
 	rel="Stylesheet" type="text/css" />
-	//JS처리하기
+	<script src="/resources/js/mypage_host_info.js"></script>
 </head>
 <body>
 	<%@ include file="../header.jsp"%>
@@ -16,11 +16,11 @@
 		<table>
 			<tr>
 				<td>사업자 번호</td>
-				<td><input type="text" value="123-456-78910" disabled></td>
+				<td><input type="text" id="b_num" value="123-456-78910" disabled></td>
 			</tr>
 			<tr>
 				<td>사업자 이름</td>
-				<td><input type="text" value="홍길동"></td>
+				<td><input type="text" id="name" value="홍길동"></td>
 			</tr>
 			<tr>
 				<td>전화 번호</td>

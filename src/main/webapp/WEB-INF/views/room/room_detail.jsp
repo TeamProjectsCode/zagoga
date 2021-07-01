@@ -16,14 +16,13 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/resources/css/room.css" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-	<script type="text/javascript" src="resources/js/guesthouse.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/resources/js/guesthouse.js" charset="utf-8"></script>
 </head>
 <body>
 	<%@ include file="../header.jsp" %>
     <section>
-        <div class="p-3 mb-2 bg-light text-dark">
-            <div class="mx-auto" style="width: 650px;">
+        <div class="main">
+            <div>
                 <h3><%=R_name %></h3>
                 <p><%=GH_name %></p>
                 <br>
@@ -42,6 +41,7 @@
                         체크인: 15:00~<br>
                         체크아웃 : ~ 12:00
                     </p>
+                    <p> 시간을 준수해주세요</p>
                     <br>
                     <p style="text-align: right;">
                         가격<br>

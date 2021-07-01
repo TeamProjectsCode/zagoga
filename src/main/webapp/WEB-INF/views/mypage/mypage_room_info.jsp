@@ -5,8 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>방 정보 수정(host용)</title>
-<link href="/resources/css/mypage_room_fix.css" media="all"
+<link href="/resources/css/mypage_room_info.css" media="all"
 	rel="Stylesheet" type="text/css" />
+	<script src="/resources/js/mypage_room_info.js"></script>
 </head>
 <body>
 	<%@ include file="../header.jsp"%>

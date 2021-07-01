@@ -18,19 +18,14 @@ Timestamp B_in = null, B_out = null;
 	type="text/css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/resources/css/room.css" />
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-	crossorigin="anonymous">
-	<script type="text/javascript" src="resources/js/guesthouse.js" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="/resources/css/ghouse_detail.css" />
+	<script type="text/javascript" src="/resources/js/guesthouse.js" charset="utf-8"></script>
 </head>
 <body>
 	<%@ include file="../header.jsp"%>
 	<section>
-		<div class="p-3 mb-2 bg-light text-dark">
-			<div class="mx-auto" style="width: 650px;">
+		<div class="main">
+			<div>
 				<!-- <img src="<%=GH_image%>" width="650px" height="500px" alt="대표사진"> -->
 				<img src="../resources/img/busan.jpg" width="650px" height="500px" alt="대표사진">
 				<p>대표사진</p>
@@ -63,7 +58,7 @@ Timestamp B_in = null, B_out = null;
 							//리스트 추가
 						%>
 						<tr>
-							<td><a href="room_detail"
+							<td><a href="/board/ghouse/room/"
 								style="text-decoration-line: none; color: black;">
 								 <img src="../resources/img/jeju.jpg" width="300px" style="float: left;">
 								 <!-- <img src="<%=R_image%>" width="300px" style="float: left;"> -->
@@ -91,19 +86,25 @@ Timestamp B_in = null, B_out = null;
 							}
 						%>
 					</table>
+					<br>
 					<hr>
 					<div>
-						<table class="table table-stripped">
+						<table class="review">
+<%--							<p class="total">총 평점 : 3.53 </p>--%>
 							<tr>
 								<th>평점</th>
-								<!-- 평점 -->
 								<th>별명</th>
 								<th>내용</th>
 							</tr>
 							<tr>
 								<td>★</td>
-								<td>익명</td>
-								<td>내용123</td>
+								<td>ㅁㅁㅁ</td>
+								<td>더러워요</td>
+							</tr>
+							<tr>
+								<td>★★★★★</td>
+								<td>곤충애호가</td>
+								<td>빡휘뻘레가 많아요</td>
 							</tr>
 						</table>
 					</div>

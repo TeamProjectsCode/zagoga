@@ -51,7 +51,20 @@
 }
 .star_rating a:first-child {margin-left:0;}
 .star_rating a.on {color: #e97928}
- 
- 
 
+.review{
+    width: 650px;
+    padding: 15px;
+}
+.review tr{
+    text-align: left;
+}
+.review td{
+    border-bottom: 1px solid lightgray;
+    padding: 5px;
+}
+/*.total{*/
+/*    font-size: x-large;*/
+/*    padding: 20px;*/
+/*}*/
 

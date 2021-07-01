@@ -5,8 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>게스트하우스 수정(host용)</title>
-<link href="/resources/css/mypage_house_fix.css" media="all"
+<link href="/resources/css/mypage_house_info.css" media="all"
 	rel="Stylesheet" type="text/css" />
+	<script src="/resources/js/mypage_house_info.js"></script>
 </head>
 <body>
 	<%@ include file="../header.jsp"%>
