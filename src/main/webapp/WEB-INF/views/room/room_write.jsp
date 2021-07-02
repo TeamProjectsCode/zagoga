@@ -19,7 +19,7 @@
 	    <h1>방 소개</h1>
 	    <div class="section">
 		    <div class="title">
-		     <h3>제목&nbsp;&nbsp;&nbsp;<input type="text" name="gh_name" id="gh_name" width="100"></h3>
+		     <h3>제목&nbsp;&nbsp;&nbsp;<input type="text" name="title" id="title" width="100"></h3>
 		    </div>
 	        <div class="title2">
 			    <h4>이미지 업로드&nbsp;&nbsp;&nbsp;</h4>
@@ -44,7 +44,7 @@
 	        	rows="20" cols="70" name="gh_detail" id="gh_detail">방소개 글</textarea>
 	      </div>
 	      <div class="button">
-	        <input type="button" onclick="write_check_ok()" class="but" value="글 올리기">
+	        <input type="button" onclick="write_check()" class="but" value="글 올리기">
 	        <button type="reset" class="but">다시쓰기</button>
 	        <span><button type="button" value="뒤로가기" onclick="history.back()" class="but">뒤로가기</button></span>
 	      </div>

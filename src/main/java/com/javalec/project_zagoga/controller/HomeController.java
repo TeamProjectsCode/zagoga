@@ -204,6 +204,12 @@ public class HomeController {
 		model.addAttribute("id",id);
 		return "mypage/mypage_check";
 	}
+	@RequestMapping("/mypage_check")
+	public String mypage_check(HttpServletRequest request , Model model) {
+		String id = request.getParameter("id");
+		model.addAttribute("id",id);
+		return "mypage/mypage_check";
+	}
 	@RequestMapping("admin/user_list")
 	public String user_list() {
 		return "admin/user_list";

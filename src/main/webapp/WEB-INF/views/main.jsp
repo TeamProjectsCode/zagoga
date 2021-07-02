@@ -53,18 +53,27 @@
             });    
     });
 </script>
-
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1><a href="#">ZAGOGA</a></h1>
             <div class="nav">
-				${user}		
+        <c:set var="session" value="${user }" />
+		<c:choose> 
+			<c:when test="${empty session }">
                 <ul>
                     <li><a href="login">LOGIN</a></li>
                     <li><a href="javascript:checkPopup()">JOIN</a></li>
                 </ul>
+			</c:when> 
+			<c:when test="${!empty session}">
+                <ul>
+                    <li><a href="login">LOGOUT</a></li>
+                </ul>
+			</c:when> 
+		</c:choose> 
             </div>
         </div>
         <div class="hero">

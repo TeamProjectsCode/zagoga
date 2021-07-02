@@ -20,6 +20,30 @@ function write_check_ok(){
     }
     document.form.submit();
 }
+//write(room) 게스트 하우스 룸 js 
+function write_check(){
+    if(document.form.title.value == ""){
+        alert("게스트 하우스 상호명을 입력해주세요 ");
+        form.title.focus();
+		return;
+    }
+    else if(document.form.gh_image.value == ""){
+        alert("사진을 첨부해주세요");
+        form.gh_image.focus();
+		return;
+    } 
+    else if(document.form.category.value == ""){
+        alert("사진을 첨부해주세요");
+        form.category.focus();
+		return;
+    } 
+    else if(document.form.gh_detail.value == ""){
+        alert("게스트하우스 소개를 입력해주세요");
+        form.gh_detail.focus();
+		return;
+    }
+    document.form.submit();
+}
 
  //주소관련
 function sample6_execDaumPostcode() {

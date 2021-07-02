@@ -23,12 +23,10 @@
 			<tr>
 				<td>사업자 이름</td>
 				<td><input type="text" id ="name" value="홍길동"></td>
-				<td><button>변경하기</button></td>
 			</tr>
 			<tr>
 				<td>전화 번호</td>
 				<td><input type="text" id = "phoneNumber" value="010-1234-5678"></td>
-				<td><button>변경하기</button></td>
 			</tr>
 			<tr>
 				<td>아이디</td>
@@ -41,7 +39,7 @@
 			<tr>
 				<td>비밀번호 확인</td>
 				<td><input id = "pw2" type="password"></td>
-				<td><button>변경하기</button></td>
+				<td><button onclick = "">확인하기</button></td>
 			</tr>
 			<tr>
 				<td>이메일</td>
