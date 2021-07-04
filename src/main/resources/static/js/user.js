@@ -12,6 +12,7 @@ function loginSubmit() {
     var pwCheck = $("#pwCheck").val();
     var middle_phone = $("#phone1").val();
     var last_phone = $("#phone2").val();
+    var YN = $('#certificationYN').val();
     console.log(gender);
     if (name == "") {
         alert("이름을 입력해주세요.");
@@ -45,6 +46,9 @@ function loginSubmit() {
     }else if(last_phone == ""){
         alert("전화번호를 입력해주세요");
         $("#phone2").focus();
+    }else if(YN == "false"){
+        alert("이메일을 인증해주세요");
+        $('#emailID').focus();
     }
     else {
         isFillOut = true;
@@ -120,7 +124,7 @@ function sample6_execDaumPostcode() {
     }
     
 $(function(){//닉네임 중복체크
-    $('#nick').blur(function(){
+    $('#nick').change(function(){
         var u_nick = $("#nick").val();
         console.log(u_nick);
         $.ajax({
