@@ -1,4 +1,4 @@
-function check() {
+function loginSubmit() {
     var isFillOut =false;
     console.log('here');
 
@@ -48,7 +48,6 @@ function check() {
     }
     else {
         isFillOut = true;
-        document.form.submit();
     }
     return isFillOut;
 }
@@ -69,7 +68,7 @@ $(document).ready(function () { // 성별 값 넘기기
 
 $( function(){
     $( '#emailID' ).on("blur keyup", function() {
-        $(this).val( $(this).val().replace( /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣 | ~!@\#$%<>^&*\()\-=+_\’]/g, '' ) );
+        $(this).val( $(this).val().replace( /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣 | ~!@\#$%<>^&*\()=+_\’]/g, '' ) );
     });
 });
 

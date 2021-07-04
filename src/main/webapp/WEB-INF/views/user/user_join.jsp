@@ -142,7 +142,7 @@
 <body>
 <%@ include file="../header.jsp" %>
 <center>
-	<form name="form" action="/register/user" method="post">
+	<form name="form" action="/register/user" method="post" onsubmit="return loginSubmit()">
 		<div class="container">
 			<table>
 				<tr>
@@ -176,7 +176,7 @@
 						<option value="@nate.com">nate.com</option>
 					</select>
 						<div id="mail_check"></div>
-						<div><button id="emailCheck" onclick="emailSend()">인증번호 받기</button></div>
+						<div><button type="button" id="emailCheck" onclick="emailSend()">인증번호 받기</button></div>
 					</td>
 				</tr>
 				<tr>
@@ -208,17 +208,17 @@
 				<tr>
 					<td>전화 번호</td>
 					<td>
-						<select class="u_phone">
+						<select class="u_phone" name="u_phone">
 							<option>선택</option>
 							<option selected>010</option>
 						</select>
-						- <input type="text" id="phone1" class="u_phone" maxlength="4" size="5" onkeyup="$(this).val($(this).val().replace(/\D/g,''));">
-						- <input type="text" id="phone2" class="u_phone" maxlength="4" size="5" onkeyup="$(this).val($(this).val().replace(/\D/g,''));">
+						- <input type="text" id="phone1" class="u_phone" name="u_phone" maxlength="4" size="5" onkeyup="$(this).val($(this).val().replace(/\D/g,''));">
+						- <input type="text" id="phone2" class="u_phone" name="u_phone" maxlength="4" size="5" onkeyup="$(this).val($(this).val().replace(/\D/g,''));">
 					</td>
 				</tr>
 				<tr align="center">
 					<td colspan="4" class="btn">
-						<input type="button" onclick="check()" value="등록">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="submit" value="등록">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<input type="button" value="취소" onclick="location.href='/main'">
 					</td>
 				</tr>
