@@ -22,12 +22,12 @@
 					<li>
 						<dl>
 							<dt>
-								<a href="/ghouse/detail">${li.gh_name}</a>
+								<a href="/ghouse/detail/${li.gh_no}">${li.gh_name}</a>
 							</dt>
 							<dd class="img">
-								<a href="/ghouse/detail"><img src="${pageContext.request.contextPath}/resources/gh_image${li.gh_image}" width="700px" height="570px" ></a>
+								<a href="/ghouse/detail/${li.gh_no}"><img src="${pageContext.request.contextPath}/resources/gh_image/${li.gh_image}" width="370px" height="370px" ></a>
 							</dd>
-							<dd class="price">13,000</dd>
+							<dd class="price">${li.r_fee} 원</dd>
 						</dl>
 					</li>
 				</ul>
@@ -39,12 +39,12 @@
 					<li>
 						<dl>
 							<dt>
-								<a href="#">${li.gh_name}</a>
+								<a href="/ghouse/detail/${li.gh_no}">${li.gh_name}</a>
 							</dt>
 							<dd class="img">
-								<a href="#"><img src="${pageContext.request.contextPath}/resources/gh_image${li.gh_image}" width="700px" height="570px" ></a>
+								<a href="/ghouse/detail/${li.gh_no}"><img src="${pageContext.request.contextPath}/resources/gh_image/${li.gh_image}" width="370px" height="370px" ></a>
 							</dd>
-							<dd class="price">13,000</dd>
+							<dd class="price">${li.r_fee} 원</dd>
 						</dl>
 					</li>
 				</ul>

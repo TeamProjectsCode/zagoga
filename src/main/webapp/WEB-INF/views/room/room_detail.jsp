@@ -26,14 +26,18 @@
 	<%@ include file="../header.jsp" %>
     <section>
 <%--        <c:set value="${getDetail}" var="dt">--%>
-        <c:forEach items="${getDetail}" var="dt">
+<%--        <c:forEach items="${getDetail}" var="dt" varStatus="status">--%>
         <div class="p-3 mb-2 bg-light text-dark">
             <div class="mx-auto" style="width: 650px;">
-                <h3>${dt.r_name}</h3>
+        <c:if test="${getDetail.size() != 0}">
+                <h3>${getDetail.get(0).r_name}</h3>
 <%--                <p><%=ghouse.getGh_name()%></p>--%>
                 <br>
-                <p>기준 인원 ${dt.r_pmin} (최대: ${dt.r_pmax})</p>
-                <p><img src="<%=R_image %>" width="650px"></p>
+                <p>기준 인원 ${getDetail.get(0).r_pmin} (최대: ${getDetail.get(0).r_pmax})</p>
+            <c:forEach items="${getDetail}" var="dt" varStatus="status">
+                <p><img src="${pageContext.request.contextPath}/resources/rooms_image/${dt.i_name}" width="650px"></p>
+            </c:forEach>
+        </c:if>
                 <div class="room_date">
                       <form>
                           <center>
@@ -50,10 +54,9 @@
                     <br>
                     <p style="text-align: right;">
                         가격<br>
-                        ${dt.r_fee} 원
+                        ${getDetail.get(0).r_fee} 원
                     </p>
                 </div>
-        </c:forEach>
                 <div class="room_spec">
                     <p>기본 정보</p>
                     <ul>
@@ -81,7 +84,7 @@
                     <p>취소 규정</p>
                     <ul>
                         <li>취소 및 환불 불가</li>
-                        <li>상세한 취소 규정은 <a href="/board/room_cancel" style="text-decoration: none">자세히보기</a>에서 확인하실 수 있습니다. </li>
+                        <li>상세한 취소 규정은 <a href="room_cancel" style="text-decoration: none">자세히보기</a>에서 확인하실 수 있습니다. </li>
                     </ul>
                     <input type="button" value="예약하기" class="room_spec" onclick="location.href='/user/booking_confirm'">
                 </div>

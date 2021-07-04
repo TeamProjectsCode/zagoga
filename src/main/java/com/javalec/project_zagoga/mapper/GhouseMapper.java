@@ -17,22 +17,21 @@ public interface GhouseMapper {
 
 //	@SelectProvider("SELECT * FROM GHOUSE")
 //	public List<Board> getList();
-	@Select(GhouseSQL.GET_ALL_LIST)
-	List<Ghouse> getList();
+	@SelectProvider(type = GhouseSQL.class, method = "getList")
+	List<GhouseRoom> getList();
 
 	//mypage_ghouse_detail
 	@SelectProvider(type = GhouseSQL.class, method = "roomAndGhouse")
 	List<GhouseRoom> roomAndGhouse(int gh_no);
 
 	//mypage_room_detail
-	@SelectProvider(type = GhouseSQL.class, method = "ghouseRoomImages")
-	List<GhouseRoomImages> ghouseRoomImages(int gh_no, int r_no);
+	@SelectProvider(type = GhouseSQL.class, method = "ghouseDetail")
+	List<GhouseRoomImages> ghouseDetail(int gh_no, int r_no);
 
 //	@Insert("INSERT INTO GHOUSE(GH_NAME, GH_ADDR1, GH_ADDR2, GH_DETAIL, GH_HNO) VALUES(#{gh_name}, #{gh_addr1}, #{gh_addr2}, #{gh_detail}, #{gh_hno})")
 //	public void insert(@Param("gh_name")String gh_name, @Param("gh_addr1")String gh_addr1, @Param("gh_addr2")String gh_addr2, @Param("gh_detail")String gh_detail, @Param("gh_hno")String gh_hno);
 	@InsertProvider(type = GhouseSQL.class, method = "insert")
 	int insert(@Param("ghouse")Ghouse ghouse);
-
 
 	@UpdateProvider(type = GhouseSQL.class, method = "update")
 	int update(@Param("ghouse")Ghouse ghouse);
@@ -41,7 +40,7 @@ public interface GhouseMapper {
 //	@Delete("DELETE FROM GHOUSE WHERE GH_NO = #{GH_NO}")
 //	public void delete(@Param("GH_NO")int GH_NO);
 	@DeleteProvider(type = GhouseSQL.class, method = "delete")
-	int delete(int gh_no, int gh_hno);
+	void delete(int gh_no, int gh_hno);
 
 
 //	@Select("SELECT * FROM GHOUSE WHERE GH_NO = #{GH_NO}")

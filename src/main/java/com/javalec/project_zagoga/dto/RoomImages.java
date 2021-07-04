@@ -7,15 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class GhouseRoom {
-    private int gh_no;
-    private String gh_name;
-    private String gh_image;
-    private String gh_addr1;
-    private String gh_addr2;
-    private String gh_detail;
-    private int gh_hno;
-
+public class RoomImages {
     private int r_no;
     private String r_name;
     private int r_pmin;
@@ -24,6 +16,8 @@ public class GhouseRoom {
     private String r_detail;
     private int r_ghno;
 
-
-
+    private int i_no;
+    private String i_name;
+    private String i_path;
+    private int i_rno;
 }

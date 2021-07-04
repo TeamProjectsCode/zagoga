@@ -23,11 +23,11 @@ public class GhouseRoomImages {
     private int r_pmin;
     private int r_pmax;
     private int r_fee;
-    private String r_deatil;
+    private String r_detail;
     private int r_ghno;
 
     private int i_no;
-    private List<String> i_name;
+    private List i_name;
     private String i_path;
     private int i_rno;
 

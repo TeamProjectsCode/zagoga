@@ -1,7 +1,9 @@
 package com.javalec.project_zagoga.controller;
 
-import com.javalec.project_zagoga.dto.GhouseRoomImages;
+
+import com.javalec.project_zagoga.dto.Images;
 import com.javalec.project_zagoga.dto.Room;
+import com.javalec.project_zagoga.dto.RoomImages;
 import com.javalec.project_zagoga.services.RoomService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -20,193 +23,112 @@ public class RoomController {
     public RoomController(RoomService roomService){
         this.roomService = roomService;
     }
-//    @GetMapping("/detail")
-//    public String getDetail(Model model ,Room room){
-//        Room r = roomService.getDetail(room);
-//        List<Room> show = this.roomService.getDetail(room);
-//        model.addAttribute("detail", show);
-//        return "main";
-//    }
 
-//  ghousedetail에서 room리스트
-//    @GetMapping("/list/{r_ghno}")
-//    public String getGhouseRoom(@PathVariable("r_ghno") int r_ghno){
-//        Room room = this.roomService.list(r_ghno);
-//        return "/room/gHouse_detail";
-//    }
+    //20210704 02:58 확인 (체크인&아웃 가져와야함..) r_no 4번으로 테스트
+    @RequestMapping(value = "/getDetail/{r_no}", method = RequestMethod.GET)
+    public String getDetail(@PathVariable("r_no") int r_no, Model model) {
 
-    @GetMapping("/getDetail/{r_no}")
-    public String getDetail(@PathVariable("r_no") int r_no, Model model){
-        Room show = this.roomService.getDetail(r_no);
+        try {
+            List<RoomImages> roomImages = this.roomService.getDetail(r_no);
+            if (roomImages.size()!=0){
+                model.addAttribute("getDetail", roomImages);
+                System.out.println(roomImages.toString());
+            }else {
+                System.out.println("데이터가 없음");
+                return "main";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 //        roomService.getDetail(r_no);
-        System.out.println(show.toString());
-        model.addAttribute("getDetail", show);
-        System.out.println("getDetail");
+
         return "/room/room_detail";
     }
-//    @GetMapping("/insert/{R_NAME},{R_PMIN},{R_PMAX},{R_FEE},{R_DETAIL},{R_GHNO}")
-//    public String insert(@PathVariable("R_NAME")String R_NAME, @PathVariable("R_PMIN")int R_PMIN, @PathVariable("R_PMIN")int R_PMAX, @PathVariable("R_FEE")int R_FEE, @PathVariable("R_DEATIL")String R_DETAIL, @PathVariable("R_GHNO")int R_GHNO){
-//        this.roomService.insert(R_NAME, R_PMIN, R_PMAX, R_FEE, R_DETAIL, R_GHNO);
-//        return "main";
-//    }
-    @PostMapping("/insert")
-    public String insert(Room room){
-        roomService.insert(room);
-        return "main";
-    }
 
-//    @RequestMapping(value = "/room_write")
-//    public String room_write(MultipartHttpServletRequest mtfRequest, List<GhouseRoomImages> ghouseRoomImages) {
-//        List<MultipartFile> fileList = mtfRequest.getFiles("i_name");
-//        String src = mtfRequest.getParameter("src");
-//        System.out.println("src value : " + src);
-//        String path = "C:\\Users\\yeon\\IdeaProjects\\project_zagoga\\src\\main\\resources\\static\\rooms_image\\";
-//        String Path = "/resources/rooms_image";
-//
-//        for (MultipartFile mf : fileList) {
-//            String originFileName = mf.getOriginalFilename(); // 원본 파일 명
-//            long fileSize = mf.getSize(); // 파일 사이즈
-//
-//            System.out.println("originFileName : " + originFileName);
-//            System.out.println("fileSize : " + fileSize);
-//            String filePath = "/" + originFileName;
-////            String safeFile = path + System.currentTimeMillis() + originFileName;     // path + time + filename
-//            String safeFile = path + filePath;
-//            try {
-//                mf.transferTo(new File(safeFile));
-//            } catch (IllegalStateException e) {
-//                e.printStackTrace();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        System.out.println(fileList.toString());
-//        roomService.imagesInsert((GhouseRoomImages) ghouseRoomImages);
-//
-//        return "main";
-//    }
+    //룸작성페이지 화면!!
     @GetMapping("/write")
     public String write(){
         return "/room/room_write";
     }
 
-//    @RequestMapping(value = "/room_write")
-//    public String room_write(MultipartHttpServletRequest mtfRequest, List<GhouseRoomImages> ghouseRoomImages) {
-//        @RequestParam(value = "i_name", required = false) List<MultipartFile> i_name;
-//        List<MultipartFile> fileList = mtfRequest.getFiles("i_name");
-//        String src = mtfRequest.getParameter("src");
-//        System.out.println("src value : " + src);
-//        String path = "C:\\Users\\yeon\\IdeaProjects\\project_zagoga\\src\\main\\resources\\static\\rooms_image\\";
-//        String Path = "/resources/rooms_image";
-//        System.out.println(ghouseRoomImages.toString());
-//        System.out.println(fileList.toString());
-//
-//        for (MultipartFile mf : fileList) {
-//            String originFileName = mf.getOriginalFilename(); // 원본 파일 명
-//            long fileSize = mf.getSize(); // 파일 사이즈
-//
-//            System.out.println("originFileName : " + originFileName);
-//            System.out.println("fileSize : " + fileSize);
-//            String filePath = "/" + originFileName;
-////            String safeFile = path + System.currentTimeMillis() + originFileName;     // path + time + filename
-//            String safeFile = path + filePath;
-//            try {
-//                mf.transferTo(new File(safeFile));
-//            } catch (IllegalStateException e) {
-//                e.printStackTrace();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        System.out.println(fileList.toString());
-//        fileList.add(ghouseRoomImages);
-//        return "main";
-//    }
-
-//    // 이미지 여러장 해결중
-//    @PostMapping("/room_write")
-//    public String room_write(GhouseRoomImages ghouseRoomImages, @RequestParam("files") List<MultipartFile> i_name) throws  IOException{
-//        String path = "C:\\Users\\yeon\\IdeaProjects\\project_zagoga\\src\\main\\resources\\static\\rooms_image\\";
-//        System.out.println(ghouseRoomImages.toString());
-//        List<String> file = null;
-//        int j = i_name.size();
-//        System.out.println(j);
-//        for (int i=0; i<=j; i++){
-//            String originFileName = i_name.get(i).getOriginalFilename();
-////            ghouseRoomImages.setI_name(i, System.currentTimeMillis() + i_name.get(i).getOriginalFilename());
-//            file.add(i_name.get(i).getOriginalFilename());
-//            Long fileSize = i_name.get(i).getSize();
-//            System.out.println("originFileName : " + originFileName);
-//            System.out.println("fileSize : " + fileSize);
-////            ghouseRoomImages.setI_name(originFileName);
-//            String safeFile = path + System.currentTimeMillis() + originFileName;
-////            String safeDB = System.currentTimeMillis()+originFileName;
-//            String viewPath = "/resources/rooms_image/";
-//            try {
-//                i_name.get(i).transferTo(new File(safeFile));
-//
-//            } catch (IllegalStateException e) {
-//                e.printStackTrace();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        ghouseRoomImages.setI_name(file);
-//        roomService.imageInsert(ghouseRoomImages);
-////        ghouseRoomImages.setI_name();
-//        System.out.println(ghouseRoomImages.toString());
-//        String Path = "/resources/rooms_image/";
-//        return "main";
-//    }
-
+    //정상작동!! 210703 21:52
     @PostMapping("/room_write")
-    public String room_wrtie(@RequestParam("files") List<MultipartFile> files, GhouseRoomImages ghouseRoomImages){
-        String path = "C:\\Users\\yeon\\IdeaProjects\\project_zagoga\\src\\main\\resources\\static\\rooms_image\\";
-        List<String> safeDB = null;
+    public String room_write(Room room){
+        room.setR_ghno(2);
+        System.out.println(room.toString());
+        roomService.insertRoom(room);
+        return "/room/room_images";
+    }
+    
+    //이미지 업로드 화면!!
+    @GetMapping("/images")
+    public String image(){return "/room/room_images";}
+    
+    //이미지업로드 컨트롤러 20210703 정상작동
+    @PostMapping("/room_images")
+    public String room_images(Images images, @RequestParam("files") List<MultipartFile> files) throws IOException {
+        Room room = new Room();
+        room.setR_no(4);    // 룸 넘버 가져오는 세션 연결해야함
+//        String Path = "/resources/rooms_image/";
+
+        List<String> safeDB = new ArrayList<>();
+        List<Integer> r_no = new ArrayList<>();
+
         try {
-            for (int i=0;i<files.size(); i++){
-
-
-                String originFileName = files.get(i).getOriginalFilename();
-
-                String safeFile = path + System.currentTimeMillis() + originFileName;
-                safeDB.add(i, System.currentTimeMillis()+"_"+originFileName);
-                String viewPath = "/resources/rooms_image/";
-                System.out.println("files : " + files);
-                System.out.println("safeDB: " + safeDB);
-                files.get(i).transferTo(new File(safeFile));
-
+            for (int i=0; i<files.toArray().length; i++){
+                safeDB.add(System.currentTimeMillis() + "_" + files.get(i).getOriginalFilename());
+                r_no.add(room.getR_no());
+//                System.out.println(safeDB.get(i));
+//                images.setI_name(System.currentTimeMillis() + "_" + files.get(i).getOriginalFilename());
+                files.get(i).transferTo(new File("C:\\Users\\yeon\\IdeaProjects\\project_zagoga\\src\\main\\resources\\static\\rooms_image\\"+System.currentTimeMillis()+"_"+files.get(i).getOriginalFilename()));
+//                System.out.println("in for "+i+" : "+images.toString());
             }
-        } catch (IOException e) {
+        } catch (IllegalStateException e){
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
-        ghouseRoomImages.setI_name(safeDB);
-//        roomService.imageInsert(ghouseRoomImages);
-        System.out.println(ghouseRoomImages.toString());
+
+        System.out.println("safeDB.toString : " + safeDB.toString());
+        System.out.println("images.toString : " + images.toString());
+        try {
+            for (int i=0; i<safeDB.size(); i++){
+                images.setI_name(safeDB.get(i));
+                images.setI_rno(r_no.get(i));
+                images.setI_path("C:\\Users\\yeon\\IdeaProjects\\project_zagoga\\src\\main\\resources\\static\\rooms_image\\");
+                roomService.imageInsert(images);
+            }
+        } catch (IllegalStateException e){
+            e.printStackTrace();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+
         return "main";
     }
 
+    //0704 03:37 확인
+    @RequestMapping(value = "/mypageRoomInfo/{r_no}", method = RequestMethod.GET)
+    public String mypageRoomInfo(@PathVariable("r_no")int r_no, Model model){
+        List<RoomImages> roomImages = roomService.mypageRoomInfo(r_no);
+        System.out.println(roomImages.toString());
+        System.out.println(roomImages.get(0).toString());
+        model.addAttribute("room", roomImages);
+        return "/mypage/mypage_room_info";
+    }
 
-
-
-////    @GetMapping("/room_write")
-//    @RequestMapping(value = "/room_write")
-//    public String room_write(){
-//        return "/room/room_write";
-//    }
-
+    //컨트롤러 form 연결은 함,, update할때 사진여러장 선택해제 어떻게할지 생각
     @PostMapping("/update")
     public String update(Room room){
         roomService.update(room);
         return "main";
     }
 
-    @PostMapping("/delete")
-    public String delete(int r_no, int r_ghno){
+    //확인
+    @RequestMapping("/delete/{r_no},{r_ghno}")    // 9, 3 테스트
+    public String delete(@PathVariable("r_no") int r_no, @PathVariable("r_ghno") int r_ghno){
         roomService.delete(r_no, r_ghno);
         return "main";
-    }
-
-    private class MultipartMultipartHttpServletRequest {
     }
 }

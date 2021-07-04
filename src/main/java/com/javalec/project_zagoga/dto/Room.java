@@ -13,6 +13,6 @@ public class Room {
     private int r_pmin;
     private int r_pmax;
     private int r_fee;
-    private String r_deatil;
+    private String r_detail;
     private int r_ghno;
 }

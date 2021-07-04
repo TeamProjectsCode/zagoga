@@ -34,11 +34,11 @@ Timestamp B_in = null, B_out = null;
 	<section>
 		<div class="p-3 mb-2 bg-light text-dark">
 			<div class="mx-auto" style="width: 650px;">
-				<img src="${pageContext.request.contextPath}/resources/gh_image${gh_image}" width="650px" height="500px" alt="대표사진">
+				<img src="${pageContext.request.contextPath}/resources/gh_image${griList.get(0).gh_image}" width="650px" height="500px" alt="대표사진">
 <%--				<img src="/resources/img/busan.jpg" width="650px" height="500px" alt="대표사진">--%>
 				<p>대표사진</p>
 				<p>
-				<h3>${ghList.get(0).gh_name}</h3>
+				<h3>${griList.get(0).gh_name}</h3>
 				</p>
 				<p class="star_rating">
 					<a href="#" class="on">★</a>
@@ -49,7 +49,7 @@ Timestamp B_in = null, B_out = null;
 				</p>
 				<p>
 					위치
-					${ghList.get(0).gh_addr1} ${ghList.get(0).gh_addr2}</p>
+					${griList.get(0).gh_addr1} ${griList.get(0).gh_addr2}</p>
 				<div class="room_date">
 					<form>
 						<center>
@@ -59,11 +59,9 @@ Timestamp B_in = null, B_out = null;
 					</form>
 				</div>
 				<br>
+				<c:forEach items="${griList}" var="gri" varStatus="status">
 				<div style="width: 650px;">
 					<table style="width: 650px;">
-						<c:forEach items="${griList}" var="gri" varStatus="status">
-
-
 						<tr>
 							<td><a href="room_detail"
 								style="text-decoration-line: none; color: black;">
@@ -86,13 +84,14 @@ Timestamp B_in = null, B_out = null;
 									</p>
 									<p>
 										기타사항
-										${gri.r_deatil}</p>
+										${gri.r_detail}</p>
 							</a></td>
 						</tr>
-						</c:forEach>
+
 					</table>
 					<hr>
 					<div>
+				</c:forEach>
 						<table class="table table-stripped">
 							<tr>
 								<th>평점</th>

@@ -12,7 +12,7 @@
 </head>
 <body>
 	<%@ include file="../header.jsp"%>
-	<form method="post" action="/ghouse/">
+	<form method="post" action="/ghouse/update">
 		<div id="mainbox">
 			<table>
 				<h2>사업 등록 현황</h2>
@@ -44,7 +44,7 @@
 				<tr>
 					<td><input name="r_no" value="${gr.r_no}" readonly></td>
 					<td><input type="number" name="r_pmax" placeholder="${gr.r_pmax} 인실"></td>
-					<td><button onclick="/ghouse/detail/${gr.gh_no},${gr.r_no}">상세 보기</button></td>
+					<td><button onclick="/room/getDetail/${gr.r_no}">상세 보기</button></td>
 				</tr>
 				</c:forEach>
 			</table>
