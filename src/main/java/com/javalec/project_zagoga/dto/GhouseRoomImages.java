@@ -4,10 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Ghouse {
+public class GhouseRoomImages {
     private int gh_no;
     private String gh_name;
     private String gh_image;
@@ -16,14 +18,19 @@ public class Ghouse {
     private String gh_detail;
     private int gh_hno;
 
+    private int r_no;
+    private String r_name;
+    private int r_pmin;
+    private int r_pmax;
+    private int r_fee;
+    private String r_detail;
+    private int r_ghno;
+
+    private int i_no;
+    private List i_name;
+    private String i_path;
+    private int i_rno;
 
 
-
-//    @Override
-//    public String toString(){
-//        return "board [no=" + no + ", gh_name=" + gh_name + ", gh_image=" + gh_image +
-//                ", gh_addr1=" + gh_addr1 + ", gh_addr2=" + gh_addr2 +
-//                ", gh_detail=" + gh_detail + ", gh_hno=" + gh_hno + "]\n";
-//    }
 
 }

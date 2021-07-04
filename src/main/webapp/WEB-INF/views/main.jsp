@@ -70,7 +70,7 @@
 			</c:when> 
 			<c:when test="${!empty session}">
                 <ul>
-                    <li><a href="login">LOGOUT</a></li>
+                    <li><a href="logout">LOGOUT</a></li>
                 </ul>
 			</c:when> 
 		</c:choose> 

@@ -235,6 +235,11 @@ public class HomeController {
 	public String naver_map() {
 		return "room/naver_map";
 	}
+	 @RequestMapping("/pwCheck")
+	    public String pwCheck(HttpServletRequest request , Model model){
+			return "mypage/mypage_user";
+	    }
+	 
 	//	@RequestMapping("mypage_booking")
 //	public String mypage_booking() {
 //		return "mypage_booking";

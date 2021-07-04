@@ -33,16 +33,15 @@
 			</div>
 			<!-- 세션에 따라 버튼 변경 추가 필요 -->
 			<div class="dropdown">
-				<button class="dropbtn" onclick="location.href='/user/mypage_user'"
-					id="mypage_user">마이 페이지</button>
-				<!--           <button class="dropbtn" onclick="check(this.id)" id = "mypage_user">마이 페이지</button> -->
-				<!--  
+				<!-- <button class="dropbtn" onclick="location.href='/user/mypage_user'" id="mypage_user">마이 페이지</button> -->
+				     <button class="dropbtn" onclick="check(this.id)" id = "mypage_user">마이 페이지</button> 
+				<!--
 			호스트용 마이페이지 세션 활성후 추가 예정
          <button class="dropbtn" onclick="location.href='/host/mypage_host'">마이 페이지</button>
           -->
 				<div class="dropdown-content">
-					<a href="/user/mypage_user_info">회원정보 변경</a> <a
-						href="/user/mypage_user_booking">예약 조회</a>
+					<a href="/user/mypage_user_info">회원정보 변경</a> 
+					<a href="/user/mypage_user_booking">예약 조회</a>
 				</div>
 				<!--     세션 생성후 추가 예정
       <div class="dropdown-content">
@@ -62,7 +61,7 @@
 				</c:when>
 				<c:when test="${!empty session }">
 					<div class="dropdown">
-						<button class="dropbtn" onclick="location.href='/login'">logout</button>
+						<button class="dropbtn" onclick="location.href='/logout'">logout</button>
 					</div>
 				</c:when>
 			</c:choose>

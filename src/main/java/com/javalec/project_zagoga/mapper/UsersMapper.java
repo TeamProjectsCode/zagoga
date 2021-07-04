@@ -20,7 +20,7 @@ public interface UsersMapper {
 
     @SelectProvider(type = UserSQL.class, method = "getUserByUNo")
     Users get(@Param("u_no") int u_no);
-
+    
     @Options(useGeneratedKeys = true, keyProperty = "u_no")
     @InsertProvider(type = UserSQL.class, method = "insertUser")
     void insertUser(@Param("user") Users user);
