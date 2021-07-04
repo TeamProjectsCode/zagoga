@@ -14,8 +14,9 @@
 }
 
 
+
 .mainbox {
-	background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+	/*background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);*/
 	border: 3px;
 	margin: 20px;
 	height: 740px;
@@ -25,6 +26,7 @@
 }
 h1 {
 	text-align: center;
+	background: #71a2fc;
 }
 .room{
 	width: 250px;
