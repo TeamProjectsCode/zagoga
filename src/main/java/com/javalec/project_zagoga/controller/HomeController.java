@@ -1,8 +1,9 @@
 package com.javalec.project_zagoga.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
+//import com.javalec.project_zagoga.services.AjaxService;
+import lombok.AllArgsConstructor;
+		import org.springframework.stereotype.Controller;
+		import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -31,11 +32,15 @@ public class HomeController {
 		return "/admin/host_reading";
 	}
 
-	// USER: user 예약 페이지
+	// USER: user 예약확인페이지1
 	@RequestMapping("/user/booking_confirm")
 	public String booking_confirm() {
 		return "/room/booking_confirm";
 	}
+	//USER: user 예약증페이지2
+	@RequestMapping("/user/booking_completion")
+	public String booking_completion() { return "/room/booking_completion"; }
+	//USER: user 예약증페이지2
 
     //■■■ URL 변경
 	// BOARD: 게스트하우스 디테일 페이지 ( 게스트하우스 정보 , 룸 목록 ,게스트 하우스 평점 ,  )
@@ -159,6 +164,17 @@ public class HomeController {
 	public String mypage_user() {
 		return "mypage/mypage_user";
 	}
+	//user: 유저 마이페이지 예약히스토리
+	@RequestMapping("user/mypage_user_booking_list")
+	public String mypage_user_booking_list() {
+		return "mypage/mypage_user_booking_list";
+	}
+	//user: 유저 마이페이지 히스토리에서 예약상세
+	@RequestMapping("user/mypage_user_booking_detail")
+	public String mypage_user_booking_detail() {
+		return "mypage/mypage_user_booking_detail";
+	}
+
 	//board : 게스트 하우스 정보 디테일
 	@RequestMapping("board/gHouse_detail")
 	public String gHouse_detail() {
@@ -213,6 +229,11 @@ public class HomeController {
 	@RequestMapping("admin/user_list")
 	public String user_list() {
 		return "admin/user_list";
+	}
+	//지도api..
+	@RequestMapping("/api/naver_map")
+	public String naver_map() {
+		return "room/naver_map";
 	}
 	//	@RequestMapping("mypage_booking")
 //	public String mypage_booking() {
