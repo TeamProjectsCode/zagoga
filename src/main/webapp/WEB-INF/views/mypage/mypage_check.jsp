@@ -8,9 +8,9 @@
 </head>
 <body>
 <center>
-	<form>
+	<form action = "/">
 	<h4>비밀번호를 입력해주세요</h4>
- 		<input type = "password"><br>
+ 		<input type = "password" name = "pw" id = "pw"><br>
  		<button type = "submit">완료</button>
 	</form>
 </center>

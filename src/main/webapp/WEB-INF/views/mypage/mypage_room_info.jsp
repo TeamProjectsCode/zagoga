@@ -43,7 +43,7 @@
 				</tr>
 			</table>
 				<div id="button">
-					<button type="submit">수정완료</button>
+					<button type ="submit" onclick = "write_check()">수정완료</button>
 					<button>회원탈퇴</button>
 					<button onclick="history.go(-1)">취소</button>
 				</div>
