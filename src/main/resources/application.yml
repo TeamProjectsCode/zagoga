@@ -19,5 +19,17 @@ spring:
       suffix: .jsp
     static-path-pattern: /resources/**
 
+  mail:
+    host: smtp.gmail.com
+    port: 465
+    username: ghdi95@gmail.com
+    password: jonggu1247~
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+            required: true
+          auth: true
 
 

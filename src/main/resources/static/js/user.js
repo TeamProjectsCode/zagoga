@@ -10,7 +10,6 @@ function check() {
     var email = $("#emailID").val();
     var pw = $("#pw").val();
     var pwCheck = $("#pwCheck").val();
-    var addr = $("#sample6_address").val();
     var middle_phone = $("#phone1").val();
     var last_phone = $("#phone2").val();
     console.log(gender);
@@ -121,6 +120,33 @@ function sample6_execDaumPostcode() {
         }).open();
     }
     
+$(function(){//닉네임 중복체크
+    $('#nick').blur(function(){
+        var u_nick = $("#nick").val();
+        console.log(u_nick);
+        $.ajax({
+            type: "POST",
+            url:"/register/nickCheck.do",
+            data:{u_nick :u_nick},
+            success:function(data){
+                console.log(data);
+                if($.trim(data)=="Y"){
+                    $('#msg').text("사용가능한 닉네임입니다.");
+                    $('#msg').css("color","blue");
+
+                }else if($.trim(data)=="N"){//닉네임값 DB에 존재할때,
+                    $('#msg').text("사용불가능한 닉네임입니다.");
+                    $('#msg').css("color","red");
+                    $('#nick').focus();
+                }
+            },
+            error:function (e){
+                console.log(e);
+                alert("에러발생");
+            }
+        });
+    });
+});
     
 	
 //팝업		

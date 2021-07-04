@@ -41,5 +41,9 @@ public class UsersService {
         return  usersMapper.delete(user.getU_no());
 
     }
+    public int nickCheck(String u_nick){
+        // 닉네임 중복체크
+        return usersMapper.nickCheck(u_nick);
+    }
 
 }

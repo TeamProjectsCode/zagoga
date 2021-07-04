@@ -35,4 +35,11 @@ public interface UsersMapper {
 
     @DeleteProvider(type = UserSQL.class, method = "deleteUser")
     int delete(int u_no);
+
+    @SelectProvider(type = UserSQL.class, method = "nickCheck")
+    int nickCheck(String u_nick);
+    // 닉네임 중복체크
+    @SelectProvider(type = UserSQL.class, method = "check_mail")
+    int check_mail(String u_mail);
+    //이메일 중복체크
 }
