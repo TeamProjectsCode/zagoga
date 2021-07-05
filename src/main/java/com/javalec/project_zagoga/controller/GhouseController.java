@@ -78,7 +78,7 @@ public class GhouseController {
 
 	//gHouse_detail view 20210704 00:53 정상작동
 	@RequestMapping(value = "/detail/{gh_no},{r_no}", method = RequestMethod.GET)
-	public String ghouseDetail(@PathVariable("gh_no")int gh_no, @PathVariable("r_no")int r_no, Model model){
+	public String ghouseDetail(@PathVariable("gh_no")int gh_no, @PathVariable("r_no")int r_no, Model model) {
 		List<GhouseRoomImages> ghouseRoomImages=this.ghouseService.ghouseDetail(gh_no, r_no);
 		model.addAttribute("griList", ghouseRoomImages);
 		System.out.println("ghouseRoomImages.get(0).toString() : "+ghouseRoomImages.get(0).toString());
@@ -111,34 +111,38 @@ public class GhouseController {
 
 
 
-
+	@RequestMapping("/mypageRoomInfo2")
+	public String mypageRoomInfo2(){
+		return "/mypage/mypage_room_info";
+	}
 	@RequestMapping("/mypage_host")		// host
 	public String mypage_host() {
 		return "/mypage/mypage_host";
 	}
 	@RequestMapping("/mypage_host_customerList")	// 접근권한
 	public String mypage_host_customerList() {
-		return "/host/mypage_host_customerList";
+		return "/mypage/mypage_host_customerList";
 	}
 	@RequestMapping("/mypage_host_info")		//접근권한
 	public String mypage_host_info() {
-		return "/host/mypage_host_info";
+		return "/mypage/mypage_host_info";
 	}
 	@RequestMapping("/mypage_house_info")	//접근권한
 	public String mypage_house_info() {
-		return "/host/mypage_house_info";
+		return "/mypage/mypage_house_info";
 	}
 	@RequestMapping("/mypage_room_info")		//접근권한
 	public String mypage_room_info() {
-		return "/host/mypage_room_info";
+		return "/mypage/mypage_room_info";
 	}
 	@RequestMapping("/mypage_user")		//접근권한
 	public String mypage_user() {
-		return "/host/mypage_user";
+		return "/mypage/mypage_user";
 	}
 	@RequestMapping("/mypage_user_booking")		//접근권한
 	public String mypage_user_booking() {
-		return "/host/mypage_user_booking";
+
+		return "/mypage/mypage_user_booking";
 	}
 	@RequestMapping("/room_cancel")		// 안내
 	public String room_cancel() {

@@ -48,8 +48,7 @@
                      </div>
                 <div class="room">
                     <p style="font-size: smaller;">
-                        체크인: 15:00~<br>
-                        체크아웃 : ~ 12:00
+                        ${getDetail.get(0).r_detail}<br>
                     </p>
                     <br>
                     <p style="text-align: right;">
