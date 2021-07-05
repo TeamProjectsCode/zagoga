@@ -46,4 +46,8 @@ public class UsersService {
         return usersMapper.nickCheck(u_nick);
     }
 
+    public String findID(String name, String jumin){
+
+        return usersMapper.findID(name,jumin);
+    }
 }

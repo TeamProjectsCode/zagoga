@@ -15,4 +15,10 @@ public class HostService {
         // 데이터 수정해서 보내기
         hostMapper.insertHost(host);
     }
+
+    public String findID(String name, String jumin){
+        return hostMapper.findID(name,jumin);
+    }
+
+
 }

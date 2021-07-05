@@ -10,6 +10,15 @@ public class HostSQL {
     public String insertHost(Host host){
         return new SQL().toString();
     }
+
+    public String findID(String name, String jumin){ // 아아디 찾기
+        return new SQL()
+                .SELECT("H_EMAIL")
+                .FROM(TABLE)
+                .WHERE("H_NAME=#{name} AND H_JUMIN=#{jumin}")
+                .toString();
+    }
+    
 }
 
 

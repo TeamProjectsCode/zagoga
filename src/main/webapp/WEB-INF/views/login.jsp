@@ -39,7 +39,7 @@
                 <tr></tr>
                 <tr><td colspan="2"><input class="inputButton" type="submit" value="로그인"></td></tr>
                 <tr>
-                    <td class="inputFinder"><a href="#">아이디/비밀번호 찾기</a></td>
+                    <td class="inputFinder"><a href="findID">아이디</a><a href="findPW">/비밀번호 찾기</a></td>
                     <td class="inputRegister"><a href="javascript:checkPopup()">회원가입</a></td>
                 </tr>
         </table>
