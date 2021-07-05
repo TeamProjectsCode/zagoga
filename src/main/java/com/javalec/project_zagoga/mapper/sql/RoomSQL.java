@@ -42,12 +42,14 @@ public class RoomSQL {
                 .toString();
     }
 
+
     public String getDetail(int r_no){
         return new SQL()
                 .SELECT("*")
                 .FROM(TABLE,Images)
                 .WHERE("R_NO = #{r_no}")
                 .WHERE("I_RNO = #{r_no}")
+                .ORDER_BY("I_NO DESC")
                 .toString();
     }
 

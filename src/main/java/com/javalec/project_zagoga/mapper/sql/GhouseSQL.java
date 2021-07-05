@@ -10,10 +10,12 @@ public class GhouseSQL {
     private static final String Images="IMAGES";
     public static final String GET_ALL_LIST="select * from " + TABLE;
 
+    //select GH_NO, GH_NAME, GH_IMAGE, MIN(R_FEE) from GHOUSE,ROOMS group by GH_NO;
     public String getList(GhouseRoom ghouseRoom){
         return new SQL()
-                .SELECT("GH_NO, GH_NAME, GH_IMAGE, R_FEE")
+                .SELECT("GH_NO, GH_NAME, GH_IMAGE, MIN(R_FEE)'R_FEE'")
                 .FROM(TABLE,Rooms)
+                .GROUP_BY("GH_NO")
                 .toString();
     }
 
