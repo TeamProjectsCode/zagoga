@@ -13,7 +13,7 @@ import java.util.Random;
 public class MailService {
 
     private JavaMailSender mailSender;
-    private static final String FROM_ADDRESS = "이메일입력부분";
+    private static final String FROM_ADDRESS = "leni.s.googol@gmail.com";
 
     private final UsersMapper mapper;
 
