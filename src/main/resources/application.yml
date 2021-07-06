@@ -13,28 +13,10 @@ spring:
       - db
       - oauth
       - images
-
+      - mail
 
   mvc:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
     static-path-pattern: /resources/**
-
-#custom:
-#  path:
-#    upload-images: 'c://uploadImages/'
-  mail:
-    host: smtp.gmail.com
-    port: 465
-    username: 아이디
-    password: 비밀번호
-    properties:
-      mail:
-        smtp:
-          ssl:
-            enable: true
-            required: true
-          auth: true
-
-
