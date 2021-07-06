@@ -42,4 +42,7 @@ public interface UsersMapper {
     @SelectProvider(type = UserSQL.class, method = "check_mail")
     int check_mail(String u_mail);
     //이메일 중복체크
+
+    @SelectProvider(type = UserSQL.class, method = "findID")
+    String findID(String name, String jumin);
 }

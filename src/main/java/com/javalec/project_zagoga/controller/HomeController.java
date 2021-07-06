@@ -1,9 +1,12 @@
 package com.javalec.project_zagoga.controller;
 
 //import com.javalec.project_zagoga.services.AjaxService;
+import com.javalec.project_zagoga.services.HostService;
+import com.javalec.project_zagoga.services.UsersService;
 import lombok.AllArgsConstructor;
 		import org.springframework.stereotype.Controller;
-		import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * Handles requests for the application home page.
  */
+@AllArgsConstructor
 @Controller
 public class HomeController {
 
@@ -244,5 +248,46 @@ public class HomeController {
 //	public String mypage_booking() {
 //		return "mypage_booking";
 //	}
+	@RequestMapping("/findID")
+	public String findID(){
+		return "/findID";
+	}
+	@RequestMapping("/findPW")
+	public String findPW(){
+		return "/findPW";
+	}
+
+	
+	
+	// 어느 컨트롤러에 넣을지 몰라서 일단 homeController에서 작성
+	
+	private final UsersService usersService;
+	private final HostService hostService;
+
+	@PostMapping("/showID")
+	public String showID(HttpServletRequest request, Model model){
+		String type = request.getParameter("type");
+		String name = request.getParameter("name");
+		String jumin = request.getParameter("jumin");
+		String mail = ""; //return 할 메일
+
+		if (type.equals("USER")){ // 타입 비교해서 같은지 비교
+			mail = usersService.findID(name, jumin);
+
+		}else if(type.equals("HOST")){
+			mail = hostService.findID(name,jumin);
+		}
+
+		model.addAttribute("name",name);
+		model.addAttribute("mail",mail);
+		return "/showID";
+	}
+
+	@PostMapping("/showPW")
+	public String showPW(){
+
+		return "/showPW";
+	}
+
 }
 

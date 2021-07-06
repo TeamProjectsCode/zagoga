@@ -98,5 +98,11 @@ public class UserSQL {
                 .WHERE("U_MAIL=#{U_MAIL}")
                 .toString();
     }
-
+    public String findID(String name,String jumin){
+        return new SQL()
+                .SELECT ("U_MAIL")
+                .FROM(TABLE)
+                .WHERE("U_NAME=#{name} AND U_JUMIN=#{jumin}")
+                .toString();
+    }
 }

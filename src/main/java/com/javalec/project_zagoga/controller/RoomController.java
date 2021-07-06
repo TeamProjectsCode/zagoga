@@ -68,7 +68,7 @@ public class RoomController {
     @PostMapping("/room_images")
     public String room_images(Images images, @RequestParam("files") List<MultipartFile> files) throws IOException {
         Room room = new Room();
-        room.setR_no(4);    // 룸 넘버 가져오는 세션 연결해야함
+        room.setR_no(5);    // 룸 넘버 가져오는 세션 연결해야함
 //        String Path = "/resources/rooms_image/";
 
         List<String> safeDB = new ArrayList<>();
@@ -76,11 +76,12 @@ public class RoomController {
 
         try {
             for (int i=0; i<files.toArray().length; i++){
-                safeDB.add(System.currentTimeMillis() + "_" + files.get(i).getOriginalFilename());
+                String imageName = System.currentTimeMillis() + "_" + files.get(i).getOriginalFilename();
+                safeDB.add(imageName);
                 r_no.add(room.getR_no());
 //                System.out.println(safeDB.get(i));
 //                images.setI_name(System.currentTimeMillis() + "_" + files.get(i).getOriginalFilename());
-                files.get(i).transferTo(new File("C:\\Users\\yeon\\IdeaProjects\\project_zagoga\\src\\main\\resources\\static\\rooms_image\\"+System.currentTimeMillis()+"_"+files.get(i).getOriginalFilename()));
+                files.get(i).transferTo(new File("C:\\Users\\yeon\\IdeaProjects\\project_zagoga\\src\\main\\resources\\static\\rooms_image\\" + imageName));
 //                System.out.println("in for "+i+" : "+images.toString());
             }
         } catch (IllegalStateException e){

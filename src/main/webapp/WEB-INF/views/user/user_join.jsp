@@ -62,11 +62,11 @@
 					if(data == true){
 						alert('인증완료');
 						document.getElementById('certificationYN').value = "true";
-						clientEmail.onchange = function(){
-							document.getElementById('certificationYN').value = "false";
-						}
+						console.log($('#certificationYN').val());
+						document.getElementById('emailID').readOnly = true;
+						document.getElementById('emailAddr').readOnly = true;
 					}else{
-						alert('재시도');
+						alert('인증을 다시 시도해주세요');
 					}
 				},
 				error: function(e){
@@ -79,7 +79,7 @@
 	<script>
 		//아이디 중복체크
 		$(function(){
-			$('#emailID').blur(function(){
+			$('#emailID').change(function(){
 			var u_mail = document.getElementById('emailID').value + $('#emailAddr option:selected').val();
 
 			console.log(u_mail);
@@ -91,7 +91,10 @@
 					},
 					success:function(data){	//data : checkSignup에서 넘겨준 결과값
 						if($.trim(data)=="YES"){
-							if($('#emailID').val() + $('#emailAddr option:selected').val() !=''){
+							if($('#emailAddr option:selected').val() =='선택'){
+								$("#mail_check").text("사용 불가능한 아이디입니다.");
+								$("#mail_check").css("color", "red");
+							}else{
 								$("#mail_check").text("사용 가능한 아이디입니다.");
 								$("#mail_check").css("color", "blue");
 							}
@@ -109,8 +112,10 @@
 		});
 
 		$(function(){
+
 			$('#emailAddr').blur(function(){
 				var u_mail = document.getElementById('emailID').value + $('#emailAddr option:selected').val();
+
 
 				console.log(u_mail);
 				$.ajax({
@@ -124,12 +129,20 @@
 							if($('#emailID').val() + $('#emailAddr option:selected').val() !=''){
 								$("#mail_check").text("사용 가능한 아이디입니다.");
 								$("#mail_check").css("color", "blue");
+								if($('#certificationYN').val() == "true"){
+									document.getElementById('certificationYN').value = "false";
+									console.log($('#certificationYN').val());
+								}
 							}
 						}else{
 							if($('#emailID').val()+$('#emailAddr option:selected').val() !=''){
 								$("#mail_check").text("사용중인 아이디입니다.");
 								$("#mail_check").css("color", "red");
 								$('#emailText').focus();
+								if($('#certificationYN').val() == "true"){
+									document.getElementById('certificationYN').value = "false";
+									console.log($('#certificationYN').val());
+								}
 							}
 						}
 					}
@@ -186,7 +199,7 @@
 					<td>
 						<input type="text" id="certificationNumber">&nbsp;&nbsp;
 						<input type="button" onclick="emailCertification()" value="인증하기">
-						<input type="hidden" id="certificationYN" value="false">
+						<input type="hidden" name="certificationYN" id="certificationYN" value="false">
 					</td>
 				</tr>
 				<tr>
