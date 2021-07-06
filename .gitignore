@@ -56,3 +56,4 @@ out/
 ### Own configure ###
 src/main/resources/application-db.yml
 src/main/resources/application-oauth.yml
+src/main/resources/application-mail.yml
