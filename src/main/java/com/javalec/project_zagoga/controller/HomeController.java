@@ -7,6 +7,11 @@ import lombok.AllArgsConstructor;
 		import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import com.javalec.project_zagoga.services.AjaxService;
+import lombok.AllArgsConstructor;
+		import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,7 +20,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Handles requests for the application home page.
@@ -243,7 +247,27 @@ public class HomeController {
 	    public String pwCheck(HttpServletRequest request , Model model){
 			return "mypage/mypage_user";
 	    }
-	 
+//nick ajax ,,
+	private final AjaxService service;
+	@PostMapping("/ajax/info")
+	@ResponseBody
+	public int user_modify(HttpServletRequest request, Model model ){
+//		String no = request.getParameter("no");
+		String nick=request.getParameter("nick");
+ 		int num =0;
+//		System.out.print("@@### no"+no);
+		System.out.print("@@### nick"+nick);
+
+		int result =  service.infoService(nick);
+		System.out.print("@@### result"+result);
+//		if(result == 1){
+//				num = 1;
+//		}else {
+//			 num = 0;
+//		}
+
+		return result;
+	}
 	//	@RequestMapping("mypage_booking")
 //	public String mypage_booking() {
 //		return "mypage_booking";
