@@ -15,4 +15,7 @@ public interface AuthMapper {
     @Options(useGeneratedKeys = true, keyProperty = "authValue.sc_no")
     @InsertProvider(value = SecuritySQL.class, method = "insertAuthValue")
     void insertAuthValue(@Param("authValue") AuthValue authValue);
+
+    @UpdateProvider(value = SecuritySQL.class, method = "updatePW")
+    void updatePW(int sc_no, String encPwd);
 }

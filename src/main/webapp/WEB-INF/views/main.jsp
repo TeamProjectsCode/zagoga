@@ -58,11 +58,11 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1><a href="#">ZAGOGA</a></h1>
+            <h1><a href="/">ZAGOGA</a></h1>
             <div class="nav">
-        <c:set var="session" value="${user }" />
+        <c:set var="session" value="${user}" />}
 		<c:choose> 
-			<c:when test="${empty session }">
+			<c:when test="${empty session}">
                 <ul>
                     <li><a href="login">LOGIN</a></li>
                     <li><a href="javascript:checkPopup()">JOIN</a></li>

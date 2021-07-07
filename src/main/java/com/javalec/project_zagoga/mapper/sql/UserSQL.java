@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.javalec.project_zagoga.dto.Users;
 import com.javalec.project_zagoga.security.AuthValue;
 import com.javalec.project_zagoga.vo.UsersVO;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.jdbc.SQL;
 
 import java.util.HashMap;
@@ -30,6 +31,18 @@ public class UserSQL {
                 .SELECT("*")
                 .FROM(TABLE)
                 .WHERE("SC_NO = #{sc_no}")
+                .toString();
+    }
+
+    public String loadForFindWD(AuthValue authValue, String name, String jumin) {
+        return new SQL()
+                .SELECT("count(*)")
+                .FROM(TABLE)
+                .WHERE("SC_NO = #{authValue.sc_no}")
+                .AND()
+                .WHERE("U_NAME = #{name}")
+                .AND()
+                .WHERE("U_JUMIN = #{jumin}")
                 .toString();
     }
 

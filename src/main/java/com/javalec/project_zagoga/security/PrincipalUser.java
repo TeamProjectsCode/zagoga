@@ -40,17 +40,7 @@ public class PrincipalUser implements UserDetails, OAuth2User {
     }
 
     public Object getAuthInfo(){
-        String role = this.getAuthRole();
-        switch (role){
-            case "USER":
-                return authInfo;
-            case "HOST":
-                return authInfo;
-            case "ADMIN":
-                return authInfo;
-            default:
-                return null;
-        }
+        return authInfo;
     }
 
     //   for OAuth2User
@@ -89,7 +79,7 @@ public class PrincipalUser implements UserDetails, OAuth2User {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<GrantedAuthority> collection = new ArrayList<>();
-        collection.add((GrantedAuthority) () -> authInfo.getAuthValue().getRole());
+        collection.add((GrantedAuthority) () -> "ROLE_"+authInfo.getAuthValue().getRole());
         return collection;
     }
 

@@ -10,7 +10,7 @@ public class AdminSQL {
         return new SQL()
                 .SELECT("*")
                 .FROM(TABLE)
-                .WHERE("SC_NO = #{sc_no}")
+                .WHERE("A_NO = #{sc_no}")
                 .toString();
     }
 }

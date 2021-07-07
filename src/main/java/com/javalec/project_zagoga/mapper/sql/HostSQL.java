@@ -17,6 +17,18 @@ public class HostSQL {
                 .toString();
     }
 
+    public String loadForFindWD(AuthValue authValue, String name, String jumin) {
+        return new SQL()
+                .SELECT("count(*)")
+                .FROM(TABLE)
+                .WHERE("SC_NO = #{authValue.sc_no}")
+                .AND()
+                .WHERE("H_NAME = #{name}")
+                .AND()
+                .WHERE("H_JUMIN = #{jumin}")
+                .toString();
+    }
+
     public String insertHost(AuthValue authValue, Host host){
         return new SQL()
                 .INSERT_INTO(TABLE)

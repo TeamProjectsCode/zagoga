@@ -8,4 +8,6 @@ import lombok.ToString;
 @Getter
 @ToString
 public class AdminVO extends AuthInfo{
+    private int a_no;
+    private String a_mail;
 }

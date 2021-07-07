@@ -26,4 +26,12 @@ public class SecuritySQL {
                 .VALUES("ROLE", "#{authValue.role}")
                 .toString();
     }
+
+    public String updatePW(int sc_no, String encPwd) {
+        return new SQL()
+                .UPDATE(TABLE)
+                .SET("PASSWORD = #{encPwd}")
+                .WHERE("SC_NO = #{sc_no}")
+                .toString();
+    }
 }

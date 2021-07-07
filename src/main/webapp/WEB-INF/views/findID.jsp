@@ -14,10 +14,10 @@
         <div class="imgbox"></div>
         <div class="navbox">
             <div class="dropdown">
-                <button class="dropbtn" onclick="location.href='/findID'">아이디 찾기</button>
+                <button class="dropbtn" onclick="location.href='/login/findID'">아이디 찾기</button>
             </div>
             <div class="dropdown">
-                <button class="dropbtn" onclick="location.href='/findPW'">비밀번호 찾기</button>
+                <button class="dropbtn" onclick="location.href='/login/findPW'">비밀번호 찾기</button>
             </div>
         </div>
     </header>
@@ -31,7 +31,7 @@
         <div class="box">
             <input type="radio" name="radio" id="info" onclick="dispList('0');"><label for="info">등록된 정보를 통한 아이디 찾기</label>
             <div id="infobox" style="display:none">
-                <form name="form" action="/showID" method="post">
+                <form name="form" action="/login/showID" method="post">
                     <table>
                         <tr>
                             <td>타입</td>

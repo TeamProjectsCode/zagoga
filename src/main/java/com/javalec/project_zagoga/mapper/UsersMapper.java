@@ -5,6 +5,7 @@ import com.javalec.project_zagoga.security.AuthValue;
 import com.javalec.project_zagoga.vo.UsersVO;
 import com.javalec.project_zagoga.mapper.sql.UserSQL;
 import org.apache.ibatis.annotations.*;
+import org.springframework.security.core.parameters.P;
 
 import java.util.List;
 
@@ -18,6 +19,9 @@ public interface UsersMapper {
 //    Users loadUserByName(@Param("username") String username);
     @SelectProvider(type = UserSQL.class, method = "loadUserBySecurityNo")
     UsersVO loadUserBySecurityNo(@Param("sc_no") int sc_no);
+
+    @SelectProvider(type = UserSQL.class, method = "loadForFindWD")
+    int loadForFindWD(@Param("authValue") AuthValue authValue, @Param("name") String name, @Param("jumin") String jumin);
 
     @SelectProvider(type = UserSQL.class, method = "loadUserBySNS")
     UsersVO loadUserBySNS(@Param("snsID") String snsID);

@@ -14,10 +14,10 @@
         <div class="imgbox"></div>
         <div class="navbox">
             <div class="dropdown">
-                <button class="dropbtn" onclick="location.href='/findID'">아이디 찾기</button>
+                <button class="dropbtn" onclick="location.href='/login/findID'">아이디 찾기</button>
             </div>
             <div class="dropdown">
-                <button class="dropbtn" onclick="location.href='/findPW'">비밀번호 찾기</button>
+                <button class="dropbtn" onclick="location.href='/login/findPW'">비밀번호 찾기</button>
             </div>
         </div>
     </header>
@@ -34,7 +34,7 @@
         </div>
         <button class="btn" onclick="location.href='/login'">로그인</button>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn" onclick="location.href='/findPW'">비밀번호 찾기</button>
+        <button class="btn" onclick="location.href='/login/findPW'">비밀번호 찾기</button>
     </div>
 <div class="space"></div>
 </body>

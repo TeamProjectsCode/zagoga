@@ -16,6 +16,9 @@ public interface HostMapper {
     @SelectProvider(type = HostSQL.class, method = "loadUserBySecurityNo")
     HostVO loadUserBySecurityNo(@Param("sc_no") int sc_no);
 
+    @SelectProvider(type = HostSQL.class, method = "loadForFindWD")
+    int loadForFindWD(@Param("authValue") AuthValue authValue, @Param("name") String name, @Param("jumin") String jumin);
+
     @InsertProvider(value = HostSQL.class, method = "insertHost")
     void insertHost(@Param("authValue") AuthValue authValue, @Param("host") Host host);
 

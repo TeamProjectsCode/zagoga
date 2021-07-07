@@ -22,7 +22,7 @@ public class ProjectZagogaApplication {
         if(principalUser == null) {
             principalUser = new PrincipalUser();
         }
-//        model.addAttribute("user", principalUser.getUser());
+        model.addAttribute("user", principalUser.getAuthInfo());
         return "main";
     }
 
