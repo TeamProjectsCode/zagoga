@@ -180,8 +180,8 @@
 				<tr>
 					<td>이메일 : </td>
 					<td>
-						<input type="text" id="emailID" name="u_mail" placeholder="이메일" >
-						@ <select id="emailAddr" name="u_mail" onchange="change(this)" >
+						<input type="text" id="emailID" name="username" placeholder="이메일" >
+						@ <select id="emailAddr" name="username" onchange="change(this)" >
 						<option>선택</option>
 						<option value="@naver.com">naver.com</option>
 						<option value="@daum.net">daum.net</option>
@@ -204,7 +204,7 @@
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="password" id="pw"name="u_pwd" >
+					<td><input type="password" id="pw"name="password" >
 				</tr>
 				<tr>
 					<td>비밀번호 확인</td>

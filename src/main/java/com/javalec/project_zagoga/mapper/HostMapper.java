@@ -1,6 +1,8 @@
 package com.javalec.project_zagoga.mapper;
 
 import com.javalec.project_zagoga.dto.Host;
+import com.javalec.project_zagoga.security.AuthValue;
+import com.javalec.project_zagoga.vo.HostVO;
 import com.javalec.project_zagoga.mapper.sql.HostSQL;
 import com.javalec.project_zagoga.mapper.sql.UserSQL;
 import org.apache.ibatis.annotations.InsertProvider;
@@ -11,8 +13,11 @@ import org.apache.ibatis.annotations.SelectProvider;
 @Mapper
 public interface HostMapper {
 
+    @SelectProvider(type = HostSQL.class, method = "loadUserBySecurityNo")
+    HostVO loadUserBySecurityNo(@Param("sc_no") int sc_no);
+
     @InsertProvider(value = HostSQL.class, method = "insertHost")
-    public void insertHost(@Param("host")Host host);
+    void insertHost(@Param("authValue") AuthValue authValue, @Param("host") Host host);
 
     @SelectProvider(type = HostSQL.class, method = "findID")
     String findID(String name, String jumin);

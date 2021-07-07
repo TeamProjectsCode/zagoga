@@ -2,46 +2,10 @@ function blankCheck() {
     var isFillOut = false;
     console.log('here');
 
-    var brand = $("#brand").val();
-    var owner = $("#owner").val();
-    var id = $("#userID").val();
-    var pw = $("#userPW").val();
     var pwCheck = $("#userPWCheck").val();
-    var middle_phone = $("#phone1").val();
-    var last_phone = $("#phone2").val();
-    var emailID = $("#emailID").val();
-    if (brand == "") {
-        alert("상호명을 입력해주세요.");
-        $("#brand").focus();
-    }
-    else if (owner == "") {
-        alert("대표자명을 입력해주세요.");
-        $("#owner").focus();
-    }
-    else if (id == "") {
-        alert("아이디를 입력해주세요!");
-        $("#userID").focus();
-    }
-    else if (pw == "") {
-        alert("비밀번호를 입력해주세요!");
-        $("#userPW").focus();
-    }
-    else if (pwCheck == "") {
-        alert("비밀번호를 다시 확인해주세요");
-        $("#userPWCheck").focus();
-    }
-    else if (pw != pwCheck) {
+    if (pw !== pwCheck) {
         alert("비밀번호가 같지 않습니다.");
         $("#userPW").focus();
-    }else if(middle_phone == ""){
-        alert("전화번호를 입력해주세요");
-        $("#phone1").focus();
-    }else if(last_phone == ""){
-        alert("전화번호를 입력해주세요");
-        $("#phone2").focus();
-    }else if(emailID == ""){
-        alert("이메일을 입력해주세요");
-        $("#emailID").focus();
     }
     else {
         isFillOut = true;
@@ -57,9 +21,9 @@ function checkBusinessNumber() {
     }
     else {
         abile();
-        $(".businessNum")[0].setAttribute("disabled", true);
-        $(".businessNum")[1].setAttribute("disabled", true);
-        $(".businessNum")[2].setAttribute("disabled", true);
+        $(".businessNum")[0].setAttribute("readonly", true);
+        $(".businessNum")[1].setAttribute("readonly", true);
+        $(".businessNum")[2].setAttribute("readonly", true);
         $("#checkBusinessNumberBtn").attr("disabled", true);
     }
 }

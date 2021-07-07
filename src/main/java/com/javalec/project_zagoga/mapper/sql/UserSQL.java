@@ -2,6 +2,8 @@ package com.javalec.project_zagoga.mapper.sql;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.javalec.project_zagoga.dto.Users;
+import com.javalec.project_zagoga.security.AuthValue;
+import com.javalec.project_zagoga.vo.UsersVO;
 import org.apache.ibatis.jdbc.SQL;
 
 import java.util.HashMap;
@@ -15,11 +17,19 @@ public class UserSQL {
 
 //    작성 방법은 아래 페이지 참조
 //    https://mybatis.org/mybatis-3/ko/statement-builders.html
-    public String loadUserByName(String username) {
+//    public String loadUserByName(String username) {
+//        return new SQL()
+//                .SELECT("U_MAIL")
+//                .FROM(TABLE)
+//                .WHERE("U_MAIL = #{username}")
+//                .toString();
+//    }
+
+    public String loadUserBySecurityNo(int sc_no) {
         return new SQL()
                 .SELECT("*")
                 .FROM(TABLE)
-                .WHERE("U_MAIL = #{username}")
+                .WHERE("SC_NO = #{sc_no}")
                 .toString();
     }
 
@@ -43,19 +53,33 @@ public class UserSQL {
                 .toString();
     }
 
-    public String insertUser(Users user) {
-        ObjectMapper objectMapper = new ObjectMapper();
-        HashMap<String, Object> user_map = objectMapper.convertValue(user, HashMap.class);
-        return new SQL() {{
-            INSERT_INTO(TABLE);
-            for(String key: user_map.keySet()){
-                if(key.equals("u_no") || key.equals("u_join") || key.equals("u_role")){ continue; }
-                VALUES(key.toUpperCase(), "#{user."+key+"}");
-            }
-        }}.toString();
+
+    public String insertUser(AuthValue authValue, Users user) {
+        return new SQL()
+                .INSERT_INTO(TABLE)
+                .VALUES("SC_NO", "#{authValue.sc_no}")
+                .VALUES("U_MAIL", "#{authValue.username}")
+                .VALUES("U_NAME", "#{user.u_name}")
+                .VALUES("U_NICK", "#{user.u_nick}")
+                .VALUES("U_GENDER", "#{user.u_gender}")
+                .VALUES("U_JUMIN", "#{user.u_jumin}")
+                .VALUES("U_PHONE", "#{user.u_phone}")
+                .toString();
     }
 
-    public String insertBySNS(String snsID, Users user) {
+    public String insertEmptyUser(UsersVO user) {
+        return new SQL()
+                .INSERT_INTO(TABLE)
+                .VALUES("U_MAIL", "#{user.u_mail}")
+                .VALUES("U_NAME", "#{user.u_name}")
+                .VALUES("U_NICK", "#{user.u_nick}")
+                .VALUES("U_GENDER", "#{user.u_gender}")
+                .VALUES("U_JUMIN", "#{user.u_jumin}")
+                .VALUES("U_PHONE", "#{user.u_phone}")
+                .toString();
+    }
+
+    public String insertBySNS(String snsID, UsersVO user) {
         return new SQL() {{
             INSERT_INTO(SNS_TABLE);
             VALUES("ID", "#{snsID}");

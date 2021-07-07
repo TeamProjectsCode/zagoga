@@ -2,6 +2,9 @@ package com.javalec.project_zagoga.controller;
 
 import com.javalec.project_zagoga.dto.Host;
 import com.javalec.project_zagoga.dto.Users;
+import com.javalec.project_zagoga.security.AuthValue;
+import com.javalec.project_zagoga.vo.HostVO;
+import com.javalec.project_zagoga.vo.UsersVO;
 import com.javalec.project_zagoga.services.HostService;
 import com.javalec.project_zagoga.services.MailService;
 import com.javalec.project_zagoga.services.UsersService;
@@ -23,19 +26,19 @@ public class RegisterController {
 
     @GetMapping("/{user_type}_join")
     public String registerPage(@PathVariable("user_type") String user_type) {
-        return (user_type+"/"+user_type+"_join");
+        return ("/"+user_type+"/"+user_type+"_join");
     }
 
     @PostMapping("/user")
-    public String insertUser(Users user) {
-        usersService.userInsert(user);
+    public String insertUser(AuthValue authValue, Users user) {
+        usersService.insertUser(authValue, user);
         return "redirect:/main";
     }
 
     @PostMapping("/host")
-    public String insertHost(Host host) {
-        System.out.println(host.toString());
-//        hostService.hostInsert(host);
+    public String insertHost(AuthValue authValue, Host host) {
+        System.out.println("/host: "+authValue.toString());
+        hostService.insertHost(authValue, host);
         return "redirect:/main";
     }
 

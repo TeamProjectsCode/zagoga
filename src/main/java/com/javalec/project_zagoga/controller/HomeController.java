@@ -68,10 +68,10 @@ public class HomeController {
 
     //	 ■■■ URL 변경
     // "": host 회원가입 페이지 -- 완: RegisterController.java
-	@RequestMapping("/host/host_join")
-	public String host_join() {
-		return "/host/host_join";
-	}
+//	@RequestMapping("/host/host_join")
+//	public String host_join() {
+//		return "/host/host_join";
+//	}
 
     //	■■■ URL 변경
 	// "":  룸 상세 정보페이지  ( 예약하기  )

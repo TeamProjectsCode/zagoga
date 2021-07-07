@@ -1,4 +1,4 @@
-<%@ page import="com.javalec.project_zagoga.dto.Users" %>
+<%@ page import="com.javalec.project_zagoga.vo.UsersVO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>

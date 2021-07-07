@@ -1,31 +1,56 @@
 package com.javalec.project_zagoga.security;
 
-import com.javalec.project_zagoga.dto.Users;
+import com.javalec.project_zagoga.vo.AdminVO;
+import com.javalec.project_zagoga.vo.AuthInfo;
+import com.javalec.project_zagoga.vo.HostVO;
+import com.javalec.project_zagoga.vo.UsersVO;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 @NoArgsConstructor
-@Data
+@ToString
 public class PrincipalUser implements UserDetails, OAuth2User {
 
-    private Users user;
+    private AuthInfo authInfo;
+//    private UsersVO user;
     private Map<String, Object> attributes;
 
 //    일반 로그인을 위한 생성자
-    public PrincipalUser(Users user) { this.user = user; }
+    public PrincipalUser(AuthValue authValue, AuthInfo authInfo) {
+        this.authInfo = authInfo;
+        this.authInfo.setAuthValue(authValue);
+    }
 
 //    OAuth2User 로그인을 위한 생성자
-    public PrincipalUser(Users user, Map<String, Object> attributes) {
-        this.user = user;
+    public PrincipalUser(AuthInfo authInfo, Map<String, Object> attributes) {
+        this.authInfo = authInfo;
         this.attributes = attributes;
+    }
+
+    public String getAuthRole() {
+        return this.authInfo.getAuthValue().getRole();
+    }
+
+    public Object getAuthInfo(){
+        String role = this.getAuthRole();
+        switch (role){
+            case "USER":
+                return authInfo;
+            case "HOST":
+                return authInfo;
+            case "ADMIN":
+                return authInfo;
+            default:
+                return null;
+        }
     }
 
     //   for OAuth2User
@@ -48,42 +73,23 @@ public class PrincipalUser implements UserDetails, OAuth2User {
 
     @Override
     public String getPassword() {
-        return user.getU_pwd();
+        return authInfo.getAuthValue().getPassword();
     }
 
     @Override
     public String getUsername() {
-        String name = user.getU_name();
+        String name = authInfo.getAuthValue().getUsername();
         if(name == null) {
-            name = "user";
+            name = "authInfo";
         }
         return name;
     }
 
-//    Custom Getter
-    public String getMail() { return user.getU_mail(); }
-    public int getNo() { return user.getU_no(); }
-    public String getNickname() { return user.getU_nick(); }
-    public String getGender() { return user.getU_gender(); }
-//    주민번호 스플릿해서 전달해야지?
-//    핸드폰 번호 어떻게 표시 할 건뎅?
-
-
 //   for UserDetails
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-//        해당유저의 권한을 반환한다.
-//        Collection<GrantedAuthority> collection = new ArrayList<>();
-//        collection.add(new GrantedAuthority() {
-//            @Override
-//            public String getAuthority() {
-//                return user.getU_role();
-//            }
-//        });
-//        return collection;
-
         Collection<GrantedAuthority> collection = new ArrayList<>();
-        collection.add((GrantedAuthority) () -> user.getU_role());
+        collection.add((GrantedAuthority) () -> authInfo.getAuthValue().getRole());
         return collection;
     }
 

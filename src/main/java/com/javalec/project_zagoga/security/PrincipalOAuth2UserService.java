@@ -1,6 +1,6 @@
 package com.javalec.project_zagoga.security;
 
-import com.javalec.project_zagoga.dto.Users;
+import com.javalec.project_zagoga.vo.UsersVO;
 import com.javalec.project_zagoga.mapper.UsersMapper;
 import com.javalec.project_zagoga.security.provider.GoogleUserInfo;
 import com.javalec.project_zagoga.security.provider.KakaoUserInfo;
@@ -23,12 +23,9 @@ public class PrincipalOAuth2UserService extends DefaultOAuth2UserService {
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
         String registrationID = userRequest.getClientRegistration().getRegistrationId();
         OAuth2User oAuth2User = super.loadUser(userRequest);
-//        System.out.println("registrationID:"+registrationID);
-//        System.out.println(oAuth2User.getAttributes());
 
         OAuth2Info oAuth2Info = null;
         switch(registrationID) {
-//        Google 계정
             case "google":
                 oAuth2Info = new GoogleUserInfo(oAuth2User.getAttributes());
                 break;
@@ -42,14 +39,19 @@ public class PrincipalOAuth2UserService extends DefaultOAuth2UserService {
 
         String snsID = oAuth2Info.getProvider()+"_"+oAuth2Info.getProviderID();
         System.out.println("snsID: "+snsID);
-        Users user = usersMapper.loadUserBySNS(snsID);
-        if (user == null) {
-            user = new Users(oAuth2Info.getNickName(), oAuth2Info.getEmail());
-            usersMapper.insertUser(user);
-            usersMapper.insertBySNS(snsID, user);
+        UsersVO userInfo = usersMapper.loadUserBySNS(snsID);
+
+        if (userInfo == null) {
+            userInfo = new UsersVO(oAuth2Info.getNickName(), oAuth2Info.getEmail());
+            usersMapper.insertEmptyUser(userInfo);
+            usersMapper.insertBySNS(snsID, userInfo);
         }
-        user.setU_role("USER");
-//        System.out.println(user.toString());
-        return new PrincipalUser(user, oAuth2User.getAttributes());
+
+        AuthValue authValue = new AuthValue();
+        authValue.setUsername(oAuth2Info.getEmail());
+        authValue.setRole("USER");
+        userInfo.setAuthValue(authValue);
+
+        return new PrincipalUser(userInfo, oAuth2User.getAttributes());
     }
 }

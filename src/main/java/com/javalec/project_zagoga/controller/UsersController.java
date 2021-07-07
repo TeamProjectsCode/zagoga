@@ -18,7 +18,7 @@ public class UsersController {
     //user : 마이페이지 유저 회원정보 변경
     @RequestMapping("/mypage_user_info")
     public String mypage_user_info(@AuthenticationPrincipal PrincipalUser user, Model model) {
-         model.addAttribute("user", usersMapper.get(user.getNo()));
+//         model.addAttribute("user", usersMapper.get(user.getNo()));
         return "/mypage/mypage_user_info";
     }
 }

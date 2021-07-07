@@ -1,5 +1,7 @@
 package com.javalec.project_zagoga.security;
 
+import com.javalec.project_zagoga.security.handler.AuthFailHandler;
+import com.javalec.project_zagoga.security.handler.AuthSuccessHandler;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +19,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final PrincipalOAuth2UserService principalOAuth2UserService;
+//    private final AuthSuccessHandler authSuccessHandler;
+    private final AuthFailHandler authFailHandler;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -28,22 +32,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.authorizeRequests()
-				/*
-				 * .antMatchers("/user/**", "/sessionCheck").authenticated()
-				 * .antMatchers("/host/**").hasRole("HOST")
-				 * .antMatchers("/admin/**").hasRole("ADMIN")
-				 */
+				 .antMatchers("/user/**", "/sessionCheck").authenticated()
+				 .antMatchers("/host/**").hasRole("HOST")
+				 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().permitAll()
             .and()
                 .logout()
                 .logoutSuccessUrl("/main")
             .and()
                 .formLogin()
-                .loginPage("/login")
-                .loginProcessingUrl("/loginNormal")
-                .defaultSuccessUrl("/main")
-                .failureUrl("/login")
-//                占쎌젔域뱄옙 亦낅슦釉� 占쎈퓠占쎌쑎占쎌뵥 野껋럩�뒭 占쎈뼄占쎌벉 uri嚥∽옙 占쎌뵠占쎈짗占쎈�占쎈빍占쎈뼄.
+                    .loginPage("/login")
+                    .loginProcessingUrl("/loginNormal")
+//                    .successHandler(authSuccessHandler)
+                    .failureHandler(authFailHandler)
+//                핸들러로 조정해야 할 지도?
+//                .defaultSuccessUrl("/main")
+//                .failureUrl("/login")
             .and()
                 .exceptionHandling().accessDeniedPage("/error")
             .and()

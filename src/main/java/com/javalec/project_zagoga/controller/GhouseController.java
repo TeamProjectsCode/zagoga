@@ -3,7 +3,7 @@ package com.javalec.project_zagoga.controller;
 import com.javalec.project_zagoga.dto.Ghouse;
 import com.javalec.project_zagoga.dto.GhouseRoom;
 import com.javalec.project_zagoga.dto.GhouseRoomImages;
-import com.javalec.project_zagoga.dto.Host;
+import com.javalec.project_zagoga.vo.HostVO;
 import com.javalec.project_zagoga.services.GhouseService;
 import com.javalec.project_zagoga.services.RoomService;
 import lombok.SneakyThrows;
@@ -48,8 +48,8 @@ public class GhouseController {
 	@SneakyThrows
 	@PostMapping("/insert")
 	public String insert(Ghouse ghouse, @RequestParam("files") MultipartFile file) throws IOException {
-		Host host = new Host();
-		host.setH_no(1);
+		HostVO host = new HostVO();
+//		host.setH_no(1);
 		System.out.println("ghouse.toString() : " + ghouse.toString());
 		String filePath = System.currentTimeMillis() + "_" + file.getOriginalFilename();
 		String Path = "/resources/gh_image/";
