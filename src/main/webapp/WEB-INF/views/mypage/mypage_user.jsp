@@ -44,7 +44,7 @@
                         <br>
                     <P style="text-align: right;"><small>예약취소시, 사업자에게 연락해주세요</small></P>
                     <p style="float: right;">
-                      <input type="button" value="예약목록" onclick="location.href='/user/mypage_user_booking'">
+                      <input type="button" value="예약목록" onclick="location.href='/user/mypage_user_booking_list'">
                     </p>
                   </table>
                   </div>

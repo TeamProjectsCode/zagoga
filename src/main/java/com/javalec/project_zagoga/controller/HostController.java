@@ -12,4 +12,9 @@ public class HostController {
         return "/mypage/mypage_host_info";
     }
 
+    @RequestMapping("/mypage_host")
+    public String mypage_host(){
+        return"/mypage/mypage_host";
+    }
+
 }

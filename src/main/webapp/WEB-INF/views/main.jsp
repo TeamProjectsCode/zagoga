@@ -1,4 +1,4 @@
-<%@ page import="com.javalec.project_zagoga.vo.UsersVO" %>
+<%@ page import="com.javalec.project_zagoga.dto.Users" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -60,21 +60,32 @@
         <div class="header">
             <h1><a href="/">ZAGOGA</a></h1>
             <div class="nav">
-        <c:set var="session" value="${user}" />}
+        <c:set var="session" value="${user }" />
 		<c:choose> 
-			<c:when test="${empty session}">
+			<c:when test="${empty session }">
                 <ul>
                     <li><a href="login">LOGIN</a></li>
                     <li><a href="javascript:checkPopup()">JOIN</a></li>
                 </ul>
-			</c:when> 
-			<c:when test="${!empty session}">
-                <ul>
-                    <li><a href="logout">LOGOUT</a></li>
-                </ul>
-			</c:when> 
-		</c:choose> 
+			</c:when>
+        </c:choose>
+            <c:set var="member_type" value="${user.u_role}" />
+            <c:choose>
+                <c:when test = "${member_type eq 'HOST'}">
+                    <ul>
+                        <li><a href="/host/mypage_host">MYPAGE</a></li>
+                        <li><a href="logout">LOGOUT</a></li>
+                    </ul>
+                </c:when>
+                <c:when test="${member_type eq 'USER' }">
+                    <ul>
+                        <li><a href="/user/mypage_user">MYPAGE</a></li>
+                        <li><a href="logout">LOGOUT</a></li>
+                    </ul>
+                </c:when>
+            </c:choose>
             </div>
+
         </div>
         <div class="hero">
             <h2>어디로 여행가시나요?</h2>

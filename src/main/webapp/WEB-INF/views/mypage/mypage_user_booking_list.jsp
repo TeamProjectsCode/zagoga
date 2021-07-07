@@ -28,7 +28,7 @@
       <!-- <div class="service">
           <img class="ico_images" src="images/bed.png" width="100">
       </div> -->
-      <a href="/mypage/mypage_user_booking_detail" class="service_link">
+      <a href="/user/mypage_user_booking_detail" class="service_link">
         <div class="title">안녕제주도</div>
         <div class="info_box">
           <span class="info">21. 6. 5 ~ 21. 6. 6 </span>
@@ -37,7 +37,7 @@
       </a>
     </div>
     <div class="card_body">
-      <a href="/mypage/mypage_user_booking_detail" class="upper_box">
+      <a href="/user/mypage_user_booking_detail" class="upper_box">
         <div class="review_area">
           <div class="review_header">
             <div class="text">예약완료</div>
@@ -45,7 +45,7 @@
           </div>
         </div>
       </a>
-      <a class="lower_box" href="/mypage/mypage_user_booking_detail">
+      <a class="lower_box" href="/user/mypage_user_booking_detail">
         <div class="info">
           <div class="title_">도미토리</div>
           <div class="desc">상세보기</div>
