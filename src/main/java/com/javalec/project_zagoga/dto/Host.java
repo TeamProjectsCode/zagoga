@@ -9,7 +9,7 @@ import lombok.*;
 @Data
 public class Host {
     private String h_bizno;
-    private String h_email;
+    private String h_mail;
     private String h_brand;
     private String h_name;
     private String h_jumin;

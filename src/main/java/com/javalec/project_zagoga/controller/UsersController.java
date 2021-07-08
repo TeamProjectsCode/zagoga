@@ -39,6 +39,11 @@ public class UsersController {
 //        return "/mypage/mypage_user_info";
 //    }
 
+	@RequestMapping("/mypage_user")
+	public String mypage_user() {
+		return "/mypage/mypage_user";
+	}
+
 	//user : 마이페이지 유저 회원정보 변경
 	@RequestMapping("/mypage_user_info")
 	public String mypage_user_info() {

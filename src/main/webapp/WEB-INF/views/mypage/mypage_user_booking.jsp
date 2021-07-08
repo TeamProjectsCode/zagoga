@@ -39,11 +39,11 @@
             </tr>
             <tr height="20">
                 <th class="title">위치</th>
-                <td>서울 마포구 21-22 &nbsp;&nbsp;&nbsp;<button><a href="#">수정하기</a></button></td>
+                <td>서울 마포구 21-22 &nbsp</td>
             </tr>
             <tr height="20">
                 <th class="title">숙소연락처</th> 
-                <td>010-1111-1111 &nbsp;&nbsp;&nbsp;<button><a href="#">수정하기</a></button></td>
+                <td>010-1111-1111</td>
             </tr>
         </table>
         </div>
