@@ -72,7 +72,7 @@ Timestamp check_in = null, check_out = null;
             </div>
             <br>
             <div class="btn">
-              <button class="btn-m" onclick="location.href='/room/booking_completion'">에약하기</button>
+              <button class="btn-m" onclick="location.href='/user/booking_completion'">에약하기</button>
               <button class="btn-m" onclick="location.href='#'">취소</button>
             </div>
 

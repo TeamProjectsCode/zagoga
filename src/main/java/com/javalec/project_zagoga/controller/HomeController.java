@@ -84,14 +84,14 @@ public class HomeController {
 	// "":  룸 상세 정보페이지  ( 예약하기  )
 	@RequestMapping("/board/ghouse/room/{r_no}")
 	public String room_detail() {
-		return "/user/room_detail";
+		return "/room/room_detail";
 	}
 
     //	■■■ URL 변경
 	// "": 취소 규정
-	@RequestMapping("/booking/roomcancel")
+	@RequestMapping("/board/roomcancel")
 	public String roomcancel() {
-		return "/user/roomcancel";
+		return "/room/room_cancel";
 	}
 
 //	-----------------------------------------------------------------------------------------------------------------------------
@@ -174,11 +174,11 @@ public class HomeController {
 	 * @RequestMapping("user/mypage_user_info") public String mypage_user_info() {
 	 * return "mypage/mypage_user_info"; }
 	 */
-	//user: 유저 마이페이지 메인(회원정보와  예약상태 같이 보여줌)
-	@RequestMapping("user/mypage_user")
-	public String mypage_user() {
-		return "mypage/mypage_user";
-	}
+//	//user: 유저 마이페이지 메인(회원정보와  예약상태 같이 보여줌)
+//	@RequestMapping("user/mypage_user")
+//	public String mypage_user() {
+//		return "mypage/mypage_user";
+//	}
 	//user: 유저 마이페이지 예약히스토리
 	@RequestMapping("user/mypage_user_booking_list")
 	public String mypage_user_booking_list() {

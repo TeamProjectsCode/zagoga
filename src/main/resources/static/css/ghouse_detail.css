@@ -14,7 +14,8 @@
     padding-left: 10px;
 }
 .room_date input{
-    width: 130px;
+    width: 140px;
+    height: 20px;
     border: 1px solid #ce671e;
     padding-left: 20px;
 }
@@ -61,7 +62,6 @@
 }
 .review td{
     border-bottom: 1px solid lightgray;
-    padding: 5px;
 }
 /*.total{*/
 /*    font-size: x-large;*/

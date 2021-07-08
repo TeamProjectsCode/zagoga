@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 @AllArgsConstructor
 @RequestMapping("/user")
@@ -78,4 +80,22 @@ public class UsersController {
 		System.out.println(user.toString());
 		return "main";
 	}
+
+	@PostMapping("/delete.do")
+	@ResponseBody
+	public String deleteUser(HttpServletRequest request){ // 유저 삭제
+		int uno = Integer.parseInt(request.getParameter("no"));
+		System.out.println(uno);
+		String str = "";
+		int num = usersMapper.delete(uno);
+		System.out.println(num);
+		if (num == 1){
+			str = "Y";
+		}else{
+			str = "N";
+		}
+
+		return str;
+	}
+
 }

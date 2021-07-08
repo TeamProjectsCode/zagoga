@@ -35,14 +35,41 @@
             });
         }
     </script>
+    <script>
+        function userDelete(){
+        var check = confirm("정말로 탈퇴를 하시겠습니까?");
+
+        if (check == true) {
+            $.ajax({
+                type: "POST",
+                url: "/user/delete.do",
+                data:{no:$('#no').val()},
+                success:function (result){
+                    if($.trim(result) == "Y"){
+                        alert("삭제되었습니다.\n 메인화면으로 돌아갑니다");
+                        location.href="/logout";
+                    }else{
+                        alert("삭제에 실패하였습니다.\n 다시 시도해주세요.");
+                    }
+                },
+                error: function(e){
+                        console.log(e);
+                        alert("삭제에 실패하였습니다.\n 다시 시도해주세요.");
+                }
+            });
+        }
+     }
+    </script>
 </head>
 <body>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="../header.jsp"%>
     <center>
         <div class="mainbox">
         <fieldset class="main_a"> ${user.u_name}님의 소중한 개인정보입니다.</fieldset>
 
         <div class="info-table">
+<<<<<<< Updated upstream
         <form action="/user/updateInfo" method="post">
             <table  border="2" class="info" >
                 <tr>
@@ -108,6 +135,54 @@
                 <a href="#"><button class="btn-m">탈퇴하기</button></a>
             </div>
         </form>
+=======
+        <table  border="2" class="info" >
+            <tr>
+                <th class="title">이름</th>
+                <td>${user.u_name}</td>
+            </tr>
+            <tr height="20">
+                <th class="title">사용자ID</th>
+                <td>${user.u_mail}</td>
+            </tr>
+            <tr height="20" >
+                <th class="title">닉네임</th>
+                <td><input name="u_nick" id="nick" value="${user.u_nick}"><span id="msg"></span><button id="nick_modify" onclick="user_info()">수정</button></td>
+                <input type="hidden" id="no" value="${user.u_no}">
+            </tr>
+            <tr height="20">
+                <th class="title">주민번호</th>
+<%--                <td><fmt:formatDate pattern="yyyy년MM월dd일" value="${user.u_jumin}"/></td>--%>
+                <td>${user.u_jumin}</td>
+            </tr>
+            <tr height="20">
+                <th class="title">비밀번호</th>
+                <td><input name="u_pwd" id="pw" value="12345">&nbsp</td>
+            </tr>
+            <tr height="20">
+                <th class="title">전화번호</th>
+                <td>${user.u_phone}</td>
+            </tr>
+            <tr height="20">
+                <th class="title">가입일시</th>
+                <td>${user.u_join}</td>
+            </tr>
+<%--            <tr height="20">--%>
+<%--                <th class="title">주소</th> --%>
+<%--                <td><input name="add" id="#" value="부산시 수영구">&nbsp;&nbsp;<button>수정</button></td>--%>
+<%--            </tr>--%>
+<%--            <tr height="20">--%>
+<%--                <th class="title">상세주소</th> --%>
+<%--                <td><input name="add" id="#" value="111-342호"></td>--%>
+<%--            </tr>--%>
+        </table>
+        </div>
+
+        <div class="btn">
+           <a href="#"><button class="btn-m" onclick="userUpdate()">수정완료</button></a>
+           <a href="#"><button class="btn-m" onclick="userDelete()">탈퇴하기</button></a>
+
+>>>>>>> Stashed changes
         </div>
     </div>
     </center>

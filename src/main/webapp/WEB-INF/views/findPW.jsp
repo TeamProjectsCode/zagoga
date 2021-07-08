@@ -3,7 +3,7 @@
 <head>
     <title>Title</title>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="/resources/css/findID.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/findPW.css" />
     <script src="/resources/js/findpw.js"></script>
     <script src="/resources/js/pwShowToggle.js"></script>
     <script>
@@ -105,77 +105,65 @@
     <div class="title">
         <li>비밀번호 찾기</li>
     </div>
-    <p>비밀번호를 찾는 방식을 선택해 주세요.</p>
-    <div class="box">
-<%--        <input type="radio" name="radio" id="info" onclick="dispbox('0');"><label for="info">이메일을 통한 비밀번호 찾기</label>--%>
-        <div id="infobox">
-            <form name="form" action="/login/showPW" method="post" onsubmit="return updatePW();">
-                <table>
-<%--                    <tr>--%>
-<%--                        <td>타입</td>--%>
-<%--                        <td>--%>
-<%--                            <input type="radio" name="type" id="user" value="USER"><label for="user">여행객</label>--%>
-<%--                            <input type="radio" name="type" id="host" value="HOST"><label for="host">호스트</label>--%>
-<%--                        </td>--%>
-<%--                    </tr>--%>
-                    <tr>
-                        <td>이름</td>
-                        <td><input class="findPWInput" name="name" id="name"></td>
-                    </tr>
-                    <tr>
-                        <td>주민번호</td>
-                        <td><input type="text" class="findPWInput" id="jumin1" name="jumin" size="10" maxlength="6" onkeyup="$(this).val($(this).val().replace(/\D/g,''));">
-                            - <input type="password" class="findPWInput"  id="jumin2" name="jumin" size="10" maxlength="7" onkeyup="$(this).val($(this).val().replace(/\D/g,''));"> </td>
-                    </tr>
-                    <tr>
-                        <td>아이디  </td>
-                        <td>
-                            <input type="text" class="findPWInput" id="emailID" name="username" placeholder="이메일" required>
-                            @ <select id="emailAddr" class="findPWInput" name="username" onchange="change(this)" required>
-                            <option>선택</option>
-                            <option value="@naver.com">naver.com</option>
-                            <option value="@daum.net">daum.net</option>
-                            <option value="@gmail.com">gmail.com</option>
-                            <option value="@nate.com">nate.com</option>
-                        </select>
-                            <div id="mail_check"></div>
-                            <div><button type="button" id="emailCheck" onclick="emailSend()">인증번호 받기</button></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><div id="waring">텍스트 적힐 곳</div> </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            인증번호 :
-                        </td>
-                        <td>
-                            <input type="text" id="certificationNumber" disabled>&nbsp;&nbsp;
-                            <input type="button" id="certificationButton" onclick="emailCertification()" value="인증하기" disabled>
-                            <input type="hidden" name="certificationYN" id="certificationYN" value="false">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="inputPW"><input type="password" id="userPW" name="password" placeholder="비밀번호" disabled required></td>
-                        <td class="inputPWShow"><input type="image" id="userPWShow" onclick="pwShowToggle(); return false;" src="/resources/img/visibility.png" alt="show password" disabled/></td>
-                    </tr>
-                    <tr><td class="inputPW"><input type="password" id="userPWCheck" name="userPWCheck" placeholder="비밀번호 재입력" disabled required></td></tr>
-                    <tr>
-                        <td>
-                            <button class="btn" type="submit">다&nbsp;&nbsp;&nbsp;음</button>
-                        </td>
-                    </tr>
-                </table>
-            </form>
-        </div>
-    </div>
-<%--    <div class="box2">
-        <input type="radio" name="radio" id="phone" onclick="dispbox('1');"><label for="phone">본인명의의 휴대폰으로 찾기</label>
-        <div id="phonebox" style="display:none">
-            <p>너는.. 다음에 보자</p>
-        </div>
-    </div>--%>
+    <p></p>
+    <form name="form" action="/login/showPW" method="post" onsubmit="return updatePW();">
+        <table>
+            <tr>
+                <td>이름</td>
+                <td><input class="findPWInput" name="name" id="name"></td>
+            </tr>
+            <tr>
+                <td>주민번호</td>
+                <td><input type="text" class="findPWInput" id="jumin1" name="jumin" size="10" maxlength="6" onkeyup="$(this).val($(this).val().replace(/\D/g,''));">
+                    - <input type="password" class="findPWInput"  id="jumin2" name="jumin" size="10" maxlength="7" onkeyup="$(this).val($(this).val().replace(/\D/g,''));"> </td>
+            </tr>
+            <tr>
+                <td>아이디  </td>
+                <td colspan="2">
+                    <input type="text" class="findPWInput" id="emailID" name="username" placeholder="이메일" required>
+                    @ <select id="emailAddr" class="findPWInput" name="username" onchange="change(this)" required>
+                    <option>선택</option>
+                    <option value="@naver.com">naver.com</option>
+                    <option value="@daum.net">daum.net</option>
+                    <option value="@gmail.com">gmail.com</option>
+                    <option value="@nate.com">nate.com</option>
+                </select>
+                    <div id="mail_check"></div>
+                    <div><button type="button" id="emailCheck" onclick="emailSend()">인증번호 받기</button></div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><div id="waring"></div> </td>
+            </tr>
+            <tr>
+                <td>
+                    인증번호 :
+                </td>
+                <td>
+                    <input type="text" id="certificationNumber" disabled>&nbsp;&nbsp;
+                    <input type="button" id="certificationButton" onclick="emailCertification()" value="인증하기" disabled>
+                    <input type="hidden" name="certificationYN" id="certificationYN" value="false">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="inputPW"><input type="password" id="userPW" name="password" placeholder="비밀번호" disabled required></td>
+                <td class="inputPWShow"><input type="image" id="userPWShow" onclick="pwShowToggle(); return false;" src="/resources/img/visibility.png" alt="show password" disabled/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="inputPW"><input type="password" id="userPWCheck" name="userPWCheck" placeholder="비밀번호 재입력" disabled required></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button class="btn" type="submit">다&nbsp;&nbsp;&nbsp;음</button>
+                </td>
+            </tr>
+        </table>
+    </form>
 </div>
-<div class="space"></div>
+</div>
+</div>
 </body>
 </html>

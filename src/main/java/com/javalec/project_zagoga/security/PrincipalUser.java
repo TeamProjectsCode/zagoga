@@ -75,6 +75,7 @@ public class PrincipalUser implements UserDetails, OAuth2User {
         return name;
     }
 
+
 //   for UserDetails
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
