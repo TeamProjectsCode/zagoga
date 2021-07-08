@@ -46,24 +46,25 @@ public class GhouseController {
 
 	//210704 01:05 확인 (g_hno 호스트번호 연결해줘야함)
 	@SneakyThrows
-	@PostMapping("/insert")
-	public String insert(Ghouse ghouse, @RequestParam("files") MultipartFile file) throws IOException {
-		HostVO host = new HostVO();
-//		host.setH_no(1);
+	@PostMapping("/insert/{h_no}")
+	public String insert(Ghouse ghouse, @RequestParam("files") MultipartFile file, @PathVariable("h_no") int h_no) throws IOException {
+
 		System.out.println("ghouse.toString() : " + ghouse.toString());
-		String filePath = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-		String Path = "/resources/gh_image/";
-		System.out.println("filePath : " + filePath);
+
+		String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+		String path = "D:\\_Proni\\Intelli J\\project_zagoga\\src\\main\\resources\\static\\gh_image\\";
+//		String path = "C:\\Users\\yeon\\IdeaProjects\\project_zagoga\\src\\main\\resources\\static\\gh_image\\";
+		System.out.println("filePath : " + path+fileName);
 		try {
-			file.transferTo(new File("C:\\Users\\yeon\\IdeaProjects\\project_zagoga\\src\\main\\resources\\static\\gh_image\\"+System.currentTimeMillis()+"_"+file.getOriginalFilename()));
+			file.transferTo(new File(path+fileName));
 
 		} catch (IllegalStateException e){
 			e.printStackTrace();
 		} catch (IOException e){
 			e.printStackTrace();
 		}
-		ghouse.setGh_hno(host.getH_no());
-		ghouse.setGh_image(filePath);
+		ghouse.setGh_hno(h_no);
+		ghouse.setGh_image(fileName);
 		ghouseService.insert(ghouse);
 		return "main";
 	}

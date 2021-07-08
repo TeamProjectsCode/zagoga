@@ -195,16 +195,17 @@
           <li>
             <div><h1>호스트가 되어보세요</h1></div>
             <div>숙소를 공유하여 수입을 올리고 새로운 가능성을 만나세요.</div>
-              <c:set var="member_type" value="${role}" />
               <c:choose>
-                  <c:when test = "${member_type eq 'HOST'}">
+                  <c:when test = "${userType eq 'USER'}">
+                      <a class="host_register" onclick="no()"><div class="more2">숙소등록하기</div></a>
+                  </c:when><c:when test = "${userType eq 'HOST'}">
                       <a class="host_register" href="/host/gHouse_write"><div class="more2">숙소등록하기</div></a>
                   </c:when>
-                  <c:when test = "${member_type eq 'ADMIN'}">
+                  <c:when test = "${userType eq 'ADMIN'}">
                       <a class="host_register" href="/host/gHouse_write"><div class="more2">숙소등록하기</div></a>
                   </c:when>
               </c:choose>
-                      <a class="host_register" onclick="no()"><div class="more2">숙소등록하기</div></a>
+
           </li>
           <li></li>
         </ul>
