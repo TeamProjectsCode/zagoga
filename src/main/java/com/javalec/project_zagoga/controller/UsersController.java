@@ -1,24 +1,17 @@
 package com.javalec.project_zagoga.controller;
 
-import com.javalec.project_zagoga.dto.GhouseRoom;
 import com.javalec.project_zagoga.dto.Users;
 import com.javalec.project_zagoga.mapper.UsersMapper;
-import com.javalec.project_zagoga.security.PrincipalUser;
 import com.javalec.project_zagoga.services.AjaxService;
 import com.javalec.project_zagoga.services.UsersService;
 
 import lombok.AllArgsConstructor;
-
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -27,7 +20,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/user")
 public class UsersController {
 
+    private final UsersMapper usersMapper;
     private final UsersService userService;
+
+	@RequestMapping("/mypage_user")
+	public String mypage_user() {
+		return "/mypage/mypage_user";
+	}
 
 	//user : 마이페이지 유저 회원정보 변경
 	@RequestMapping("/mypage_user_info")
@@ -70,4 +69,22 @@ public class UsersController {
 		System.out.println(user.toString());
 		return "main";
 	}
+
+	@PostMapping("/delete.do")
+	@ResponseBody
+	public String deleteUser(HttpServletRequest request){ // 유저 삭제
+		int uno = Integer.parseInt(request.getParameter("no"));
+		System.out.println(uno);
+		String str = "";
+		int num = usersMapper.delete(uno);
+		System.out.println(num);
+		if (num == 1){
+			str = "Y";
+		}else{
+			str = "N";
+		}
+
+		return str;
+	}
+
 }

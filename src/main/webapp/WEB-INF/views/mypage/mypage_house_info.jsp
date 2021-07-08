@@ -26,12 +26,14 @@
 					<td><input type="text" name = "local" value="${grList.get(0).gh_addr1}"></td>
 				</tr>
 				<tr>
-					<td>등록된 방 개수</td>
-					<td><input type="text" name = "room_no" value="${grList.size()}"></td>
+					<td style="padding-top: 10px;">등록된 방 개수</td>
+					<td>${grList.size()}</td>
+				</tr>
+				<tr >
+					<td style="padding-top: 10px;">기타 사항 및 소개글</td>
 				</tr>
 				<tr>
-					<td>기타 사항 및 소개글</td>
-					<td><textarea cols="50" rows="10" name="${grList.get(0).gh_detail}>"></textarea></td>
+					<td colspan="2"><textarea cols="50" rows="10" name="${grList.get(0).gh_detail}>"></textarea></td>
 				</tr>
 			</table>
 			<table id = "room_fix">

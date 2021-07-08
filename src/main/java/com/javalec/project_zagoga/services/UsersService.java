@@ -41,9 +41,11 @@ public class UsersService {
 
     public int userDelete(UsersVO user) {
         // 유저가 삭제되면 무엇은 지우고 무엇은 유지 할 것 인지 정해야 함
+
         return  usersMapper.delete(user.getU_no());
 
     }
+
     public int nickCheck(String u_nick){
         // 닉네임 중복체크
         return usersMapper.nickCheck(u_nick);

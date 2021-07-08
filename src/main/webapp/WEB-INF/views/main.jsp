@@ -89,6 +89,11 @@
                             <li><a href="logout">LOGOUT</a></li>
                         </ul>
                     </c:when>
+                    <c:when test="${userType eq 'ADMIN' }">
+                    <ul>
+                        <li><a href="logout">LOGOUT</a></li>
+                    </ul>
+                </c:when>
                 </c:choose>
             </div>
 
@@ -190,10 +195,25 @@
           <li>
             <div><h1>호스트가 되어보세요</h1></div>
             <div>숙소를 공유하여 수입을 올리고 새로운 가능성을 만나세요.</div>
-            <a class="host_register" href="/login"><div class="more2">숙소등록하기</div></a>
+              <c:choose>
+                  <c:when test = "${userType eq 'USER'}">
+                      <a class="host_register" onclick="no()"><div class="more2">숙소등록하기</div></a>
+                  </c:when><c:when test = "${userType eq 'HOST'}">
+                      <a class="host_register" href="/host/gHouse_write"><div class="more2">숙소등록하기</div></a>
+                  </c:when>
+                  <c:when test = "${userType eq 'ADMIN'}">
+                      <a class="host_register" href="/host/gHouse_write"><div class="more2">숙소등록하기</div></a>
+                  </c:when>
+              </c:choose>
+
           </li>
           <li></li>
         </ul>
     </div>
+<script>
+    function no(){
+        alert("사업자만 사용가능한 기능입니다. \n 사업자로 로그인 해주시길 바랍니다.");
+    }
+</script>
 </body>
 </html>

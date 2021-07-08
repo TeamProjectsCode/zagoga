@@ -11,6 +11,7 @@ public class HostVO extends AuthInfo{
     private int h_no;
     private String h_bizno;
     private String h_mail;
+    private String h_brand;
     private String h_name;
     private String h_jumin;
     private String h_phone;

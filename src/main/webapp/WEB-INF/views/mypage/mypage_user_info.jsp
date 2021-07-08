@@ -35,8 +35,34 @@
             });
         }
     </script>
+    <script>
+        function userDelete(){
+        var check = confirm("정말로 탈퇴를 하시겠습니까?");
+
+        if (check == true) {
+            $.ajax({
+                type: "POST",
+                url: "/user/delete.do",
+                data:{no:$('#no').val()},
+                success:function (result){
+                    if($.trim(result) == "Y"){
+                        alert("삭제되었습니다.\n 메인화면으로 돌아갑니다");
+                        location.href="/logout";
+                    }else{
+                        alert("삭제에 실패하였습니다.\n 다시 시도해주세요.");
+                    }
+                },
+                error: function(e){
+                        console.log(e);
+                        alert("삭제에 실패하였습니다.\n 다시 시도해주세요.");
+                }
+            });
+        }
+     }
+    </script>
 </head>
 <body>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="../header.jsp"%>
     <center>
         <div class="mainbox">

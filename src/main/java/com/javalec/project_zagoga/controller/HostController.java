@@ -1,5 +1,6 @@
 package com.javalec.project_zagoga.controller;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HostController {
 
     @RequestMapping("/mypage_host_info")
-    public String mypage_host_info() {
+    public String mypage_host_info( ) {
         return "/mypage/mypage_host_info";
     }
 
