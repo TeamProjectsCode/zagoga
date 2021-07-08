@@ -7,6 +7,7 @@
 <title>사업자 리스트(admin 용)</title>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/resources/css/administration_list.css" />
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 <body>
 	<%@ include file="../header.jsp" %>
@@ -28,62 +29,22 @@
 				<tr>
 					<th>사업자 번호</th>
 					<th>이름</th>
-					<th>등록 일자</th>
+					<th>사업장 이메일</th>
 					<th>승인 여부</th>
 					<th></th>
 				</tr>
 			</thead>
+			<c:forEach var="host" items="${hostList}" >
 			<tbody>
 				<tr>
-					<td>123-456-78910</td>
-					<td>홍길동</td>
-					<td>2021-06-02</td>
-					<td>승인</td>
+					<td>${host.h_hizno }</td>
+					<td>${host.h_name }</td>
+					<td>${host.h_mail }</td>
+					<td id = "check">승인</td>
 					<td><button onclick="location.href='/admin/host_reading'">상세 내용 확인</button></td>
 				</tr>
-				<tr>
-					<td>223-456-78910</td>
-					<td>김길동</td>
-					<td>2021-06-02</td>
-					<td>승인</td>
-					<td><button>상세 내용 확인</button></td>
-				</tr>
-				<tr>
-					<td>323-456-78910</td>
-					<td>이길동</td>
-					<td>2021-06-02</td>
-					<td>승인</td>
-					<td><button>상세 내용 확인</button></td>
-				</tr>
-				<tr>
-					<td>423-456-78910</td>
-					<td>사길동</td>
-					<td>2021-06-02</td>
-					<td>승인</td>
-					<td><button>상세 내용 확인</button></td>
-				</tr>
-				<tr>
-					<td>523-456-78910</td>
-					<td>오길동</td>
-					<td>2021-06-02</td>
-					<td>승인</td>
-					<td><button>상세 내용 확인</button></td>
-				</tr>
-				<tr>
-					<td>623-456-78910</td>
-					<td>홍길동</td>
-					<td>2021-06-02</td>
-					<td>거절</td>
-					<td><button>상세 내용 확인</button></td>
-				</tr>
-				<tr>
-					<td>723-456-78910</td>
-					<td>홍길동</td>
-					<td>2021-06-02</td>
-					<td>승인</td>
-					<td><button>상세 내용 확인</button></td>
-				</tr>
 			</tbody>
+			</c:forEach>
 		</table>
 		<script>
 			$("#keyword").keyup(function() {

@@ -5,6 +5,9 @@ import com.javalec.project_zagoga.security.AuthValue;
 import com.javalec.project_zagoga.vo.HostVO;
 import com.javalec.project_zagoga.mapper.sql.HostSQL;
 import com.javalec.project_zagoga.mapper.sql.UserSQL;
+
+import java.util.List;
+
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -26,4 +29,7 @@ public interface HostMapper {
     String findID(String name, String jumin);
 	@InsertProvider(value = HostSQL.class, method = "pw_check") 
 	public String pw_check(String no);
+	
+	@SelectProvider(type = HostSQL.class, method = "hostList")
+	List<Host> hostList();
 }

@@ -75,7 +75,6 @@
 									${gri.r_detail}</p>
 						</a></td>
 					</tr>
-	<%@ include file="../header.jsp"%>
 	<section>
 		<div class="p-3 mb-2 bg-light text-dark">
 			<div class="mx-auto" style="width: 650px;">

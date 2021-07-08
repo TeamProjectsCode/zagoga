@@ -154,5 +154,12 @@ public class UserSQL {
     			.FROM(TABLE)
     			.toString();
     }
+    public String userInfo(String u_no) {
+    	return new SQL()
+    			.SELECT("*")
+    			.FROM(TABLE)
+    			.WHERE("U_NO = #{u_no}")
+    			.toString();
+    }
 
 }

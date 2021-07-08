@@ -8,9 +8,10 @@ public class SecuritySQL {
 
     private static final String TABLE = "SECURITY";
 
-//        작성 방법은 아래 페이지 참조
+//        �옉�꽦 諛⑸쾿�� �븘�옒 �럹�씠吏� 李몄“
 //    https://mybatis.org/mybatis-3/ko/statement-builders.html
     public String loadUserByName(String username) {
+    	System.out.println(username);
         return new SQL()
                 .SELECT("*")
                 .FROM(TABLE)

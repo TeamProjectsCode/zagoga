@@ -33,7 +33,7 @@
             <c:forEach items="${getDetail}" var="dt" varStatus="status">
                 <p><img src="${pageContext.request.contextPath}/resources/rooms_image/${dt.i_name}" width="650px"></p>
             </c:forEach>
-        </c:if>
+        		</c:if>
                 <div class="room_date">
                     <form name="form" action="/book/beforeBooking/7,${getDetail.get(0).r_no}">
                         <script type = "text/javascript">
@@ -92,7 +92,6 @@
                         ${getDetail.get(0).r_fee} 원
                     </p>
                 </div>
-            </c:if>
                 <div class="room_spec">
                     <p>기본 정보</p>
                     <ul>

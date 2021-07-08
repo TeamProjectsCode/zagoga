@@ -32,7 +32,7 @@
 			<tbody>
 				<tr>
 					<td>${user.u_name }</td>
-					<td><a href = "#">${user.u_mail }</a></td>
+					<td><a href = "user_detail?u_no=${user.u_no }">${user.u_mail }</a></td>
 					<td>${user.u_nick }</td>
 					<td>${user.u_phone }</td>
 				</tr>
@@ -43,7 +43,7 @@
 			$("#keyword").keyup(function() {
 								var k = $(this).val();
 								$("#user-table > tbody > tr").hide();
-								var temp = $("#user-table > tbody > tr > td:nth-child(3):contains('"+ k + "')");
+								var temp = $("#user-table > tbody > tr > td:nth-child(4):contains('"+ k + "')");
 								$(temp).parent().show();
 							})
 		</script>

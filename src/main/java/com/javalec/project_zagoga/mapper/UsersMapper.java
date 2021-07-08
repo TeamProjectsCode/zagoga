@@ -63,4 +63,7 @@ public interface UsersMapper {
     
     @SelectProvider(type = UserSQL.class, method = "userList")
     List<Users> userList();
+    
+    @SelectProvider(type = UserSQL.class, method = "userInfo")
+    List<Users> userInfo(String u_no);
 }

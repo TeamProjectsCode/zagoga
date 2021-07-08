@@ -50,12 +50,18 @@ public class HostSQL {
     			.toString();
     }
 
-    public String findID(String name, String jumin){ // 아아디 찾기
+    public String findID(String name, String jumin){ // �븘�븘�뵒 李얘린
         return new SQL()
                 .SELECT("H_MAIL")
                 .FROM(TABLE)
                 .WHERE("H_NAME=#{name} AND H_JUMIN=#{jumin}")
                 .toString();
+    }
+    public String hostList() {
+    	return new SQL()
+    			.SELECT("*")
+    			.FROM(TABLE)
+    			.toString();
     }
     
 }

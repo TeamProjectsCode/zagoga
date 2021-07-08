@@ -5,6 +5,9 @@ import com.javalec.project_zagoga.mapper.AuthMapper;
 import com.javalec.project_zagoga.security.AuthValue;
 import com.javalec.project_zagoga.mapper.HostMapper;
 import lombok.AllArgsConstructor;
+
+import java.util.List;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -41,9 +44,10 @@ public class HostService {
     public String findID(String name, String jumin){
         return hostMapper.findID(name,jumin);
     }
-
-
     public String pw_check(String no) {
     	return hostMapper.pw_check(no);
+    }
+    public List<Host> hostList() {
+    	return hostMapper.hostList();
     }
 }

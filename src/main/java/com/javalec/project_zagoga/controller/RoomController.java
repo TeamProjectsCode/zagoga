@@ -4,6 +4,8 @@ package com.javalec.project_zagoga.controller;
 import com.javalec.project_zagoga.dto.Images;
 import com.javalec.project_zagoga.dto.Room;
 import com.javalec.project_zagoga.dto.RoomImages;
+import com.javalec.project_zagoga.services.RoomService;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +24,7 @@ public class RoomController {
         this.roomService = roomService;
     }
 
-    //20210704 02:58 확인 (체크인&아웃 가져와야함..) r_no 4번으로 테스트
+    //20210704 02:58 �솗�씤 (泥댄겕�씤&�븘�썐 媛��졇���빞�븿..) r_no 4踰덉쑝濡� �뀒�뒪�듃
     @RequestMapping(value = "/getDetail/{r_no}", method = RequestMethod.GET)
     public String getDetail(@PathVariable("r_no") int r_no, Model model) {
 
@@ -32,7 +34,7 @@ public class RoomController {
                 model.addAttribute("getDetail", roomImages);
                 System.out.println(roomImages);
             }else {
-                System.out.println("데이터가 없음");
+                System.out.println("�뜲�씠�꽣媛� �뾾�쓬");
                 return "main";
             }
         } catch (Exception e) {
@@ -43,13 +45,13 @@ public class RoomController {
         return "/room/room_detail";
     }
 
-    //룸작성페이지 화면!!
+    //猷몄옉�꽦�럹�씠吏� �솕硫�!!
     @GetMapping("/write")
     public String write(){
         return "/room/room_write";
     }
 
-    //정상작동!! 210703 21:52
+    //�젙�긽�옉�룞!! 210703 21:52
     @PostMapping("/room_write/{r_ghno}")
     public String room_write(Room room, @PathVariable("r_ghno") int r_ghno){
         room.setR_ghno(r_ghno);
@@ -60,7 +62,7 @@ public class RoomController {
 
     }
 
-//  room_write -> detail(이미지 넣기전 방금넣은 room data 가져오기) -> room_images
+//  room_write -> detail(�씠誘몄� �꽔湲곗쟾 諛⑷툑�꽔�� room data 媛��졇�삤湲�) -> room_images
     @RequestMapping(value = "/detail/{r_ghno}")
     public String detail(@PathVariable("r_ghno")int r_ghno, Model model){
         Room room = roomService.detail(r_ghno);
@@ -70,7 +72,7 @@ public class RoomController {
 
     }
     
-    //이미지업로드 컨트롤러 20210703 정상작동
+    //�씠誘몄��뾽濡쒕뱶 而⑦듃濡ㅻ윭 20210703 �젙�긽�옉�룞
     @PostMapping("/room_images/{r_no1}")
     public String room_images(Images images, @PathVariable("r_no1")int r_no1, @RequestParam("files") List<MultipartFile> files) {
 //        Room room = roomService.detail(r_ghno);
@@ -122,7 +124,7 @@ public class RoomController {
         return "main";
     }
 
-    //0704 03:37 확인
+    //0704 03:37 �솗�씤
     @RequestMapping(value = "/mypageRoomInfo/{r_no}", method = RequestMethod.GET)
     public String mypageRoomInfo(@PathVariable("r_no")int r_no, Model model){
         List<RoomImages> roomImages = roomService.mypageRoomInfo(r_no);
@@ -132,7 +134,7 @@ public class RoomController {
         return "/mypage/mypage_room_info";
     }
 
-//  20210706 15:47 확인
+//  20210706 15:47 �솗�씤
     @PostMapping("/update")
     public String update(Room room){
         System.out.println("room.toString : " + room.toString());
@@ -140,8 +142,8 @@ public class RoomController {
         return "main";
     }
 
-    //확인 button에서 컨트롤러로 전송방법찾기
-    @RequestMapping("/delete/{r_no},{r_ghno}")    // 9, 3 테스트
+    //�솗�씤 button�뿉�꽌 而⑦듃濡ㅻ윭濡� �쟾�넚諛⑸쾿李얘린
+    @RequestMapping("/delete/{r_no},{r_ghno}")    // 9, 3 �뀒�뒪�듃
     public String delete(@PathVariable("r_no") int r_no, @PathVariable("r_ghno") int r_ghno){
         roomService.delete(r_no, r_ghno);
         return "main";

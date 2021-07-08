@@ -75,4 +75,7 @@ public class UsersService {
             orginUser.setU_phone(phone);
         }
     }
+    public List<Users> userInfo(String u_no){
+    	return usersMapper.userInfo(u_no);
+    }
 }
