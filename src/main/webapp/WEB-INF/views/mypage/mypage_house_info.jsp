@@ -7,9 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>게스트하우스 수정(host용)</title>
-<link href="/resources/css/mypage_house_info.css" media="all"
+<link href="/resources/css/mypage_house_fix.css" media="all"
 	rel="Stylesheet" type="text/css" />
-	<script src="/resources/js/mypage_house_info.js"></script>
 </head>
 <body>
 	<%@ include file="../header.jsp"%>
@@ -19,15 +18,16 @@
 				<h2>사업 등록 현황</h2>
 				<tr>
 					<td>상호명</td>
-					<td><input type="text" name="title"  value="${grList.get(0).gh_name}"></td>
+					<td><input type="text" name="gh_name" value="${grList.get(0).gh_name}"></td>
 				</tr>
 				<tr>
 					<td>사업위치</td>
-					<td><input type="text" name = "local" value="${grList.get(0).gh_addr1}"></td>
+					<td><input type="text" name="gh_addr1" value="${grList.get(0).gh_addr1},${grList.get(0).gh_addr2}" size="50%" readonly></td>
 				</tr>
 				<tr>
 					<td style="padding-top: 10px;">등록된 방 개수</td>
-					<td>${grList.size()}</td>
+					<td><textarea cols="50" rows="10" name="gh_detail">${grList.get(0).gh_detail}</textarea></td>
+<%--					<td><input type="text" value="${grList.size()}" readonly></td>--%>
 				</tr>
 				<tr >
 					<td style="padding-top: 10px;">기타 사항 및 소개글</td>
@@ -50,9 +50,11 @@
 					<td><button onclick="/room/getDetail/${gr.r_no}">상세 보기</button></td>
 				</tr>
 				</c:forEach>
+				<input type="hidden" name="gh_hno" value="${grList.get(0).gh_hno}">
+<%--				hno 연결					--%>
 			</table>
 				<div id="button">
-					<button type="submit"  onclick = "write_check()">수정완료</button>
+					<button type="submit">수정완료</button>
 					<button onclick="history.go(-1)">취소</button>
 				</div>
 		</div>

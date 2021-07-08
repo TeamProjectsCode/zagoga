@@ -1,4 +1,4 @@
-package com.javalec.project_zagoga.services;
+package com.javalec.project_zagoga.mapper.sql;
 
 import com.javalec.project_zagoga.dto.Ghouse;
 import com.javalec.project_zagoga.dto.GhouseRoom;

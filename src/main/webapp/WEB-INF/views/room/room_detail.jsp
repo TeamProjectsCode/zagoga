@@ -3,6 +3,8 @@
 <%@ page import="com.javalec.project_zagoga.dto.Ghouse" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<% pageContext.setAttribute("replaceChar", "\n"); %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,8 +22,11 @@
 <%--        <c:set value="${getDetail}" var="dt">--%>
 <%--        <c:forEach items="${getDetail}" var="dt" varStatus="status">--%>
             <div class="main">
-        <c:if test="${getDetail.size() != 0}">
-                <h3>${getDetail.get(0).r_name}</h3>
+    <img src='C:\Users\yeon\IdeaProjects\project_zagoga\src\main\resources\static\rooms_image\1625465224827_부산넘버원게하(나무뷰 해먹방1).jpg' width="650px">
+        <div class="p-3 mb-2 bg-light text-dark">
+            <div class="mx-auto" style="width: 650px;">
+                <c:if test="${getDetail.size() != 0}">
+                    <h3>${getDetail.get(0).r_name}</h3>
 <%--                <p><%=ghouse.getGh_name()%></p>--%>
                 <br>
                 <p>기준 인원 ${getDetail.get(0).r_pmin} (최대: ${getDetail.get(0).r_pmax})</p>
@@ -30,16 +35,56 @@
             </c:forEach>
         </c:if>
                 <div class="room_date">
-                      <form>
-                          <center>
-                              <span>체크인</span><input type="text" id="startDate" name="B_in">
-                              <span>체크아웃</span><input type="text" id="endDate" name="B_out" >
-                          </center>
-                      </form>
-                     </div>
+                    <form name="form" action="/book/beforeBooking/7,${getDetail.get(0).r_no}">
+                        <script type = "text/javascript">
+                            $(document).ready(function () {
+                                $.datepicker.setDefaults($.datepicker.regional['ko']);
+                                $( "#startDate" ).datepicker({
+                                    changeMonth: true,
+                                    changeYear: true,
+                                    nextText: '다음 달',
+                                    prevText: '이전 달',
+                                    dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+                                    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+                                    monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                                    monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                                    dateFormat: 'yy-mm-dd',
+                                    maxDate: 100,                       // 선택할수있는 최소날짜, ( 0 : 오늘 이후 날짜 선택 불가)
+                                    onClose: function( selectedDate ) {
+                                        //시작일(startDate) datepicker가 닫힐때
+                                        //종료일(endDate)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
+                                        $("#endDate").datepicker( "option", "minDate", selectedDate );
+                                    }
+
+                                });
+                                $( "#endDate" ).datepicker({
+                                    changeMonth: true,
+                                    changeYear: true,
+                                    nextText: '다음 달',
+                                    prevText: '이전 달',
+                                    dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+                                    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+                                    monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                                    monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                                    dateFormat: "yy-mm-dd",
+                                    // dateFormat: "yy년 mm월 dd일 DD",
+                                    maxDate: 100,                       // 선택할수있는 최대날짜, ( 0 : 오늘 이후 날짜 선택 불가)
+                                    onClose: function( selectedDate ) {
+                                        // 종료일(endDate) datepicker가 닫힐때
+                                        // 시작일(startDate)의 선택할수있는 최대 날짜(maxDate)를 선택한 시작일로 지정
+                                        $("#startDate").datepicker( "option", "maxDate", selectedDate );
+                                    }
+                                });
+                            });
+                        </script>
+                        <span>체크인</span><input type="text" id="startDate" name="b_in">
+                        <span>체크아웃</span><input type="text" id="endDate" name="b_out" ><br><br>
+                        <span>인원수</span><input type="number" min="1" id="b_pno" name="b_pno" max="16">
+                </div>
                 <div class="room">
                     <p style="font-size: smaller;">
-                        ${getDetail.get(0).r_detail}<br>
+                        ${fn:replace(getDetail.get(0).r_detail, replaceChar, "<br/>")}
+                        <%--                        ${getDetail.get(0).r_detail}<br>--%>
                     </p>
                     <br>
                     <p style="text-align: right;">
@@ -47,12 +92,13 @@
                         ${getDetail.get(0).r_fee} 원
                     </p>
                 </div>
+            </c:if>
                 <div class="room_spec">
                     <p>기본 정보</p>
                     <ul>
                         <li>공동으로 사용하는 공간인 만큼, 이용규칙을 준수해주세요</li>
                         <li>기준인원 초과시, 현장에서 추가 요금이 발생할 수 있습니다.</li>
-                        <li>음식 조리 및 바베큐는 불가합니다<br>(오전 9:00 ~ 9:30)</li>
+                        <li>음식 조리 및 바베큐는 불가 하지만 1층에서 무료 조식이 제공됩니다.<br>(오전 9:00 ~ 9:30)</li>
                         <li>13세 이하 영유아와 애견 출입은 불가합니다.</li>
                         <li>업체의 시설물의 훼손, 분실에 대한 책임은 본인에게 있습니다.</li>
                         <li>객실 내 흡연은 금지입니다. 지정장소를 이용바랍니다.</li>
@@ -76,8 +122,9 @@
                         <li>취소 및 환불 불가</li>
                         <li>상세한 취소 규정은 <a href="/board/room_cancel" style="text-decoration: none">자세히보기</a>에서 확인하실 수 있습니다. </li>
                     </ul>
-                    <input type="button" value="예약하기" class="room_spec" onclick="location.href='/user/booking_confirm'">
+                    <input type="submit" value="예약하기" class="room_spec" >
                 </div>
+            </div>
         </div>
     </section>
  	<%@ include file="../footer.jsp" %>
