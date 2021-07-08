@@ -30,10 +30,13 @@ public class HostService {
 
         String bizno = host.getH_bizno().replace(",", "");
         host.setH_bizno(bizno);
-//        String jumin = host.getH_jumin().replace(",", "");
+        String jumin = host.getH_jumin().replace(",", "");
         String phone = host.getH_phone().replace(",", "");
-//        host.setH_jumin(jumin);
+        host.setH_jumin(jumin);
         host.setH_phone(phone);
+        String bank = host.getH_bank().replace(",","");
+        host.setH_bank(bank);
+
         hostMapper.insertHost(authValue, host);
     }
 

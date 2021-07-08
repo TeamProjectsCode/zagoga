@@ -52,4 +52,8 @@ function abile() {
     $("#emailID").attr("disabled", false);
     $("#emailAddr").attr("disabled", false);
     $("#registerButton").attr("disabled", false);
+    $("#jumin1").attr("disabled",false);
+    $("#jumin2").attr("disabled",false);
+    $("#bankSelect").attr("disabled",false);
+    $("#bank").attr("disabled",false);
 }

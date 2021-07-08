@@ -17,13 +17,12 @@
               <div class="info">
                     <h4>개인정보</h4>
                     <hr>
-                    <p>반갑습니다. aaa님</p>
+                    <p>반갑습니다. ${user.h_name}님</p>
                     <br>
-                    <p>성명 : ㅁㅁㅁ</p>
-                    <p>성별 : 없음</p>
-                    <p>전화번호 : 000-0000-000</p>
-                    <p>email : ads @adsd.com</p>
-                    <p>사업자 번호 : 000-000-0000</p>
+                    <p>사업자명 : ${user.h_brand}</p>
+                    <p>전화번호 : ${user.h_phone}</p>
+                    <p>email : ${user.h_mail}</p>
+                    <p>사업자 번호 : ${user.h_bizno}</p>
                     <p style="float:right">
                       <input type="button" value="정보수정" onclick="location.href='/host/mypage_host_info'"> &nbsp;&nbsp;&nbsp;
                       <input type="button" value="회원탈퇴" onclick="">
