@@ -17,7 +17,7 @@
 			<h2>유저 목록</h2>
 			<hr>
 			<p></p>
-		유저 전화 번호 :<input type="text" id="keyword">
+		유저 닉네임  <input type="text" id="keyword">
 		</div>
 		<table id="user-table">
 			<thead>

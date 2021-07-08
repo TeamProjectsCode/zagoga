@@ -17,4 +17,5 @@ public class HostVO extends AuthInfo{
     private String h_phone;
     private  String h_bank;
     private String h_join;
+    private String h_active;
 }

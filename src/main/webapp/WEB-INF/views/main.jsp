@@ -78,6 +78,12 @@
                 </c:if>
                 <c:choose>
                     <c:when test = "${userType eq 'HOST'}">
+                        <c:if test="${user.h_active ne 1}">
+                            <script>
+                                alert("승인대기중입니다.");
+                                location.href="/logout";
+                            </script>
+                        </c:if>
                         <ul>
                             <li><a href="/host/mypage_host">MYPAGE</a></li>
                             <li><a href="logout">LOGOUT</a></li>

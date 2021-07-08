@@ -31,17 +31,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
-    // ADMIN: 사업자 리스트 
-	@RequestMapping("/admin/host_list")
-	public String host_list() {
-		return "/admin/host_list";
-	}
 
-	// ADMIN: 사업자 정보 디테일 ( 사업 승인 /거절 )
-	@RequestMapping("/admin/host_reading")
-	public String host_reading() {
-		return "/admin/host_reading";
-	}
 
 	// USER: user 예약확인페이지1
 	@RequestMapping("/user/booking_confirm")
