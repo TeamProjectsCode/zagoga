@@ -240,6 +240,7 @@ public class HomeController {
 	    public String pwCheck(HttpServletRequest request , Model model){
 			return "mypage/mypage_user";
 	    }
+
 //nick ajax ,,
 //	private final AjaxService service;
 //	@PostMapping("/ajax/info")
@@ -261,41 +262,10 @@ public class HomeController {
 //
 //		return result;
 //	}
-	//	@RequestMapping("mypage_booking")
-//	public String mypage_booking() {
-//		return "mypage_booking";
-//	}
 
-
-	@PostMapping("/showID")
-	public String showID(HttpServletRequest request, Model model){
-		String type = request.getParameter("type");
-		String name = request.getParameter("name");
-		String jumin = request.getParameter("jumin");
-		String mail = ""; //return 할 메일
-
-		if (type.equals("USER")){ // 타입 비교해서 같은지 비교
-			mail = usersService.findID(name, jumin);
-
-		}else if(type.equals("HOST")){
-			mail = hostService.findID(name,jumin);
-		}
-
-		model.addAttribute("name",name);
-		model.addAttribute("mail",mail);
-		return "/showID";
+	@RequestMapping("mypage_booking")
+	public String mypage_booking() {
+		return "mypage_booking";
 	}
-
-	@PostMapping("/showPW")
-	public String showPW(){
-
-		return "/showPW";
-	}
-	@RequestMapping("admin/user_list")
-    public String user_list(Model model) {
-    	List<Users> userList = this.usersService.userList();
-    	model.addAttribute("userList",userList);
-    	return "admin/user_list";
-    }
 }
 
