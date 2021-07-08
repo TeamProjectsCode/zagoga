@@ -3,6 +3,7 @@
          pageEncoding="UTF-8"%>
 <%--security 호출 태그 (buile.gradle에 의존성 주입해줘야함)--%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,56 +56,45 @@
             });    
     });
 </script>
-<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 <body>
+
+	<%--세션 설정 ( 전역에서 사용 가능 ) 호출 태그를 위해 taglib link 필요--%>
+    <sec:authentication property="principal" var="session" />
+    <c:if test="${session ne 'anonymousUser'}">
+        <sec:authentication property="principal.authInfo" var="user"/>
+        <sec:authentication property="principal.authInfo.authValue.role" var="userType"/>
+    </c:if>
+
     <div class="container">
         <div class="header">
             <h1><a href="/">ZAGOGA</a></h1>
             <div class="nav">
-        <c:set var="session" value="${user }" />
-		<c:choose> 
-			<c:when test="${empty session }">
-                <ul>
-                    <li><a href="login">LOGIN</a></li>
-                    <li><a href="javascript:checkPopup()">JOIN</a></li>
-                </ul>
-			</c:when>
-        </c:choose>
-<%--            <c:set var="member_type" value="${user.u_role}" />--%>
-<%--            <c:choose>--%>
-<%--                <c:when test = "${member_type eq 'HOST'}">--%>
-<%--                    <ul>--%>
-<%--                        <li><a href="/host/mypage_host">MYPAGE</a></li>--%>
-<%--                        <li><a href="logout">LOGOUT</a></li>--%>
-<%--                    </ul>--%>
-<%--                </c:when>--%>
-<%--                <c:when test="${member_type eq 'USER' }">--%>
-<%--                    <ul>--%>
-<%--                        <li><a href="/user/mypage_user">MYPAGE</a></li>--%>
-<%--                        <li><a href="logout">LOGOUT</a></li>--%>
-<%--                    </ul>--%>
-<%--                </c:when>--%>
-<%--            </c:choose>--%>
+                <c:if test="${empty user}">
+                    <ul>
+                        <li><a href="login">LOGIN</a></li>
+                        <li><a href="javascript:checkPopup()">JOIN</a></li>
+                    </ul>
+                </c:if>
+                <c:choose>
+                    <c:when test = "${userType eq 'HOST'}">
+                        <ul>
+                            <li><a href="/host/mypage_host">MYPAGE</a></li>
+                            <li><a href="logout">LOGOUT</a></li>
+                        </ul>
+                    </c:when>
+                    <c:when test="${userType eq 'USER' }">
+                        <ul>
+                            <li><a href="/user/mypage_user">MYPAGE</a></li>
+                            <li><a href="logout">LOGOUT</a></li>
+                        </ul>
+                    </c:when>
+                </c:choose>
             </div>
 
         </div>
         <div class="hero">
             <h2>어디로 여행가시나요?</h2>
-            <br>
-            <c:choose>
-                <c:when test="${!empty session }">
-                    <ul>
-<%--                        security 호출법 (상단에 security 태그 추가해줘야함)--%>
-                        <sec:authentication property="principal.authInfo"/>
-                        <br><br>
-                        <sec:authentication property="principal.authInfo.authValue.role"/>
-                    </ul>
-                </c:when>
-            </c:choose>
-<%--            <p>${user.authValue.role}</p>--%>
-<%--            <<sec:authentication property="principal.authInfo"/>--%>
-            <br>
             <p>어디에서나, 여행은 살아보는거야!</p>
             <div class="searchArea">
              <form method="post" action="#">

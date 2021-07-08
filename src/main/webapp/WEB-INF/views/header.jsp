@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%--security 호출 태그 (buile.gradle에 의존성 주입해줘야함)--%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,9 +14,16 @@
 %>
 <link rel="stylesheet" type="text/css"
 	href="<%=path%>/resources/css/header.css" />
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 </head>
 <body>
+
+	<%--세션 설정 ( 전역에서 사용 가능 ) 호출 태그를 위해 taglib link 필요--%>
+	<sec:authentication property="principal" var="session" />
+	<c:if test="${session ne 'anonymousUser'}">
+		<sec:authentication property="principal.authInfo" var="user"/>
+		<sec:authentication property="principal.authInfo.authValue.role" var="userType"/>
+	</c:if>
+
 	<header>
 		<h2>
 			<a href="/main">Zagoga</a>
@@ -31,19 +42,31 @@
 					<a href="#">강원도</a> <a href="#">충청도</a> <a href="#">전라도</a>
 				</div>
 			</div>
-			<c:set var="member_type" value="${user.u_role}" />
+
 			<c:choose>
-			<c:when test = "${member_type eq 'HOST'}">
+				<c:when test="${empty user}">
+				<div class="dropdown">
+					<button class="dropbtn" onclick="location.href='/login'">login</button>
+				</div>
+				</c:when>
+				<c:otherwise>
+				<div class="dropdown">
+					<button class="dropbtn" onclick="location.href='/logout'">logout</button>
+				</div>
+				</c:otherwise>
+			</c:choose>
+			<c:choose>
+			<c:when test = "${userType eq 'HOST'}">
 			<div class="dropdown">
 				<button class="dropbtn" onclick="location.href='/user/mypage_user'">마이 페이지</button>
 				<div class="dropdown-content">
-           		 <a href="mypage_host_customerList">예약자 조회</a>
-           		 <a href="mypage_host_info">회원 정보 변경</a>
-           		 <a href="mypage_house_info">게스트하우스 정보 변경</a>
-         		 </div>`
+					 <a href="mypage_host_customerList">예약자 조회</a>
+					 <a href="mypage_host_info">회원 정보 변경</a>
+					 <a href="mypage_house_info">게스트하우스 정보 변경</a>
          		 </div>
+			</div>
 			</c:when>
-			<c:when test="${member_type eq 'USER' }">
+			<c:when test="${userType eq 'USER' }">
 			<div class="dropdown">
 				<button class="dropbtn" onclick="location.href='/host/mypage_host'">마이 페이지</button>
 				<div class="dropdown-content">
@@ -51,20 +74,7 @@
 					<a href="/user/mypage_user_booking">예약 조회</a>
 				</div>
 			</div>
-			</c:when>			
-			</c:choose>
-			<c:set var="session" value="${user }" />
-			<c:choose>
-				<c:when test="${empty session }">
-					<div class="dropdown">
-						<button class="dropbtn" onclick="location.href='/login'">login</button>
-					</div>
-				</c:when>
-				<c:when test="${!empty session }">
-					<div class="dropdown">
-						<button class="dropbtn" onclick="location.href='/logout'">logout</button>
-					</div>
-				</c:when>
+			</c:when>
 			</c:choose>
 		</div>
 		<script>
