@@ -78,7 +78,7 @@
 						</a></td>
 					</tr>
 				</c:forEach>
-						<table class="table table-stripped">
+						<table class="review">
 							<tr>
 								<th>평점</th>
 								<!-- 평점 -->
