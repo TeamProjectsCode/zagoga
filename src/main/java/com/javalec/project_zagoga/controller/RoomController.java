@@ -4,14 +4,12 @@ package com.javalec.project_zagoga.controller;
 import com.javalec.project_zagoga.dto.Images;
 import com.javalec.project_zagoga.dto.Room;
 import com.javalec.project_zagoga.dto.RoomImages;
-import com.javalec.project_zagoga.services.RoomService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +30,7 @@ public class RoomController {
             List<RoomImages> roomImages = this.roomService.getDetail(r_no);
             if (roomImages.size()!=0){
                 model.addAttribute("getDetail", roomImages);
-                System.out.println(roomImages.toString());
+                System.out.println(roomImages);
             }else {
                 System.out.println("데이터가 없음");
                 return "main";
@@ -55,7 +53,7 @@ public class RoomController {
     @PostMapping("/room_write/{r_ghno}")
     public String room_write(Room room, @PathVariable("r_ghno") int r_ghno){
         room.setR_ghno(r_ghno);
-        System.out.println(room.toString());
+        System.out.println(room);
         roomService.insertRoom(room);
 
         return "redirect:/room/detail/"+r_ghno;
@@ -105,8 +103,8 @@ public class RoomController {
             e.printStackTrace();
         }
 
-        System.out.println("safeDB.toString : " + safeDB.toString());
-        System.out.println("images.toString : " + images.toString());
+        System.out.println("safeDB.toString : " + safeDB);
+        System.out.println("images.toString : " + images);
         try {
             for (int i=0; i<safeDB.size(); i++){
                 images.setI_name(safeDB.get(i));

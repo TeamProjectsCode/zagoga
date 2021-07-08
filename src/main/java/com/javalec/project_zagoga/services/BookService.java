@@ -1,4 +1,4 @@
-package com.javalec.project_zagoga.mapper.sql;
+package com.javalec.project_zagoga.services;
 
 import com.javalec.project_zagoga.dto.Booking;
 import com.javalec.project_zagoga.dto.BookingRoomGhouseUsers;
@@ -10,6 +10,7 @@ import java.util.List;
 
 @Service
 public class BookService {
+
     private final BookMapper bookMapper;
     public BookService(BookMapper bookMapper){this.bookMapper=bookMapper;}
 
