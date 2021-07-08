@@ -100,16 +100,15 @@ public class UserSQL {
         }}.toString();
     }
 
-    public String updateUser(Users user) {
+    public String updateUserNickPhone(Users user) {
         return new SQL() {{
             UPDATE(TABLE);
-            SET("U_NAME = #{user.u_no}");
             SET("U_NICK = #{user.u_nick}");
-            SET("U_MAIL = #{user.u_mail}");
-            SET("U_PWD = #{user.u_pwd}");
-            SET("U_GENDER = #{user.u_gender}");
-            SET("U_JUMIN = #{user.u_jumin}");
+//            SET("U_PWD = #{user.u_pwd}");
+//            SET("U_GENDER = #{user.u_gender}");
+//            SET("U_JUMIN = #{user.u_jumin}");
             SET("U_PHONE = #{user.u_phone}");
+            WHERE("U_NO = #{user.u_no}");
         }}.toString();
     }
 

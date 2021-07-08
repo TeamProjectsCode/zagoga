@@ -6,10 +6,12 @@ import com.javalec.project_zagoga.dto.GhouseRoom;
 import com.javalec.project_zagoga.dto.Users;
 import com.javalec.project_zagoga.mapper.AuthMapper;
 import com.javalec.project_zagoga.security.AuthValue;
+import com.javalec.project_zagoga.security.PrincipalUser;
 import com.javalec.project_zagoga.vo.UsersVO;
 import com.javalec.project_zagoga.mapper.UsersMapper;
 
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -60,4 +62,17 @@ public class UsersService {
     public List<Users> userList(){
 		return usersMapper.userList();
 	}
+
+    public void updateUserInfo(PrincipalUser principalUser, Users user) {
+        UsersVO orginUser = (UsersVO) principalUser.getAuthInfo();
+        String phone = user.getU_phone().replace(",", "");
+        user.setU_no(String.valueOf(orginUser.getU_no()));
+        user.setU_phone(phone);
+        int isSuccess = usersMapper.updateUserNickPhone(user);
+        System.out.println("isSuccess"+isSuccess);
+        if (isSuccess != 0){
+            orginUser.setU_nick(user.getU_nick());
+            orginUser.setU_phone(phone);
+        }
+    }
 }

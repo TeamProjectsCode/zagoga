@@ -5,7 +5,6 @@ import com.javalec.project_zagoga.security.AuthValue;
 import com.javalec.project_zagoga.vo.UsersVO;
 import com.javalec.project_zagoga.mapper.sql.UserSQL;
 import org.apache.ibatis.annotations.*;
-import org.springframework.security.core.parameters.P;
 
 import java.util.List;
 
@@ -42,9 +41,9 @@ public interface UsersMapper {
     @InsertProvider(type = UserSQL.class, method = "insertBySNS")
     void insertBySNS(@Param("snsID") String snsID, @Param("user") UsersVO user);
 
-    @UpdateProvider(type = UserSQL.class, method = "updateUser")
+    @UpdateProvider(type = UserSQL.class, method = "updateUserNickPhone")
 //    int update(HashMap<String, Object> user_map);
-    int update(@Param("user") UsersVO user);
+    int updateUserNickPhone(@Param("user") Users user);
 
     @DeleteProvider(type = UserSQL.class, method = "deleteUser")
     int delete(int u_no);
@@ -55,8 +54,8 @@ public interface UsersMapper {
     @SelectProvider(type = UserSQL.class, method = "check_mail")
     int check_mail(String u_mail);
     //�씠硫붿씪 以묐났泥댄겕
-	@InsertProvider(value = UserSQL.class, method = "pw_check") 
-	public String pw_check(String no);
+	@InsertProvider(value = UserSQL.class, method = "pw_check")
+    String pw_check(String no);
 	
     //이메일 중복체크
     @SelectProvider(type = UserSQL.class, method = "findID")

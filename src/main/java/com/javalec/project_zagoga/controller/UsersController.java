@@ -2,12 +2,14 @@ package com.javalec.project_zagoga.controller;
 
 import com.javalec.project_zagoga.dto.Users;
 import com.javalec.project_zagoga.mapper.UsersMapper;
+import com.javalec.project_zagoga.security.PrincipalUser;
 import com.javalec.project_zagoga.services.AjaxService;
 import com.javalec.project_zagoga.services.UsersService;
 
 import lombok.AllArgsConstructor;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -63,11 +65,11 @@ public class UsersController {
 		return result;
 	}
 
-	@PostMapping("/user/updateInfo")
-	@ResponseBody
-	public String updateUserInfo(Users user){
+	@PostMapping("/updateInfo")
+	public String updateUserInfo(@AuthenticationPrincipal PrincipalUser principalUser, Users user){
 		System.out.println(user.toString());
-		return "main";
+		userService.updateUserInfo(principalUser, user);
+		return "redirect:/user/mypage_user_info";
 	}
 
 	@PostMapping("/delete.do")
