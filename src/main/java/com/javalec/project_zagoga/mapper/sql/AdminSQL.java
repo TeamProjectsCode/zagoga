@@ -13,4 +13,6 @@ public class AdminSQL {
                 .WHERE("A_NO = #{sc_no}")
                 .toString();
     }
+
+
 }

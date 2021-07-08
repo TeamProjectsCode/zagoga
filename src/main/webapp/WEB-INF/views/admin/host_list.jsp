@@ -7,7 +7,6 @@
 <title>사업자 리스트(admin 용)</title>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/resources/css/administration_list.css" />
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 <body>
 	<%@ include file="../header.jsp" %>
@@ -36,15 +35,16 @@
 			</thead>
 			<c:forEach var="host" items="${hostList}" >
 			<tbody>
+				<c:forEach items="${hList}" var="hlist" varStatus="status">
 				<tr>
-					<td>${host.h_hizno }</td>
-					<td>${host.h_name }</td>
-					<td>${host.h_mail }</td>
+					<td>${hlist.h_bizno}</td>
+					<td>${hlist.h_name}</td>
+					<td>${hlist.h_join}</td>
 					<td id = "check">승인</td>
 					<td><button onclick="location.href='/admin/host_reading'">상세 내용 확인</button></td>
 				</tr>
+				</c:forEach>
 			</tbody>
-			</c:forEach>
 		</table>
 		<script>
 			$("#keyword").keyup(function() {

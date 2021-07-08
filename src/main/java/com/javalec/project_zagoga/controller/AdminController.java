@@ -2,6 +2,7 @@ package com.javalec.project_zagoga.controller;
 
 import com.javalec.project_zagoga.dto.Host;
 import com.javalec.project_zagoga.dto.Users;
+import com.javalec.project_zagoga.mapper.AdminMapper;
 import com.javalec.project_zagoga.services.HostService;
 import com.javalec.project_zagoga.services.UsersService;
 import lombok.AllArgsConstructor;
@@ -28,21 +29,24 @@ public class AdminController {
         model.addAttribute("userList",userList);
         return "/admin/user_list";
     }
-    @GetMapping("/user_detail")
-    public String user_detail(HttpServletRequest request , Model model) {
-    	String u_no = request.getParameter("u_no");
-    	List<Users> userInfo = this.usersService.userInfo(u_no);
-    	model.addAttribute("userInfo",userInfo);
-    	return "/admin/user_detail";
+
+
+
+
+
+    // ADMIN: 사업자 정보 디테일 ( 사업 승인 /거절 )
+    @GetMapping("/host_reading")
+    public String host_reading() {
+        return "/admin/host_reading";
     }
-	@GetMapping("/host_list")
-	public String host_list(Model model) {
-		List<Host> hostList = this.hostService.hostList();
-		model.addAttribute("hostList",hostList);
-		return "/admin/host_list";
-	}
-	@GetMapping("/host_reading")
-	public String host_reading() {
-		return "/admin/host_reading";
-	}
+
+    // ADMIN: 사업자 리스트
+    @RequestMapping("/host_list")
+    public String hostlist(Model model) {
+        List<Host> host = hostService.hostlist();
+        System.out.println("host.toString : " + host.toString());
+        model.addAttribute("hList", host);
+        return "/admin/host_list";
+    }
+
 }

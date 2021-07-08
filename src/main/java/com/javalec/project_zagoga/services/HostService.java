@@ -11,6 +11,8 @@ import java.util.List;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @AllArgsConstructor
 @Service
 public class HostService {
@@ -49,5 +51,9 @@ public class HostService {
     }
     public List<Host> hostList() {
     	return hostMapper.hostList();
+    }
+
+    public List<Host> hostlist(){
+        return hostMapper.hostlist();
     }
 }

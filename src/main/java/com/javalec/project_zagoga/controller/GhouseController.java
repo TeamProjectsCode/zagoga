@@ -44,7 +44,7 @@ public class GhouseController {
 		return "/host/gHouse_write";
 	}
 
-	//210704 01:05 �솗�씤 (g_hno �샇�뒪�듃踰덊샇 �뿰寃고빐以섏빞�븿)
+	//210704 01:05 확인 (g_hno 호스트번호 연결해줘야함)
 	@SneakyThrows
 	@PostMapping("/insert/{h_no}")
 	public String insert(Ghouse ghouse, @RequestParam("files") MultipartFile file, @PathVariable("h_no") int h_no) throws IOException {
@@ -76,7 +76,7 @@ public class GhouseController {
 //		return "redirect:/room/write/"+h_no;
 	}
 
-	//// room�씠 fk�옟���엳�뼱�꽌 �궘�젣�븞�맖
+	//// room이 fk잡혀있어서 삭제안됨
 	@PostMapping("/delete/{gh_no},{gh_hno}")
 	public String delete(@PathVariable("gh_no") int gh_no,@PathVariable("gh_hno") int gh_hno){
 		ghouseService.delete(gh_no, gh_hno);
@@ -84,8 +84,8 @@ public class GhouseController {
 	}
 
 
-	//gHouse_detail view 20210704 00:53 �젙�긽�옉�룞
-	// 20210705 蹂몄껜1媛�, 猷�2媛�, �씠誘몄�媛곴컖3�옣�뵫 珥� 6以� 異쒕젰 / �씠誘몄�留� 諛섎났�떆�궎怨� r_no 諛붾�붾븣留� 異쒕젰 2以묐컲蹂듬Ц�븘�슂
+	//gHouse_detail view 20210704 00:53 정상작동
+	// 20210705 본체1개, 룸2개, 이미지각각3장씩 총 6줄 출력 / 이미지만 반복시키고 r_no 바뀔때만 출력 2중반복문필요
 	@RequestMapping(value = "/detail/{gh_no}", method = RequestMethod.GET)
 	public String ghouseDetail(@PathVariable("gh_no")int gh_no, Model model) {
 		List<GhouseRoomImages> ghouseRoomImages=this.ghouseService.ghouseDetail(gh_no);
@@ -95,7 +95,7 @@ public class GhouseController {
 		return "/room/gHouse_detail";
 	}
 
-	//mypage_house_info.jsp �뾽�뜲�씠�듃 �럹�씠吏� 酉곗슜!!! �젙�긽�옉�룞
+	//mypage_house_info.jsp 업데이트 페이지 뷰용!!! 정상작동
 	@RequestMapping("/RoomAndGhouse/{gh_no}")
 	public String updateViewAll(@PathVariable("gh_no")int gh_no, Model model){
 		List<GhouseRoom> ghouseRoom=this.ghouseService.roomAndGhouse(gh_no);
@@ -115,22 +115,22 @@ public class GhouseController {
 
 
 
-	@RequestMapping("/mypageRoomInfo2")	// 諛⑸벑濡앺쁽�솴, �닔�젙�럹�씠吏� (�쉶�썝�깉�눜�뒗)
+	@RequestMapping("/mypageRoomInfo2")	// 방등록현황, 수정페이지 (회원탈퇴는)
 	public String mypageRoomInfo2(){
 		return "/mypage/mypage_room_info";
 	}
-	@RequestMapping("/mypage_host")		// 媛쒖씤�젙蹂� �궗�뾽�옄�젙蹂� 酉�, �닔�젙�럹�씠吏�
+	@RequestMapping("/mypage_host")		// 개인정보 사업자정보 뷰, 수정페이지
 	public String mypage_host() {
 		return "/mypage/mypage_host";
 	}
 
-	@RequestMapping("/mypage_host_info")		//�궗�뾽�옄 �쉶�썝�젙蹂� 蹂�寃�
+	@RequestMapping("/mypage_host_info")		//사업자 회원정보 변경
 	public String mypage_host_info() {
 		return "/mypage/mypage_host_info";
 	}
-	@RequestMapping("/mypage_house_info")	//�궗�뾽�옄 �벑濡앺쁽�솴, �벑濡앸맂 諛⑺쁽�솴(�궗�뾽�옄 �젙蹂대�寃�)
+	@RequestMapping("/mypage_house_info")	//사업자 등록현황, 등록된 방현황(사업자 정보변경)
 	public String mypage_house_info() {	return "/mypage/mypage_house_info";	}
-	@RequestMapping("/room_cancel")		// �삁�빟 痍⑥냼 �븞�궡
+	@RequestMapping("/room_cancel")		// 예약 취소 안내
 	public String room_cancel() {
 		return "/room/room_cancel";
 	}
@@ -142,17 +142,17 @@ public class GhouseController {
 
 
 
-	@RequestMapping("/booking_confirm")	// �삁�빟�떊泥��썑 �솗�씤�럹�씠吏�, �삁�빟�븯湲� 踰꾪듉 �늻瑜대㈃ �삁�빟�맖 (booking_confirm �쑝濡� �씠�룞)
+	@RequestMapping("/booking_confirm")	// 예약신청후 확인페이지, 예약하기 버튼 누르면 예약됨 (booking_confirm 으로 이동)
 	public String booking_confirm() {
 		return "/room/booking_confirm";
 	}
-	@RequestMapping("/mypage_user")		// user mypage �젙蹂댁닔�젙, �삁�빟�쁽�솴 諛� 紐⑸줉(踰꾪듉 �늻瑜대㈃ mypage_user_booking �쑝濡� �씠�룞)
+	@RequestMapping("/mypage_user")		// user mypage 정보수정, 예약현황 및 목록(버튼 누르면 mypage_user_booking 으로 이동)
 	public String mypage_user() {
 		return "/mypage/mypage_user";
 	}
-	@RequestMapping("/mypage_user_booking")		//user �삁�빟紐⑸줉
+	@RequestMapping("/mypage_user_booking")		//user 예약목록
 	public String mypage_user_booking() { return "/mypage/mypage_user_booking";	}
-	@RequestMapping("/mypage_host_customerList")	// �삁�빟 �듅�씤/嫄곕� �럹�씠吏�
+	@RequestMapping("/mypage_host_customerList")	// 예약 승인/거부 페이지
 	public String mypage_host_customerList() {
 		return "/mypage/mypage_host_customerList";
 	}

@@ -63,6 +63,13 @@ public class HostSQL {
     			.FROM(TABLE)
     			.toString();
     }
+
+    public String hostlist(){
+        return new SQL()
+                .SELECT("*")
+                .FROM(TABLE)
+                .toString();
+    }
     
 }
 

@@ -1,17 +1,17 @@
 package com.javalec.project_zagoga.mapper;
 
 import com.javalec.project_zagoga.dto.Host;
+import com.javalec.project_zagoga.mapper.sql.AdminSQL;
 import com.javalec.project_zagoga.security.AuthValue;
 import com.javalec.project_zagoga.vo.HostVO;
 import com.javalec.project_zagoga.mapper.sql.HostSQL;
 import com.javalec.project_zagoga.mapper.sql.UserSQL;
-
-import java.util.List;
-
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.SelectProvider;
+
+import java.util.List;
 
 @Mapper
 public interface HostMapper {
@@ -29,7 +29,7 @@ public interface HostMapper {
     String findID(String name, String jumin);
 	@InsertProvider(value = HostSQL.class, method = "pw_check") 
 	public String pw_check(String no);
-	
-	@SelectProvider(type = HostSQL.class, method = "hostList")
-	List<Host> hostList();
+
+    @SelectProvider(type = HostSQL.class, method = "hostlist")
+    List<Host> hostlist();
 }
