@@ -57,6 +57,12 @@
 			</c:choose>
 			<c:choose>
 			<c:when test = "${userType eq 'HOST'}">
+			<c:if test="${user.h_active ne 1}">
+				<script>
+					alert("승인대기중입니다.");
+					location.href="/logout";
+				</script>
+			</c:if>
 			<div class="dropdown">
 				<button class="dropbtn" onclick="location.href='/host/mypage_host'">마이 페이지</button>
 				<div class="dropdown-content">

@@ -37,7 +37,7 @@ public class RegisterController {
 
     @PostMapping("/host")
     public String insertHost(AuthValue authValue, Host host) {
-        System.out.println("/host: "+authValue.toString());
+//        System.out.println("/host: "+authValue.toString());
         hostService.insertHost(authValue, host);
         return "redirect:/main";
     }

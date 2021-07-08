@@ -5,7 +5,6 @@ import com.javalec.project_zagoga.dto.GhouseRoom;
 import com.javalec.project_zagoga.dto.GhouseRoomImages;
 import com.javalec.project_zagoga.services.GhouseService;
 import com.javalec.project_zagoga.services.RoomService;
-
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +18,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/ghouse")
-//@RestController �뒗 酉고럹�씠吏� 諛섑솚 �끂�끂 �뜲�씠�꽣留�! �꽕
+//@RestController 는 뷰페이지 반환 노노 데이터만! 네
 public class GhouseController {
 	private final GhouseService ghouseService;
 	private final RoomService roomService;
@@ -29,7 +28,7 @@ public class GhouseController {
 		this.ghouseService = ghouseService;
 		this.roomService = roomService;
 	}
-	// 210704 04:03 �솗�씤
+	// 210704 04:03 확인
 	@RequestMapping(value = "/getList", method = RequestMethod.GET)
 	public String getList(Model model) {
 		List<GhouseRoom> show = this.ghouseService.getList();
