@@ -17,6 +17,9 @@ public interface RoomMapper {
 //	@Select("SELECT * FROM ROOMS WHERE R_NO = #{R_NO}")
 //	public List<Room> getDetail(@Param("R_NO") int R_NO);
 
+	@SelectProvider(type = RoomSQL.class, method = "detail")
+	Room detail(@Param("r_ghno")int r_ghno);
+
 	@SelectProvider(type = RoomSQL.class, method = "getDetail")
 	List<RoomImages> getDetail(@Param("r_no")int r_no);
 
@@ -33,7 +36,10 @@ public interface RoomMapper {
 	List<RoomImages> mypageRoomInfo(@Param("r_no")int r_no);
 
 	@UpdateProvider(type = RoomSQL.class, method = "update")
-	int update(@Param("room") Room room);
+	void update(@Param("room") Room room);
+
+	@SelectProvider(type = RoomSQL.class, method = "getGhno")
+	int getGhno(@Param("h_no")int h_no);
 
 	@InsertProvider(type = RoomSQL.class, method = "imageInsert")
 	void imageInsert(@Param("images") Images images);

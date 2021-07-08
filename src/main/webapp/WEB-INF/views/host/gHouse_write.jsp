@@ -15,7 +15,7 @@
   <body>
   <%@ include file="../header.jsp" %>
 	<div class="total">
-		<form name="form" action="/ghouse/insert/${user.h_no}" method="post" enctype="multipart/form-data">
+		<form name="form" action="/ghouse/insert" method="post" enctype="multipart/form-data">
 	    <h2>게스트 하우스 등록</h2>
 	    <div class="section">
 		    <div class="title">

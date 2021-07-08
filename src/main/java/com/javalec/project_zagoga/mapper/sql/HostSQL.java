@@ -52,7 +52,7 @@ public class HostSQL {
 
     public String findID(String name, String jumin){ // 아아디 찾기
         return new SQL()
-                .SELECT("H_EMAIL")
+                .SELECT("H_MAIL")
                 .FROM(TABLE)
                 .WHERE("H_NAME=#{name} AND H_JUMIN=#{jumin}")
                 .toString();

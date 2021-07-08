@@ -56,6 +56,7 @@
             });    
     });
 </script>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 <body>
 
@@ -216,10 +217,5 @@
           <li></li>
         </ul>
     </div>
-<script>
-    function no(){
-        alert("사업자만 사용가능한 기능입니다. \n 사업자로 로그인 해주시길 바랍니다.");
-    }
-</script>
 </body>
 </html>

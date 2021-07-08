@@ -1,4 +1,4 @@
-package com.javalec.project_zagoga.services;
+package com.javalec.project_zagoga.mapper.sql;
 
 import com.javalec.project_zagoga.dto.Images;
 import com.javalec.project_zagoga.dto.Room;
@@ -46,6 +46,7 @@ public class RoomService {
     public int insertRoom(Room room){
         return roomMapper.insertRoom(room);
     }
+    public int getGhno(int h_no){return roomMapper.getGhno(h_no);}
 
     public void update(Room room){
         roomMapper.update(room);

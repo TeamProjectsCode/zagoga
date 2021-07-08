@@ -26,6 +26,10 @@
             <tr><td class="input"><input type="text" id="brand" name="h_brand" placeholder="상호명" disabled required></td></tr>
             <tr><td class="input"><input type="text" id="owner" name="h_name" placeholder="대표자명" disabled required></td></tr>
             <tr>
+                <td><input type="text" id="jumin1" name="h_jumin" size="16" maxlength="6" onkeyup="$(this).val($(this).val().replace(/\D/g,''));" placeholder="주민번호" disabled required>
+                    - <input type="password"  id="jumin2" name="h_jumin" size="16" maxlength="7" onkeyup="$(this).val($(this).val().replace(/\D/g,''));" disabled required> </td>
+            </tr>
+            <tr>
                 <td >
                     <input type="text" id="emailID" name="username" placeholder="이메일" disabled required>
                     @ <select id="emailAddr" name="username" disabled required>
@@ -48,8 +52,28 @@
                         <option>선택</option>
                         <option selected >010</option>
                     </select>
-                    - <input type="text" id="phone1" class="phoneNum" name="h_phone" maxlength="4" onkeyup="$(this).val($(this).val().replace(/\D/g,''));" disabled required>
-                    - <input type="text" id="phone2" class="phoneNum" name="h_phone" maxlength="4"  onkeyup="$(this).val($(this).val().replace(/\D/g,''));" disabled required>
+                    - <input type="text" id="phone1" class="phoneNum" size="5" name="h_phone" maxlength="4" onkeyup="$(this).val($(this).val().replace(/\D/g,''));" disabled required>
+                    - <input type="text" id="phone2" class="phoneNum" size="5" name="h_phone" maxlength="4"  onkeyup="$(this).val($(this).val().replace(/\D/g,''));" disabled required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <select id="bankSelect" name="h_bank" disabled required >
+                        <option>계좌번호선택</option>
+                        <option value="국민은행" >국민은행</option>
+                        <option value="IBK기업은행">IBK기업은행</option>
+                        <option value="NH농협은행">NH농협은행</option>
+                        <option value="신한은행">신한은행</option>
+                        <option value="우리은행">우리은행</option>
+                        <option value="KEB하나은행">KEB하나은행</option>
+                        <option value="씨티은행">씨티은행</option>
+                        <option value="DGB대구은행">DGB대구은행</option>
+                        <option value="BNK부산은행">BNK부산은행</option>
+                        <option value="SC제일은행">SC제일은행</option>
+                        <option value="케이뱅크">케이뱅크</option>
+                        <option value="카카오뱅크">카카오뱅크</option>
+                </select>
+                    <input type="text" id="bank" name="h_bank" maxlength="14" size="18" onkeyup="$(this).val($(this).val().replace(/\D/g,''));" disabled required>
                 </td>
             </tr>
             <tr>

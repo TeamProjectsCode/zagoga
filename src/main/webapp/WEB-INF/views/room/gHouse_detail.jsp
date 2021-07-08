@@ -75,6 +75,78 @@
 									${gri.r_detail}</p>
 						</a></td>
 					</tr>
+	<%@ include file="../header.jsp"%>
+	<section>
+		<div class="p-3 mb-2 bg-light text-dark">
+			<div class="mx-auto" style="width: 650px;">
+				<img src="${pageContext.request.contextPath}/resources/gh_image/${griList.get(0).gh_image}" width="650px" height="500px" alt="대표사진">
+<%--				<img src="/resources/img/busan.jpg" width="650px" height="500px" alt="대표사진">--%>
+				<p>대표사진</p>
+				<p>
+				<h3>${griList.get(0).gh_name}</h3>
+				</p>
+				<p class="star_rating">
+					<a href="#" class="on">★</a>
+					<a href="#" class="on">★</a>
+					<a href="#" class="on">★</a>
+					<a href="#">★</a>
+					<a href="#">★</a>
+				</p>
+				<p>
+					위치
+					${griList.get(0).gh_addr1} ${griList.get(0).gh_addr2}</p>
+				<div class="room_date">
+					<form>
+						<center>
+							<span>체크인</span><input type="text" id="startDate" name="B_in">
+							<span>체크아웃</span><input type="text" id="endDate" name="B_out">
+						</center>
+					</form>
+				</div>
+				<br>
+
+<%--<c:set var="name" value="홍길동" />--%>
+
+<%--<c:if test="${name eq '홍길동'}">--%>
+<%--				<c:if test=""></c:if>--%>
+				<%
+					int i=0;
+					pageContext.setAttribute("i", i);
+					System.out.println("i : " + i);
+				%>
+
+				<c:set var="irno" value="${griList.get(i).i_rno}">
+				<c:choose >
+					<c:when test="${irno} != ${griList.get(i).i_rno}">
+				<div style="width: 650px;">
+					<table style="width: 650px;">
+						<tr>
+							<td><a href="room_detail"
+								   style="text-decoration-line: none; color: black;">
+									<%--								 <img src="/resources/img/jeju.jpg" width="300px" style="float: left;">--%>
+								<c:forEach items="${griList}" var="gri" varStatus="status">
+									<img src="${pageContext.request.contextPath}/resources/rooms_image/${gri.i_name}" width="300px" style="float: left;">
+								</c:forEach>
+								<p>
+								<h6>${gri.r_name}</h6>
+								</p> <br>
+								<p>
+									기준
+										${gri.r_pmin}명 / 최대
+										${gri.r_pmax}명
+								</p>
+								<p>
+									침대
+										${gri.r_pmax}</p> <br> <br> <br>
+								<p style="text-align: right;">
+									1박
+										${gri.r_fee}원
+								</p>
+								<p>
+									기타사항
+										${gri.r_detail}</p>
+							</a></td>
+						</tr>
 
 				</table>
 				<hr>
@@ -99,6 +171,39 @@
 	</div>
 </section>
 <%@ include file="../footer.jsp"%>
+					</table>
+					<hr>
+					<div>
+					</c:when>
+					<c:otherwise>
+						<%
+							i++;
+						%>
+					</c:otherwise>
+				</c:choose>
+				</c:set>
+
+
+						<table class="table table-stripped">
+							<tr>
+								<th>평점</th>
+								<!-- 평점 -->
+								<th>별명</th>
+								<th>내용</th>
+							</tr>
+							<tr>
+								<td>★</td>
+								<td>익명</td>
+								<td>내용123</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+	<%@ include file="../footer.jsp"%>
 </body>
 </html>
 
