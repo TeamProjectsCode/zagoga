@@ -16,7 +16,7 @@ public class UserSQL {
 
     public static final String GET_USERS_LIST = "select * from "+TABLE;
 
-//    작성 방법은 아래 페이지 참조
+//    �옉�꽦 諛⑸쾿�� �븘�옒 �럹�씠吏� 李몄“
 //    https://mybatis.org/mybatis-3/ko/statement-builders.html
 //    public String loadUserByName(String username) {
 //        return new SQL()
@@ -54,7 +54,7 @@ public class UserSQL {
                 .JOIN(SNS_TABLE+" SNS on "+TABLE+".U_NO = SNS.U_NO" )
                 .WHERE("SNS.ID = #{snsID}")
                 .toString();
-//        테이블 만들어서 조인 문 확인하고 작성하기
+//        �뀒�씠釉� 留뚮뱾�뼱�꽌 議곗씤 臾� �솗�씤�븯怨� �옉�꽦�븯湲�
     }
 
 
@@ -142,4 +142,18 @@ public class UserSQL {
                 .WHERE("U_NAME=#{name} AND U_JUMIN=#{jumin}")
                 .toString();
     }
+    public String pw_check(String no) {
+    	return new SQL()
+    			.SELECT("U_PWD")
+    			.FROM(TABLE)
+    			.WHERE("U_NO = #{no}")
+    			.toString();
+    }
+    public String userList() {
+    	return new SQL()
+    			.SELECT("*")
+    			.FROM(TABLE)
+    			.toString();
+    }
+
 }

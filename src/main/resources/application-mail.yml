@@ -1,0 +1,22 @@
+#custom:
+#  path:
+#    upload-images: 'c://uploadImages/'
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: leni.s.googol@gmail.com
+    password: wfmlmwjihnvzrqud
+    properties:
+      mail:
+        smtp:
+          auth: true
+          #          < strat > port 587 sertting
+          starttls:
+            enable: true
+  #            < end > port 587 setting
+  #          < strat > port 465 sertting
+  #          ssl:
+  #            enable: true
+  #            required: true
+  #            < end > port 465 setting

@@ -1,14 +1,20 @@
 package com.javalec.project_zagoga.services;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.javalec.project_zagoga.dto.GhouseRoom;
 import com.javalec.project_zagoga.dto.Users;
 import com.javalec.project_zagoga.mapper.AuthMapper;
 import com.javalec.project_zagoga.security.AuthValue;
 import com.javalec.project_zagoga.vo.UsersVO;
 import com.javalec.project_zagoga.mapper.UsersMapper;
+
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.List;
 
 @AllArgsConstructor
 @Service
@@ -42,9 +48,14 @@ public class UsersService {
         // 닉네임 중복체크
         return usersMapper.nickCheck(u_nick);
     }
+    public String pw_check(String no) {
+    	return usersMapper.pw_check(no);
+    }
 
     public String findID(String name, String jumin){
-
         return usersMapper.findID(name,jumin);
     }
+    public List<Users> userList(){
+		return usersMapper.userList();
+	}
 }

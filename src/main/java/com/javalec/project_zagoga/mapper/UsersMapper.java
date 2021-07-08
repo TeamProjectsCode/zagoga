@@ -51,11 +51,17 @@ public interface UsersMapper {
 
     @SelectProvider(type = UserSQL.class, method = "nickCheck")
     int nickCheck(String u_nick);
-    // 닉네임 중복체크
+    // �땳�꽕�엫 以묐났泥댄겕
     @SelectProvider(type = UserSQL.class, method = "check_mail")
     int check_mail(String u_mail);
+    //�씠硫붿씪 以묐났泥댄겕
+	@InsertProvider(value = UserSQL.class, method = "pw_check") 
+	public String pw_check(String no);
+	
     //이메일 중복체크
-
     @SelectProvider(type = UserSQL.class, method = "findID")
     String findID(String name, String jumin);
+    
+    @SelectProvider(type = UserSQL.class, method = "userList")
+    List<Users> userList();
 }

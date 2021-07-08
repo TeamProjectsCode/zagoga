@@ -24,4 +24,6 @@ public interface HostMapper {
 
     @SelectProvider(type = HostSQL.class, method = "findID")
     String findID(String name, String jumin);
+	@InsertProvider(value = HostSQL.class, method = "pw_check") 
+	public String pw_check(String no);
 }

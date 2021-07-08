@@ -18,6 +18,8 @@ public class HostService {
     private final AuthMapper authMapper;
     private final PasswordEncoder passwordEncoder;
 
+    public void hostInsert(Host host) {
+        hostMapper.insertHost(host);
     public void insertHost(AuthValue authValue, Host host) {
         System.out.println(host.toString());
         System.out.println(authValue.toString());
@@ -42,4 +44,7 @@ public class HostService {
     }
 
 
+    public String pw_check(String no) {
+    	return hostMapper.pw_check(no);
+    }
 }

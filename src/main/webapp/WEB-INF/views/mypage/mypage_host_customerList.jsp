@@ -17,7 +17,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/resources/css/costomer_list.css" />
     <title>승인/거부</title>
-	// Ajax처리?
 </head>
 <body>
 	<%@ include file="../header.jsp" %>

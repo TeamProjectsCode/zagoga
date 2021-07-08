@@ -7,11 +7,15 @@ import lombok.AllArgsConstructor;
 		import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.javalec.project_zagoga.dto.Users;
 import com.javalec.project_zagoga.services.AjaxService;
 import lombok.AllArgsConstructor;
 		import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -156,6 +160,10 @@ public class HomeController {
 	public String mypage_house_info() {
 		return "mypage/mypage_house_info";
 	}
+	@RequestMapping("host/mypage_room_info")
+	public String mypage_room_info() {
+		return "mypage/mypage_room_info";
+	}
 	//user : 마이페이지 유저가 예약한 게스트하우스 상태 페이지
 	@RequestMapping("user/mypage_user_booking")
 	public String mypage_user_booking() {
@@ -207,36 +215,22 @@ public class HomeController {
 	public String user_join() {
 		return "user/user_join";
 	}
-	@RequestMapping("host/opner")
-	public String opner(HttpServletRequest request , Model model) {
-		String id = request.getParameter("type");
-		String val = request.getParameter("val");
-		model.addAttribute("val",val);
-		model.addAttribute("type",id);
-		return "mypage/opner";
-	}
 	@RequestMapping("/user/mypage_check")
 	public String mypage_user_check(HttpServletRequest request , Model model) {
-		String id = request.getParameter("id");
-		model.addAttribute("id",id);
+		String no = request.getParameter("no");
+		model.addAttribute("no",no);
 		return "mypage/mypage_check";
 	}
 	@RequestMapping("/host/mypage_check")
 	public String mypage_host_check(HttpServletRequest request , Model model) {
-		String id = request.getParameter("id");
-		model.addAttribute("id",id);
+		String no = request.getParameter("no");
+		model.addAttribute("no",no);
 		return "mypage/mypage_check";
 	}
-	@RequestMapping("/mypage_check")
-	public String mypage_check(HttpServletRequest request , Model model) {
-		String id = request.getParameter("id");
-		model.addAttribute("id",id);
-		return "mypage/mypage_check";
-	}
-	@RequestMapping("admin/user_list")
-	public String user_list() {
-		return "admin/user_list";
-	}
+	
+	/*
+	 * @RequestMapping("/pw_check") public String pw_check() { return ""; }
+	 */
 	//지도api..
 	@RequestMapping("/api/naver_map")
 	public String naver_map() {
@@ -273,5 +267,35 @@ public class HomeController {
 //	}
 
 
+	@PostMapping("/showID")
+	public String showID(HttpServletRequest request, Model model){
+		String type = request.getParameter("type");
+		String name = request.getParameter("name");
+		String jumin = request.getParameter("jumin");
+		String mail = ""; //return 할 메일
+
+		if (type.equals("USER")){ // 타입 비교해서 같은지 비교
+			mail = usersService.findID(name, jumin);
+
+		}else if(type.equals("HOST")){
+			mail = hostService.findID(name,jumin);
+		}
+
+		model.addAttribute("name",name);
+		model.addAttribute("mail",mail);
+		return "/showID";
+	}
+
+	@PostMapping("/showPW")
+	public String showPW(){
+
+		return "/showPW";
+	}
+	@RequestMapping("admin/user_list")
+    public String user_list(Model model) {
+    	List<Users> userList = this.usersService.userList();
+    	model.addAttribute("userList",userList);
+    	return "admin/user_list";
+    }
 }
 

@@ -42,6 +42,13 @@ public class HostSQL {
                 .VALUES("H_BANK", "#{host.h_bank}")
                 .toString();
     }
+    public String pw_check(String no) {
+    	return new SQL()
+    			.SELECT("U_PWD")
+    			.FROM(TABLE)
+    			.WHERE("U_NO = #{no}")
+    			.toString();
+    }
 
     public String findID(String name, String jumin){ // 아아디 찾기
         return new SQL()
