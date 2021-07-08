@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
@@ -29,8 +30,14 @@
         </div>
         <p></p>
         <div class="box">
-            <div>${name}님의 아이디는 다음과 같습니다.</div><br>
-           <div>아이디 : ${mail} </div>
+            <c:if test = "${empty mail}">
+                <div>${name}님의 등록된 아이디는 없습니다...</div><br>
+            </c:if>
+            <c:if test = "${not empty mail}">
+                <div>${name}님의 아이디는 다음과 같습니다.</div><br>
+                <div>아이디 : ${mail} </div>
+            </c:if>
+
         </div>
         <button class="btn" onclick="location.href='/login'">로그인</button>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

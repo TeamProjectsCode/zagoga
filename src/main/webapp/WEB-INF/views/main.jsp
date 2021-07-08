@@ -97,6 +97,8 @@
                     </c:when>
                     <c:when test="${userType eq 'ADMIN' }">
                     <ul>
+                        <li><a href="/admin/user_list">USERLIST</a></li>
+                        <li><a href="/admin/host_list">HOSTLIST</a></li>
                         <li><a href="logout">LOGOUT</a></li>
                     </ul>
                 </c:when>
