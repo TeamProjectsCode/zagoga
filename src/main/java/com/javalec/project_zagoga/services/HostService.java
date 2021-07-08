@@ -1,10 +1,8 @@
 package com.javalec.project_zagoga.services;
 
 import com.javalec.project_zagoga.dto.Host;
-import com.javalec.project_zagoga.dto.Users;
 import com.javalec.project_zagoga.mapper.AuthMapper;
 import com.javalec.project_zagoga.security.AuthValue;
-import com.javalec.project_zagoga.vo.HostVO;
 import com.javalec.project_zagoga.mapper.HostMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;

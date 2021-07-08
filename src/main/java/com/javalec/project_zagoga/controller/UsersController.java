@@ -27,15 +27,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/user")
 public class UsersController {
 
-    private final UsersMapper usersMapper;
     private final UsersService userService;
-
-    //user : 마이페이지 유저 회원정보 변경
-//    @RequestMapping("/mypage_user_info")
-//    public String mypage_user_info(@AuthenticationPrincipal PrincipalUser user, Model model) {
-//         model.addAttribute("user", user.getAuthInfo());
-//        return "/mypage/mypage_user_info";
-//    }
 
 	//user : 마이페이지 유저 회원정보 변경
 	@RequestMapping("/mypage_user_info")
