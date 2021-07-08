@@ -236,32 +236,11 @@ public class HomeController {
 	public String naver_map() {
 		return "room/naver_map";
 	}
-	 @RequestMapping("/pwCheck")
-	    public String pwCheck(HttpServletRequest request , Model model){
-			return "mypage/mypage_user";
-	    }
 
-//nick ajax ,,
-//	private final AjaxService service;
-//	@PostMapping("/ajax/info")
-//	@ResponseBody
-//	public int user_modify(HttpServletRequest request, Model model ){
-////		String no = request.getParameter("no");
-//		String nick=request.getParameter("nick");
-// 		int num =0;
-////		System.out.print("@@### no"+no);
-//		System.out.print("@@### nick"+nick);
-//
-//		int result =  service.infoService(nick);
-//		System.out.print("@@### result"+result);
-////		if(result == 1){
-////				num = 1;
-////		}else {
-////			 num = 0;
-////		}
-//
-//		return result;
-//	}
+ @RequestMapping("/pwCheck")
+	public String pwCheck(HttpServletRequest request , Model model){
+		return "mypage/mypage_user";
+	}
 
 	@RequestMapping("mypage_booking")
 	public String mypage_booking() {

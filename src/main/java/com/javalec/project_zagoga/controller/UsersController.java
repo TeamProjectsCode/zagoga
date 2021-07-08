@@ -4,6 +4,7 @@ import com.javalec.project_zagoga.dto.GhouseRoom;
 import com.javalec.project_zagoga.dto.Users;
 import com.javalec.project_zagoga.mapper.UsersMapper;
 import com.javalec.project_zagoga.security.PrincipalUser;
+import com.javalec.project_zagoga.services.AjaxService;
 import com.javalec.project_zagoga.services.UsersService;
 
 import lombok.AllArgsConstructor;
@@ -28,12 +29,20 @@ public class UsersController {
 
     private final UsersMapper usersMapper;
     private final UsersService userService;
+
     //user : 마이페이지 유저 회원정보 변경
-    @RequestMapping("/mypage_user_info")
-    public String mypage_user_info(@AuthenticationPrincipal PrincipalUser user, Model model) {
-         model.addAttribute("user", user.getAuthInfo());
-        return "/mypage/mypage_user_info";
-    }
+//    @RequestMapping("/mypage_user_info")
+//    public String mypage_user_info(@AuthenticationPrincipal PrincipalUser user, Model model) {
+//         model.addAttribute("user", user.getAuthInfo());
+//        return "/mypage/mypage_user_info";
+//    }
+
+	//user : 마이페이지 유저 회원정보 변경
+	@RequestMapping("/mypage_user_info")
+	public String mypage_user_info() {
+		return "/mypage/mypage_user_info";
+	}
+
     @PostMapping("/pw_check")
     @ResponseBody
 	public String pw_check(HttpServletRequest request,@RequestParam(value = "pw") String pw , Model model) {
@@ -49,5 +58,24 @@ public class UsersController {
     	model.addAttribute("result",result);
     	
     	return "/mypage_check";
+	}
+
+	//nick ajax ,,
+	private final AjaxService service;
+	@PostMapping("/updateNick")
+	@ResponseBody
+	public int user_modify(HttpServletRequest request, Model model ){
+		String nick=request.getParameter("nick");
+//		System.out.print("@@### nick"+nick);
+		int result =  service.infoService(nick);
+//		System.out.print("@@### result"+result);
+		return result;
+	}
+
+	@PostMapping("/user/updateInfo")
+	@ResponseBody
+	public String updateUserInfo(Users user){
+		System.out.println(user.toString());
+		return "main";
 	}
 }
