@@ -1,13 +1,15 @@
 <%@ page import="com.javalec.project_zagoga.dto.Users" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%--security 호출 태그 (buile.gradle에 의존성 주입해줘야함)--%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>메인화면</title>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
     <script src="/resources/js/data.js"></script>
     <script src="/resources/js/guesthouse.js"></script>
@@ -69,27 +71,40 @@
                 </ul>
 			</c:when>
         </c:choose>
-            <c:set var="member_type" value="${user.u_role}" />
-            <c:choose>
-                <c:when test = "${member_type eq 'HOST'}">
-                    <ul>
-                        <li><a href="/host/mypage_host">MYPAGE</a></li>
-                        <li><a href="logout">LOGOUT</a></li>
-                    </ul>
-                </c:when>
-                <c:when test="${member_type eq 'USER' }">
-                    <ul>
-                        <li><a href="/user/mypage_user">MYPAGE</a></li>
-                        <li><a href="logout">LOGOUT</a></li>
-                    </ul>
-                </c:when>
-            </c:choose>
+<%--            <c:set var="member_type" value="${user.u_role}" />--%>
+<%--            <c:choose>--%>
+<%--                <c:when test = "${member_type eq 'HOST'}">--%>
+<%--                    <ul>--%>
+<%--                        <li><a href="/host/mypage_host">MYPAGE</a></li>--%>
+<%--                        <li><a href="logout">LOGOUT</a></li>--%>
+<%--                    </ul>--%>
+<%--                </c:when>--%>
+<%--                <c:when test="${member_type eq 'USER' }">--%>
+<%--                    <ul>--%>
+<%--                        <li><a href="/user/mypage_user">MYPAGE</a></li>--%>
+<%--                        <li><a href="logout">LOGOUT</a></li>--%>
+<%--                    </ul>--%>
+<%--                </c:when>--%>
+<%--            </c:choose>--%>
             </div>
 
         </div>
         <div class="hero">
             <h2>어디로 여행가시나요?</h2>
-            <p>${user}</p> <%-- session 정보 표시 되는 부분--%>
+            <br>
+            <c:choose>
+                <c:when test="${!empty session }">
+                    <ul>
+<%--                        security 호출법 (상단에 security 태그 추가해줘야함)--%>
+                        <sec:authentication property="principal.authInfo"/>
+                        <br><br>
+                        <sec:authentication property="principal.authInfo.authValue.role"/>
+                    </ul>
+                </c:when>
+            </c:choose>
+<%--            <p>${user.authValue.role}</p>--%>
+<%--            <<sec:authentication property="principal.authInfo"/>--%>
+            <br>
             <p>어디에서나, 여행은 살아보는거야!</p>
             <div class="searchArea">
              <form method="post" action="#">
