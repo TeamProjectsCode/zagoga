@@ -196,10 +196,10 @@ public class HomeController {
 		return "room/gHouse_detail";
 	}
 	//board : 게스트 하우스 리스트  
-	@RequestMapping("board/gHouse_list")
-	public String gHouse_list() {
-		return "room/gHouse_list";
-	}
+//	@RequestMapping("board/gHouse_list")
+//	public String gHouse_list() {
+//		return "room/gHouse_list";
+//	}
 	//user : 댓글 추가 기능
 	@RequestMapping("user/review_write")
 	public String review_write() {
