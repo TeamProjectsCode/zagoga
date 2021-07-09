@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <%@page import="java.sql.Timestamp"%>
 <%@ page import="com.javalec.project_zagoga.dto.Ghouse" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -48,11 +47,9 @@
 				</form>
 			</div>
 			<br>
-			<c:forEach items="${griList}" var="gri" varStatus="status">
 			<div style="width: 650px;">
 				<table style="width: 650px;">
 					<c:forEach items="${griList}" var="gri" varStatus="status">
-
 					<tr>
 						<td><a href="room_detail"
 							   style="text-decoration-line: none; color: black;">

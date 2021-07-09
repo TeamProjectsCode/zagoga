@@ -66,11 +66,11 @@
 }
 
 .searchArea {
-	width: 1000px;
-	height: 60px;
+	width: 800px;
+	height: 65px;
 	background: rgba(253, 251, 251, 0.5);
 	border-radius: 10px;
-	margin-top: 24px;
+	margin-top: 15px;
 }
 
 .container .hero h2 {

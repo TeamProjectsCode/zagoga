@@ -28,7 +28,7 @@
 					<th>전화 번호</th>
 				</tr>
 			</thead>
-			<c:forEach var="user" items="${userList}" >
+			<c:forEach var="user" items="${userlist}" >
 			<tbody>
 				<tr>
 					<td>${user.u_name }</td>

@@ -33,7 +33,6 @@
 					<th></th>
 				</tr>
 			</thead>
-			<c:forEach var="host" items="${hostList}" >
 			<tbody>
 				<c:forEach items="${hList}" var="hlist" varStatus="status">
 				<tr>

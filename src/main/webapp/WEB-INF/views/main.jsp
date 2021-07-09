@@ -58,7 +58,6 @@
 </script>
 </head>
 <body>
-
 	<%--세션 설정 ( 전역에서 사용 가능 ) 호출 태그를 위해 taglib link 필요--%>
     <sec:authentication property="principal" var="session" />
     <c:if test="${session ne 'anonymousUser'}">
@@ -110,15 +109,14 @@
             <h2>어디로 여행가시나요?</h2>
             <p>어디에서나, 여행은 살아보는거야!</p>
             <div class="searchArea">
-             <form method="post" action="#">
-                <span>위치</span><input type="text" placeholder="주소" name="" id="searchInput">
+             <form action = "ghouse/getList" method = "get">
+                <span>위치</span><input type="text" placeholder="주소" name = "local" id="searchInput">
+                <span>체크인</span><input type="text" id="startDate" name="">
+                <span>체크아웃</span><input type="text" id="endDate" name="" >
+                <span><button type = "submit">검색</button></span>
                  <script>
                      $(function() {	//화면 다 뜨면 시작
-
-
                          $("#searchInput").autocomplete({  //오토 컴플릿트 시작
-
-
                              source : searchSource,	// source 는 자동 완성 대상
                              select : function(event, ui) {	//아이템 선택시
                                  console.log(ui.item);
@@ -138,17 +136,9 @@
                                  console.log(event);
                              }
                          });
-                         var searchValue =document.getElementById(searchInput);
-                         searchValue.val= searchSource;
-
                      });
                  </script>
-
-                 <span>체크인</span><input type="text" id="startDate" name="">
-                <span>체크아웃</span><input type="text" id="endDate" name="" >
-                <span>인원</span><input class="person" type="number" placeholder="인원수" name="" min="1">
             </form>
-                <button>검색</button>
             </div>
         </div>
     </div>
