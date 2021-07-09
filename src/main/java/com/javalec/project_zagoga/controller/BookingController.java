@@ -43,7 +43,7 @@ public class BookingController {
         booking.setB_uno(u_no);
         booking.setB_rno(r_no);
         bookService.insertBook(booking);
-        return "main";
+        return "redirect:/book/getBookInfo/"+ u_no +","+ r_no;
     }
 
 

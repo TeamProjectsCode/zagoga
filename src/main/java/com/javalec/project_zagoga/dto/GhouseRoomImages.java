@@ -27,7 +27,7 @@ public class GhouseRoomImages {
     private int r_ghno;
 
     private int i_no;
-    private List i_name;
+    private String i_name;
     private String i_path;
     private int i_rno;
 

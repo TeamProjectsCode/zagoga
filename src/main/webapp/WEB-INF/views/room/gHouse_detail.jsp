@@ -21,11 +21,11 @@
 <section>
 	<div>
 		<div class="main">
-			<img src="${pageContext.request.contextPath}/resources/gh_image${griList.get(0).gh_image}" width="650px" height="500px" alt="대표사진">
+			<img src="${pageContext.request.contextPath}/resources/gh_image/${griList.get(0).gh_image}" width="650px" height="500px" alt="대표사진">
 			<%--				<img src="/resources/img/busan.jpg" width="650px" height="500px" alt="대표사진">--%>
 			<p>대표사진</p>
 			<p>
-		<c:if test="${fn:length(griList)>0}">
+<%--		<c:if test="${fn:length(griList)>0}">--%>
 			<h3>${griList.get(0).gh_name}</h3>
 			</p>
 			<p class="star_rating">
@@ -51,7 +51,7 @@
 				<table style="width: 650px;">
 					<c:forEach items="${griList}" var="gri" varStatus="status">
 					<tr>
-						<td><a href="room_detail"
+						<td><a href="/room/getDetail/${gri.r_no}"
 							   style="text-decoration-line: none; color: black;">
 								<%--								 <img src="/resources/img/jeju.jpg" width="300px" style="float: left;">--%>
 							<img src="${pageContext.request.contextPath}/resources/rooms_image/${gri.i_name}" width="300px" style="float: left;">
@@ -76,7 +76,7 @@
 						</a></td>
 					</tr>
 				</c:forEach>
-			</c:if>
+<%--			</c:if>--%>
 						<table class="review">
 							<tr>
 								<th>평점</th>
