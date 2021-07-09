@@ -90,7 +90,7 @@
                     </c:when>
                     <c:when test="${userType eq 'USER' }">
                         <ul>
-                            <li><a href="/user/mypage_user/${u_no}">MYPAGE</a></li>
+                            <li><a href="/user/mypage_user/${user.u_no}">MYPAGE</a></li>
                             <li><a href="logout">LOGOUT</a></li>
                         </ul>
                     </c:when>

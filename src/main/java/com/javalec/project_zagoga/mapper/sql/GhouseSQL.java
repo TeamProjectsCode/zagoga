@@ -44,9 +44,15 @@ public class GhouseSQL {
     public String ghouseDetail(int gh_no){
         return new SQL()
                 .SELECT("*")
-                .FROM("GHOUSE join ROOMS R on GHOUSE.GH_NO = R.R_GHNO")
-                .WHERE("GH_NO = #{gh_no}")
-                .ORDER_BY("R_NO")
+                .FROM("IMAGES")
+                .JOIN("ROOMS R2 on R2.R_NO = IMAGES.I_RNO")
+                .JOIN("GHOUSE G on G.GH_NO = R2.R_GHNO")
+
+                .WHERE("I_NO in (select min(I_NO) from IMAGES\n" +
+                        "join ROOMS R on R.R_NO = IMAGES.I_RNO\n" +
+                        "join GHOUSE G on R.R_GHNO = G.GH_NO\n" +
+                        "where GH_NO=#{gh_no} group by R_NO)")
+
                 .toString();
     }
 

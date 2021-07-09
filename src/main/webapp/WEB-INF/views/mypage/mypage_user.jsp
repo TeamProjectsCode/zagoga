@@ -31,19 +31,28 @@
                   </div>
                   <div class="booking">
                     <table>
+                    <c:forEach items="${info}" var="info" varStatus="status">
                     <h5>예약정보</h5>
                     <hr>
-                    <p>게스트하우스명</p>
+                    <p>${info.gh_name}</p>
                     <br>
-                    <p>예약자 : ㅁㅇㅁ</p>
-                    <p>사업자 : ㅁㅇㅁ</p>
-                    <P>체크인 : </P>
-                    <P>체크 아웃 :</P>
-                    <p>위치 : 제주 서귀포시</p>
-                    <p>사업자연락처: 000-0000-000</p>
+                <c:choose>
+                    <c:when test="${info.u_name != 0}">
+                        <p>예약자 : ${info.u_name}</p>
+                    </c:when>
+                    <c:otherwise>
+                        <p>예약자 : ${info.u_name}</p>
+                    </c:otherwise>
+                </c:choose>
+                    <p>사업자 : ${info.h_brand}</p>
+                    <P>체크 인 : ${info.b_in}</P>
+                    <P>체크 아웃 : ${info.b_out}</P>
+                    <p>위치 : ${info.gh_addr1}, ${info.gh_addr2}</p>
+                    <p>사업자연락처 : ${info.h_phone}</p>
                         <br>
                     <P style="text-align: right;"><small>예약취소시, 사업자에게 연락해주세요</small></P>
                     <p style="float: right;">
+                    </c:forEach>
                       <input type="button" value="예약목록" onclick="location.href='/user/mypage_user_booking_list'">
                     </p>
                   </table>
