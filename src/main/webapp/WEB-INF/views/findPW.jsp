@@ -37,9 +37,6 @@
                             alert("인증번호가 발송되었습니다.");
                             $('#certificationNumber').attr("disabled",false);
                             $('#certificationButton').attr("disabled",false);
-                            $('#userPW').attr("disabled",false);
-                            $('#userPWShow').attr("disabled",false);
-                            $('#userPWCheck').attr("disabled",false);
                         }
                         else {
                             alert("조회 할 수 없는 사용자 정보입니다.")
@@ -70,7 +67,12 @@
                     if(data == true){
                         alert('인증완료');
                         document.getElementById('certificationYN').value = "true";
+                        $('#emailCheck').attr("disabled",true);
+                        $('#certificationNumber').attr("disabled",true);
                         $('#certificationButton').attr("disabled",true);
+                        $('#userPW').attr("disabled",false);
+                        $('#userPWShow').attr("disabled",false);
+                        $('#userPWCheck').attr("disabled",false);
                         console.log($('#certificationYN').val());
                     }else{
                         alert('인증을 다시 시도해주세요');
