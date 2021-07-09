@@ -21,7 +21,7 @@ public class BookingRoomGhouseUsers {
     private int b_rno;
     private int b_uno;
 
-        private int r_no;
+    private int r_no;
     private String r_name;
     private int r_pmin;
     private int r_pmax;
@@ -49,13 +49,12 @@ public class BookingRoomGhouseUsers {
 
 
 
-
-
-
-//    public static int totalFee(Date b_in, Date b_out, int r_fee, int b_pno){
-//        long daylong = ((b_out.getTime() - b_in.getTime()) / (24*60*60*1000));
-//        int day = (int)daylong;
-//        int totalFee = r_fee * b_pno * day;
-//        return totalFee;
-//    }
+    private String h_bizno;
+    private String h_mail;
+    private String h_brand;
+    private String h_name;
+    private String h_jumin;
+    private String h_phone;
+    private String h_bank;
+    private Timestamp h_join;
 }

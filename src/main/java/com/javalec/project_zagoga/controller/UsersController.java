@@ -1,5 +1,6 @@
 package com.javalec.project_zagoga.controller;
 
+import com.javalec.project_zagoga.dto.BookingRoomGhouseUsers;
 import com.javalec.project_zagoga.dto.Users;
 import com.javalec.project_zagoga.mapper.UsersMapper;
 import com.javalec.project_zagoga.security.PrincipalUser;
@@ -12,10 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @AllArgsConstructor
@@ -25,8 +25,16 @@ public class UsersController {
     private final UsersMapper usersMapper;
     private final UsersService userService;
 
-	@RequestMapping("/mypage_user")
-	public String mypage_user() {
+//	@RequestMapping("/mypage_user")
+//	public String mypage_user() {
+//		return "/mypage/mypage_user";
+//	}
+
+	@RequestMapping(value = "/mypage_user/{u_no}", method = RequestMethod.GET)
+	public String mypage_user(@PathVariable("u_no")String u_no, Model model) {
+		List<BookingRoomGhouseUsers> info = this.userService.getBook(u_no);
+		System.out.println(info);
+		model.addAttribute("info", info);
 		return "/mypage/mypage_user";
 	}
 

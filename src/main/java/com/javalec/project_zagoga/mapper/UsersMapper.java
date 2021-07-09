@@ -1,5 +1,6 @@
 package com.javalec.project_zagoga.mapper;
 
+import com.javalec.project_zagoga.dto.BookingRoomGhouseUsers;
 import com.javalec.project_zagoga.dto.Users;
 import com.javalec.project_zagoga.security.AuthValue;
 import com.javalec.project_zagoga.vo.UsersVO;
@@ -66,4 +67,7 @@ public interface UsersMapper {
     
     @SelectProvider(type = UserSQL.class, method = "userInfo")
     List<Users> userInfo(String u_no);
+
+    @SelectProvider(type = UserSQL.class, method = "getBook")
+    List<BookingRoomGhouseUsers> getBook(String u_no);
 }

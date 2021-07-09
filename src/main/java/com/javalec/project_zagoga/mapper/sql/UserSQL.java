@@ -162,4 +162,20 @@ public class UserSQL {
     			.toString();
     }
 
+
+    // GHOUSE, ROOMS, BOOKING, HOST, USERS
+    // mypage_user_info 에서 불러와야할게
+    // BOOKING에 있는 b_rno로 ROOMS안에 r_ghno를 뽑아서 GHOUSE 이름가져오고
+    // GHOUSE에 있는 gh_hno로 HOST에 사업자연락처 가져와야함........
+    public String getBook(String u_no){
+        return new SQL()
+                .SELECT("*")
+                .FROM("BOOKING")
+                .JOIN("ROOMS R on R.R_NO = BOOKING.B_RNO")
+                .JOIN("GHOUSE G on G.GH_NO = R.R_GHNO")
+                .JOIN("HOST H on H.H_NO = G.GH_HNO")
+                .WHERE("B_UNO = #{u_no}")
+                .toString();
+    }
+
 }

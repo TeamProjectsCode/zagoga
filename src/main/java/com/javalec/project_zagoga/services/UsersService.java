@@ -2,6 +2,7 @@ package com.javalec.project_zagoga.services;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.javalec.project_zagoga.dto.BookingRoomGhouseUsers;
 import com.javalec.project_zagoga.dto.GhouseRoom;
 import com.javalec.project_zagoga.dto.Users;
 import com.javalec.project_zagoga.mapper.AuthMapper;
@@ -78,4 +79,6 @@ public class UsersService {
     public List<Users> userInfo(String u_no){
     	return usersMapper.userInfo(u_no);
     }
+
+    public List<BookingRoomGhouseUsers> getBook(String u_no){return usersMapper.getBook(u_no);}
 }
