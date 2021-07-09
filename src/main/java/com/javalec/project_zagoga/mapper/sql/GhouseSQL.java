@@ -43,10 +43,10 @@ public class GhouseSQL {
 // order by I_RNO and I_NO desc;
     public String ghouseDetail(int gh_no){
         return new SQL()
-                .SELECT("GH_NAME", "GH_IMAGE", "GH_ADDR1", "GH_ADDR2", "GH_DETAIL")
-                .FROM("GHOUSE join ROOMS R on GHOUSE.GH_NO = R.R_GHNO join IMAGES I on R.R_NO = I.I_RNO ")
-                .WHERE("I_RNO >= (select min(R_NO)'R_NO' from ROOMS where R_GHNO = #{gh_no}) and I_RNO <= (select max(R_NO)'R_NO' from ROOMS where R_GHNO = #{gh_no})")
-                .ORDER_BY("I_RNO and I_NO desc")
+                .SELECT("*")
+                .FROM("GHOUSE join ROOMS R on GHOUSE.GH_NO = R.R_GHNO")
+                .WHERE("GH_NO = #{gh_no}")
+                .ORDER_BY("R_NO")
                 .toString();
     }
 

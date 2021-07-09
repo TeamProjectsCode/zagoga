@@ -16,7 +16,7 @@
   <%@ include file="../header.jsp" %>
 	<div class="total">
 <%--	  <form name="form" action="/room/room_write/${ghno}" method="post">--%>
-	<form name="form" action="/room/room_write/1" method="post">
+	<form name="form" action="/room/room_write/7" method="post">
 	    <h1>방 소개</h1>
 	    <div class="section">
 		    <div class="title">

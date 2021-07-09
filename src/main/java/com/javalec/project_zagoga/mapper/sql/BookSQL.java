@@ -55,8 +55,9 @@ public class BookSQL {
                         "R_NAME, R_FEE," +
                         "U_NO, U_PHONE, U_NICK, U_GENDER")
                 .FROM(Ghouse, Rooms, Users)
-                .WHERE("U_NO = #{info.u_no}")
+                .WHERE("GH_NO=(select R_GHNO from ROOMS where R_NO=#{info.r_no})")
                 .WHERE("R_NO = #{info.r_no}")
+                .WHERE("U_NO = #{info.u_no}")
                 .toString();
     }
 }

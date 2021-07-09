@@ -27,15 +27,19 @@ Timestamp check_in = null, check_out = null;
             <div class="img-table">
                 <table>
                     <tr>
-                        <td><img src="/resources/img/room1.jpg" class="room"></td>
-                        <td><h2>서울스테이 역삼</h2></td>
+                        <td><img src="${pageContext.request.contextPath}/resources/gh_image/${Info.gh_image}" class="room"></td>
+                        <td><h2>${Info.gh_name}</h2></td>
                     </tr>
                 </table>
             </div>
             <br>
-            <h4><img src="/resources/img/placeholder.png" class="addr">서울,연주로517</h4>
+            <h4><img src="/resources/img/placeholder.png" class="addr">${Info.gh_addr1}, ${Info.gh_addr2}</h4>
             <br>
             <div class="info-table">
+            <form name="form" action="/book/booking/${Info.u_no},${Info.r_no}" method="post">
+                <input type="hidden" value="${Info.b_pno}" name="b_pno">
+                <input type="hidden" value="${Info.b_in}" name="b_in">
+                <input type="hidden" value="${Info.b_out}" name="b_out">
             <table  border="2" class="info" >
                 <tr height="20" >
                     <th class="title">연락처</th>
@@ -45,11 +49,11 @@ Timestamp check_in = null, check_out = null;
                     <th class="title">체크아웃</th>  
                 </tr>
                 <tr height="20">
-                    <td>010-1234-4567</td>
-                    <td>박지은</td>
-                    <td>2</td>
-                    <td>21/06/23</td>
-                    <td>21/06/25</td>
+                    <td>${Info.u_phone}</td>
+                    <td>${Info.u_nick}</td>
+                    <td>${Info.b_pno}</td>
+                    <td>${Info.b_in}</td>
+                    <td>${Info.b_out}</td>
                 </tr>
             </table>
             </div>
@@ -59,23 +63,23 @@ Timestamp check_in = null, check_out = null;
                     <th class="title" colspan="2">결제요금내역</th>
                 </tr>
                 <tr>
-                    <td>스탠다드트윈룸</td>
-                    <td>₩15,000</td>
+                    <td>${Info.r_name}</td>
+                    <td>₩${Info.r_fee}</td>
                 </tr>
                 <tr>
                     <th class="title" colspan="2">금액 (전체 투숙객)</th>
                 </tr>
                 <tr>
-                    <td colspan="2" class="total_price"><strong>₩30,000</strong></td>
+                    <td colspan="2" class="total_price"><strong>₩${Info.b_pno * Info.r_fee * (Info.b_out.date - Info.b_in.date)}</strong></td>
                 </tr>
             </table>
             </div>
             <br>
             <div class="btn">
-              <button class="btn-m" onclick="location.href='/user/booking_completion'">에약하기</button>
+              <button type="submit" class="btn-m">에약하기</button>
               <button class="btn-m" onclick="location.href='#'">취소</button>
             </div>
-
+            </form>
         </div>
         </center>
 	 <%@ include file="../footer.jsp"%>

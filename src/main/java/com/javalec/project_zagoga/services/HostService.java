@@ -49,9 +49,6 @@ public class HostService {
     public String pw_check(String no) {
     	return hostMapper.pw_check(no);
     }
-    public List<Host> hostList() {
-    	return hostMapper.hostList();
-    }
 
     public List<Host> hostlist(){
         return hostMapper.hostlist();

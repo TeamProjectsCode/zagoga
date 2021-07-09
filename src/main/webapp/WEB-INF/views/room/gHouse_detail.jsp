@@ -26,6 +26,7 @@
 			<%--				<img src="/resources/img/busan.jpg" width="650px" height="500px" alt="대표사진">--%>
 			<p>대표사진</p>
 			<p>
+		<c:if test="${fn:length(griList)>0}">
 			<h3>${griList.get(0).gh_name}</h3>
 			</p>
 			<p class="star_rating">
@@ -78,6 +79,7 @@
 						</a></td>
 					</tr>
 				</c:forEach>
+			</c:if>
 						<table class="review">
 							<tr>
 								<th>평점</th>

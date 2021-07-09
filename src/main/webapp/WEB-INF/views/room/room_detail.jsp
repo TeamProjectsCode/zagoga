@@ -22,7 +22,6 @@
 <%--        <c:set value="${getDetail}" var="dt">--%>
 <%--        <c:forEach items="${getDetail}" var="dt" varStatus="status">--%>
             <div class="main">
-    <img src='C:\Users\yeon\IdeaProjects\project_zagoga\src\main\resources\static\rooms_image\1625465224827_부산넘버원게하(나무뷰 해먹방1).jpg' width="650px">
         <div class="p-3 mb-2 bg-light text-dark">
             <div class="mx-auto" style="width: 650px;">
                 <c:if test="${getDetail.size() != 0}">
@@ -31,11 +30,16 @@
                 <br>
                 <p>기준 인원 ${getDetail.get(0).r_pmin} (최대: ${getDetail.get(0).r_pmax})</p>
             <c:forEach items="${getDetail}" var="dt" varStatus="status">
-                <p><img src="${pageContext.request.contextPath}/resources/rooms_image/${dt.i_name}" width="650px"></p>
+                <img src="${pageContext.request.contextPath}/resources/rooms_image/${dt.i_name}">
+                <c:choose>
+                <c:when test="${status.count % 6 == 0}">
+                    <br>
+                </c:when>
+                </c:choose>
             </c:forEach>
         		</c:if>
                 <div class="room_date">
-                    <form name="form" action="/book/beforeBooking/7,${getDetail.get(0).r_no}">
+                    <form name="form" action="/book/beforeBooking/6,${getDetail.get(0).r_no}">
                         <script type = "text/javascript">
                             $(document).ready(function () {
                                 $.datepicker.setDefaults($.datepicker.regional['ko']);
@@ -48,7 +52,7 @@
                                     dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
                                     monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
                                     monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-                                    dateFormat: 'yy-mm-dd',
+                                    dateFormat: 'yymmdd',
                                     maxDate: 100,                       // 선택할수있는 최소날짜, ( 0 : 오늘 이후 날짜 선택 불가)
                                     onClose: function( selectedDate ) {
                                         //시작일(startDate) datepicker가 닫힐때
@@ -62,11 +66,9 @@
                                     changeYear: true,
                                     nextText: '다음 달',
                                     prevText: '이전 달',
-                                    dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
-                                    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-                                    monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                                    monthNamesShort: ['01','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
                                     monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-                                    dateFormat: "yy-mm-dd",
+                                    dateFormat: "yymmdd",
                                     // dateFormat: "yy년 mm월 dd일 DD",
                                     maxDate: 100,                       // 선택할수있는 최대날짜, ( 0 : 오늘 이후 날짜 선택 불가)
                                     onClose: function( selectedDate ) {

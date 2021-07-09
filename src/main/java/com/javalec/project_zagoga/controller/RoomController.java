@@ -31,7 +31,7 @@ public class RoomController {
             List<RoomImages> roomImages = this.roomService.getDetail(r_no);
             if (roomImages.size()!=0){
                 model.addAttribute("getDetail", roomImages);
-                System.out.println(roomImages);
+//                System.out.println(roomImages);
             }else {
                 System.out.println("데이터가 없음");
                 return "main";

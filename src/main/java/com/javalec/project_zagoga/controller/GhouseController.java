@@ -89,7 +89,7 @@ public class GhouseController {
 	public String ghouseDetail(@PathVariable("gh_no")int gh_no, Model model) {
 		List<GhouseRoomImages> ghouseRoomImages=this.ghouseService.ghouseDetail(gh_no);
 		model.addAttribute("griList", ghouseRoomImages);
-		System.out.println("ghouseRoomImages.get(0).toString() : "+ghouseRoomImages.get(0).toString());
+//		System.out.println("ghouseRoomImages.get(0).toString() : "+ghouseRoomImages.get(0).toString());
 //		System.out.println(ghouseRoomImages.toString());
 		return "/room/gHouse_detail";
 	}
@@ -98,6 +98,7 @@ public class GhouseController {
 	@RequestMapping("/RoomAndGhouse/{gh_no}")
 	public String updateViewAll(@PathVariable("gh_no")int gh_no, Model model){
 		List<GhouseRoom> ghouseRoom=this.ghouseService.roomAndGhouse(gh_no);
+
 
 		model.addAttribute("grList", ghouseRoom);
 		System.out.println(ghouseRoom.toString());
