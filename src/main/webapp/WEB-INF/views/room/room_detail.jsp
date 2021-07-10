@@ -39,6 +39,7 @@
             </c:forEach>
         		</c:if>
                 <div class="room_date">
+<%--                    권한에 따른 action url 지정해줘야하는데 .. 귀찮쓰--%>
                     <form name="form" action="/book/beforeBooking/${user.u_no},${getDetail.get(0).r_no}">
                         <script type = "text/javascript">
                             $(document).ready(function () {

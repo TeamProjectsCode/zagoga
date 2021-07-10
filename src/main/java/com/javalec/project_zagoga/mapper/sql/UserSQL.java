@@ -154,14 +154,6 @@ public class UserSQL {
     			.FROM(TABLE)
     			.toString();
     }
-    public String userInfo(String u_no) {
-    	return new SQL()
-    			.SELECT("*")
-    			.FROM(TABLE)
-    			.WHERE("U_NO = #{u_no}")
-    			.toString();
-    }
-
 
     // GHOUSE, ROOMS, BOOKING, HOST, USERS
     // mypage_user_info 에서 불러와야할게

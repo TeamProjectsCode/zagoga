@@ -76,8 +76,8 @@ public class UsersService {
             orginUser.setU_phone(phone);
         }
     }
-    public List<Users> userInfo(String u_no){
-    	return usersMapper.userInfo(u_no);
+    public UsersVO getUserByUNo(int u_no){
+    	return usersMapper.getUserByUNo(u_no);
     }
 
     public List<BookingRoomGhouseUsers> getBook(String u_no){return usersMapper.getBook(u_no);}

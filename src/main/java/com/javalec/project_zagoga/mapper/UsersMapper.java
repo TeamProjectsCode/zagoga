@@ -27,8 +27,7 @@ public interface UsersMapper {
     UsersVO loadUserBySNS(@Param("snsID") String snsID);
 
     @SelectProvider(type = UserSQL.class, method = "getUserByUNo")
-    UsersVO get(@Param("u_no") int u_no);
-
+    UsersVO getUserByUNo(@Param("u_no") int u_no);
 
     @Options(useGeneratedKeys = true, keyProperty = "user.u_no")
     @InsertProvider(type = UserSQL.class, method = "insertUser")
@@ -64,9 +63,6 @@ public interface UsersMapper {
     
     @SelectProvider(type = UserSQL.class, method = "userList")
     List<Users> userList();
-    
-    @SelectProvider(type = UserSQL.class, method = "userInfo")
-    List<Users> userInfo(String u_no);
 
     @SelectProvider(type = UserSQL.class, method = "getBook")
     List<BookingRoomGhouseUsers> getBook(String u_no);

@@ -42,19 +42,6 @@
 					<a href="#">강원도</a> <a href="#">충청도</a> <a href="#">전라도</a>
 				</div>
 			</div>
-
-			<c:choose>
-				<c:when test="${empty user}">
-				<div class="dropdown">
-					<button class="dropbtn" onclick="location.href='/login'">login</button>
-				</div>
-				</c:when>
-				<c:otherwise>
-				<div class="dropdown">
-					<button class="dropbtn" onclick="location.href='/logout'">logout</button>
-				</div>
-				</c:otherwise>
-			</c:choose>
 			<c:choose>
 			<c:when test = "${userType eq 'HOST'}">
 			<c:if test="${user.h_active ne 1}">
@@ -82,6 +69,27 @@
 				</div>
 			</div>
 			</c:when>
+			<c:when test="${userType eq 'ADMIN' }">
+				<div class="dropdown">
+					<button class="dropbtn" onclick="location.href='/admin/user_list'">USERLIST</button>
+				</div>
+				<div class="dropdown">
+					<button class="dropbtn" onclick="location.href='/admin/host_list'">HOSTLIST</button>
+				</div>
+			</c:when>
+			</c:choose>
+
+			<c:choose>
+				<c:when test="${empty user}">
+					<div class="dropdown">
+						<button class="dropbtn" onclick="location.href='/login'">login</button>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div class="dropdown">
+						<button class="dropbtn" onclick="location.href='/logout'">logout</button>
+					</div>
+				</c:otherwise>
 			</c:choose>
 		</div>
 		<script>
