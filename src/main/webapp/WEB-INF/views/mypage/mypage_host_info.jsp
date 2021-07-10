@@ -27,15 +27,43 @@
 			</tr>
 			<tr>
 				<td>사업자 이름</td>
-				<td><input type="text" id ="name" name = "name" value="${user.h_name}"></td>
+				<td><input type="text" id ="name" name = "name" value="${user.h_name}" disabled></td>
 			</tr>
-			<tr>
-				<td>전화 번호</td>
-				<td><input type="text" id = "phoneNumber" name = "phoneNumber" value="${user.h_phone}"></td>
+			<tr height="20">
+				<td>생년월일</td>
+				<td>${fn:substring(user.h_jumin, 0, 2)}년 ${fn:substring(user.h_jumin, 2, 4)}월 ${fn:substring(user.h_jumin, 4, 6)}일</td>
+			</tr>
+			<tr height="20">
+				<td>핸드폰 번호</td>
+				<c:set value="${fn:substring(user.h_phone, 0, 3)}" var="h_phone1" />
+				<c:choose>
+					<c:when test="${fn:length(user.h_phone) eq 11}">
+						<c:set value="${fn:substring(user.h_phone, 3, 7)}" var="h_phone2" />
+						<c:set value="${fn:substring(user.h_phone, 7,11)}" var="h_phone3" />
+					</c:when>
+					<c:when test="${fn:length(user.h_phone) eq 10}">
+						<c:set value="${fn:substring(user.h_phone, 3, 6)}" var="h_phone2" />
+						<c:set value="${fn:substring(user.h_phone, 6,10)}" var="h_phone3" />
+					</c:when>
+				</c:choose>
+				<td>
+					<input type="text" name="u_phone" value="${h_phone1}" maxlength="3" style="width: 55px;">-
+					<input type="text" name="u_phone" value="${h_phone2}" maxlength="4" style="width: 55px;">-
+					<input type="text" name="u_phone" value="${h_phone3}" maxlength="4" style="width: 55px;">
+				</td>
 			</tr>
 			<tr>
 				<td>아이디</td>
 				<td><input type="text" id = "id" value="${user.h_mail}" disabled></td>
+			</tr>
+			<tr>
+				<td>계좌번호</td>
+				<c:set value="${fn:substring(user.h_bank,0 , 3)}" var="h_bank1"/>
+				<c:set value="${fn:substring(user.h_bank,3,fn:length(user.h_bank))}" var="h_bank2"/>
+				<td>
+					<input type="text" id="bank1" name="h_bank" value="${h_bank1}" size="6"><br>
+					<input type="text" id="bank2" name="h_bank" value="${h_bank2}" maxlength="14">
+				</td>
 			</tr>
 			<tr>
 				<td>비밀번호</td>

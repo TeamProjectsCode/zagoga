@@ -1,21 +1,11 @@
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.sql.Timestamp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	String order_id="",customer_name="",tel="";
-	int customer_number =0,total_stay = 0, rate = 0;
-	
-	Timestamp check_in =null, check_out=null;
-	
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
-%>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/resources/css/costomer_list.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/customer_list.css" />
     <title>승인/거부</title>
 </head>
 <body>
@@ -23,59 +13,76 @@
   	<div id = "mainbox">
 		<h2>고객 리스트</h2>
 		<p>수락을 기다리는 고객이 있습니다.</p>
+
   <section>
         <table>
                 <tr>
-                    <th>주문번호</th>
-                    <th>이름</th>
+					<th>게스트하우스이름</th>
+					<th>방이름</th>
+                    <th>고객명</th>
                     <th>연락처</th>
                     <th>인원</th>
+                    <th>성별</th>
                     <th>체크인</th>
                     <th>체크아웃</th>
-                    <th>총 숙박일수</th>
                     <th>가격</th>
-                    <th>진행상태</th>
+                    <th>승인 및 거절</th>
                 </tr>
- <%
-				for(int i=0 ; i<10 ; i++){ 
-					//DB에 있는 list를 받아서  값들 나열
-%> 
+<%-- 리스트 출력--%>
 				<tr>
 					<td>
-					<%=order_id %>
+						ㅁㅁㅁ
 					</td>
 					<td>
-					<%=customer_name %>
+						ㅁㅁㅁ
 					</td>
 					<td>
-					<%=tel %>
+					ㅁㅁㅁㅁ
 					</td>
 					<td>
-					<%=customer_number %>
+						01012345678
 					</td>
 					<td>
-					<%=check_in %>
+						n명
 					</td>
 					<td>
-					<%=check_out %>
+						성별
 					</td>
 					<td>
-					<%=total_stay %>
+						21/7/9
 					</td>
 					<td>
-					<%=rate %>
+						21/7/12
 					</td>
 					<td>
-						<input type="button" value="승인"> &nbsp; / &nbsp;
-						<input type="button" value="거부">
+						130,000원
+					</td>
+					<td>
+						<button onclick="booking_accept()">승인</button> &nbsp; / &nbsp;
+						<button onclick="booking_cancel()">거부</button>
 					</td>
 				</tr>
-	<%
-		}
-	%>
         </table>
     </section>
   	</div>
     	<%@ include file="../footer.jsp" %>
+<script>
+	function booking_accept(){
+		var ok = confirm("승인하시겠습니까?");
+
+		if(ok == true){
+			alert("승인되었습니다.");
+		}
+	}
+</script>
+<script>
+	function booking_cancel(){
+		var ok = confirm("거부하시겠습니까?\n 고객님과 충분한 상의 후 선택해 주십시오");
+
+		if(ok == true){
+			alert("거부하였습니다.");
+		}
+	}
+</script>
 </body>
 </html>

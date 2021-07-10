@@ -2,3 +2,11 @@
 	width: 600px;
 	margin:0 auto;
 }
+table td{
+	padding-bottom: 10px;
+	padding-right: 10px;
+}
+
+#button{
+	padding-left: 230px;
+}

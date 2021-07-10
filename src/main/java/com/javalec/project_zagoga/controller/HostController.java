@@ -1,8 +1,11 @@
 package com.javalec.project_zagoga.controller;
 
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import com.javalec.project_zagoga.services.GhouseService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/host")

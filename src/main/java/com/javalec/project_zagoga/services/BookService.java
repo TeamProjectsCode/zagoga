@@ -14,8 +14,8 @@ public class BookService {
     private final BookMapper bookMapper;
     public BookService(BookMapper bookMapper){this.bookMapper=bookMapper;}
 
-    public Users getUserInfo(int u_no){
-        return bookMapper.getUserInfo(u_no);
+    public Users getUserInfo(int u_no, int r_no){
+        return bookMapper.getUserInfo(u_no, r_no);
     }
 
     public List<Booking> bookConfirmInfo(int u_no, int r_no) {

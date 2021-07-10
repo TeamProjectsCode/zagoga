@@ -1,9 +1,9 @@
 section table tr th,td{
 	padding: 10px;
 }
-section table tr th{
-	border-top:1px solid gray; 
-	border-bottom:1px solid gray; 
+
+table{
+	border: 1px solid #a3a2a2;
 }
 section table {
 	text-align:center;	

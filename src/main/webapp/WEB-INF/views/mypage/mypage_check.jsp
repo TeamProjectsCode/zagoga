@@ -1,18 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
 <center>
 	<form action = "/pw_check" method="post">
-	<h4>ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä</h4>
+	<h4>ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”</h4>
  		<input type = "password" name = "pw" id = "pw"><br>
- 		<button type = "submit" onclick = "pw_check()">¿Ï·á</button>
+ 		<button type = "submit" onclick = "pw_check()">ì™„ë£Œ</button>
 	</form>
 </center>
 	<script>
@@ -26,17 +26,17 @@
 				success: function(data){
 					if(data == "y"){
 						
-						alert("¼º°øÇß½À´Ï´Ù.");
+						alert("ì„±ê³µí–ˆìŠµë‹ˆë‹¤.");
 						self.close();
 					}
 					else if(data == "n"){
 						
-						alert("½ÇÆĞÇß½À´Ï´Ù");
+						alert("ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤");
 					}
 				},
 				error: function (e){
-					alert("ÀÎÁõ¹øÈ£ ¹ß¼Û¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.")
-					console.log('½ÇÆĞ',e);
+					alert("ì¸ì¦ë²ˆí˜¸ ë°œì†¡ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.")
+					console.log('ì‹¤íŒ¨',e);
 				}
 			});
 		}

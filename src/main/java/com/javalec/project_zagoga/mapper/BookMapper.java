@@ -15,7 +15,7 @@ import java.util.List;
 public interface BookMapper {
     //유저정보 가져오기
     @SelectProvider(type = BookSQL.class, method = "getUserInfo")
-    Users getUserInfo(@Param("u_no")int u_no);
+    Users getUserInfo(@Param("u_no")int u_no, int r_no);
 
     //예약정보 가져오기
     @SelectProvider(type = BookSQL.class, method = "bookConfirmInfo")

@@ -23,12 +23,14 @@
                     <p>전화번호 : ${user.h_phone}</p>
                     <p>email : ${user.h_mail}</p>
                     <p>사업자 번호 : ${user.h_bizno}</p>
+                    <p>계좌번호 : ${user.h_bank}</p>
                     <p style="float:right">
                       <input type="button" value="정보수정" onclick="location.href='/host/mypage_host_info'"> &nbsp;&nbsp;&nbsp;
                       <input type="button" value="회원탈퇴" onclick="">
                     </p>
                   </div>
                   <div class="booking">
+
                     <h4>사업장 정보</h4>
                     <hr>
                     <p>게스트하우스명</p>

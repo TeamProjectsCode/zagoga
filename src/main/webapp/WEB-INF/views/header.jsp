@@ -69,6 +69,7 @@
 					 <a href="mypage_host_customerList">예약자 조회</a>
 					 <a href="mypage_host_info">회원 정보 변경</a>
 					 <a href="mypage_house_info">게스트하우스 정보 변경</a>
+					 <a href="gHouse_write">게스트하우스 등록</a>
          		 </div>
 			</div>
 			</c:when>

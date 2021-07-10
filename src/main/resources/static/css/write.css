@@ -2,8 +2,6 @@
 	max-width: 80% ;
 	width: 960px ;
 	margin: 0 auto;
-	background-color: #f1f0f0;
-	border-radius: 5px;
 	padding: 50px;
 }
 form{
@@ -20,11 +18,9 @@ form{
 	width: 100px;
 	height: 30px;
 	margin: 0 auto;
-	border-radius: 15px;
 }
 .button button{
 	width: 100px;
 	height: 30px;
 	margin: 0 auto;
-	border-radius: 15px;
 }
