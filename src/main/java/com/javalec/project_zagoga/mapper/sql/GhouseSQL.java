@@ -11,14 +11,14 @@ public class GhouseSQL {
     public static final String GET_ALL_LIST="select * from " + TABLE;
 
     //select GH_NO, GH_NAME, GH_IMAGE, MIN(R_FEE) from GHOUSE,ROOMS group by GH_NO;
-    public String getList(GhouseRoom ghouseRoom){
+    public String getList(String local){
         return new SQL()
                 .SELECT("GH_NO, GH_NAME, GH_IMAGE, MIN(R_FEE)'R_FEE'")
                 .FROM(TABLE,Rooms)
+                .WHERE("SUBSTRING(GH_ADDR1,1,5) = #{local}")
                 .GROUP_BY("GH_NO")
                 .toString();
     }
-
     public String insert(Ghouse ghouse){
         return new SQL()
                 .INSERT_INTO(TABLE)
