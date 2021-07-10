@@ -29,6 +29,10 @@
                         <div class="item_tit">상품</div>
                         <div class="item_desc"><span>도미토리룸</span></div>
                     </li>
+                    <li class="info_item">
+                        <div class="item_tit">계좌번호</div>
+                        <div class="item_desc"><span>농협 111-1111-1111-11</span></div>
+                    </li>
                 </ul>
             </div>
             <div class="detail_info">
