@@ -37,7 +37,8 @@
     <div class="a">
         <form method="post" action="">
     <h1>비밀번호 변경</h1>
-
+    <h3>현재 비밀번호</h3>
+    <input class="pw" type="password" name="now_pw" maxlength="20" style="width: 330px"   required>
     <h3>새 비밀번호</h3>
     <input class="pw" type="password" name="new_pw" id="pw1" maxlength="20" style="width: 330px"   required>
     <h3> 새 비밀번호 확인</h3>
@@ -46,7 +47,7 @@
         <p id="alert_a" size="2"></p>
     <br>
     <button type="submit" id="changePw" onclick="'#'">수정완료</button>
-    <button type="button"  onclick="'#'">취소</button>
+    <button type="button"  onclick="self.close();">취소</button>
         </form>
     </div>
 </div>
