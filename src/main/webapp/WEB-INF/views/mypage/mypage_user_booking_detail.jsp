@@ -72,18 +72,18 @@
                 <h3 class="map_info_tit">오시는길</h3>
                 <div class="info_area">
                     <div class="info_row">
-                        <img src="../resources/img/tool.png"  class="img_ico">  <span class="road_name">주소</span>
+                        <img src="${pageContext.request.contextPath}/resources/img/tool.png"  class="img_ico">  <span class="road_name">주소</span>
                         "${mbs.gh_addr1} ${mbs.gh_addr2}"
                     </div>
                 </div>
                 <div class="info_area">
                     <div class="info_row">
-                        <img src="../resources/img/phone-call.png" class="img_ico"><a href="tel:010-1111-1111">${mbs.h_phone}</a>
+                        <img src="${pageContext.request.contextPath}/resources/img/phone-call.png" class="img_ico"><a href="tel:010-1111-1111">${mbs.h_phone}</a>
                     </div>
                 </div>
                 <div class="info_area">
                     <div class="info_row">
-                        <img src="../resources/img/car.png" class="img_ico"> <strong class="parking_title">주차가능</strong>
+                        <img src="${pageContext.request.contextPath}/resources/img/car.png" class="img_ico"> <strong class="parking_title">주차가능</strong>
                     </div>
                     <div class="info_row">
                         <span class="row_title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주차료무료</span>
@@ -95,7 +95,7 @@
                     <!-- <h3 class="section_header">오시는길</h3> -->
                     <div class="section_map">
                         <a href="#" class="link_map">
-                            <img class="img_map" src="../resources/img/helloJeju.png">
+                            <img class="img_map" src="${pageContext.request.contextPath}/resources/img/helloJeju.png">
                         </a>
                     </div>
                 </div>
