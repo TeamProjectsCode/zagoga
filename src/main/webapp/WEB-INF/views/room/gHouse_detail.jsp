@@ -29,10 +29,10 @@
 			<p>
 <%--		<c:if test="${fn:length(griList)>0}">--%>
 			<h3>게스트하우스 업체명 : ${griList.get(0).gh_name}</h3>
-			<p>
-				위치
-					${griList.get(0).gh_addr1} ${griList.get(0).gh_addr2}</p>
-			</p>
+			<p>위치</p>
+				${griList.get(0).gh_addr1} ${griList.get(0).gh_addr2}
+			<p>상세내용</p>
+				${griList.get(0).gh_detail}
 			<p class="star_rating">
 				<a href="#" class="on">★</a>
 				<a href="#" class="on">★</a>

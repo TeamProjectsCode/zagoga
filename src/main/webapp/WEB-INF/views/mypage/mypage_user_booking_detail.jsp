@@ -21,13 +21,16 @@
                 <h3 class="confirm_title">승인 대기중</h3>
             </c:when>
             <c:when test="${mbs.b_state >= 2}">
+                <h3 class="confirm_title">승인 거부</h3>
+            </c:when>
+            <c:when test="${mbs.b_state >= 3}">
                 <h3 class="confirm_title">취소 완료</h3>
             </c:when>
         </c:choose>
 
         <div class="confirm_top_content">
             <p class="confirm_number"><span>No.${mbs.b_no}</span></p>
-            <h4 class="tit"><a href="#" class="anchor">도미토리룸</a></h4>
+            <h4 class="tit"><a href="/room/getDetail/${mbs.r_no}" class="anchor">${mbs.r_name}</a></h4>
             <hr>
             <div class="detail_info">
                 <ul class="info_lst">

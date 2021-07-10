@@ -1,16 +1,25 @@
 package com.javalec.project_zagoga.controller;
 
+import com.javalec.project_zagoga.dto.Ghouse;
 import com.javalec.project_zagoga.services.GhouseService;
+import com.javalec.project_zagoga.services.HostService;
+import com.javalec.project_zagoga.services.RoomService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.ByteArrayInputStream;
+import java.util.List;
 
 @Controller
 @RequestMapping("/host")
 public class HostController {
+    private final HostService hostService;
 
+    public HostController(HostService hostService) {
+        this.hostService=hostService;
+    }
     @RequestMapping(value = "/mypage_host_info")
     public String mypage_host_info( ) {
         return "/mypage/mypage_host_info";
@@ -32,6 +41,20 @@ public class HostController {
         }
         return num;
     }
+
+    @RequestMapping(value = "/host_ghouseGetCheck/{h_no}")
+    public String ghouseGetCheck(@RequestParam("h_no")int h_no){
+        return "";
+    }
+
+
+    @RequestMapping(value = "/host_myGhouse/{h_no}")
+    public String myGhosue(@RequestParam("h_no")int h_no, Model model){
+        Ghouse ghouse = this.hostService.myGhouse(h_no);
+        model.addAttribute("gh", ghouse);
+        return "/mypage/mypage_host_info";
+    }
+
 
 
 

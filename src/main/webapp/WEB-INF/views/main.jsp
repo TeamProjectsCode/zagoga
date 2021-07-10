@@ -109,7 +109,7 @@
             <h2>어디로 여행가시나요?</h2>
             <p>어디에서나, 여행은 살아보는거야!</p>
             <div class="searchArea">
-             <form action = "ghouse/getList" method = "get">
+             <form action = "ghouse/localList" method = "get">
                 <span>위치</span><input type="text" placeholder="주소" name = "local" id="searchInput">
                 <span>체크인</span><input type="text" id="startDate" name="">
                 <span>체크아웃</span><input type="text" id="endDate" name="" >
