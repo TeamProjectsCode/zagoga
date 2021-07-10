@@ -16,8 +16,8 @@
 
     <h2>업체에서 <span class="blue">예약을 확정하는 대로<br> ZAGOGA 마이페이지</span> 에서 알려드리겠습니다.</h2>
 
-    <button onclick="location.href='/main'">확인</button>
-</div>
+    <button onclick="location.href='/main'">메인으로</button>
+    <button onclick="location.href='/user/mypage_user_booking_list'">예약내역 확인하기</button>
 <%@ include file="../footer.jsp"%>
 </body>
 </html>

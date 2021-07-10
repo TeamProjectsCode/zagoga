@@ -76,7 +76,7 @@ Timestamp check_in = null, check_out = null;
             </div>
             <br>
             <div class="btn">
-              <button type="submit" class="btn-m">에약하기</button>
+              <button type="submit" class="btn-m">예약하기</button>
               <button class="btn-m" onclick="location.href='#'">취소</button>
             </div>
             </form>
