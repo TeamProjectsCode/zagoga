@@ -28,7 +28,10 @@
 			<p>대표사진</p>
 			<p>
 <%--		<c:if test="${fn:length(griList)>0}">--%>
-			<h3>${griList.get(0).gh_name}</h3>
+			<h3>게스트하우스 업체명 : ${griList.get(0).gh_name}</h3>
+			<p>
+				위치
+					${griList.get(0).gh_addr1} ${griList.get(0).gh_addr2}</p>
 			</p>
 			<p class="star_rating">
 				<a href="#" class="on">★</a>
@@ -40,14 +43,14 @@
 				<div style="width: 650px;">
 					<table style="width: 650px;">
 						<c:forEach items="${griList}" var="gri" varStatus="status">
-							<tr>
+							<br><br><tr>
 								<td><a href="/room/getDetail/${gri.r_no}"
 									   style="text-decoration-line: none; color: black;">
 										<%--								 <img src="/resources/img/jeju.jpg" width="300px" style="float: left;">--%>
 									<img src="${pageContext.request.contextPath}/resources/rooms_image/${gri.i_name}" width="300px" style="float: left;">
 									<p>
-									<h6>${gri.r_name}</h6>
-									</p> <br>
+									<h2>방 : ${gri.r_name}</h2>
+									</p><br>
 									<p>
 										기준
 											${gri.r_pmin}명 / 최대
@@ -57,14 +60,15 @@
 										침대
 											${gri.r_pmax}</p> <br> <br> <br>
 									<p style="text-align: right;">
-										1박
+										1박 :
 											${gri.r_fee}원
 									</p>
 									<p>
-										기타사항
+										기타사항 <br><br>
 											${gri.r_detail}</p>
 								</a></td>
 							</tr>
+							<br><br>
 						</c:forEach>
 					</table>
 
@@ -83,17 +87,15 @@
 						</tr>
 					</table>
 				</div>
-				<p>
-				위치
-				${griList.get(0).gh_addr1} ${griList.get(0).gh_addr2}</p>
-				<div class="room_date">
-				<form>
-					<center>
-						<span>체크인</span><input type="text" id="startDate" name="B_in">
-						<span>체크아웃</span><input type="text" id="endDate" name="B_out">
-					</center>
-				</form>
-			</div>
+
+<%--				<div class="room_date">--%>
+<%--				<form>--%>
+<%--					<center>--%>
+<%--						<span>체크인</span><input type="text" id="startDate" name="B_in">--%>
+<%--						<span>체크아웃</span><input type="text" id="endDate" name="B_out">--%>
+<%--					</center>--%>
+<%--				</form>--%>
+<%--			</div>--%>
 				<br>
 				</div>
 			</div>

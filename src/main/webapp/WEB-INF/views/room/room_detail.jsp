@@ -38,8 +38,9 @@
                 </c:choose>
             </c:forEach>
         		</c:if>
-                <div class="room_date">
+
 <%--                    권한에 따른 action url 지정해줘야하는데 .. 귀찮쓰--%>
+                    <div class="room_date">
                     <form name="form" action="/book/beforeBooking/${user.u_no},${getDetail.get(0).r_no}">
                         <script type = "text/javascript">
                             $(document).ready(function () {
@@ -111,9 +112,9 @@
                     <ul>
                         <li>당일예약은 특성상 환불 및 취소가 불가합니다.</li>
                         <li>체크인은 22:00까지 가능합니다. 22:00이후 입실이 불가하며,<br>
-                             이 경우, 취소/환불은 불가합니다.</li>
+                            이 경우, 취소/환불은 불가합니다.</li>
                         <li>객실요금은 기준인원에 따라 다르며, 파티룸 등 특수한 객실의 경우,<br>
-                             직접 입실 인원 확인이 필요합니다.</li>
+                            직접 입실 인원 확인이 필요합니다.</li>
                         <li>미성년자의 입실 가능여부는 제한이 될 수 있으니, 전화로 문의해주세요.</li>
                         <li>미성년자 혼숙예약으로 인해 발생하는 입실 거부에 대해서는 취소/환불이 불가합니다.</li>
                         <li>게스트하우스의 사정에 의한 취소 발생 시 100% 환불 처리 됩니다.</li>

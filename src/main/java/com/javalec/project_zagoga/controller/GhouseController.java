@@ -32,10 +32,11 @@ public class GhouseController {
 	}
 	// 210704 04:03 �솗�씤
 	@RequestMapping(value = "/getList", method = RequestMethod.GET)
-	public String getList(HttpServletRequest request, Model model) {
-		String local = request.getParameter("local");
-		String local2 = local.substring(0,5);
-		List<GhouseRoom> show = this.ghouseService.getList(local2);
+	public String getList(Model model) {
+//		String local = request.getParameter("local");
+//		String local2 = local.substring(0,5);
+		List<GhouseRoom> show = this.ghouseService.getList();
+		System.out.println(show);
 		model.addAttribute("list",show);
 		return "/room/gHouse_list";
 	}

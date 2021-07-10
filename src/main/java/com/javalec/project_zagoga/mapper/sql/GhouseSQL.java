@@ -11,13 +11,20 @@ public class GhouseSQL {
     public static final String GET_ALL_LIST="select * from " + TABLE;
 
     //select GH_NO, GH_NAME, GH_IMAGE, MIN(R_FEE) from GHOUSE,ROOMS group by GH_NO;
-    public String getList(String local){
-        return new SQL()
-                .SELECT("GH_NO, GH_NAME, GH_IMAGE, MIN(R_FEE)'R_FEE'")
-                .FROM(TABLE,Rooms)
-                .WHERE("SUBSTRING(GH_ADDR1,1,5) = #{local}")
-                .GROUP_BY("GH_NO")
-                .toString();
+    public String getList(){
+        String sql = "select * from GHOUSE " +
+                "join ROOMS R on GHOUSE.GH_NO = R.R_GHNO " +
+                "where R_FEE in (select min(R_FEE) from ROOMS join GHOUSE G on G.GH_NO = ROOMS.R_GHNO " +
+                "group by G.GH_NO)";
+        return sql;
+//        return new SQL()
+//                .SELECT("GH_NO, GH_NAME, GH_IMAGE, MIN(R_FEE)'R_FEE'")
+//                .FROM(TABLE)
+//                .JOIN("ROOMS R on GHOUSE.GH_NO = R.R_GHNO")
+//                .WHERE("R_FEE in (select min(R_FEE) from ROOMS join GHOUSE G on G.GH_NO = ROOMS.R_GHNO " +
+//                        "group by G.GH_NO)")
+////                .WHERE("SUBSTRING(GH_ADDR1,1,5) = #{local}")
+//                .toString();
     }
     public String insert(Ghouse ghouse){
         return new SQL()
@@ -47,9 +54,9 @@ public class GhouseSQL {
                 .FROM("IMAGES")
                 .JOIN("ROOMS R2 on R2.R_NO = IMAGES.I_RNO")
                 .JOIN("GHOUSE G on G.GH_NO = R2.R_GHNO")
-                .WHERE("I_NO in (select min(I_NO) from IMAGES\n" +
-                        "join ROOMS R on R.R_NO = IMAGES.I_RNO\n" +
-                        "join GHOUSE G on R.R_GHNO = G.GH_NO\n" +
+                .WHERE("I_NO in (select min(I_NO) from IMAGES " +
+                        "join ROOMS R on R.R_NO = IMAGES.I_RNO " +
+                        "join GHOUSE G on R.R_GHNO = G.GH_NO " +
                         "where GH_NO=#{gh_no} group by R_NO)")
                 .toString();
         //        String sql = "select * from IMAGES join ROOMS R2 on R2.R_NO = IMAGES.I_RNO " +

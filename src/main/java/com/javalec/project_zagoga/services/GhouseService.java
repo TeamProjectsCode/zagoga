@@ -29,11 +29,8 @@ public class GhouseService {
 		return ghouseMapper.ghouseDetail(gh_no);
 	}
 
-	public List<GhouseRoom> getList(String local){
-//		Ghouse ghouse = null;
-//		int gh_no = ghouse.getGh_no(); // 理쒖�媛� 諛� �븯�굹  room list
-//		int lowFee = (ghouseMapper.lowFee(gh_no));
-		return ghouseMapper.getList(local);
+	public List<GhouseRoom> getList( ){
+		return ghouseMapper.getList();
 	}
 
 //	public void insert(String gh_name, String gh_addr1, String gh_addr2, String gh_detail, String gh_hno){

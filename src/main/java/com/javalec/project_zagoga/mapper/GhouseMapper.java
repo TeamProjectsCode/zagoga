@@ -19,7 +19,7 @@ public interface GhouseMapper {
 //	public List<Board> getList();
 	
 	@SelectProvider(type = GhouseSQL.class, method = "getList")
-	List<GhouseRoom> getList(String local);
+	List<GhouseRoom> getList();
 
 	//mypage_room_detail
 	@SelectProvider(type = GhouseSQL.class, method = "roomAndGhouse")
