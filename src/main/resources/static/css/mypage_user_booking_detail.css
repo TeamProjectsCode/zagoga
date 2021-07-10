@@ -7,6 +7,12 @@
 *{
     font-family: 'GmarketSansMedium';
 }
+.main{
+    max-width: 80%;
+    min-width: 70%;
+    margin: 0 auto;
+}
+
 .page_confirm_inner{
     margin:0;
     width:100%;
