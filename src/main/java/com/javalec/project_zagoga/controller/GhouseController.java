@@ -66,7 +66,7 @@ public class GhouseController {
 		String transfer = fileAddr + imageName + "_" + OriginName;
 		String safeDb = imageName + "_" + OriginName;
 
-		System.out.println("ghouse.toString() : " + ghouse.toString());
+//		System.out.println("ghouse.toString() : " + ghouse.toString());
 //		String filePath = System.currentTimeMillis() + "_" + file.getOriginalFilename();
 //		String Path = "/resources/gh_image/";
 //		System.out.println("filePath : " + filePath);
@@ -112,7 +112,7 @@ public class GhouseController {
 		List<GhouseRoom> ghouseRoom = this.ghouseService.roomAndGhouse(gh_no);
 
 		model.addAttribute("grList", ghouseRoom);
-		System.out.println(ghouseRoom.toString());
+//		System.out.println(ghouseRoom.toString());
 		return "/mypage/mypage_house_info";
 	}
 

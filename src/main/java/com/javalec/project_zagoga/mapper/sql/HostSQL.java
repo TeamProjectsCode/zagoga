@@ -70,6 +70,14 @@ public class HostSQL {
                 .FROM(TABLE)
                 .toString();
     }
+
+    public String myGhouse(int h_no){
+        return new SQL()
+                .SELECT("*")
+                .FROM("GHOUSE")
+                .WHERE("GH_HNO = #{h_no}")
+                .toString();
+    }
     
 }
 
