@@ -11,8 +11,10 @@ public class GhouseSQL {
     public static final String GET_ALL_LIST="select * from " + TABLE;
 
     //select GH_NO, GH_NAME, GH_IMAGE, MIN(R_FEE) from GHOUSE,ROOMS group by GH_NO;
-    public String getList(){
-        String sql = "select * from GHOUSE " +
+    public String getList(String local){
+        String sql = 
+        		"select * from GHOUSE " +
+        		"where GH_ADDR1 LIKE %"+local+"%" +
                 "join ROOMS R on GHOUSE.GH_NO = R.R_GHNO " +
                 "where R_FEE in (select min(R_FEE) from ROOMS join GHOUSE G on G.GH_NO = ROOMS.R_GHNO " +
                 "group by G.GH_NO)";
@@ -26,7 +28,16 @@ public class GhouseSQL {
 ////                .WHERE("SUBSTRING(GH_ADDR1,1,5) = #{local}")
 //                .toString();
     }
-
+	
+	  public String localList(String local) { 
+		  return new SQL()
+	  .SELECT("GH_NO, GH_NAME, GH_IMAGE, MIN(R_FEE)'R_FEE'") 
+	  .FROM(TABLE,Rooms)
+	  .WHERE("GH_ADDR1 LIKE '%"+local+"%'") 
+	  .GROUP_BY("GH_NO") .toString(); 
+	  }
+	
+    
     public String insert(Ghouse ghouse){
         return new SQL()
                 .INSERT_INTO(TABLE)
