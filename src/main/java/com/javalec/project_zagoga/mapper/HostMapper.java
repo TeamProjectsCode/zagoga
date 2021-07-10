@@ -1,5 +1,6 @@
 package com.javalec.project_zagoga.mapper;
 
+import com.javalec.project_zagoga.dto.Ghouse;
 import com.javalec.project_zagoga.dto.Host;
 import com.javalec.project_zagoga.mapper.sql.AdminSQL;
 import com.javalec.project_zagoga.security.AuthValue;
@@ -32,4 +33,7 @@ public interface HostMapper {
 
     @SelectProvider(type = HostSQL.class, method = "hostlist")
     List<HostVO> hostList();
+
+    @SelectProvider(type = HostSQL.class, method = "myGhouse")
+    Ghouse myGhouse(int h_no);
 }

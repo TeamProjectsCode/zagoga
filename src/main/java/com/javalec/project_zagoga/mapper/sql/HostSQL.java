@@ -71,7 +71,7 @@ public class HostSQL {
                 .toString();
     }
 
-    public String myGhouse(int h_no){
+    public String myGhouse(String h_no){
         return new SQL()
                 .SELECT("*")
                 .FROM("GHOUSE")

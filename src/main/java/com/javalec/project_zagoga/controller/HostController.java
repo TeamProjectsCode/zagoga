@@ -48,10 +48,11 @@ public class HostController {
     }
 
 
-    @RequestMapping(value = "/host_myGhouse/{h_no}")
+    @RequestMapping(value = "/host_myGhouse/{h_no}", method = RequestMethod.GET)
     public String myGhosue(@RequestParam("h_no")int h_no, Model model){
         Ghouse ghouse = this.hostService.myGhouse(h_no);
         model.addAttribute("gh", ghouse);
+        System.out.println("ghouse.toString : " + ghouse.toString());
         return "/mypage/mypage_host_info";
     }
 

@@ -84,7 +84,7 @@
                             </script>
                         </c:if>
                         <ul>
-                            <li><a href="/host/mypage_host">MYPAGE</a></li>
+                            <li><a href="/host/host_myGhouse/${user.h_no}">MYPAGE</a></li>
                             <li><a href="logout">LOGOUT</a></li>
                         </ul>
                     </c:when>
