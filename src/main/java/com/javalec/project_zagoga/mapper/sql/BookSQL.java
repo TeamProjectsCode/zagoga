@@ -5,12 +5,12 @@ import com.javalec.project_zagoga.dto.BookingRoomGhouseUsers;
 import org.apache.ibatis.jdbc.SQL;
 
 public class BookSQL {
-    private static String Booking = "BOOKING";
-    private static String Users = "USERS";
-    private static String Host = "HOST";
-    private static String Rooms = "ROOMS";
-    private static String Ghouse = "GHOUSE";
-    private static String SnsUsers = "SNS_USERS";
+    private static final String Booking = "BOOKING";
+    private static final String Users = "USERS";
+    private static final String Host = "HOST";
+    private static final String Rooms = "ROOMS";
+    private static final String Ghouse = "GHOUSE";
+    private static final String SnsUsers = "SNS_USERS";
 
     public String getUserInfo(int u_no){
         return new SQL()
@@ -49,7 +49,7 @@ public class BookSQL {
                 .ORDER_BY("B_JOIN DESC")
                 .toString();
     }
-    public String getBookingConfirm(BookingRoomGhouseUsers info){
+    public String getBookingConfirm(BookingRoomGhouseUsers info) {
         return new SQL()
                 .SELECT("GH_IMAGE, GH_NAME, GH_ADDR1, GH_ADDR2," +
                         "R_NAME, R_FEE," +

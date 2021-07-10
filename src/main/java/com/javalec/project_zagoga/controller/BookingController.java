@@ -31,7 +31,7 @@ public class BookingController {
         info.setB_in(b_in);
         info.setB_out(b_out);
         info.setB_pno(b_pno);
-        System.out.println("beforeBookingbeforeBooking// BookingRoomGhouseUsers.toString"+info.toString());
+        System.out.println("beforeBookingbeforeBooking// BookingRoomGhouseUsers.toString"+ info);
         model.addAttribute("Info", info);
         return "/room/booking_confirm";
     }
@@ -43,7 +43,8 @@ public class BookingController {
         booking.setB_uno(u_no);
         booking.setB_rno(r_no);
         bookService.insertBook(booking);
-        return "redirect:/book/getBookInfo/"+ u_no +","+ r_no;
+//        return "redirect:/book/getBookInfo/"+ u_no +","+ r_no;
+        return "/room/booking_completion";
     }
 
 
@@ -54,13 +55,13 @@ public class BookingController {
 //        return "redirect:/book/getBookInfo/" + u_no +","+ r_no;
 //    }
 
-    @RequestMapping(value = "/getBookInfo/{u_no},{r_no}")
-    public String getBookInfo(@PathVariable("u_no")int u_no, @PathVariable("r_no")int r_no, Model model){
-        List<BookingRoomGhouseUsers> bookInfo = this.bookService.getBookInfo(u_no, r_no);
-        System.out.println("bookConfirmInfo2 // BRGU.toString : " + bookInfo.toString());
-        model.addAttribute("Info", bookInfo);
-        return "/room/booking_confirm";
-    }
+//    @RequestMapping(value = "/getBookInfo/{u_no},{r_no}")
+//    public String getBookInfo(@PathVariable("u_no")int u_no, @PathVariable("r_no")int r_no, Model model){
+//        List<BookingRoomGhouseUsers> bookInfo = this.bookService.getBookInfo(u_no, r_no);
+//        System.out.println("bookConfirmInfo2 // BRGU.toString : " + bookInfo.toString());
+//        model.addAttribute("Info", bookInfo);
+//        return "/room/booking_confirm";
+//    }
 
 
 
