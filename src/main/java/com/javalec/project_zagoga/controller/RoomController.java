@@ -54,11 +54,9 @@ public class RoomController {
     @PostMapping("/room_write/{r_ghno}")
     public String room_write(Room room, @PathVariable("r_ghno") int r_ghno){
         room.setR_ghno(r_ghno);
-        System.out.println(room);
+//        System.out.println(room);
         roomService.insertRoom(room);
-
         return "redirect:/room/detail/"+r_ghno;
-
     }
 
 //  room_write -> detail(이미지 넣기전 방금넣은 room data 가져오기) -> room_images
@@ -66,9 +64,8 @@ public class RoomController {
     public String detail(@PathVariable("r_ghno")int r_ghno, Model model){
         Room room = roomService.detail(r_ghno);
         model.addAttribute("RM", room);
-        System.out.println("room.toString() : " + room.toString());
+//        System.out.println("room.toString() : " + room.toString());
         return "/room/room_images";
-
     }
     
     //이미지업로드 컨트롤러 20210703 정상작동
@@ -89,7 +86,7 @@ public class RoomController {
                 String OriginName = files.get(i).getOriginalFilename();
                 String transfer = fileAddr + imageName + "_" + OriginName;
                 File transferto = new File(transfer);
-                System.out.println("room/room_images : " + transfer);
+//                System.out.println("room/room_images : " + transfer);
 
                 safeDB.add(imageName + "_" + OriginName);
                 r_no.add(images.getI_rno());
@@ -104,8 +101,8 @@ public class RoomController {
             e.printStackTrace();
         }
 
-        System.out.println("safeDB.toString : " + safeDB);
-        System.out.println("images.toString : " + images);
+//        System.out.println("safeDB.toString : " + safeDB);
+//        System.out.println("images.toString : " + images);
         try {
             for (int i=0; i<safeDB.size(); i++){
                 images.setI_name(safeDB.get(i));
@@ -127,7 +124,7 @@ public class RoomController {
     @RequestMapping(value = "/mypageRoomInfo/{r_no}", method = RequestMethod.GET)
     public String mypageRoomInfo(@PathVariable("r_no")int r_no, Model model){
         List<RoomImages> roomImages = roomService.mypageRoomInfo(r_no);
-        System.out.println("roomImages.toString() : "+roomImages.toString());
+//        System.out.println("roomImages.toString() : "+roomImages.toString());
 //        System.out.println(roomImages.get(0).toString());
         model.addAttribute("room", roomImages);
         return "/mypage/mypage_room_info";
@@ -136,7 +133,7 @@ public class RoomController {
 //  20210706 15:47 확인
     @PostMapping("/update")
     public String update(Room room){
-        System.out.println("room.toString : " + room.toString());
+//        System.out.println("room.toString : " + room.toString());
         roomService.update(room);
         return "main";
     }

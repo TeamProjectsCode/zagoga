@@ -17,7 +17,7 @@
 </head>
 <body>
 <%@ include file="../header.jsp"%>
-  <h1 class="main_title">홍길동 님의 예약내역리스트</h1>
+  <h1 class="main_title">${myBookList.get(0).u_name} 님의 예약내역리스트</h1>
 <div>
     <c:forEach items="${myBookList}" var="mbl" varStatus="status">
 <ul class="used_list" >
@@ -56,7 +56,7 @@
       </a>
       <div class="lower_box">
         <div class="info">
-          <div class="title_">도미토리</div>
+          <div class="title_">${mbl.r_name}</div>
           <a href="/user/mypage_user_booking_detail/${mbl.b_no},${mbl.u_no}"><div class="desc">상세보기</div></a>
         </div>
         <div class="price">
