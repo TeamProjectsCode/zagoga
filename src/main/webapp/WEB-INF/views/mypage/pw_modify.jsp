@@ -40,6 +40,7 @@
 
     <h3>새 비밀번호</h3>
     <input class="pw" type="password" name="new_pw" id="pw1" maxlength="20" style="width: 330px"   required>
+            <br><br>
     <h3> 새 비밀번호 확인</h3>
     <input class="pw" type="password" name="conf_pw" id="pw2" maxlength="20" style="width: 330px"   required>
         <br>

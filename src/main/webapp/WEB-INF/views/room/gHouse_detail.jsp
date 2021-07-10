@@ -23,7 +23,7 @@
 		<div class="main">
 			<c:choose>
 			<c:when test="${fn:length(griList) ne 0}">
-			<img src="${pageContext.request.contextPath}/resources/gh_image/${griList.get(0).gh_image}" width="650px" height="500px" alt="대표사진">
+			<img src="${pageContext.request.contextPath}/resources/gh_image/${griList.get(0).gh_image}" style="width: 650px; height: 550px;" alt="대표사진">
 			<%--				<img src="/resources/img/busan.jpg" width="650px" height="500px" alt="대표사진">--%>
 			<p>대표사진</p>
 			<p>
