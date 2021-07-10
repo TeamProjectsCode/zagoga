@@ -27,7 +27,7 @@
       <!-- <div class="service">
           <img class="ico_images" src="images/bed.png" width="100">
       </div> -->
-      <a href="/user/mypage_user_booking_detail${mbl.b_no},${mbl.u_no}" class="service_link">
+      <a href="/user/mypage_user_booking_detail/${mbl.b_no},${mbl.u_no}" class="service_link">
         <div class="title">${mbl.gh_name}</div>
         <div class="info_box">
           <span class="info">${mbl.b_in} ~ ${mbl.b_out}</span>
