@@ -27,9 +27,9 @@ public interface HostMapper {
 
     @SelectProvider(type = HostSQL.class, method = "findID")
     String findID(String name, String jumin);
-	@InsertProvider(value = HostSQL.class, method = "pw_check") 
-	public String pw_check(String no);
+	@InsertProvider(value = HostSQL.class, method = "pw_check")
+    String pw_check(String no);
 
     @SelectProvider(type = HostSQL.class, method = "hostlist")
-    List<Host> hostlist();
+    List<HostVO> hostList();
 }

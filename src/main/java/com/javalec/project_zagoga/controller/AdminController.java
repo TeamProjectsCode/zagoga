@@ -5,12 +5,12 @@ import com.javalec.project_zagoga.dto.Users;
 import com.javalec.project_zagoga.mapper.AdminMapper;
 import com.javalec.project_zagoga.services.HostService;
 import com.javalec.project_zagoga.services.UsersService;
+import com.javalec.project_zagoga.vo.HostVO;
 import com.javalec.project_zagoga.vo.UsersVO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -51,7 +51,7 @@ public class AdminController {
     // ADMIN: 사업자 리스트
     @RequestMapping("/host_list")
     public String hostlist(Model model) {
-        List<Host> host = hostService.hostlist();
+        List<HostVO> host = hostService.hostList();
         System.out.println("host.toString : " + host.toString());
         model.addAttribute("hList", host);
         return "/admin/host_list";

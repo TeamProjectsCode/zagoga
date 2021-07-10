@@ -29,6 +29,7 @@
 					<th>사업자 번호</th>
 					<th>이름</th>
 					<th>사업장 이메일</th>
+					<th>신청일</th>
 					<th>승인 여부</th>
 					<th></th>
 				</tr>
@@ -38,8 +39,19 @@
 				<tr>
 					<td>${hlist.h_bizno}</td>
 					<td>${hlist.h_name}</td>
-					<td>${hlist.h_join}</td>
-					<td id = "check">승인</td>
+					<td>${hlist.h_mail}</td>
+					<td style="font-size: smaller">${fn:substring(hlist.h_join, 0, 10)}</td>
+					<c:choose>
+						<c:when test="${hlist.h_active eq 1}">
+							<td>승인</td>
+						</c:when>
+						<c:when test="${hlist.h_active eq 0}">
+							<td>대기중</td>
+						</c:when>
+						<%--<c:when test="${hlist.h_active eq -1}">
+							<td>일시정지</td>
+						</c:when>--%>
+					</c:choose>
 					<td><button onclick="location.href='/admin/host_reading'">상세 내용 확인</button></td>
 				</tr>
 				</c:forEach>

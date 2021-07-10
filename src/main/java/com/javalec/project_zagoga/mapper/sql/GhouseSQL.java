@@ -26,6 +26,7 @@ public class GhouseSQL {
 ////                .WHERE("SUBSTRING(GH_ADDR1,1,5) = #{local}")
 //                .toString();
     }
+
     public String insert(Ghouse ghouse){
         return new SQL()
                 .INSERT_INTO(TABLE)
@@ -59,15 +60,7 @@ public class GhouseSQL {
                         "join GHOUSE G on R.R_GHNO = G.GH_NO " +
                         "where GH_NO=#{gh_no} group by R_NO)")
                 .toString();
-        //        String sql = "select * from IMAGES join ROOMS R2 on R2.R_NO = IMAGES.I_RNO " +
-//                "join GHOUSE G on G.GH_NO = R2.R_GHNO " +
-//                "where I_NO in (select min(I_NO) from IMAGES " +
-//                "join ROOMS R on R.R_NO = IMAGES.I_RNO " +
-//                "join GHOUSE G on R.R_GHNO = G.GH_NO " +
-//                "where GH_NO=#{gh_no} group by R_NO)";
-//        return sql;
     }
-
 
     public String update(Ghouse ghouse){
         return new SQL(){{

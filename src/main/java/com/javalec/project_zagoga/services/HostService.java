@@ -4,6 +4,7 @@ import com.javalec.project_zagoga.dto.Host;
 import com.javalec.project_zagoga.mapper.AuthMapper;
 import com.javalec.project_zagoga.security.AuthValue;
 import com.javalec.project_zagoga.mapper.HostMapper;
+import com.javalec.project_zagoga.vo.HostVO;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
@@ -49,11 +50,7 @@ public class HostService {
     public String pw_check(String no) {
     	return hostMapper.pw_check(no);
     }
-    public List<Host> hostList() {
-    	return hostMapper.hostlist();
-    }
-
-    public List<Host> hostlist(){
-        return hostMapper.hostlist();
+    public List<HostVO> hostList() {
+    	return hostMapper.hostList();
     }
 }
