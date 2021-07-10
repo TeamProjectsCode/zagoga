@@ -26,6 +26,19 @@
 	color:#ccc;
 	text-decoration:none;
 }
+.btn{
+	width: 100px;
+	height: 30px;
+	border-radius: 20px;
+	color: #fff;
+	transition: all .4s;
+	border: none;
+	background-color:  #9DCDD7;
+}
+.btn:hover{
+	background: #fff;
+	color: #71a2fc;
+}
 .star_rating a:first-child {margin-left:0;}
 
 .star_rating a.on {color: #e97928}

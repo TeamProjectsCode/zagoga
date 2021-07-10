@@ -12,6 +12,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="/resources/css/mypage_user_booking_list.css">
+  <script type="text/javascript" src="/resources/js/user.js" charset="utf-8"></script>
     <title>Title</title>
 </head>
 <body>
@@ -45,15 +46,18 @@
           </div>
         </div>
       </a>
-      <a class="lower_box" href="/user/mypage_user_booking_detail">
+      <div class="lower_box">
         <div class="info">
           <div class="title_">도미토리</div>
-          <div class="desc">상세보기</div>
+          <a href="/user/mypage_user_booking_detail"><div class="desc">상세보기</div></a>
         </div>
         <div class="price">
           "결제 55,000 원"
         </div>
-      </a>
+        <div class="btn">
+          <a href="javascript:showPopup()"><button class="btn-m" onclick="showPopup()">후기작성하기</button></a>
+        </div>
+      </div>
     </div>
   </li>
   </div>
