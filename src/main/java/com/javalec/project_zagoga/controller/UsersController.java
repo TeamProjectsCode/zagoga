@@ -45,13 +45,13 @@ public class UsersController {
 	}
 
 	//user: 유저 마이페이지 예약히스토리
-	@GetMapping("/user/mypage_user_booking_list")
+	@GetMapping("/mypage_user_booking_list")
 	public String mypage_user_booking_list() {
 		return "/mypage/mypage_user_booking_list";
 	}
 
 	//user: 유저 마이페이지 히스토리에서 예약상세
-	@GetMapping("/user/mypage_user_booking_detail")
+	@GetMapping("/mypage_user_booking_detail")
 	public String mypage_user_booking_detail() {
 		return "/mypage/mypage_user_booking_detail";
 	}
