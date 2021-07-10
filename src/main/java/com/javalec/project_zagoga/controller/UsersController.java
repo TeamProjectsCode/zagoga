@@ -39,9 +39,21 @@ public class UsersController {
 	}
 
 	//user : 마이페이지 유저 회원정보 변경
-	@RequestMapping("/mypage_user_info")
+	@GetMapping("/mypage_user_info")
 	public String mypage_user_info() {
 		return "/mypage/mypage_user_info";
+	}
+
+	//user: 유저 마이페이지 예약히스토리
+	@GetMapping("/user/mypage_user_booking_list")
+	public String mypage_user_booking_list() {
+		return "/mypage/mypage_user_booking_list";
+	}
+
+	//user: 유저 마이페이지 히스토리에서 예약상세
+	@GetMapping("/user/mypage_user_booking_detail")
+	public String mypage_user_booking_detail() {
+		return "/mypage/mypage_user_booking_detail";
 	}
 
     @PostMapping("/pw_check")
