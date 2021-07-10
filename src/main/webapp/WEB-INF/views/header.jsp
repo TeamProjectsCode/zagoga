@@ -43,52 +43,43 @@
 				</div>
 			</div>
 			<c:choose>
-			<c:when test = "${userType eq 'HOST'}">
-			<c:if test="${user.h_active ne 1}">
-				<script>
-					alert("승인대기중입니다.");
-					location.href="/logout";
-				</script>
-			</c:if>
-			<div class="dropdown">
-				<button class="dropbtn" onclick="location.href='/host/mypage_host/${user.h_no}'">마이 페이지</button>
-				<div class="dropdown-content">
-					 <a href="mypage_host_customerList">예약자 조회</a>
-					 <a href="mypage_host_info">회원 정보 변경</a>
-					 <a href="mypage_house_info">게스트하우스 정보 변경</a>
-					 <a href="gHouse_write">게스트하우스 등록</a>
-         		 </div>
-			</div>
-			</c:when>
-			<c:when test="${userType eq 'USER' }">
-			<div class="dropdown">
-				<button class="dropbtn" onclick="location.href='/user/mypage_user/${user.u_no}'">마이 페이지</button>
-				<div class="dropdown-content">
-					<a href="/user/mypage_user_info">회원정보 변경</a> 
-					<a href="/user/mypage_user_booking_list">예약 조회</a>
-				</div>
-			</div>///////////////////////////////////////////////////////////////
-			</c:when>
-			<c:when test="${userType eq 'ADMIN' }">
-				<div class="dropdown">
-					<button class="dropbtn" onclick="location.href='/admin/user_list'">USERLIST</button>
-				</div>
-				<div class="dropdown">
-					<button class="dropbtn" onclick="location.href='/admin/host_list'">HOSTLIST</button>
-				</div>
-			</c:when>
-			</c:choose>
-
-			<c:choose>
-				<c:when test="${empty user}">
+				<c:when test = "${userType eq 'HOST'}">
+					<c:if test="${user.h_active ne 1}">
+						<script>
+							alert("승인대기중입니다.");
+							location.href="/logout";
+						</script>
+					</c:if>
 					<div class="dropdown">
-						<button class="dropbtn" onclick="location.href='/login'">login</button>
+						<button class="dropbtn" onclick="location.href='/host/mypage_host/${user.h_no}'">마이 페이지</button>
+						<div class="dropdown-content">
+							<a href="mypage_host_customerList">예약자 조회</a>
+							<a href="mypage_host_info">회원 정보 변경</a>
+							<a href="mypage_house_info">게스트하우스 정보 변경</a>
+							<a href="gHouse_write">게스트하우스 등록</a>
+						</div>
 					</div>
 				</c:when>
-				<c:otherwise>
+				<c:when test="${userType eq 'USER' }">
 					<div class="dropdown">
-						<button class="dropbtn" onclick="location.href='/logout'">logout</button>
+						<button class="dropbtn" onclick="location.href='/user/mypage_user/${user.u_no}'">마이 페이지</button>
+						<div class="dropdown-content">
+							<a href="/user/mypage_user_info">회원정보 변경</a>
+							<a href="/user/mypage_user_booking_list">예약 조회</a>
+						</div>
 					</div>
+				</c:when>
+			</c:choose>
+			<c:choose>
+				<c:when test="${empty user}">
+				<div class="dropdown">
+					<button class="dropbtn" onclick="location.href='/login'">login</button>
+				</div>
+				</c:when>
+				<c:otherwise>
+				<div class="dropdown">
+					<button class="dropbtn" onclick="location.href='/logout'">logout</button>
+				</div>
 				</c:otherwise>
 			</c:choose>
 		</div>

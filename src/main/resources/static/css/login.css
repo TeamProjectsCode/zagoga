@@ -2,7 +2,7 @@
 	width:400px;
 	margin:0 auto;
 }
-table { width: 350px; }
+table { width: 400px; }
 
 .inputHead {
     font-size: smaller;
@@ -39,6 +39,18 @@ table { width: 350px; }
 .inputFinder :hover, .inputRegister :hover{
     color: rgb(196, 196, 196);
 }
+.sns a{
+    display: inline-block;
+    width: content-box;
+}
+a{
+    /*width:30%;*/
+}
+.sns img{
+    width: 110px;
+    height: 35px;
+}
+
 
 
 
