@@ -173,16 +173,7 @@ public class HomeController {
 //	public String mypage_user() {
 //		return "mypage/mypage_user";
 //	}
-	//user: 유저 마이페이지 예약히스토리
-	@RequestMapping("user/mypage_user_booking_list")
-	public String mypage_user_booking_list() {
-		return "mypage/mypage_user_booking_list";
-	}
-	//user: 유저 마이페이지 히스토리에서 예약상세
-	@RequestMapping("user/mypage_user_booking_detail")
-	public String mypage_user_booking_detail() {
-		return "mypage/mypage_user_booking_detail";
-	}
+
 
 	//board : 게스트 하우스 정보 디테일
 	@RequestMapping("board/gHouse_detail")
