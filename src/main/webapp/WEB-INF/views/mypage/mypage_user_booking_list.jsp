@@ -17,7 +17,7 @@
 </head>
 <body>
 <%@ include file="../header.jsp"%>
-  <h1 class="main_title">홍길동 님의 예약내역리스트</h1>
+  <h1 class="main_title">${user.u_name} 님의 예약내역리스트</h1>
 <div>
     <c:forEach items="${myBookList}" var="mbl" varStatus="status">
 <ul class="used_list" >
