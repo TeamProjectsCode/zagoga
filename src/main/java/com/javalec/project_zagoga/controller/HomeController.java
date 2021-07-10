@@ -163,6 +163,11 @@ public class HomeController {
 	public String mypage_user_booking() {
 		return "mypage/mypage_user_booking";
 	}
+	//비번변경
+	@RequestMapping("user/pw_modify")
+	public String mypage_user_pwModify() {
+		return "mypage/pw_modify";
+	}
 	//user : 마이페이지 유저 회원정보 변경 
 	/*
 	 * @RequestMapping("user/mypage_user_info") public String mypage_user_info() {

@@ -153,7 +153,7 @@ $(function(){//닉네임 중복체크
     
 	
 //팝업		
-	function showPopup(){window.open("review_write","후기","width=700, height=500,left=300,top=50");}
+	function showPopup(){window.open("review_write","후기","width=500, height=300,left=300,top=50");}
    
    
 $(document).ready(function() {
@@ -162,4 +162,9 @@ $(document).ready(function() {
 	 	$(this).addClass("on").prevAll("a").addClass("on");
 	 	return false;
     })
-});	        
+});
+
+
+	//pw팝업
+    function pw_popup(){window.open("pw_modify","비밀번호변경","width=700, height=500,left=300,top=50")}
+

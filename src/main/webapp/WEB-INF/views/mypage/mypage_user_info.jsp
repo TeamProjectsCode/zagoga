@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <link href="/resources/css/user_mypage_info.css" media="all" rel="Stylesheet" type="text/css" />
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="../resources/js/jquery.js"></script>
+    <script src="../resources/js/user.js"></script>
 <title>회원정보 변경</title>
     <script>
          function user_info () {
@@ -25,7 +27,7 @@
                         $("#msg").css("color", "red");
                     }else{
                         $("#msg").text("사용 가능한 아이디입니다.");
-                        $("#msg").css("color", "blue");
+                        $("#msg").css("color", "#0100C6");
                     }
                 },
                 error:function (e) {
@@ -95,7 +97,7 @@
                 </tr>
                 <tr height="20">
                     <th class="title">비밀번호</th>
-                    <td><input name="u_pwd" id="pw" value="옆에 버튼 만들고 오프너 생성해서 작업하기?">&nbsp</td>
+                    <td><input type="button" name="u_pwd" id="pw" value="비밀번호 변경" onclick="pw_popup()">&nbsp</td>
                 </tr>
     <%--            <tr height="20">--%>
     <%--                <th class="title">E-mail</th>  --%>

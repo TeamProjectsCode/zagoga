@@ -1,0 +1,51 @@
+@font-face {
+    /*font-family: 'twaysky';*/
+    /*src:*/
+    /*	url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twaysky.woff')*/
+    /*	format('woff');*/
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*font-family: 'twaysky';*/
+    font-family: 'GmarketSansMedium';
+    text-align: center;
+}
+
+h1{
+    color: #71a2fc;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 50px;
+}
+h3{
+    color: black;
+    text-align: center;
+}
+.pw{
+    border-radius: 5px;
+    border: 1px solid black ;
+    height: 35px;
+}
+.pw:hover{
+    border-color: #71a2fc;
+}
+button{
+    width: 100px;
+    height: 30px;
+    border-radius: 20px;
+    color: #fff;
+    transition: all .4s;
+    border: none;
+    background-color:  #9DCDD7;
+    margin-top: 40px;
+}
+button:hover{
+    background: #fff;
+    color: #71a2fc;
+}
