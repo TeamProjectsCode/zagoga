@@ -28,8 +28,8 @@
     <textarea rows="10" cols="40" placeholder="10자 이상 입력해주세요"></textarea>
     <br>
     <br>
-    <input type="submit" value="작성">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="button" value="취소" onclick="self.close();">
+    <input class="btn" type="submit" value="작성">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="btn" type="button" value="취소" onclick="self.close();">
     </form>
     </center>
 </body>

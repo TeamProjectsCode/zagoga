@@ -66,14 +66,35 @@
 .used_list .price {
     padding:0px 0 0 10px;
     font-size:17px;
-    color:#1a1a1a;
+    color:red;
     font-weight:bold;
 }
-.desc{
+a .desc {
     text-emphasis: inherit;
     color: red;
     text-decoration: underline double;
 }
+.price{
+    color: black;
+}
+.btn-m{
+    width: 100px;
+    height: 30px;
+    background-color:  #9DCDD7;
+    border-radius: 20px;
+    color: #fff;
+    padding: 3px 6px;
+    border: none;
+    transition: all .4s;
+    margin-top: 30px;
+
+
+}
+button:hover {
+    background: #fff;
+    color: #71a2fc;;
+}
+
 .aa{color: #d9d9d9;}
 a:link { text-decoration:none; }
 a:visited { color:black; }
