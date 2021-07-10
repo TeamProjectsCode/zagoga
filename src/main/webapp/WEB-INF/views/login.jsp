@@ -48,9 +48,9 @@
             <a href="/oauth2/authorization/naver"><img src="/resources/img/btn_naver_signin_official.png" alt="네이버 로그인" style="width: 138px; height: 35px;"></a>
             <a href="/oauth2/authorization/kakao"><img src="/resources/img/btn_kakao_signin_large_narrow.png" style="width: 122px; height: 35px;" alt="카카오 로그인"></a>
     </div>
-    </form>
+    </div>
+   </form>
 <%--            <a href="/oauth2/authorization/google"><img src="/resources/img/btn_google_signin_light.png" alt="구글 로그인" style="width: 55%; height: 55%"></a>--%>
-    <%@ include file="./footer.jsp" %>
-
+<%@ include file="./footer.jsp" %>
 </body>
 </html>
