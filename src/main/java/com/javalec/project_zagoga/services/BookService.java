@@ -26,9 +26,9 @@ public class BookService {
         return bookMapper.insertBook(booking);
     }
 
-    public List<BookingRoomGhouseUsers> getBookInfo(int u_no, int r_no) {
-        return bookMapper.getBookInfo(u_no, r_no);
-    }
+//    public List<BookingRoomGhouseUsers> getBookInfo(int u_no, int r_no) {
+//        return bookMapper.getBookInfo(u_no, r_no);
+//    }
 
     public BookingRoomGhouseUsers getBookingConfirm(BookingRoomGhouseUsers info){
         return bookMapper.getBookingConfirm(info);

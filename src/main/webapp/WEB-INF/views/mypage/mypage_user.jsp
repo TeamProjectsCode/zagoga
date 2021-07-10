@@ -31,19 +31,11 @@
                   </div>
                   <div class="booking">
                     <table>
-                    <c:forEach items="${info}" var="info" varStatus="status">
                     <h5>예약정보</h5>
                     <hr>
                     <p>${info.gh_name}</p>
                     <br>
-                <c:choose>
-                    <c:when test="${info.u_name != 0}">
-                        <p>예약자 : ${info.u_name}</p>
-                    </c:when>
-                    <c:otherwise>
-                        <p>예약자 : ${info.u_name}</p>
-                    </c:otherwise>
-                </c:choose>
+                    <p>예약자 : ${info.u_name}</p>
                     <p>사업자 : ${info.h_brand}</p>
                     <P>체크 인 : ${info.b_in}</P>
                     <P>체크 아웃 : ${info.b_out}</P>
@@ -52,8 +44,7 @@
                         <br>
                     <P style="text-align: right;"><small>예약취소시, 사업자에게 연락해주세요</small></P>
                     <p style="float: right;">
-                    </c:forEach>
-                      <input type="button" value="예약목록" onclick="location.href='/user/mypage_user_booking_list'">
+                      <input type="button" value="예약목록" onclick="location.href='/user/mypage_user_booking_list/'+${info.b_uno}">
                     </p>
                   </table>
                   </div>

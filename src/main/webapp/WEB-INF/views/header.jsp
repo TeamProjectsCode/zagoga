@@ -67,7 +67,7 @@
 					<a href="/user/mypage_user_info">회원정보 변경</a> 
 					<a href="/user/mypage_user_booking_list">예약 조회</a>
 				</div>
-			</div>
+			</div>///////////////////////////////////////////////////////////////
 			</c:when>
 			<c:when test="${userType eq 'ADMIN' }">
 				<div class="dropdown">

@@ -37,18 +37,19 @@ public class BookSQL {
                 .toString();
     }
 
-    public String getBookInfo(int u_no, int r_no){
-        return new SQL()
-                .SELECT("GH_NO, GH_IMAGE, GH_NAME, GH_ADDR1, GH_ADDR2," +
-                        "R_NO, R_NAME, R_FEE," +
-                        "U_NO, U_PHONE, U_NICK, U_GENDER," +
-                        "B_NO, DATE_FORMAT(B_IN, '%Y-%m-%d')'B_IN', DATE_FORMAT(B_OUT, '%Y-%m-%d')'B_OUT', B_PNO, B_STATE, B_JOIN")
-                .FROM(Ghouse, Rooms, Users, Booking)
-                .WHERE("U_NO=#{u_no}")
-                .WHERE("R_NO=#{r_no}")
-                .ORDER_BY("B_JOIN DESC")
-                .toString();
-    }
+//    public String getBookInfo(int u_no, int r_no){
+//        return new SQL()
+//                .SELECT("GH_NO, GH_IMAGE, GH_NAME, GH_ADDR1, GH_ADDR2," +
+//                        "R_NO, R_NAME, R_FEE," +
+//                        "U_NO, U_PHONE, U_NICK, U_GENDER," +
+//                        "B_NO, DATE_FORMAT(B_IN, '%Y-%m-%d')'B_IN', DATE_FORMAT(B_OUT, '%Y-%m-%d')'B_OUT', B_PNO, B_STATE, B_JOIN")
+//                .FROM("USERS join BOOKING B on USERS.U_NO = B.B_UNO join ROOMS R on R.R_NO = B.B_RNO " +
+//                        "join GHOUSE G on G.GH_NO = R.R_GHNO join HOST H on H.H_NO = G.GH_HNO")
+//                .WHERE("U_NO=#{u_no}")
+//                .WHERE("R_NO=#{r_no}")
+//                .ORDER_BY("B_JOIN DESC")
+//                .toString();
+//    }
     public String getBookingConfirm(BookingRoomGhouseUsers info) {
         return new SQL()
                 .SELECT("GH_IMAGE, GH_NAME, GH_ADDR1, GH_ADDR2," +

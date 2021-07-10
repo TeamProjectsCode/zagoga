@@ -15,7 +15,7 @@ public class BookingRoomGhouseUsers {
     private int b_no;
     private Date b_in;
     private Date b_out;
-    private boolean b_state;
+    private int b_state;
     private int b_pno;
     private Timestamp b_join;
     private int b_rno;

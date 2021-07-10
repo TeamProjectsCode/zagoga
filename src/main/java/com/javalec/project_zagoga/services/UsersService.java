@@ -80,5 +80,9 @@ public class UsersService {
     	return usersMapper.getUserByUNo(u_no);
     }
 
-    public List<BookingRoomGhouseUsers> getBook(String u_no){return usersMapper.getBook(u_no);}
+    public BookingRoomGhouseUsers getBook(String u_no){return usersMapper.getBook(u_no);}
+
+    public List<BookingRoomGhouseUsers> getMyBookList(String u_no){return usersMapper.getMyBookList(u_no);}
+
+    public BookingRoomGhouseUsers myBookSelectOneDetail(String b_no, String u_no){return usersMapper.myBookSelectOneDetail(b_no, u_no);}
 }

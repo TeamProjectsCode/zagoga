@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 박지은
@@ -14,24 +15,41 @@
 <body>
 <div class="page_confirm_inner">
     <div class="confirm_item_top">
-        <h3 class="confirm_title">예약완료</h3>
+        <c:choose>
+            <c:when test="${mbs.b_state >= 0}">
+                <h3 class="confirm_title">예약 완료</h3>
+            </c:when>
+            <c:when test="${mbs.b_state >= 1}">
+                <h3 class="confirm_title">승인 대기중</h3>
+            </c:when>
+            <c:when test="${mbs.b_state >= 2}">
+                <h3 class="confirm_title">취소 완료</h3>
+            </c:when>
+        </c:choose>
         <div class="confirm_top_content">
-            <p class="confirm_number"><span>No.4564512346</span></p>
+            <p class="confirm_number"><span>No.${mbs.b_no}</span></p>
             <h4 class="tit"><a href="#" class="anchor">도미토리룸</a></h4>
             <hr>
             <div class="detail_info">
                 <ul class="info_lst">
                     <li class="info_item">
                         <div class="item_tit">일정</div>
-                        <div class="item_desc"><span class="booked_date">2021. 6. 2 ~ 2021. 6. 3</span></div>
+                        <div class="item_desc"><span class="booked_date">${mbs.b_in} ~ ${mbs.b_out}</span></div>
                     </li>
                     <li class="info_item">
                         <div class="item_tit">상품</div>
-                        <div class="item_desc"><span>도미토리룸</span></div>
+                        <div class="item_desc"><span>${mbs.r_name}</span></div>
                     </li>
                     <li class="info_item">
                         <div class="item_tit">계좌번호</div>
-                        <div class="item_desc"><span>농협 111-1111-1111-11</span></div>
+                        <c:choose>
+                            <c:when test="${mbs.h_bank != null}">
+                                <div class="item_desc"><span>${mbs.h_bank}</span></div>
+                            </c:when>
+                            <c:otherwise>
+                                <div class="item_desc"><span>등록된 계좌번호가 없습니다.</span></div>
+                            </c:otherwise>
+                        </c:choose>
                     </li>
                 </ul>
             </div>
@@ -55,12 +73,12 @@
                 <div class="info_area">
                     <div class="info_row">
                         <img src="../resources/img/tool.png"  class="img_ico">  <span class="road_name">주소</span>
-                        "제주특별시 서귀포 해변길153-11"
+                        "${mbs.gh_addr1} ${mbs.gh_addr2}"
                     </div>
                 </div>
                 <div class="info_area">
                     <div class="info_row">
-                        <img src="../resources/img/phone-call.png" class="img_ico"><a href="tel:010-1111-1111">010-1111-1111</a>
+                        <img src="../resources/img/phone-call.png" class="img_ico"><a href="tel:010-1111-1111">${mbs.h_phone}</a>
                     </div>
                 </div>
                 <div class="info_area">

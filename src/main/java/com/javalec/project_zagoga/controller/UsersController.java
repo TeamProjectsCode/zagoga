@@ -32,28 +32,37 @@ public class UsersController {
 
 	@RequestMapping(value = "/mypage_user/{u_no}", method = RequestMethod.GET)
 	public String mypage_user(@PathVariable("u_no")String u_no, Model model) {
-		List<BookingRoomGhouseUsers> info = this.userService.getBook(u_no);
+		BookingRoomGhouseUsers info = this.userService.getBook(u_no);
+
 		System.out.println(info);
 		model.addAttribute("info", info);
 		return "/mypage/mypage_user";
 	}
 
-	//user : 마이페이지 유저 회원정보 변경
-	@GetMapping("/mypage_user_info")
-	public String mypage_user_info() {
-		return "/mypage/mypage_user_info";
-	}
-
 	//user: 유저 마이페이지 예약히스토리
-	@GetMapping("/mypage_user_booking_list")
-	public String mypage_user_booking_list() {
+	@RequestMapping(value = "/mypage_user_booking_list/{u_no}", method = RequestMethod.GET)
+	public String mypage_user_booking_list(@PathVariable("u_no")String u_no, Model model) {
+		List<BookingRoomGhouseUsers> myBookList = this.userService.getMyBookList(u_no);
+
+		model.addAttribute("myBookList", myBookList);
+		System.out.println(myBookList);
 		return "/mypage/mypage_user_booking_list";
 	}
 
 	//user: 유저 마이페이지 히스토리에서 예약상세
-	@GetMapping("/mypage_user_booking_detail")
-	public String mypage_user_booking_detail() {
+	@RequestMapping("/mypage_user_booking_detail/{b_no},{u_no}")
+	public String mypage_user_booking_detail(@PathVariable("b_no")String b_no, @PathVariable("u_no")String u_no, Model model) {
+		BookingRoomGhouseUsers myBookSelectOneDetail = this.userService.myBookSelectOneDetail(b_no, u_no);
+		System.out.println(myBookSelectOneDetail);
+		model.addAttribute("mbs", myBookSelectOneDetail);
 		return "/mypage/mypage_user_booking_detail";
+	}
+
+
+	//user : 마이페이지 유저 회원정보 변경
+	@GetMapping("/mypage_user_info")
+	public String mypage_user_info() {
+		return "/mypage/mypage_user_info";
 	}
 
     @PostMapping("/pw_check")

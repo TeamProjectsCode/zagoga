@@ -19,9 +19,7 @@
 <%@ include file="../header.jsp"%>
   <h1 class="main_title">홍길동 님의 예약내역리스트</h1>
 <div>
-    <%
-      for(int i = 1; i<=8 ; i++){
-    %>
+    <c:forEach items="${myBookList}" var="mbl" varStatus="status">
 <ul class="used_list" >
   <div>
   <li class="card_item">
@@ -29,19 +27,29 @@
       <!-- <div class="service">
           <img class="ico_images" src="images/bed.png" width="100">
       </div> -->
-      <a href="/user/mypage_user_booking_detail" class="service_link">
-        <div class="title">안녕제주도</div>
+      <a href="/user/mypage_user_booking_detail${mbl.b_no},${mbl.u_no}" class="service_link">
+        <div class="title">${mbl.gh_name}</div>
         <div class="info_box">
-          <span class="info">21. 6. 5 ~ 21. 6. 6 </span>
-          <span class="info"> <span class="aa">||</span> 1박 2일</span>
+          <span class="info">${mbl.b_in} ~ ${mbl.b_out}</span>
+          <span class="info"> <span class="aa">||</span> ${mbl.b_out.date - mbl.b_in.date}박 ${(mbl.b_out.date - mbl.b_in.date)+1}일</span>
         </div>
       </a>
     </div>
     <div class="card_body">
-      <a href="/user/mypage_user_booking_detail" class="upper_box">
+      <a href="/user/mypage_user_booking_detail/${mbl.b_no},${mbl.u_no}" class="upper_box">
         <div class="review_area">
           <div class="review_header">
-            <div class="text">예약완료</div>
+            <c:choose>
+              <c:when test="${mbl.b_state >= 0}">
+                <div class="text">승인대기중</div>
+              </c:when>
+              <c:when test="${mbl.b_state >= 1}">
+                <div class="text">예약완료</div>
+              </c:when>
+              <c:when test="${mbl.b_state >= 2}">
+                <div class="text">취소완료</div>
+              </c:when>
+            </c:choose>
             <div class="text"></div>
           </div>
         </div>
@@ -49,10 +57,11 @@
       <div class="lower_box">
         <div class="info">
           <div class="title_">도미토리</div>
-          <a href="/user/mypage_user_booking_detail"><div class="desc">상세보기</div></a>
+          <a href="/user/mypage_user_booking_detail/${mbl.b_no},${mbl.u_no}"><div class="desc">상세보기</div></a>
         </div>
         <div class="price">
-          "결제 55,000 원"
+          "결제 ${mbl.b_pno * mbl.r_fee * (mbl.b_out.date - mbl.b_in.date)} 원"
+
         </div>
         <div class="btn">
           <a href="javascript:showPopup()"><button class="btn-m" onclick="showPopup()">후기작성하기</button></a>
@@ -62,9 +71,7 @@
   </li>
   </div>
 </ul>
-    <%
-      }
-    %>
+    </c:forEach>
 </div>
 <%--<%@ include file="../footer.jsp"%>--%>
 </body>

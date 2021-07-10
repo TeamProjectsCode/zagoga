@@ -24,8 +24,8 @@ public interface BookMapper {
     @InsertProvider(type = BookSQL.class, method = "insertBook")
     int insertBook(@Param("booking")Booking booking);
 
-    @SelectProvider(type = BookSQL.class, method = "getBookInfo")
-    List<BookingRoomGhouseUsers> getBookInfo(@Param("u_no")int u_no, @Param("r_no")int r_no);
+//    @SelectProvider(type = BookSQL.class, method = "getBookInfo")
+//    List<BookingRoomGhouseUsers> getBookInfo(@Param("u_no")int u_no, @Param("r_no")int r_no);
 
     @SelectProvider(type = BookSQL.class, method = "getBookingConfirm")
     BookingRoomGhouseUsers getBookingConfirm(@Param("info")BookingRoomGhouseUsers info);

@@ -65,5 +65,11 @@ public interface UsersMapper {
     List<Users> userList();
 
     @SelectProvider(type = UserSQL.class, method = "getBook")
-    List<BookingRoomGhouseUsers> getBook(String u_no);
+    BookingRoomGhouseUsers getBook(String u_no);
+
+    @SelectProvider(type = UserSQL.class, method = "getMyBookList")
+    List<BookingRoomGhouseUsers> getMyBookList(String u_no);
+
+    @SelectProvider(type = UserSQL.class, method = "myBookSelectOneDetail")
+    BookingRoomGhouseUsers myBookSelectOneDetail(String b_no, String u_no);
 }

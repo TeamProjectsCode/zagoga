@@ -155,10 +155,7 @@ public class UserSQL {
     			.toString();
     }
 
-    // GHOUSE, ROOMS, BOOKING, HOST, USERS
-    // mypage_user_info 에서 불러와야할게
-    // BOOKING에 있는 b_rno로 ROOMS안에 r_ghno를 뽑아서 GHOUSE 이름가져오고
-    // GHOUSE에 있는 gh_hno로 HOST에 사업자연락처 가져와야함........
+    // UserMypage getBook limit 1 current
     public String getBook(String u_no){
         return new SQL()
                 .SELECT("*")
@@ -167,6 +164,39 @@ public class UserSQL {
                 .JOIN("GHOUSE G on G.GH_NO = R.R_GHNO")
                 .JOIN("HOST H on H.H_NO = G.GH_HNO")
                 .WHERE("B_UNO = #{u_no}")
+                .ORDER_BY("B_JOIN desc")
+                .LIMIT(1)
+                .toString();
+    }
+
+    // UsermyPage-> getBookList
+    public String getMyBookList(String u_no){
+        return new SQL()
+                .SELECT("GH_NO, GH_IMAGE, GH_NAME, GH_ADDR1, GH_ADDR2, " +
+                        "       R_NO, R_NAME, R_FEE, " +
+                        "       U_NO, U_PHONE, U_NICK, U_GENDER, B_NO, DATE_FORMAT(B_IN, '%Y-%m-%d')'B_IN' " +
+                        "        , DATE_FORMAT(B_OUT, '%Y-%m-%d')'B_OUT', B_PNO, B_STATE, B_JOIN, " +
+                        "       H_NO, H_BANK, H_PHONE")
+                .FROM(TABLE)
+                .JOIN("BOOKING B on USERS.U_NO = B.B_UNO")
+                .JOIN("ROOMS R on R.R_NO = B.B_RNO")
+                .JOIN("GHOUSE G on G.GH_NO = R.R_GHNO")
+                .JOIN("HOST H on H.H_NO = G.GH_HNO")
+                .WHERE("U_NO = #{u_no}")
+                .ORDER_BY("B_JOIN DESC")
+                .toString();
+    }
+
+    public String myBookSelectOneDetail(String b_no, String u_no){
+        return new SQL()
+                .SELECT("*")
+                .FROM(TABLE)
+                .JOIN("BOOKING B on USERS.U_NO = B.B_UNO")
+                .JOIN("ROOMS R on R.R_NO = B.B_RNO")
+                .JOIN("GHOUSE G on G.GH_NO = R.R_GHNO")
+                .JOIN("HOST H on H.H_NO = G.GH_HNO")
+                .WHERE("B_NO=#{b_no}")
+                .WHERE("U_NO=#{u_no}")
                 .toString();
     }
 
