@@ -102,7 +102,8 @@
                     </div>
                 </div>
             </div>
-                <button class="btn_a" onclick="history.go(-1)">확인</button>
+                <button class="btn_a" onclick="history.go(-1)">뒤로가기</button>
+                <button class="btn_aa" onclick="'#'">예약취소</button>
         </div>
     </div>
 </div>

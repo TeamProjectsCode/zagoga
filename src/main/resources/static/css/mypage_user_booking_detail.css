@@ -58,8 +58,16 @@ h3{
 }
 .btn_a{
     margin-top: 50px;
-    width: 1000px;
+    width: 350px;
     height: 35px;
     align-items: center; /*중앙정렬*/
     margin-bottom: 50px;
+}
+.btn_aa{
+    margin-top: 50px;
+    width: 350px;
+    height: 35px;
+    align-items: center; /*중앙정렬*/
+    margin-bottom: 50px;
+    margin-left: 290px;
 }
