@@ -12,7 +12,6 @@
     <title>Title</title>
 </head>
 <body>
-<body>
 <div class="page_confirm_inner">
     <div class="confirm_item_top">
         <h3 class="confirm_title">예약완료</h3>
@@ -79,10 +78,9 @@
                     </div>
                 </div>
             </div>
+                <button class="btn_a" onclick="history.go(-1)">확인</button>
         </div>
     </div>
 </div>
-</div>
-</body>
 </body>
 </html>

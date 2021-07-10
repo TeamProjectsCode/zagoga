@@ -11,9 +11,6 @@
 <body>
 	<%@ include file="../header.jsp"%>
 	<div class="mainbox">
-		<div class="imgbox">
-			<img src="../resources/img/busan.jpg">
-		</div>
 		<div class = "table">
 		<h2>사업자 정보</h2>
 			<table>
@@ -39,8 +36,8 @@
 					<td></td>
 				</tr>
 				<tr>
-					<td><button onclick="admin_approve()">승인</button></td>
-					<td><button onclick="admin_delete()">승인해제</button></td>
+					<td><button class="btn_a" onclick="admin_approve()">승인</button></td>
+					<td><button class="btn_b" onclick="admin_delete()">승인해제</button></td>
 				</tr>
 			</table>
 		</div>
