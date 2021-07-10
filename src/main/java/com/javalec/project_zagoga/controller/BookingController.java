@@ -21,7 +21,7 @@ public class BookingController {
     //room_detail->booking_confirm(예약하기전)
     @RequestMapping(value = "/beforeBooking/{u_no},{r_no}")
     public String beforeBooking(BookingRoomGhouseUsers info, @PathVariable("u_no")int u_no, @PathVariable("r_no")int r_no, Model model){
-        System.out.println("1beforeBookingbeforeBooking// BookingRoomGhouseUsers.toString"+info.toString());
+//        System.out.println("1beforeBookingbeforeBooking// BookingRoomGhouseUsers.toString"+info.toString());
         int b_pno = info.getB_pno();
         Date b_in = info.getB_in();
         Date b_out = info.getB_out();
@@ -31,7 +31,7 @@ public class BookingController {
         info.setB_in(b_in);
         info.setB_out(b_out);
         info.setB_pno(b_pno);
-        System.out.println("beforeBookingbeforeBooking// BookingRoomGhouseUsers.toString"+ info);
+//        System.out.println("beforeBookingbeforeBooking// BookingRoomGhouseUsers.toString"+ info);
         model.addAttribute("Info", info);
         return "/room/booking_confirm";
     }
@@ -39,7 +39,7 @@ public class BookingController {
     //예약하기 booking에 insert
     @RequestMapping(value = "/booking/{u_no},{r_no}")
     public String bookConfirmInfo(Booking booking ,@PathVariable("u_no")int u_no, @PathVariable("r_no")int r_no, Model model){
-        System.out.println("booking.toString : " + booking.toString());
+//        System.out.println("booking.toString : " + booking.toString());
         booking.setB_uno(u_no);
         booking.setB_rno(r_no);
         bookService.insertBook(booking);

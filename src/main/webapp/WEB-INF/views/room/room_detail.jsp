@@ -39,7 +39,7 @@
             </c:forEach>
         		</c:if>
                 <div class="room_date">
-                    <form name="form" action="/book/beforeBooking/6,${getDetail.get(0).r_no}">
+                    <form name="form" action="/book/beforeBooking/${user.u_no},${getDetail.get(0).r_no}">
                         <script type = "text/javascript">
                             $(document).ready(function () {
                                 $.datepicker.setDefaults($.datepicker.regional['ko']);

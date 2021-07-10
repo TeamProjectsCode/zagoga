@@ -36,7 +36,7 @@
 			<div class="dropdown">
 				<button class="dropbtn">예약 하기</button>
 				<div class="dropdown-content">
-					<a href="#">전체 보기</a> <a href="#">서울 특별시</a> <a href="#">부산 광역시</a>
+					<a href="/ghouse/getList">전체 보기</a> <a href="#">서울 특별시</a> <a href="#">부산 광역시</a>
 					<a href="#">인천 광역시</a> <a href="#">대전 광역시</a> <a href="#">대구광역시</a> 
 					<a href="#">광주 광역시</a> <a href="#">경기도</a> <a href="#">경상도</a>
 					<a href="#">강원도</a> <a href="#">충청도</a> <a href="#">전라도</a>
