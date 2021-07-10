@@ -7,8 +7,10 @@ import com.javalec.project_zagoga.security.PrincipalUser;
 import com.javalec.project_zagoga.services.AjaxService;
 import com.javalec.project_zagoga.services.UsersService;
 
+import com.javalec.project_zagoga.vo.AuthInfo;
 import lombok.AllArgsConstructor;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -58,7 +60,6 @@ public class UsersController {
 		return "/mypage/mypage_user_booking_detail";
 	}
 
-
 	//user : 마이페이지 유저 회원정보 변경
 	@GetMapping("/mypage_user_info")
 	public String mypage_user_info() {
@@ -82,7 +83,26 @@ public class UsersController {
     	return "/mypage_check";
 	}
 
-	//nick ajax ,,
+//	 opener: pw_modify.jsp
+	@GetMapping("/pw_modify")
+	public String openerPWModify() {
+		return "/mypage/pw_modify";
+	}
+
+//	change password at mypage_user_info.jsp
+	@PostMapping("/updatUserPWD")
+	@ResponseBody
+	public int updateUserPWD(@AuthenticationPrincipal PrincipalUser principalUser, String password, String new_password) {
+		AuthInfo authInfo = (AuthInfo) principalUser.getAuthInfo();
+		int sc_no = authInfo.getAuthValue().getSc_no();
+		System.out.println(sc_no);
+		System.out.println(password+", "+new_password);
+		int result = userService.updateUserPWD(sc_no, password, new_password);
+		System.out.println(result);
+		return result;
+	}
+
+//	 duplicate nickname checking  at mypage_user_info.jsp
 	private final AjaxService service;
 	@PostMapping("/updateNick")
 	@ResponseBody

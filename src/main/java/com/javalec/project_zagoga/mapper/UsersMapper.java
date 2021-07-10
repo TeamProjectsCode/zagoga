@@ -2,10 +2,12 @@ package com.javalec.project_zagoga.mapper;
 
 import com.javalec.project_zagoga.dto.BookingRoomGhouseUsers;
 import com.javalec.project_zagoga.dto.Users;
+import com.javalec.project_zagoga.mapper.sql.SecuritySQL;
 import com.javalec.project_zagoga.security.AuthValue;
 import com.javalec.project_zagoga.vo.UsersVO;
 import com.javalec.project_zagoga.mapper.sql.UserSQL;
 import org.apache.ibatis.annotations.*;
+import org.springframework.security.core.parameters.P;
 
 import java.util.List;
 
@@ -56,6 +58,9 @@ public interface UsersMapper {
     //�씠硫붿씪 以묐났泥댄겕
 	@InsertProvider(value = UserSQL.class, method = "pw_check")
     String pw_check(String no);
+
+	@UpdateProvider(value = SecuritySQL.class, method = "updateUserPWD")
+    int updateUserPWD(@Param("sc_no") int sc_no, @Param("pwd") String pwd, @Param("new_pwd") String new_pwd);
 	
     //이메일 중복체크
     @SelectProvider(type = UserSQL.class, method = "findID")

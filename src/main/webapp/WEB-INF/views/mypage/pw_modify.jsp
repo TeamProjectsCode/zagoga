@@ -9,6 +9,7 @@
 <script src="../resources/js/jquery.js"></script>
 <script src="../resources/js/user.js" charset="utf-8"></script>
 <link rel="stylesheet" type="text/css" href="/resources/css/pw_modify.css">
+<script src="/resources/js/pwShowToggle.js"></script>
 <html>
 <head>
     <title>Title</title>
@@ -31,14 +32,56 @@
             });
         });
     </script>
+    <script>
+        function pwdFieldCheck(now, new1) {
+            return now === "" || new1 === ""
+        }
+    </script>
+    <script>
+        function updatUserPWD(){
+            let now_pwd = $('#now_pw').val();
+            let new_pwd = $('#pw1').val();
+            let new_pwd2 = $('#pw2').val();
+
+            if(pwdFieldCheck(now_pwd, new_pwd)){
+                alert("현재 비밀번호와 새 비밀번호는 반드시 입력하셔야 합니다.")
+                return 0;
+            }
+
+            if (new_pwd === new_pwd2 ){
+                $.ajax({
+                    type:"POST",
+                    url:"/user/updatUserPWD",
+                    data:{password:now_pwd, new_password:new_pwd},
+                    success: function(isSuccess){
+                        console.log(data);
+                        if(0 < isSuccess){
+                            alert('비밀번호 변경 완료!');
+                            self.close();
+                        }else{
+                            alert('현재 비밀번호가 다릅니다. 다시 확인해주세요.');
+                        }
+                    },
+                    error: function(e){
+                        alert('전송오류')
+                        console.log('에러' + e);
+                    }
+                });
+            } else {
+                alert("새로운 비밀번호를 확인해주세요.");
+            }
+        }
+    </script>
+
 </head>
 <body>
 <div class="total">
     <div class="a">
-        <form method="post" action="">
+<%--        <form method="post" action="">--%>
     <h1>비밀번호 변경</h1>
     <h3>현재 비밀번호</h3>
-    <input class="pw" type="password" name="now_pw" maxlength="20" style="width: 330px"   required>
+    <input class="pw" type="password" name="now_pw" id="now_pw" maxlength="20" style="width: 330px"   required>
+    <br><br>
     <h3>새 비밀번호</h3>
     <input class="pw" type="password" name="new_pw" id="pw1" maxlength="20" style="width: 330px"   required>
             <br><br>
@@ -47,9 +90,9 @@
         <br>
         <p id="alert_a" size="2"></p>
     <br>
-    <button type="submit" id="changePw" onclick="'#'">수정완료</button>
+    <button type="button" id="changePw" onclick="updatUserPWD()">수정완료</button>
     <button type="button"  onclick="self.close();">취소</button>
-        </form>
+<%--        </form>--%>
     </div>
 </div>
 </body>

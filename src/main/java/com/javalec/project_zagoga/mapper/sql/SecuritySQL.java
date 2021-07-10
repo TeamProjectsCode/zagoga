@@ -35,4 +35,14 @@ public class SecuritySQL {
                 .WHERE("SC_NO = #{sc_no}")
                 .toString();
     }
+
+    public String updateUserPWD(int sc_no, String pwd, String new_pwd){
+        return new SQL()
+                .UPDATE(TABLE)
+                .SET("PASSWORD = #{new_pwd}")
+                .WHERE("SC_NO = #{sc_no}")
+                .AND()
+                .WHERE("PASSWORD = #{pwd}")
+                .toString();
+    }
 }
