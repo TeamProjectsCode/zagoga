@@ -8,6 +8,7 @@ public class GhouseSQL {
     private static final String TABLE="GHOUSE";
     private static final String Rooms="ROOMS";
     private static final String Images="IMAGES";
+    private static final String Review="REVIEWS";
     public static final String GET_ALL_LIST="select * from " + TABLE;
 
     public String getGhouseList(String local) {
@@ -24,8 +25,18 @@ public class GhouseSQL {
                 .WHERE("GH_ADDR1 like '%"+local+"%'")
                 .toString();
     }
-	
-    
+
+	public String getReviewListByGHNO(int gh_no) {
+        // location에 따른 최소 값을 가진 ghouse 정보 출력
+        return new SQL()
+                .SELECT(" U_NICK, RV_STAR, RV_CONTENT, RV_NO")
+                .FROM(Review)
+                .JOIN("USERS U on REVIEWS.RV_UNO = U.U_NO")
+                .JOIN("GHOUSE G on G.GH_NO = REVIEWS.RV_GHNO")
+                .WHERE("G.GH_NO=#{gh_no}")
+                .toString();
+    }
+
     public String insert(Ghouse ghouse){
         return new SQL()
                 .INSERT_INTO(TABLE)

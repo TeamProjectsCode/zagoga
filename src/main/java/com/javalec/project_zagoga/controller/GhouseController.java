@@ -3,6 +3,7 @@ package com.javalec.project_zagoga.controller;
 import com.javalec.project_zagoga.dto.Ghouse;
 import com.javalec.project_zagoga.dto.GhouseRoom;
 import com.javalec.project_zagoga.dto.GhouseRoomImages;
+import com.javalec.project_zagoga.dto.Reviews;
 import com.javalec.project_zagoga.services.GhouseService;
 import com.javalec.project_zagoga.services.RoomService;
 import lombok.SneakyThrows;
@@ -95,6 +96,7 @@ public class GhouseController {
 	public String ghouseDetail(@PathVariable("gh_no") int gh_no, Model model) {
 		List<GhouseRoomImages> ghouseRoomImages = this.ghouseService.ghouseDetail(gh_no);
 		model.addAttribute("griList", ghouseRoomImages);
+		model.addAttribute("reviewList", ghouseService.getReviewListByGHNO(gh_no));
 //		System.out.println("ghouseRoomImages.get(0).toString() : "+ghouseRoomImages);
 //		System.out.println(ghouseRoomImages.toString());
 		return "/room/gHouse_detail";
