@@ -77,4 +77,11 @@ public class HostService {
     public List<RoomImages> mypageRoomInfo(int r_no){
         return hostMapper.mypageRoomInfo(r_no);
     }
+
+    public int ImagesDelete(int r_no){
+        return hostMapper.ImagesDelete(r_no);
+    }
+    public int RoomDelete(int r_no){
+        return hostMapper.RoomDelete(r_no);
+    }
 }

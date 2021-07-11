@@ -104,7 +104,7 @@ public class RoomController {
         } catch (Exception e){
             e.printStackTrace();
         }
-        return "redirect:/ghouse/host_myPageHouseInfo/"+h_no;
+        return "redirect:/host/mypage_house_info/"+h_no;
     }
 
 
@@ -116,17 +116,5 @@ public class RoomController {
         return "redirect:/ghouse/host_myPageHouseInfo/"+room.getR_ghno();
     }
 
-    //확인
-    @RequestMapping("/ImagesDelete/{r_no}")    // 9, 3 테스트
-    public String ImagesDelete(@PathVariable("r_no") int r_no){
-        roomService.ImagesDelete(r_no);
-        return "redirect:/room/RoomDelete/"+r_no;
-    }
 
-    @RequestMapping("/RoomDelete/{r_no},{h_no}")
-    public String RoomDelete(@PathVariable("r_no") int r_no, @PathVariable("h_no")int h_no){
-        System.out.println("roomDel r_no : " + r_no);
-        roomService.RoomDelete(r_no);
-        return "redirect:/host/host_myGhouse/"+h_no;
-    }
 }

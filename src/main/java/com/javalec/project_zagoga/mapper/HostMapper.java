@@ -55,4 +55,10 @@ public interface HostMapper {
 
     @SelectProvider(type = HostSQL.class, method = "mypageRoomInfo")
     List<RoomImages> mypageRoomInfo(@Param("r_no")int r_no);
+
+    @DeleteProvider(type = HostSQL.class, method = "ImagesDelete")
+    int ImagesDelete(int r_no);
+
+    @DeleteProvider(type = HostSQL.class, method = "RoomDelete")
+    int RoomDelete(@Param("r_no") int r_no);
 }

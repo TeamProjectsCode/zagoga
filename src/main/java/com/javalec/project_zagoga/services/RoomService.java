@@ -50,11 +50,6 @@ public class RoomService {
         roomMapper.update(room);
     }
 
-    public int ImagesDelete(int r_no){
-        return roomMapper.ImagesDelete(r_no);
-    }
-    public int RoomDelete(int r_no){
-        return roomMapper.RoomDelete(r_no);
-    }
+
 }
 

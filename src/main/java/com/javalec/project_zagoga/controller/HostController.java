@@ -145,6 +145,20 @@ public class HostController {
         return "/mypage/mypage_room_info";
     }
 
+    //확인
+    @RequestMapping("/ImagesDelete/{r_no},{h_no}")    // 9, 3 테스트
+    public String ImagesDelete(@PathVariable("r_no") int r_no, @PathVariable("h_no") int h_no){
+        hostService.ImagesDelete(r_no);
+        return "redirect:/host/RoomDelete/"+r_no+','+h_no;
+    }
+
+    @RequestMapping("/RoomDelete/{r_no},{h_no}")
+    public String RoomDelete(@PathVariable("r_no") int r_no, @PathVariable("h_no")int h_no){
+        System.out.println("roomDel r_no : " + r_no);
+        hostService.RoomDelete(r_no);
+        return "redirect:/host/mypage_house_info/"+h_no;
+    }
+
 
 
 

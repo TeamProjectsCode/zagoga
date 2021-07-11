@@ -79,17 +79,6 @@ public class RoomSQL {
         }}.toString();
     }
 
-    public String ImagesDelete(int r_no){
-        return new SQL()
-                .DELETE_FROM("IMAGES")
-                .WHERE("I_RNO = #{r_no}")
-                .toString();
-    }
-    public String RoomDelete(int r_no){
-        return new SQL()
-                .DELETE_FROM(TABLE)
-                .WHERE("R_NO = #{r_no}")
-                .toString();
-    }
+
 
 }
