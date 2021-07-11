@@ -1,6 +1,7 @@
 package com.javalec.project_zagoga.mapper.sql;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.javalec.project_zagoga.dto.Booking;
 import com.javalec.project_zagoga.dto.Users;
 import com.javalec.project_zagoga.security.AuthValue;
 import com.javalec.project_zagoga.vo.UsersVO;
@@ -197,6 +198,15 @@ public class UserSQL {
                 .JOIN("HOST H on H.H_NO = G.GH_HNO")
                 .WHERE("B_NO=#{b_no}")
                 .WHERE("U_NO=#{u_no}")
+                .toString();
+    }
+
+    public String userBookingCancel(int b_no, int u_no){
+        return new SQL()
+                .UPDATE("BOOKING")
+                .SET("B_STATE = 3")
+                .WHERE("B_NO = #{b_no}")
+                .WHERE("B_UNO = #{u_no}")
                 .toString();
     }
 
