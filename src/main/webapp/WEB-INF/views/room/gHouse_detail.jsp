@@ -202,7 +202,7 @@
 			</c:when>
 			<c:otherwise>
 				<center>
-					<p>준비중입니다 🥲.</p>
+					<p>준비중입니다 😥.</p>
 					<p>빠른시일내에 찾아뵙겠습니다.</p>
 				</center>
 			</c:otherwise>
