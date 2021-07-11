@@ -40,7 +40,7 @@
                     <p>등록 연락처: 000-0000-000</p>
                     <br>
                     <p style="float: right;">
-                      <input type="button" value="수정하기" onclick="location.href='/host/mypage_house_info'">
+                      <input type="button" value="수정하기" onclick="location.href='/host/mypage_house_info/${user.h_no}'">
                     </p>
                   </div>
             </div>

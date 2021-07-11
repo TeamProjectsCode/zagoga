@@ -138,11 +138,6 @@ public class GhouseController {
 		return "/mypage/mypage_host_info";
 	}
 
-	@RequestMapping("/mypage_house_info") // �궗�뾽�옄 �벑濡앺쁽�솴, �벑濡앸맂 諛⑺쁽�솴(�궗�뾽�옄 �젙蹂대�寃�)
-	public String mypage_house_info() {
-		return "/mypage/mypage_house_info";
-	}
-
 	@RequestMapping("/room_cancel") // �삁�빟 痍⑥냼 �븞�궡
 	public String room_cancel() {
 		return "/room/room_cancel";
@@ -156,12 +151,6 @@ public class GhouseController {
 	@RequestMapping("/mypage_user") // user mypage �젙蹂댁닔�젙, �삁�빟�쁽�솴 諛� 紐⑸줉(踰꾪듉 �늻瑜대㈃ mypage_user_booking �쑝濡� �씠�룞)
 	public String mypage_user() {
 		return "/mypage/mypage_user";
-	}
-
-
-	@RequestMapping("/mypage_host_customerList") // �삁�빟 �듅�씤/嫄곕� �럹�씠吏�
-	public String mypage_host_customerList() {
-		return "/mypage/mypage_host_customerList";
 	}
 
 }

@@ -94,7 +94,7 @@ public class HostController {
     }
 
     //host : 마이페이지 게스트 하우스 예약자 리스트 (승인/거절)
-    @RequestMapping("/host/mypage_host_customerList")
+    @RequestMapping("/mypage_host_customerList")
     public String mypage_host_customerList() {
         return "/mypage/mypage_host_customerList";
     }
@@ -104,4 +104,11 @@ public class HostController {
     public String gh_write() {
         return "/host/gHouse_write";
     }
+
+    @RequestMapping("/mypage_house_info/{h_no}") // �궗�뾽�옄 �벑濡앺쁽�솴, �벑濡앸맂 諛⑺쁽�솴(�궗�뾽�옄 �젙蹂대�寃�)
+    public String mypage_house_info(@PathVariable("h_no") String h_no) {
+        return "/mypage/mypage_house_info";
+    }
+
+
 }
