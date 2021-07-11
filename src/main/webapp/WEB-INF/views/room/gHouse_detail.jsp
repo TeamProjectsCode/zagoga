@@ -40,6 +40,34 @@
 				</a>
 
 				<%--<kakao script 자리>--%>
+				<script>
+					Kakao.init('2ade1c90e23e9a0339bb3bcd71852aaa');
+					function sendLink() {
+						Kakao.Auth.login({
+							scope: 'account_email',
+							success: (auth) => {
+								Kakao.Link.sendDefault({
+									objectType: 'location',
+									address: '${griList.get(0).gh_addr1}',
+									addressTitle: '${griList.get(0).gh_name}',
+									content: {
+										title: '${griList.get(0).gh_name}',
+										description: '${fn:substring(griList.get(0).gh_detail, 0, 40)}...',
+										imageUrl:
+												'http://zagoga.shop:8080/resources/gh_image/${griList.get(0).gh_image}',
+										link: {
+											mobileWebUrl: 'http://zagoga.shop:8080/ghouse/detail/${griList.get(0).gh_no}',
+											webUrl: 'http://zagoga.shop:8080/ghouse/detail/${griList.get(0).gh_no}',
+										}
+									}
+								});
+							},
+							fail: (err) => {
+								console.error(err)
+							}
+						})
+					}
+				</script>
 
 			<p><img src="/resources/img/placeholder.png"><strong>위치</strong></p>
 					${griList.get(0).gh_addr1} ${griList.get(0).gh_addr2}

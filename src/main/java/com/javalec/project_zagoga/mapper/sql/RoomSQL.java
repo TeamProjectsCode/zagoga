@@ -66,8 +66,4 @@ public class RoomSQL {
                 .toString();
     }
 
-
-
-
-
 }
