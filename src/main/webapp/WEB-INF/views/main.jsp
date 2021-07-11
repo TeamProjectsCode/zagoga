@@ -152,10 +152,10 @@
                <li>
                    <dl>
                        <dt>
-                           <a href="#">무더위엔 바다아이가!</a>
+                           <a href="/ghouse/getGhouseList?local=부산">무더위엔 바다아이가!</a>
                        </dt>
                        <dd class="img">
-                           <a href="#"><img src="${pageContext.request.contextPath}/resources/img/busan.jpg" alt=""></a>
+                           <a href="/ghouse/getGhouseList?local=부산"><img src="${pageContext.request.contextPath}/resources/img/busan.jpg" alt=""></a>
                        </dd>
                        <dd class="price">여름에 가기 좋은 부산 숙소</dd>
                        <dd class="btm">
@@ -165,10 +165,10 @@
                <li>
                    <dl>
                        <dt>
-                           <a href="#">떠나요 둘이서 제주섬으로~</a>
+                           <a href="/ghouse/getGhouseList?local=제주">떠나요 둘이서 제주섬으로~</a>
                        </dt>
                        <dd class="img">
-                           <a href="#"><img src="${pageContext.request.contextPath}/resources/img/jeju.jpg" alt=""></a>
+                           <a href="/ghouse/getGhouseList?local=제주"><img src="${pageContext.request.contextPath}/resources/img/jeju.jpg" alt=""></a>
                        </dd>
                        <dd class="price">힐링여행 푸른밤 제주 숙소</dd>
                        </dd>
@@ -177,10 +177,10 @@
                <li>
                    <dl>
                        <dt>
-                           <a href="#">동해바다가 아름다운 강릉으로~</a>
+                           <a href="/ghouse/getGhouseList?local=강릉">동해바다가 아름다운 강릉으로~</a>
                        </dt>
                        <dd class="img">
-                           <a href="#"><img src="${pageContext.request.contextPath}/resources/img/kang.jpg" alt=""></a>
+                           <a href="/ghouse/getGhouseList?local=강릉"><img src="${pageContext.request.contextPath}/resources/img/kang.jpg" alt=""></a>
                        </dd>
                        <dd class="price">산과 바다를 아우르는 강릉숙소</dd>
                        </dd>

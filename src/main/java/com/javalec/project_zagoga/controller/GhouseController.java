@@ -34,7 +34,7 @@ public class GhouseController {
 	@RequestMapping(value = "/getGhouseList", method = RequestMethod.GET)
 	public String getGhouseList(HttpServletRequest request, Model model) {
 		String local = request.getParameter("local");
-		System.out.println("local:" +local);
+//		System.out.println("local:" +local);
 		if(local == null) {
 			local = "";
 		}
