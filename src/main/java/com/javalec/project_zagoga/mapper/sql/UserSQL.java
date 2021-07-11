@@ -200,14 +200,4 @@ public class UserSQL {
                 .WHERE("U_NO=#{u_no}")
                 .toString();
     }
-
-    public String userBookingCancel(int b_no, int u_no){
-        return new SQL()
-                .UPDATE("BOOKING")
-                .SET("B_STATE = 3")
-                .WHERE("B_NO = #{b_no}")
-                .WHERE("B_UNO = #{u_no}")
-                .toString();
-    }
-
 }

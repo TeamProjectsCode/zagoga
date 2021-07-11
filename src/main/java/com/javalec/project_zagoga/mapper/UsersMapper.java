@@ -78,7 +78,4 @@ public interface UsersMapper {
 
     @SelectProvider(type = UserSQL.class, method = "myBookSelectOneDetail")
     BookingRoomGhouseUsers myBookSelectOneDetail(String b_no, String u_no);
-
-    @UpdateProvider(type = UserSQL.class, method = "userBookingCancel")
-    int userBookingCancel(@Param("b_no")int b_no, @Param("u_no")int u_no);
 }

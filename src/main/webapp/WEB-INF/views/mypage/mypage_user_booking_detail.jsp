@@ -126,8 +126,7 @@
             <c:choose>
                 <c:when test="${now < checkIn}">
                     <!--현재일 < checkin -->
-                    <button class="btn_aa" onclick="location.href='/user/userBookingCancel/${mbs.b_no},${mbs.b_uno}'">예약취소</button>
-                    <%--<button class="btn_aa" onclick="location.href='/user/bookingCancel/${mbs.b_no}'">예약취소</button>--%>
+                    <button class="btn_aa" onclick="location.href='/user/bookingCancel/${mbs.b_no}'">예약취소</button>
                     <button class="btn_a" onclick="history.go(-1)">뒤로가기</button>
                 </c:when>
                 <c:when test="${checkIn <= now && now <= checkOut}">

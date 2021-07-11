@@ -76,23 +76,6 @@ public class UsersController {
 		return "redirect:/user/mypage_user_booking_list/"+user.getU_no();
 	}
 
-    /*@PostMapping("/pw_check")
-    @ResponseBody
-	public String pw_check(HttpServletRequest request,@RequestParam(value = "pw") String pw , Model model) {
-    	String no = request.getParameter("no");
-    	String db_pw = userService.pw_check(no);
-    	String result = "";
-    	if(pw.equals(db_pw)){
-    		result = "y";
-    	}
-    	else {
-    		result = "n";
-    	}
-    	model.addAttribute("result",result);
-    	
-    	return "/mypage_check";
-	}*/
-
 //	 opener: pw_modify.jsp
 	@GetMapping("/pw_modify")
 	public String openerPWModify() {
@@ -156,10 +139,10 @@ public class UsersController {
 		return str;
 	}
 
-	@RequestMapping("/userBookingCancel/{b_no},{u_no}")
+/*	@RequestMapping("/userBookingCancel/{b_no},{u_no}")
 	public String userBookingCancel(@PathVariable("b_no")int b_no, @PathVariable("u_no")int u_no){
 		userService.userBookingCancel(b_no, u_no);
 		return "main";
-	}
+	}*/
 
 }
