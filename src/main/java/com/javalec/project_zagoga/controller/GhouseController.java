@@ -60,7 +60,7 @@ public class GhouseController {
 			throws IOException {
 //		Linux path: /home/leni/gh_image
 //		Linux room path: /home/leni/rooms_image
-		String fileAddr = "C:\\Users\\jieun\\Documents\\intelliJ\\project_zagoga\\src\\main\\resources\\static\\gh_image\\";
+		String fileAddr = "C:\\Users\\jieun\\Documents\\intelliJ\\project-zagoga\\src\\main\\resources\\static\\gh_image\\";
 //		String fileAddr = "/home/leni/gh_image/";
 
 		String imageName = String.valueOf(System.currentTimeMillis());
