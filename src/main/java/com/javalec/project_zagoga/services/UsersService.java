@@ -81,6 +81,8 @@ public class UsersService {
 
     public List<BookingRoomGhouseUsers> getMyBookList(String u_no){return usersMapper.getMyBookList(u_no);}
 
+    public List<BookingRoomGhouseUsers> userBookList(String u_no){return usersMapper.userBookingList(u_no);}
+    
     public BookingRoomGhouseUsers myBookSelectOneDetail(String b_no, String u_no){return usersMapper.myBookSelectOneDetail(b_no, u_no);}
 
     public int userBookingCancel(int b_no, int u_no){return usersMapper.userBookingCancel(b_no, u_no);}

@@ -1,0 +1,30 @@
+.mainbox{
+	width:1000px;
+	margin:0 auto;
+	padding:10px;
+}
+.imagebox{
+}
+.mainbox table tr td{
+	padding:30px;
+}
+.table{
+	margin: 0 auto;
+}
+
+table tr th{
+	padding: 10px;
+	background: #c0c0c0;
+}
+.btn_b{
+	width: 250px;
+	height: 40px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.btn_m{
+	width: 150px;
+	height: 40px;
+	margin-left: 30px;
+	margin-right: 50px;
+}

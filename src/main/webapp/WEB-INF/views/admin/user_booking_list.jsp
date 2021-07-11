@@ -24,19 +24,18 @@
 				<tr>
 					<th>유저 이름</th>
 					<th>유저 닉네임</th>
-					<th>현 예약 상황</th>
-					<th>예약 내역 확인</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
-			<%-- <c:forEach items="" var="" varStatus="">
-			</c:forEach> --%>
+			 <c:forEach items="${userList }" var="user" > 
 				<tr>
-					<td>ㅁㅁㅁ</td>
-					<td>ㅁㅁㅁ</td>
-					<td></td>
-					<td><a href = "user_booking_detail">ㅁ</a></td>
+					<td>${user.u_name }</td>
+					<td>${user.u_nick }</td>
+					</td>
+					<td><a href = "user_booking_detail?u_no=${user.u_no }">확인하기</a></td>
 				</tr>
+			</c:forEach> 
 			</tbody>
 		</table>
 		<script>
