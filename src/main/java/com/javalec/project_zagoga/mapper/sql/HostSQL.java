@@ -42,12 +42,29 @@ public class HostSQL {
                 .VALUES("H_BANK", "#{host.h_bank}")
                 .toString();
     }
-    public String pw_check(String no) {
+/*    public String pw_check(String no) {
     	return new SQL()
     			.SELECT("U_PWD")
     			.FROM(TABLE)
     			.WHERE("U_NO = #{no}")
     			.toString();
+    }*/
+
+    public String getOneHost(int h_no) {
+        return new SQL()
+                .SELECT("*")
+                .FROM(TABLE)
+                .WHERE("H_NO = #{h_no}")
+                .toString();
+    }
+
+    public String updateInfo(Host host) {
+        return new SQL()
+                .UPDATE(TABLE)
+                .SET("H_BANK = #{host.h_bank}")
+                .SET("H_PHONE = #{host.h_phone}")
+                .WHERE("H_NO = #{host.h_no}")
+                .toString();
     }
 
     public String findID(String name, String jumin){ // �븘�븘�뵒 李얘린
@@ -62,13 +79,6 @@ public class HostSQL {
     			.SELECT("*")
     			.FROM(TABLE)
     			.toString();
-    }
-
-    public String hostlist(){
-        return new SQL()
-                .SELECT("*")
-                .FROM(TABLE)
-                .toString();
     }
 
     public String myGhouse(int h_no){

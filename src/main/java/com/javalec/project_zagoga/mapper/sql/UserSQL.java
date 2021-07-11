@@ -141,13 +141,13 @@ public class UserSQL {
                 .WHERE("U_NAME=#{name} AND U_JUMIN=#{jumin}")
                 .toString();
     }
-    public String pw_check(String no) {
+/*    public String pw_check(String no) {
     	return new SQL()
     			.SELECT("U_PWD")
     			.FROM(TABLE)
     			.WHERE("U_NO = #{no}")
     			.toString();
-    }
+    }*/
     public String userList() {
     	return new SQL()
     			.SELECT("*")

@@ -69,7 +69,7 @@ public class UsersController {
 		return "/mypage/mypage_user_info";
 	}
 
-    @PostMapping("/pw_check")
+    /*@PostMapping("/pw_check")
     @ResponseBody
 	public String pw_check(HttpServletRequest request,@RequestParam(value = "pw") String pw , Model model) {
     	String no = request.getParameter("no");
@@ -84,7 +84,7 @@ public class UsersController {
     	model.addAttribute("result",result);
     	
     	return "/mypage_check";
-	}
+	}*/
 
 //	 opener: pw_modify.jsp
 	@GetMapping("/pw_modify")
