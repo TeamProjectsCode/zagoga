@@ -46,26 +46,4 @@ public class BookingController {
 //        return "redirect:/book/getBookInfo/"+ u_no +","+ r_no;
         return "/room/booking_completion";
     }
-
-
-//    @RequestMapping(value = "/confirm2/{u_no},{r_no}")
-//    public String bookConfirmInfo2(@PathVariable("u_no")int u_no, @PathVariable("r_no")int r_no){
-//        List<Booking> bookings = this.bookService.bookConfirmInfo(u_no, r_no);
-//        System.out.println("bookConfirmInfo2 // bookings.toString : " + bookings.toString());
-//        return "redirect:/book/getBookInfo/" + u_no +","+ r_no;
-//    }
-
-//    @RequestMapping(value = "/getBookInfo/{u_no},{r_no}")
-//    public String getBookInfo(@PathVariable("u_no")int u_no, @PathVariable("r_no")int r_no, Model model){
-//        List<BookingRoomGhouseUsers> bookInfo = this.bookService.getBookInfo(u_no, r_no);
-//        System.out.println("bookConfirmInfo2 // BRGU.toString : " + bookInfo.toString());
-//        model.addAttribute("Info", bookInfo);
-//        return "/room/booking_confirm";
-//    }
-
-
-
-
-
-
 }

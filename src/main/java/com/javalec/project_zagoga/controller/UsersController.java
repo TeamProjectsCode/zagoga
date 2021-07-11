@@ -138,11 +138,4 @@ public class UsersController {
 
 		return str;
 	}
-
-/*	@RequestMapping("/userBookingCancel/{b_no},{u_no}")
-	public String userBookingCancel(@PathVariable("b_no")int b_no, @PathVariable("u_no")int u_no){
-		userService.userBookingCancel(b_no, u_no);
-		return "main";
-	}*/
-
 }

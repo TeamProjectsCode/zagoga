@@ -24,11 +24,6 @@ public class HostController {
     private final AuthService authService;
     private final BookService bookService;
 
-//    @RequestMapping(value = "/mypage_host_info")
-//    public String mypage_host_info() {
-//        return "/mypage/mypage_host_info";
-//    }
-
     @RequestMapping("/mypage_host/{h_no}")
     public String mypage_host(@PathVariable("h_no")int h_no,Model model){
         Ghouse ghouse = this.hostService.myPageHostGhouse(h_no);
@@ -82,13 +77,13 @@ public class HostController {
         return "/mypage/mypage_host_info";
     }
 
-    @RequestMapping(value = "/host_myGhouse2/{h_no}", method = RequestMethod.GET)
+/*    @RequestMapping(value = "/host_myGhouse2/{h_no}", method = RequestMethod.GET)
     public String myGhosue2(@PathVariable("h_no") String h_no, Model model){
         Ghouse ghouse = this.hostService.myGhouse(Integer.parseInt(h_no));
         model.addAttribute("gh", ghouse);
 //        System.out.println("ghouse.toString : " + ghouse.toString());
         return "/mypage/mypage_house_info";
-    }
+    }*/
 
     //host : 마이페이지 게스트 하우스 예약자 리스트 (승인/거절)
     @RequestMapping("/mypage_host_customerList")
@@ -181,8 +176,5 @@ public class HostController {
         hostService.GhouseUpdate(ghouse);
         return "redirect:/host/mypage_host/"+h_no;
     }
-
-
-
 
 }

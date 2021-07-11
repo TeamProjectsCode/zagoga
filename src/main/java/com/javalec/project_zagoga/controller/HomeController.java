@@ -93,29 +93,12 @@ public class HomeController {
 		return "mypage/mypage_room_info";
 	}
 
-
-	//user : 마이페이지 유저 회원정보 변경 
-	/*
-	 * @RequestMapping("user/mypage_user_info") public String mypage_user_info() {
-	 * return "mypage/mypage_user_info"; }
-	 */
-//	//user: 유저 마이페이지 메인(회원정보와  예약상태 같이 보여줌)
-//	@RequestMapping("user/mypage_user")
-//	public String mypage_user() {
-//		return "mypage/mypage_user";
-//	}
-
-
 	//board : 게스트 하우스 정보 디테일
 	@RequestMapping("board/gHouse_detail")
 	public String gHouse_detail() {
 		return "room/gHouse_detail";
 	}
-	//board : 게스트 하우스 리스트  
-//	@RequestMapping("board/gHouse_list")
-//	public String gHouse_list() {
-//		return "room/gHouse_list";
-//	}
+
 	//user : 댓글 추가 기능
 	@RequestMapping("user/review_write")
 	public String review_write() {
@@ -127,11 +110,7 @@ public class HomeController {
 	public String room_cancel() {
 		return "room/room_cancel";
 	}
-	// user : 유저 회원가입 페이지
-/*	@RequestMapping("user/user_join")
-	public String user_join() {
-		return "user/user_join";
-	}*/
+
 	@RequestMapping("/user/mypage_check")
 	public String mypage_user_check(HttpServletRequest request , Model model) {
 		String no = request.getParameter("no");
@@ -144,39 +123,13 @@ public class HomeController {
 		model.addAttribute("no",no);
 		return "mypage/mypage_check";
 	}
-	
-	/*
-	 * @RequestMapping("/pw_check") public String pw_check() { return ""; }
-	 */
+
 	//지도api..
 	@RequestMapping("/api/naver_map")
 	public String naver_map() {
 		return "room/naver_map";
 	}
-/*
- @RequestMapping("/pwCheck")
-	public String pwCheck(HttpServletRequest request , Model model){
-		return "mypage/mypage_user";
-	}
 
-	@PostMapping("/showID")
-	public String showID(HttpServletRequest request, Model model){
-		String type = request.getParameter("type");
-		String name = request.getParameter("name");
-		String jumin = request.getParameter("jumin");
-		String mail = ""; //return 할 메일
-
-		if (type.equals("USER")){ // 타입 비교해서 같은지 비교
-			mail = usersService.findID(name, jumin);
-
-		}else if(type.equals("HOST")){
-			mail = hostService.findID(name,jumin);
-		}
-
-		model.addAttribute("name",name);
-		model.addAttribute("mail",mail);
-		return "/showID";
-	}*/
 	@RequestMapping("mypage_booking")
 	public String mypage_booking() {
 		return "mypage_booking";
