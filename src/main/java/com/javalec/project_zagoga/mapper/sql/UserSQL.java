@@ -58,7 +58,7 @@ public class UserSQL {
     }
 
 
-    public String getUserByUNo(int u_no) {
+    public String userInfo(int u_no) {
         return new SQL()
                 .SELECT("*")
                 .FROM(TABLE)

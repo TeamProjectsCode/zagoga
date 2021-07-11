@@ -52,7 +52,7 @@
 							<td>일시정지</td>
 						</c:when>--%>
 					</c:choose>
-					<td><button onclick="location.href='/admin/host_reading'">상세 내용 확인</button></td>
+					<td><button onclick="location.href='/admin/host_detail?h_bizno=${hlist.h_bizno}'">상세 내용 확인</button></td>
 				</tr>
 				</c:forEach>
 			</tbody>

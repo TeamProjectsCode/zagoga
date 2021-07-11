@@ -7,6 +7,7 @@
 <title>사업자 정보보기(admin 용)</title>
 <link rel="stylesheet" type="text/css" href="/resources/css/administration_reading.css" />
 	<script type="text/javascript" src="/resources/js/admin.js" charset="utf-8"></script>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 <body>
 	<%@ include file="../header.jsp"%>
@@ -16,20 +17,20 @@
 			<table>
 				<tr>
 					<td>사업자 이름: </td>
-					<td></td>
+					<td>${hostInfo.h_name }</td>
 					<hr>
 				</tr>
 				<tr>
 					<td>사업자 등록번호 : </td>
-					<td></td>
+					<td>${hostInfo.h_bizno }</td>
 				</tr>
 				<tr>
 					<td>사업자 전화번호 : </td>
-					<td></td>
+					<td>${hostInfo.h_phone }</td>
 				</tr>
 				<tr>
-					<td>사업 위치 : </td>
-					<td></td>
+					<td>사업자 이메일 : </td>
+					<td>${hostInfo.h_mail }</td>
 				</tr>
 				<tr>
 					<td>기타 특이 사항 : </td>

@@ -63,6 +63,9 @@ public class HostService {
     public List<HostVO> hostList() {
     	return hostMapper.hostList();
     }
+    public HostVO hostInfo(String h_bizno){
+    	return hostMapper.hostInfo(h_bizno);
+    }
     public Ghouse myGhouse(int h_no){return hostMapper.myGhouse(h_no);}
 //    public Ghouse myPageGhouseInfo(String h_no){return hostMapper.myPageGhouseInfo(h_no);}
     public void HostGhouseDelete(int gh_no, int h_no){ hostMapper.HostGhouseDelete(gh_no, h_no);}

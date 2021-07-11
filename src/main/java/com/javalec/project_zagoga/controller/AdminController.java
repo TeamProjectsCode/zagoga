@@ -1,6 +1,5 @@
 package com.javalec.project_zagoga.controller;
 
-import com.javalec.project_zagoga.dto.Host;
 import com.javalec.project_zagoga.dto.Users;
 import com.javalec.project_zagoga.mapper.AdminMapper;
 import com.javalec.project_zagoga.services.HostService;
@@ -36,16 +35,20 @@ public class AdminController {
 
     // user detail page: load one user information.
     @GetMapping("/user_detail")
-    public String getOneUserInfo(@RequestParam("u_no") int u_no, Model model) {
-        UsersVO user = usersService.getUserByUNo(u_no);
-        model.addAttribute("userInfo", user);
+    public String user_detail(HttpServletRequest request,Model model) {
+    	int u_no = Integer.parseInt(request.getParameter("u_no"));
+    	UsersVO user = usersService.userInfo(u_no);
+    	model.addAttribute("userInfo",user);
         return "/admin/user_detail";
     }
 
     // ADMIN: 사업자 정보 디테일 ( 사업 승인 /거절 )
-    @GetMapping("/host_reading")
-    public String host_reading() {
-        return "/admin/host_reading";
+    @GetMapping("/host_detail")
+    public String host_detail(HttpServletRequest request,Model model) {
+    	String h_bizno = request.getParameter("h_bizno");
+    	HostVO host = hostService.hostInfo(h_bizno);
+    	model.addAttribute("hostInfo",host);
+        return "/admin/host_detail";
     }
 
     // ADMIN: 사업자 리스트
@@ -55,6 +58,15 @@ public class AdminController {
         System.out.println("host.toString : " + host.toString());
         model.addAttribute("hList", host);
         return "/admin/host_list";
+    }
+    
+    @RequestMapping("/user_booking_list")
+    public String user_booking_list(){
+    	return "/admin/user_booking_list";
+    }
+    @RequestMapping("/user_booking_detail")
+    public String user_booking_detail(){
+    	return "/admin/user_booking_detail";
     }
 
 }

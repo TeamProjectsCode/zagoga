@@ -84,8 +84,7 @@ public class HostSQL {
     public String myGhouse(int h_no){
         return new SQL()
                 .SELECT("*")
-                .FROM("GHOUSE")
-                .WHERE("GH_HNO = #{h_no}")
+                .FROM(TABLE)
                 .toString();
     }
 
@@ -119,6 +118,13 @@ public class HostSQL {
                 .WHERE("I_RNO = #{r_no}")
                 .ORDER_BY("I_NO DESC")
                 .toString();
+    }
+    public String hostInfo(String h_bizno) {
+    	return new SQL()
+    			.SELECT("*")
+    			.FROM(TABLE)
+    			.WHERE("H_BIZNO = #{h_bizno}")
+    			.toString();
     }
 }
 

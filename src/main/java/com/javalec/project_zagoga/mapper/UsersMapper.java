@@ -28,8 +28,8 @@ public interface UsersMapper {
     @SelectProvider(type = UserSQL.class, method = "loadUserBySNS")
     UsersVO loadUserBySNS(@Param("snsID") String snsID);
 
-    @SelectProvider(type = UserSQL.class, method = "getUserByUNo")
-    UsersVO getUserByUNo(@Param("u_no") int u_no);
+    @SelectProvider(type = UserSQL.class, method = "userInfo")
+    UsersVO userInfo(int u_no);
 
     @Options(useGeneratedKeys = true, keyProperty = "user.u_no")
     @InsertProvider(type = UserSQL.class, method = "insertUser")

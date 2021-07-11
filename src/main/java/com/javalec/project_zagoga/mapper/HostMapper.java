@@ -37,6 +37,9 @@ public interface HostMapper {
 
     @SelectProvider(type = HostSQL.class, method = "hostList")
     List<HostVO> hostList();
+    
+    @SelectProvider(type = HostSQL.class, method = "hostInfo")
+    HostVO hostInfo(String h_bizno);
 
     @SelectProvider(type = HostSQL.class, method = "myGhouse")
     Ghouse myGhouse(int h_no);
