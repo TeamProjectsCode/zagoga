@@ -97,9 +97,9 @@ public class GhouseController {
 	// gHouse_detail view 20210704 00:53 �젙�긽�옉�룞
 	// 20210705 蹂몄껜1媛�, 猷�2媛�, �씠誘몄�媛곴컖3�옣�뵫 珥� 6以� 異쒕젰 / �씠誘몄�留� 諛섎났�떆�궎怨� r_no
 	// 諛붾�붾븣留� 異쒕젰 2以묐컲蹂듬Ц�븘�슂
-	@RequestMapping(value = "/detail/{h_no}", method = RequestMethod.GET)
-	public String ghouseDetail(@PathVariable("h_no") int h_no, Model model) {
-		List<GhouseRoomImages> ghouseRoomImages = this.ghouseService.ghouseDetail(h_no);
+	@RequestMapping(value = "/detail/{gh_no}", method = RequestMethod.GET)
+	public String ghouseDetail(@PathVariable("gh_no") int gh_no, Model model) {
+		List<GhouseRoomImages> ghouseRoomImages = this.ghouseService.ghouseDetail(gh_no);
 		model.addAttribute("griList", ghouseRoomImages);
 //		System.out.println("ghouseRoomImages.get(0).toString() : "+ghouseRoomImages);
 //		System.out.println(ghouseRoomImages.toString());

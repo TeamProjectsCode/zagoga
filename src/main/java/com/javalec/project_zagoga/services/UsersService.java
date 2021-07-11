@@ -86,5 +86,4 @@ public class UsersService {
 
     public BookingRoomGhouseUsers myBookSelectOneDetail(String b_no, String u_no){return usersMapper.myBookSelectOneDetail(b_no, u_no);}
 
-    public int userBookingCancel(int b_no, int u_no){return usersMapper.userBookingCancel(b_no, u_no);}
 }

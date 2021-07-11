@@ -18,6 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="/resources/css/ghouse_detail.css" />
 	<script type="text/javascript" src="/resources/js/guesthouse.js" charset="utf-8"></script>
 	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=q0a41zgk6j&submodules=geocoder"></script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
 <body>
 <%@ include file="../header.jsp"%>
@@ -32,6 +33,14 @@
 			<p>
 <%--		<c:if test="${fn:length(griList)>0}">--%>
 			<h3>게스트하우스 업체명 : ${griList.get(0).gh_name}</h3><br>
+				<a id="kakao-link-btn" href="javascript:sendLink()">
+					<img
+							src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
+					style="width: 35px"/>
+				</a>
+
+				<%--<kakao script 자리>--%>
+
 			<p><img src="/resources/img/placeholder.png"><strong>위치</strong></p>
 					${griList.get(0).gh_addr1} ${griList.get(0).gh_addr2}
 				<br>
