@@ -24,10 +24,10 @@ public class HostController {
     private final AuthService authService;
     private final BookService bookService;
 
-    @RequestMapping(value = "/mypage_host_info")
-    public String mypage_host_info() {
-        return "/mypage/mypage_host_info";
-    }
+//    @RequestMapping(value = "/mypage_host_info")
+//    public String mypage_host_info() {
+//        return "/mypage/mypage_host_info";
+//    }
 
     @RequestMapping("/mypage_host/{h_no}")
     public String mypage_host(@PathVariable("h_no")int h_no,Model model){
@@ -42,7 +42,7 @@ public class HostController {
         HostVO hostInfo = (HostVO) principalUser.getAuthInfo();
 
         // 계정 정보 변경 필요
-//        System.out.println("host: "+host.toString());
+        System.out.println("host: "+host.toString());
         host.setH_no(hostInfo.getH_no());
          hostService.updateInfo(host);
 
@@ -51,7 +51,6 @@ public class HostController {
             AuthValue authValue = ((AuthInfo) principalUser.getAuthInfo()).getAuthValue();
             authService.updatePW(authValue.getSc_no(), password);
         }
-        // 계좌번호 // 비밀번호는 따로 받아와야 함
         return "redirect:/host/host_myGhouse/"+hostInfo.getH_no();
     }
 
@@ -77,8 +76,8 @@ public class HostController {
     public String myGhosue(@PathVariable("h_no") String h_no, Model model){
 //        Ghouse ghouse = this.hostService.myGhouse(Integer.parseInt(h_no));
 //        model.addAttribute("gh", ghouse);
-//        HostVO hostInfo = hostService.getOneHost(Integer.parseInt(h_no));
-//        model.addAttribute("hostInfo", hostInfo);
+        HostVO hostInfo = hostService.getOneHost(Integer.parseInt(h_no));
+        model.addAttribute("hostInfo", hostInfo);
         // 호스트 정보 조회 해서 넣을까?
         return "/mypage/mypage_host_info";
     }

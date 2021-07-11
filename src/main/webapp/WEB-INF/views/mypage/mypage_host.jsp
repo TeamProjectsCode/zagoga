@@ -25,7 +25,7 @@
                     <p>사업자 번호 : ${user.h_bizno}</p>
                     <p>계좌번호 : ${user.h_bank}</p>
                     <p style="float:right">
-                      <input type="button" value="정보수정" onclick="location.href='/host/mypage_host_info'"> &nbsp;&nbsp;&nbsp;
+                      <input type="button" value="정보수정" onclick="location.href='/host/host_myGhouse/${user.h_no}'"> &nbsp;&nbsp;&nbsp;
                       <input type="button" value="회원탈퇴" onclick="">
                     </p>
                   </div>

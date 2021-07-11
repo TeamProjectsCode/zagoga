@@ -40,13 +40,16 @@
         <div class="review_area">
           <div class="review_header">
             <c:choose>
-              <c:when test="${mbl.b_state >= 0}">
+              <c:when test="${mbl.b_state eq 0}">
                 <div class="text">승인대기중</div>
               </c:when>
-              <c:when test="${mbl.b_state >= 1}">
+              <c:when test="${mbl.b_state eq 1}">
                 <div class="text">예약완료</div>
               </c:when>
-              <c:when test="${mbl.b_state >= 2}">
+              <c:when test="${mbl.b_state eq 2}">
+                <div class="text">예약실패</div>
+              </c:when>
+              <c:when test="${mbl.b_state eq 3}">
                 <div class="text">취소완료</div>
               </c:when>
             </c:choose>
@@ -61,10 +64,6 @@
         </div>
         <div class="price">
           "결제 ${mbl.b_pno * mbl.r_fee * (mbl.b_out.date - mbl.b_in.date)} 원"
-
-        </div>
-        <div class="btn">
-          <a href="javascript:showPopup()"><button class="btn-m" onclick="showPopup()">후기작성하기</button></a>
         </div>
       </div>
     </div>

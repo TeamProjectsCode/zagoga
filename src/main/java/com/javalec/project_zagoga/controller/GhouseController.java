@@ -127,11 +127,6 @@ public class GhouseController {
 		return "/mypage/mypage_host";
 	}
 
-	@RequestMapping("/mypage_host_info") // �궗�뾽�옄 �쉶�썝�젙蹂� 蹂�寃�
-	public String mypage_host_info() {
-		return "/mypage/mypage_host_info";
-	}
-
 	@RequestMapping("/room_cancel") // �삁�빟 痍⑥냼 �븞�궡
 	public String room_cancel() {
 		return "/room/room_cancel";

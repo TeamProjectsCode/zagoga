@@ -54,7 +54,7 @@
 						<button class="dropbtn" onclick="location.href='/host/mypage_host/${user.h_no}'">마이 페이지</button>
 						<div class="dropdown-content">
 							<a href="/host/mypage_host_customerList">예약자 조회</a>
-							<a href="/host/mypage_host_info">회원 정보 변경</a>
+							<a href="/host/host_myGhouse/${user.h_no}">회원 정보 변경</a>
 							<a href="/host/mypage_house_info/${user.h_no}">게스트하우스 정보 변경</a>
 							<a href="/ghouse/write">게스트하우스 등록</a>
 						</div>

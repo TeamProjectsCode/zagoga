@@ -4,12 +4,10 @@ import com.javalec.project_zagoga.dto.BookingRoomGhouseUsers;
 import com.javalec.project_zagoga.dto.Users;
 import com.javalec.project_zagoga.mapper.UsersMapper;
 import com.javalec.project_zagoga.security.PrincipalUser;
-import com.javalec.project_zagoga.services.AjaxService;
-import com.javalec.project_zagoga.services.AuthService;
-import com.javalec.project_zagoga.services.MailService;
-import com.javalec.project_zagoga.services.UsersService;
+import com.javalec.project_zagoga.services.*;
 
 import com.javalec.project_zagoga.vo.AuthInfo;
+import com.javalec.project_zagoga.vo.UsersVO;
 import lombok.AllArgsConstructor;
 
 import javax.mail.Session;
@@ -34,6 +32,7 @@ public class UsersController {
     private final UsersService userService;
     private final AuthService authService;
 	private final MailService mailService;
+	private final BookService bookService;
 
 	@RequestMapping(value = "/mypage_user/{u_no}", method = RequestMethod.GET)
 	public String mypage_user(@PathVariable("u_no")String u_no, Model model) {
@@ -67,6 +66,13 @@ public class UsersController {
 	@GetMapping("/mypage_user_info")
 	public String mypage_user_info() {
 		return "/mypage/mypage_user_info";
+	}
+
+	@GetMapping("/bookingCancel/{b_no}")
+	public String bookingCancel(@AuthenticationPrincipal PrincipalUser principalUser, @PathVariable("b_no") int b_no){
+		UsersVO user = (UsersVO) principalUser.getAuthInfo();
+		bookService.updateBookingState(b_no, 3);
+		return "redirect:/user/mypage_user_booking_list/"+user.getU_no();
 	}
 
     /*@PostMapping("/pw_check")
