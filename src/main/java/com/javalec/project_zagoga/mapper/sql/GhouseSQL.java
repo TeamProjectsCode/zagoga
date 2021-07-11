@@ -61,18 +61,7 @@ public class GhouseSQL {
                 .toString();
     }
 
-    public String update(Ghouse ghouse){
-        return new SQL(){{
-            UPDATE(TABLE);
-            SET("GH_NAME = #{ghouse.gh_name}");
-            SET("GH_IMAGE = #{ghouse.gh_image}");
-            SET("GH_ADDR1 = #{ghouse.gh_addr1}");
-            SET("GH_ADDR2 = #{ghouse.gh_addr2}");
-            SET("GH_DETAIL = #{ghouse.gh_detail}");
-            WHERE("GH_HNO = #{ghouse.gh_hno}");
-            WHERE("GH_NO = #{ghouse.gh_no}");
-        }}.toString();
-    }
+
 
     public String delete(int gh_no, int gh_hno){
         return new SQL()

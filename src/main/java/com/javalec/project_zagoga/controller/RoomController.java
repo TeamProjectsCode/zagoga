@@ -108,13 +108,7 @@ public class RoomController {
     }
 
 
-//  20210706 15:47 확인
-    @RequestMapping("/update")
-    public String update(Room room){
-//        System.out.println("room.toString : " + room.toString());
-        roomService.update(room);
-        return "redirect:/ghouse/host_myPageHouseInfo/"+room.getR_ghno();
-    }
+
 
 
 }

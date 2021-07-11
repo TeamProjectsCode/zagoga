@@ -38,8 +38,7 @@ public interface GhouseMapper {
 	@InsertProvider(type = GhouseSQL.class, method = "insert")
 	int insert(@Param("ghouse")Ghouse ghouse);
 
-	@UpdateProvider(type = GhouseSQL.class, method = "update")
-	int update(@Param("ghouse")Ghouse ghouse);
+
 
 
 //	@Delete("DELETE FROM GHOUSE WHERE GH_NO = #{GH_NO}")

@@ -14,7 +14,9 @@
 </head>
 <body>
 	<%@ include file="../header.jsp"%>
-	<form method="post" action="/ghouse/update">
+	<form method="post" action="/host/GhouseUpdate/${user.h_no}">
+		<input type="hidden" value="${grList.get(0).gh_no}" name="gh_no">
+		<input type="hidden" value="${user.h_no}" name="gh_hno">
 		<div id="mainbox">
 			<table>
 				<h2>사업 등록 현황</h2>
@@ -61,6 +63,7 @@
 				<div id="button">
 					<button type="submit">수정완료</button>&nbsp;&nbsp;&nbsp;&nbsp;
 					<button onclick="history.go(-1)">취소</button>
+<%--					<button type="button" onclick="location.href='/host/HostGhouseDelete/${user.h_no},${grList.get(0).gh_no}'">게스트하우스 삭제하기</button>&nbsp;&nbsp;&nbsp;&nbsp;--%>
 				</div>
 		</div>
 	</form>

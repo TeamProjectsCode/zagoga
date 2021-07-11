@@ -1,10 +1,6 @@
 package com.javalec.project_zagoga.controller;
 
-import com.javalec.project_zagoga.dto.BookingForHost;
-import com.javalec.project_zagoga.dto.Ghouse;
-import com.javalec.project_zagoga.dto.GhouseRoom;
-import com.javalec.project_zagoga.dto.Host;
-import com.javalec.project_zagoga.dto.RoomImages;
+import com.javalec.project_zagoga.dto.*;
 import com.javalec.project_zagoga.security.AuthValue;
 import com.javalec.project_zagoga.security.PrincipalUser;
 import com.javalec.project_zagoga.services.*;
@@ -29,12 +25,15 @@ public class HostController {
     private final BookService bookService;
 
     @RequestMapping(value = "/mypage_host_info")
-    public String mypage_host_info( ) {
+    public String mypage_host_info() {
         return "/mypage/mypage_host_info";
     }
 
-    @RequestMapping("/mypage_host")
-    public String mypage_host(){
+    @RequestMapping("/mypage_host/{h_no}")
+    public String mypage_host(@PathVariable("h_no")int h_no,Model model){
+        Ghouse ghouse = this.hostService.myPageHostGhouse(h_no);
+        model.addAttribute("gh", ghouse);
+
         return"/mypage/mypage_host";
     }
 
@@ -121,12 +120,22 @@ public class HostController {
         return bookService.updateBookingState(b_no, b_state);
     }
 
-
-    @RequestMapping(value = "/HostGhouseDelete/{gh_no},{h_no}", method = RequestMethod.GET)
-    public String HostGhouseDelete(@PathVariable("gh_no")int gh_no, @PathVariable("gh_no")int h_no){
-        hostService.HostGhouseDelete(gh_no, h_no);
-        return "main";
-    }
+//    // for ghouse del
+//    @RequestMapping(value = "/HostGhouseDelete/{h_no},{gh_no}", method = RequestMethod.GET)
+//    public String HostGhouseDelete(@PathVariable("h_no")String h_no, @PathVariable("gh_no")String gh_no){
+//        hostService.HostGhouseDelete(h_no);
+//        return "redirect:/host/HostGhouseDelete2/"+h_no+','+gh_no;
+//    }
+//    @RequestMapping(value = "/HostGhouseDelete2/{h_no},{gh_no}", method = RequestMethod.GET)
+//    public String HostGhouseDelete2(@PathVariable("h_no")String h_no, @PathVariable("gh_no")String gh_no){
+//        hostService.HostGhouseDelete2(gh_no);
+//        return "redirect:/host/HostGhouseDelete3/"+h_no+','+gh_no;
+//    }
+//    @RequestMapping(value = "/HostGhouseDelete3/{h_no},{gh_no}", method = RequestMethod.GET)
+//    public String HostGhouseDelete3(@PathVariable("h_no")String h_no, @PathVariable("gh_no")String gh_no){
+//        hostService.HostGhouseDelete3(h_no);
+//        return "redirect:/host/mypage_host";
+//    }
 
 //    @RequestMapping(value = "/host_myPageHouseInfo/{h_no}", method = RequestMethod.GET)
 //    public String host_myPageHouseInfo(@PathVariable("h_no")String h_no, Model model){
@@ -154,14 +163,25 @@ public class HostController {
 
     @RequestMapping("/RoomDelete/{r_no},{h_no}")
     public String RoomDelete(@PathVariable("r_no") int r_no, @PathVariable("h_no")int h_no){
-        System.out.println("roomDel r_no : " + r_no);
+//        System.out.println("roomDel r_no : " + r_no);
         hostService.RoomDelete(r_no);
         return "redirect:/host/mypage_house_info/"+h_no;
     }
 
+    //  20210706 15:47 확인
+    @RequestMapping("/RoomUpdate/{h_no}")
+    public String RoomUpdate(Room room, @PathVariable("h_no")int h_no){
+//        System.out.println("room.toString : " + room.toString());
+        hostService.RoomUpdate(room);
+        return "redirect:/host/mypage_house_info/"+h_no;
+    }
 
-
-
+    @PostMapping("/GhouseUpdate/{h_no}")
+    public String GhouseUpdate(Ghouse ghouse, @PathVariable("h_no")int h_no){
+//        System.out.println(ghouse.toString());
+        hostService.GhouseUpdate(ghouse);
+        return "redirect:/host/mypage_host/"+h_no;
+    }
 
 
 

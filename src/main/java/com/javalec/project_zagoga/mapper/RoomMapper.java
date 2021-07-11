@@ -34,8 +34,6 @@ public interface RoomMapper {
 
 
 
-	@UpdateProvider(type = RoomSQL.class, method = "update")
-	void update(@Param("room") Room room);
 
 	@SelectProvider(type = RoomSQL.class, method = "getGhno")
 	int getGhno(@Param("h_no")int h_no);

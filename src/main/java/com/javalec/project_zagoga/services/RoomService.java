@@ -46,9 +46,7 @@ public class RoomService {
     }
     public int getGhno(int h_no){return roomMapper.getGhno(h_no);}
 
-    public void update(Room room){
-        roomMapper.update(room);
-    }
+
 
 
 }

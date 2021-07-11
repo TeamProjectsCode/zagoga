@@ -1,9 +1,6 @@
 package com.javalec.project_zagoga.services;
 
-import com.javalec.project_zagoga.dto.Ghouse;
-import com.javalec.project_zagoga.dto.GhouseRoom;
-import com.javalec.project_zagoga.dto.Host;
-import com.javalec.project_zagoga.dto.RoomImages;
+import com.javalec.project_zagoga.dto.*;
 import com.javalec.project_zagoga.mapper.AuthMapper;
 import com.javalec.project_zagoga.security.AuthValue;
 import com.javalec.project_zagoga.mapper.HostMapper;
@@ -46,6 +43,10 @@ public class HostService {
         hostMapper.insertHost(authValue, host);
     }
 
+    public Ghouse myPageHostGhouse(int h_no){
+        return hostMapper.myPageHostGhouse(h_no);
+    }
+
     public int updateInfo(Host host){
         String phone = host.getH_phone().replace(",", "");
         host.setH_phone(phone);
@@ -68,7 +69,12 @@ public class HostService {
     }
     public Ghouse myGhouse(int h_no){return hostMapper.myGhouse(h_no);}
 //    public Ghouse myPageGhouseInfo(String h_no){return hostMapper.myPageGhouseInfo(h_no);}
-    public void HostGhouseDelete(int gh_no, int h_no){ hostMapper.HostGhouseDelete(gh_no, h_no);}
+
+//    // for ghouse del
+//    public void HostGhouseDelete(String h_no){ hostMapper.HostGhouseDelete(h_no);}
+//    public void HostGhouseDelete2(String r_ghno){ hostMapper.HostGhouseDelete2(r_ghno);}
+//    public void HostGhouseDelete3(String h_no){ hostMapper.HostGhouseDelete3(h_no);}
+
 
     public List<GhouseRoom> roomAndGhouse(String h_no){
         return hostMapper.roomAndGhouse(h_no);
@@ -94,5 +100,19 @@ public class HostService {
     public void admin_reject(int h_no){
         hostMapper.admin_reject(h_no);
     }
+
+
+    public void RoomUpdate(Room room){
+        hostMapper.RoomUpdate(room);
+    }
+
+    public int GhouseUpdate(Ghouse ghouse){
+        return hostMapper.GhouseUpdate(ghouse);
+    }
+
+
+
+
+
 
 }

@@ -66,18 +66,7 @@ public class RoomSQL {
                 .toString();
     }
 
-    public String update(Room room){
-        return new SQL(){{
-                UPDATE(TABLE);
-                SET("R_NAME = #{room.r_name}");
-                SET("R_PMIN = #{room.r_pmin}");
-                SET("R_PMAX = #{room.r_pmax}");
-                SET("R_FEE = #{room.r_fee}");
-                SET("R_DETAIL = #{room.r_detail}");
-                WHERE("R_NO = #{room.r_no}");
-                WHERE("R_GHNO = #{room.r_ghno}");
-        }}.toString();
-    }
+
 
 
 

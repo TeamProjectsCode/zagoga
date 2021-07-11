@@ -1,6 +1,8 @@
 package com.javalec.project_zagoga.mapper.sql;
 
+import com.javalec.project_zagoga.dto.Ghouse;
 import com.javalec.project_zagoga.dto.Host;
+import com.javalec.project_zagoga.dto.Room;
 import com.javalec.project_zagoga.security.AuthValue;
 import com.javalec.project_zagoga.vo.HostVO;
 import org.apache.ibatis.jdbc.SQL;
@@ -93,12 +95,25 @@ public class HostSQL {
 //                .SELECT()
 //    }
 
-    public String HostGhouseDelete(int gh_no, int h_no){
-        return new SQL()
-                .DELETE_FROM("IMAGES")
-                .WHERE("I_HNO = #{h_no}")
-                .toString();
-    }
+//    // for ghouse del
+//    public String HostGhouseDelete(String h_no){
+//        return new SQL()
+//                .DELETE_FROM("IMAGES")
+//                .WHERE("I_HNO = #{h_no}")
+//                .toString();
+//    }
+//    public String HostGhouseDelete2(String gh_no){
+//        return new SQL()
+//                .DELETE_FROM("ROOMS")
+//                .WHERE("R_GHNO = #{gh_no}")
+//                .toString();
+//    }
+//    public String HostGhouseDelete3(String h_no){
+//        return new SQL()
+//                .DELETE_FROM("GHOUSE")
+//                .WHERE("GH_HNO = #{h_no}")
+//                .toString();
+//    }
 
     public String roomAndGhouse(String h_no){
         return new SQL()
@@ -127,12 +142,14 @@ public class HostSQL {
     			.toString();
     }
 
+    // for room del
     public String ImagesDelete(int r_no){
         return new SQL()
                 .DELETE_FROM("IMAGES")
                 .WHERE("I_RNO = #{r_no}")
                 .toString();
     }
+    // for room del
     public String RoomDelete(int r_no){
         return new SQL()
                 .DELETE_FROM("ROOMS")
@@ -161,6 +178,40 @@ public class HostSQL {
                 .WHERE("H_NO=#{h_no}")
                 .toString();
     }
+
+    public String RoomUpdate(Room room){
+        return new SQL(){{
+            UPDATE("ROOMS");
+            SET("R_NAME = #{room.r_name}");
+            SET("R_PMIN = #{room.r_pmin}");
+            SET("R_PMAX = #{room.r_pmax}");
+            SET("R_FEE = #{room.r_fee}");
+            SET("R_DETAIL = #{room.r_detail}");
+            WHERE("R_NO = #{room.r_no}");
+        }}.toString();
+    }
+
+    public String GhouseUpdate(Ghouse ghouse){
+        return new SQL(){{
+            UPDATE("GHOUSE");
+//            SET("GH_NAME = #{ghouse.gh_name}");
+//            SET("GH_IMAGE = #{ghouse.gh_image}");
+//            SET("GH_ADDR1 = #{ghouse.gh_addr1}");
+//            SET("GH_ADDR2 = #{ghouse.gh_addr2}");
+            SET("GH_DETAIL = #{ghouse.gh_detail}");
+            WHERE("GH_HNO = #{ghouse.gh_hno}");
+            WHERE("GH_NO = #{ghouse.gh_no}");
+        }}.toString();
+    }
+
+    public String myPageHostGhouse(int h_no){
+        return new SQL()
+                .SELECT("*")
+                .FROM("GHOUSE")
+                .WHERE("GH_HNO =#{h_no}")
+                .toString();
+    }
+
 }
 
 

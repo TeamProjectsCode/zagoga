@@ -45,9 +45,6 @@ public class GhouseService {
 		return ghouseMapper.insert(ghouse);
 	}
 
-	public int update(Ghouse ghouse){
-		return ghouseMapper.update(ghouse);
-	}
 
 //	public void delete(int GH_NO){ this.GhouseMapper.delete(GH_NO);	}
 	public void delete(int gh_no, int gh_hno){

@@ -11,7 +11,7 @@
 </head>
 <body>
 	<%@ include file="../header.jsp"%>
-	<form name="form" action="/room/update" method="post">
+	<form name="form" action="/host/RoomUpdate/${user.h_no}" method="post">
 		<div id="mainbox">
 			<table>
 				<h2>방 등록 현황</h2>

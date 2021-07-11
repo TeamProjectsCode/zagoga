@@ -115,11 +115,7 @@ public class GhouseController {
 		return "/mypage/mypage_house_info";
 	}
 
-	@PostMapping("/update")
-	public String update(Ghouse ghouse) {
-		ghouseService.update(ghouse);
-		return "main";
-	}
+
 
 	@RequestMapping("/mypageRoomInfo2") // 諛⑸벑濡앺쁽�솴, �닔�젙�럹�씠吏� (�쉶�썝�깉�눜�뒗)
 	public String mypageRoomInfo2() {
