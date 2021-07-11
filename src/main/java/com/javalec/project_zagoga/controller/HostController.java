@@ -82,15 +82,26 @@ public class HostController {
         return "";
     }
 
-
     @RequestMapping(value = "/host_myGhouse/{h_no}", method = RequestMethod.GET)
     public String myGhosue(@PathVariable("h_no") String h_no, Model model){
-        Ghouse ghouse = this.hostService.myGhouse(Integer.parseInt(h_no));
-        model.addAttribute("gh", ghouse);
-        HostVO hostInfo = hostService.getOneHost(Integer.parseInt(h_no));
-        model.addAttribute("hostInfo", hostInfo);
+//        Ghouse ghouse = this.hostService.myGhouse(Integer.parseInt(h_no));
+//        model.addAttribute("gh", ghouse);
+//        HostVO hostInfo = hostService.getOneHost(Integer.parseInt(h_no));
+//        model.addAttribute("hostInfo", hostInfo);
         // 호스트 정보 조회 해서 넣을까?
 //        System.out.println("ghouse.toString : " + ghouse.toString());
         return "/mypage/mypage_host_info";
+    }
+
+    //host : 마이페이지 게스트 하우스 예약자 리스트 (승인/거절)
+    @RequestMapping("/host/mypage_host_customerList")
+    public String mypage_host_customerList() {
+        return "/mypage/mypage_host_customerList";
+    }
+
+    //host : 게스트 하우스 글 작성
+    @RequestMapping("/gHouse_write")
+    public String gh_write() {
+        return "/host/gHouse_write";
     }
 }
