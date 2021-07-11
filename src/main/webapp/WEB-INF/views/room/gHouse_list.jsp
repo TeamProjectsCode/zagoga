@@ -23,7 +23,8 @@
 								<dd class="img">
 									<a href="/ghouse/detail/${li.gh_no}"><img src="${pageContext.request.contextPath}/resources/gh_image/${li.gh_image}" width="370px" height="370px" ></a>
 								</dd>
-								<dd class="price">${li.r_fee} 원</dd>
+									<dd style="margin: 0px;">${fn:substring(li.gh_detail, 0, 40)}</dd>
+<%--								<dd class="price">${li.r_fee} 원</dd>--%>
 							</dl>
 						</li>
 					</ul>
