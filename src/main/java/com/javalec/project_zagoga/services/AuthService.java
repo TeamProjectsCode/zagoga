@@ -4,6 +4,7 @@ import com.javalec.project_zagoga.mapper.AuthMapper;
 import com.javalec.project_zagoga.mapper.HostMapper;
 import com.javalec.project_zagoga.mapper.UsersMapper;
 import com.javalec.project_zagoga.security.AuthValue;
+import com.javalec.project_zagoga.security.PrincipalUser;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -37,6 +38,10 @@ public class AuthService {
             isFind = authValue.getSc_no();
         }
         return isFind;
+    }
+
+    public boolean pwCheck(PrincipalUser principalUser, String new_pwd){
+        return passwordEncoder.matches(new_pwd, principalUser.getPassword());
     }
 
     public void updatePW(int sc_no, String password) {

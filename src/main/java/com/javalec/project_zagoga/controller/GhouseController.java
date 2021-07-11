@@ -118,7 +118,7 @@ public class GhouseController {
 
 	@PostMapping("/update")
 	public String update(Ghouse ghouse) {
-		System.out.println("ghouse.toString() : " + ghouse.toString());
+//		System.out.println("ghouse.toString() : " + ghouse.toString());
 		ghouseService.update(ghouse);
 		return "main";
 	}

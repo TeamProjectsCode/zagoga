@@ -9,33 +9,31 @@
 </head>
 <body>
 <center>
-	<form action = "/pw_check" method="post">
-	<h4>비밀번호를 입력해주세요</h4>
- 		<input type = "password" name = "pw" id = "pw"><br>
+	<%--<form action = "/pw_check" method="post">--%>
+	<h4>현재 비밀번호를 입력해주세요</h4>
+ 		<input type = "password" name = "pw" id = "pw"><br><br>
  		<button type = "submit" onclick = "pw_check()">완료</button>
-	</form>
+<%--	</form>--%>
 </center>
 	<script>
 		function pw_check(){
-			var pw = $("#pw").val()
+			let pw = $("#pw").val()
 			
 			$.ajax({
 				type:"POST",
-				url:"/user/pw_check",
+				url:"/host/pw_check",
 				data:{ pw:pw},
-				success: function(data){
-					if(data == "y"){
-						
-						alert("성공했습니다.");
+				success: function(isSuccess){
+					if(isSuccess){
 						self.close();
+					} else {
+						alert("현재 비밀번호를 다시 확인해주세요.");
 					}
-					else if(data == "n"){
-						
-						alert("실패했습니다");
-					}
+
+					window.opener.getReturnValue(isSuccess);
 				},
 				error: function (e){
-					alert("인증번호 발송에 실패하였습니다.")
+					alert("수정 중 오류가 생겼습니다. 잠시 후 다시 이용해주세요.")
 					console.log('실패',e);
 				}
 			});

@@ -51,9 +51,10 @@ public class UsersService {
         // 닉네임 중복체크
         return usersMapper.nickCheck(u_nick);
     }
-    public String pw_check(String no) {
+
+/*    public String pw_check(String no) {
     	return usersMapper.pw_check(no);
-    }
+    }*/
 
     public String findID(String name, String jumin){
         return usersMapper.findID(name,jumin);

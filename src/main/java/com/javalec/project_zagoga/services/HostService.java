@@ -5,13 +5,16 @@ import com.javalec.project_zagoga.dto.Host;
 import com.javalec.project_zagoga.mapper.AuthMapper;
 import com.javalec.project_zagoga.security.AuthValue;
 import com.javalec.project_zagoga.mapper.HostMapper;
+import com.javalec.project_zagoga.security.PrincipalUser;
 import com.javalec.project_zagoga.vo.HostVO;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @AllArgsConstructor
 @Service
@@ -22,8 +25,6 @@ public class HostService {
     private final PasswordEncoder passwordEncoder;
 
     public void insertHost(AuthValue authValue, Host host) {
-        System.out.println(host.toString());
-        System.out.println(authValue.toString());
         String mail = authValue.getUsername().replace(",", "");
         String encPwd = passwordEncoder.encode(authValue.getPassword());
         authValue.setUsername(mail);
@@ -43,12 +44,20 @@ public class HostService {
         hostMapper.insertHost(authValue, host);
     }
 
+    public int updateInfo(Host host){
+        String phone = host.getH_phone().replace(",", "");
+        host.setH_phone(phone);
+        return hostMapper.updateInfo(host);
+    }
+
+    public HostVO getOneHost(int h_no) { return hostMapper.getOneHost(h_no);}
+
     public String findID(String name, String jumin){
         return hostMapper.findID(name,jumin);
     }
-    public String pw_check(String no) {
+/*    public String pw_check(String no) {
     	return hostMapper.pw_check(no);
-    }
+    }*/
     public List<HostVO> hostList() {
     	return hostMapper.hostList();
     }

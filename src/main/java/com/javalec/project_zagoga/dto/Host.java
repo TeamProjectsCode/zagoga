@@ -10,6 +10,7 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @Data
 public class Host {
+    private int h_no;
     private String h_bizno;
     private String h_mail;
     private String h_brand;

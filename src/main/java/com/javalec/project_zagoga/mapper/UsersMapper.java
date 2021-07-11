@@ -56,10 +56,10 @@ public interface UsersMapper {
     @SelectProvider(type = UserSQL.class, method = "check_mail")
     int check_mail(String u_mail);
     //�씠硫붿씪 以묐났泥댄겕
-	@InsertProvider(value = UserSQL.class, method = "pw_check")
-    String pw_check(String no);
+/*	@InsertProvider(value = UserSQL.class, method = "pw_check")
+    String pw_check(String no);*/
 
-	@UpdateProvider(value = SecuritySQL.class, method = "updateUserPWD")
+	@UpdateProvider(type = SecuritySQL.class, method = "updateUserPWD")
     int updateUserPWD(@Param("sc_no") int sc_no, @Param("pwd") String pwd, @Param("new_pwd") String new_pwd);
 	
     //이메일 중복체크

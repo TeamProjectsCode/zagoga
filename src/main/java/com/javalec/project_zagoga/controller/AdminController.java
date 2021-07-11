@@ -50,7 +50,7 @@ public class AdminController {
 
     // ADMIN: 사업자 리스트
     @RequestMapping("/host_list")
-    public String hostlist(Model model) {
+    public String hostList(Model model) {
         List<HostVO> host = hostService.hostList();
         System.out.println("host.toString : " + host.toString());
         model.addAttribute("hList", host);
