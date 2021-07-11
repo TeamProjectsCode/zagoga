@@ -7,23 +7,16 @@ import com.javalec.project_zagoga.dto.Host;
 import com.javalec.project_zagoga.dto.RoomImages;
 import com.javalec.project_zagoga.security.AuthValue;
 import com.javalec.project_zagoga.security.PrincipalUser;
-import com.javalec.project_zagoga.services.AuthService;
-import com.javalec.project_zagoga.services.GhouseService;
-import com.javalec.project_zagoga.services.HostService;
-import com.javalec.project_zagoga.services.RoomService;
+import com.javalec.project_zagoga.services.*;
 import com.javalec.project_zagoga.vo.AuthInfo;
 import com.javalec.project_zagoga.vo.HostVO;
 import lombok.AllArgsConstructor;
-import org.apache.ibatis.annotations.Param;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.ByteArrayInputStream;
 import java.util.List;
 
 @Controller
