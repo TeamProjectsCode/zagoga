@@ -21,7 +21,7 @@
 		<option value="">선택</option>
 		<option value="대기중">대기중</option>
 		<option value="승인">승인</option>
-		<option value="거절">거절</option>
+		<option value="비승인">비승인</option>
 		</select>
 		</div>
 		<table id="user-table">
@@ -50,7 +50,7 @@
 							<td>대기중</td>
 						</c:when>
 						<c:when test="${hlist.h_active eq 2}">
-							<td>거절</td>
+							<td>비승인</td>
 						</c:when>
 						<%--<c:when test="${hlist.h_active eq -1}">
 							<td>일시정지</td>
