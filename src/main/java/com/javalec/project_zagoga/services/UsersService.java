@@ -67,7 +67,7 @@ public class UsersService {
         user.setU_no(String.valueOf(orginUser.getU_no()));
         user.setU_phone(phone);
         int isSuccess = usersMapper.updateUserNickPhone(user);
-        System.out.println("isSuccess"+isSuccess);
+//        System.out.println("isSuccess"+isSuccess);
         if (isSuccess != 0){
             orginUser.setU_nick(user.getU_nick());
             orginUser.setU_phone(phone);

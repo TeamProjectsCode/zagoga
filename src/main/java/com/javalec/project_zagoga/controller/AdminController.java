@@ -32,7 +32,7 @@ public class AdminController {
     @GetMapping("/user_list")
     public String user_list(Model model) {
         List<Users> userList = this.usersService.userList();
-        System.out.println(userList);
+//        System.out.println(userList);
         model.addAttribute("userList",userList);
         return "/admin/user_list";
     }
@@ -59,7 +59,7 @@ public class AdminController {
     @RequestMapping("/host_list")
     public String hostList(Model model) {
         List<HostVO> host = hostService.hostList();
-        System.out.println("host.toString : " + host.toString());
+//        System.out.println("host.toString : " + host.toString());
         model.addAttribute("hList", host);
         return "/admin/host_list";
     }

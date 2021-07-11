@@ -53,7 +53,7 @@ public class RoomController {
     public String detail(@PathVariable("r_ghno")int r_ghno, Model model){
         Room room = roomService.detail(r_ghno);
         model.addAttribute("RM", room);
-        System.out.println("room.toString() : " + room.toString());
+//        System.out.println("room.toString() : " + room.toString());
         return "/room/room_images";
     }
     

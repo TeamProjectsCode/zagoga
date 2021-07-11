@@ -48,7 +48,7 @@ public class MailService {
             mailHandler.send();
 
             session.setAttribute("authCode", result); //세션 생성
-            System.out.println("@@@@@@@#############"+ u_mail);
+//            System.out.println("@@@@@@@#############"+ u_mail);
 //            mapper.insert_authKey(result);
 //          데이터 넣기
             return true;
@@ -68,7 +68,7 @@ public class MailService {
     public boolean certification(HttpSession session, int inputCode){
         try {
             int preparedCode = (int) session.getAttribute("authCode");
-            System.out.println("preparedCode" + preparedCode);
+//            System.out.println("preparedCode" + preparedCode);
             // u_mail로 보냈던 코드랑 비교하기 위해서 쓰는듯함
 
             return preparedCode == inputCode;

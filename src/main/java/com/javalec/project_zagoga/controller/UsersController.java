@@ -40,7 +40,7 @@ public class UsersController {
 	public String mypage_user(@PathVariable("u_no")String u_no, Model model) {
 		BookingRoomGhouseUsers info = this.userService.getBook(u_no);
 
-		System.out.println(info);
+//		System.out.println(info);
 		model.addAttribute("info", info);
 		return "/mypage/mypage_user";
 	}
@@ -49,9 +49,9 @@ public class UsersController {
 	@RequestMapping(value = "/mypage_user_booking_list/{u_no}", method = RequestMethod.GET)
 	public String mypage_user_booking_list(@PathVariable("u_no")String u_no, Model model) {
 		List<BookingRoomGhouseUsers> myBookList = this.userService.getMyBookList(u_no);
-
+//		System.out.println("myBookList: "+myBookList);
 		model.addAttribute("myBookList", myBookList);
-		System.out.println(myBookList);
+//		System.out.println(myBookList);
 		return "/mypage/mypage_user_booking_list";
 	}
 
@@ -59,7 +59,7 @@ public class UsersController {
 	@RequestMapping("/mypage_user_booking_detail/{b_no},{u_no}")
 	public String mypage_user_booking_detail(@PathVariable("b_no")String b_no, @PathVariable("u_no")String u_no, Model model) {
 		BookingRoomGhouseUsers myBookSelectOneDetail = this.userService.myBookSelectOneDetail(b_no, u_no);
-		System.out.println(myBookSelectOneDetail);
+//		System.out.println(myBookSelectOneDetail);
 		model.addAttribute("mbs", myBookSelectOneDetail);
 		return "/mypage/mypage_user_booking_detail";
 	}
@@ -118,7 +118,7 @@ public class UsersController {
 
 	@PostMapping("/updateInfo")
 	public String updateUserInfo(@AuthenticationPrincipal PrincipalUser principalUser, Users user){
-		System.out.println(user.toString());
+//		System.out.println(user.toString());
 		userService.updateUserInfo(principalUser, user);
 		return "redirect:/user/mypage_user_info";
 	}
@@ -127,10 +127,10 @@ public class UsersController {
 	@ResponseBody
 	public String deleteUser(HttpServletRequest request){ // 유저 삭제
 		int uno = Integer.parseInt(request.getParameter("no"));
-		System.out.println(uno);
+//		System.out.println(uno);
 		String str = "";
 		int num = usersMapper.delete(uno);
-		System.out.println(num);
+//		System.out.println(num);
 		if (num == 1){
 			str = "Y";
 		}else{
@@ -154,8 +154,8 @@ public class UsersController {
 //	}
  	@GetMapping("/review_write")
 	public String review_write(@RequestParam("u_no") int u_no, @RequestParam("gh_no") int gh_no, Model model) {
-			System.out.println(u_no);
-			System.out.println(gh_no);
+//			System.out.println(u_no);
+//			System.out.println(gh_no);
 
 			model.addAttribute("u_no", u_no);
 			model.addAttribute("gh_no", gh_no);

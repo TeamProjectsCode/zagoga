@@ -49,7 +49,7 @@ public class UserSQL {
     }
 
     public String loadUserBySNS(String snsID) {
-        System.out.println("loadUserBySNS: "+snsID);
+//        System.out.println("loadUserBySNS: "+snsID);
         return new SQL()
                 .SELECT(TABLE+".*")
                 .FROM(TABLE)

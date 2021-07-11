@@ -38,7 +38,7 @@ public class PrincipalOAuth2UserService extends DefaultOAuth2UserService {
         }
 
         String snsID = oAuth2Info.getProvider()+"_"+oAuth2Info.getProviderID();
-        System.out.println("snsID: "+snsID);
+//        System.out.println("snsID: "+snsID);
         UsersVO userInfo = usersMapper.loadUserBySNS(snsID);
 
         if (userInfo == null) {

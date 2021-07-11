@@ -37,7 +37,7 @@ public class HostController {
         HostVO hostInfo = (HostVO) principalUser.getAuthInfo();
 
         // 계정 정보 변경 필요
-        System.out.println("host: "+host.toString());
+//        System.out.println("host: "+host.toString());
         host.setH_no(hostInfo.getH_no());
          hostService.updateInfo(host);
 
