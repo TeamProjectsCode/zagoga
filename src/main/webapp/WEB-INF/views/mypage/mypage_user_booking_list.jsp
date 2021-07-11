@@ -47,7 +47,10 @@
                 <div class="text">예약완료</div>
               </c:when>
               <c:when test="${mbl.b_state >= 2}">
-                <div class="text">취소완료</div>
+                <div class="text">호스트거부</div>
+              </c:when>
+              <c:when test="${mbl.b_state >= 3}">
+                <div class="text">사용자취소</div>
               </c:when>
             </c:choose>
             <div class="text"></div>
@@ -61,10 +64,6 @@
         </div>
         <div class="price">
           "결제 ${mbl.b_pno * mbl.r_fee * (mbl.b_out.date - mbl.b_in.date)} 원"
-
-        </div>
-        <div class="btn">
-          <a href="javascript:showPopup()"><button class="btn-m" onclick="showPopup()">후기작성하기</button></a>
         </div>
       </div>
     </div>

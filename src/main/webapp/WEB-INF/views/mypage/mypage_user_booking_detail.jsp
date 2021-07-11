@@ -16,16 +16,16 @@
     <div class="confirm_item_top">
         <c:choose>
             <c:when test="${mbs.b_state >= 0}">
-                <h3 class="confirm_title">예약 완료</h3>
+                <h3 class="confirm_title">승인대기중</h3>
             </c:when>
             <c:when test="${mbs.b_state >= 1}">
-                <h3 class="confirm_title">승인 대기중</h3>
+                <h3 class="confirm_title">예약완료</h3>
             </c:when>
             <c:when test="${mbs.b_state >= 2}">
-                <h3 class="confirm_title">승인 거부</h3>
+                <h3 class="confirm_title">호스트비승인</h3>
             </c:when>
             <c:when test="${mbs.b_state >= 3}">
-                <h3 class="confirm_title">취소 완료</h3>
+                <h3 class="confirm_title">사용자취소</h3>
             </c:when>
         </c:choose>
 
