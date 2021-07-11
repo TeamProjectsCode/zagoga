@@ -40,16 +40,16 @@
         <div class="review_area">
           <div class="review_header">
             <c:choose>
-              <c:when test="${mbl.b_state >= 0}">
+              <c:when test="${mbl.b_state == 0}">
                 <div class="text">승인대기중</div>
               </c:when>
-              <c:when test="${mbl.b_state >= 1}">
+              <c:when test="${mbl.b_state == 1}">
                 <div class="text">예약완료</div>
               </c:when>
-              <c:when test="${mbl.b_state >= 2}">
+              <c:when test="${mbl.b_state == 2}">
                 <div class="text">호스트거부</div>
               </c:when>
-              <c:when test="${mbl.b_state >= 3}">
+              <c:when test="${mbl.b_state == 3}">
                 <div class="text">사용자취소</div>
               </c:when>
             </c:choose>

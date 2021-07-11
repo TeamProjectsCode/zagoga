@@ -15,16 +15,16 @@
 <div class="page_confirm_inner">
     <div class="confirm_item_top">
         <c:choose>
-            <c:when test="${mbs.b_state >= 0}">
+            <c:when test="${mbs.b_state == 0}">
                 <h3 class="confirm_title">승인대기중</h3>
             </c:when>
-            <c:when test="${mbs.b_state >= 1}">
+            <c:when test="${mbs.b_state == 1}">
                 <h3 class="confirm_title">예약완료</h3>
             </c:when>
-            <c:when test="${mbs.b_state >= 2}">
+            <c:when test="${mbs.b_state == 2}">
                 <h3 class="confirm_title">호스트비승인</h3>
             </c:when>
-            <c:when test="${mbs.b_state >= 3}">
+            <c:when test="${mbs.b_state == 3}">
                 <h3 class="confirm_title">사용자취소</h3>
             </c:when>
         </c:choose>
@@ -134,8 +134,10 @@
                     <button class="btn_aaa" onclick="history.go(-1)">뒤로가기</button>
                 </c:when>
                 <c:when test="${checkOut < now}">
-                    <!-- checkout < 현재일 -->
-                    <button class="btn_aa" onclick="showPopup()">후기작성하기</button>
+                    <c:if test="${mbs.b_state == 1}">
+                        <!--예약완료일 경우 -->
+                        <button class="btn_aa" onclick="showPopup()">후기작성하기</button>
+                    </c:if>
                     <button class="btn_a" onclick="history.go(-1)">뒤로가기</button>
                 </c:when>
             </c:choose>
