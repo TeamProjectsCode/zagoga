@@ -35,7 +35,7 @@
                     <hr>
                     <p>${info.gh_name}</p>
                     <br>
-                    <p>예약자 : ${info.u_name}</p>
+                    <p>예약자 : ${user.u_name}</p>
                     <p>사업자 : ${info.h_brand}</p>
                     <P>체크 인 : ${info.b_in}</P>
                     <P>체크 아웃 : ${info.b_out}</P>
