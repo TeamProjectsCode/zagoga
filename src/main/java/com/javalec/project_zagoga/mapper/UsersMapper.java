@@ -2,6 +2,7 @@ package com.javalec.project_zagoga.mapper;
 
 import com.javalec.project_zagoga.dto.Booking;
 import com.javalec.project_zagoga.dto.BookingRoomGhouseUsers;
+import com.javalec.project_zagoga.dto.Reviews;
 import com.javalec.project_zagoga.dto.Users;
 import com.javalec.project_zagoga.mapper.sql.SecuritySQL;
 import com.javalec.project_zagoga.security.AuthValue;
@@ -78,4 +79,12 @@ public interface UsersMapper {
 
     @SelectProvider(type = UserSQL.class, method = "myBookSelectOneDetail")
     BookingRoomGhouseUsers myBookSelectOneDetail(String b_no, String u_no);
+
+    @UpdateProvider(type = UserSQL.class, method = "userBookingCancel")
+    int userBookingCancel(@Param("b_no")int b_no, @Param("u_no")int u_no);
+
+    @InsertProvider(type = UserSQL.class, method = "reviewWrite")
+    void reviewWrite(String rv_content, int rv_star, int rv_uno , int rv_ghno);
+
 }
+

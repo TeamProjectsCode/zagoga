@@ -2,6 +2,7 @@ package com.javalec.project_zagoga.mapper.sql;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.javalec.project_zagoga.dto.Booking;
+import com.javalec.project_zagoga.dto.Reviews;
 import com.javalec.project_zagoga.dto.Users;
 import com.javalec.project_zagoga.security.AuthValue;
 import com.javalec.project_zagoga.vo.UsersVO;
@@ -200,4 +201,24 @@ public class UserSQL {
                 .WHERE("U_NO=#{u_no}")
                 .toString();
     }
+
+    public String userBookingCancel(int b_no, int u_no){
+        return new SQL()
+                .UPDATE("BOOKING")
+                .SET("B_STATE = 3")
+                .WHERE("B_NO = #{b_no}")
+                .WHERE("B_UNO = #{u_no}")
+                .toString();
+    }
+
+    public String reviewWrite(String rv_content, int rv_star, int rv_uno , int rv_ghno){
+        return new SQL()
+                .INSERT_INTO("REVIEWS")
+                .VALUES("rv_content","#{rv_content}")
+                .VALUES("rv_star","#{rv_star}")
+                .VALUES("rv_uno","#{rv_uno}")
+                .VALUES("rv_ghno","#{rv_ghno}")
+                .toString();
+    }
+
 }

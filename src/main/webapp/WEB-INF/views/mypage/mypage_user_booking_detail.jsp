@@ -105,14 +105,6 @@
             </div>
             <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<%--            <c:set var="today" value="<%=new java.util.Date()%>"/>--%>
-<%--            <c:set var="beginDt" value="${mbs.b_in}"/>--%>
-<%--            <c:set var="finishDt" value="${mbs.b_out}"/>--%>
-
-<%--            <fmt:formatDate var="now" type="date" value="${today}" pattern="yyyy-MM-dd"/>--%>
-<%--            <fmt:parseDate var="checkIn" value="${beginDt}" pattern="yyyy-MM-dd"/>--%>
-<%--            <fmt:parseDate var="checkOut" value="${finishDt}" pattern="yyyy-MM-dd"/>--%>
-
             <c:set var="today" value="<%=new java.util.Date()%>"/>
             <c:set var="beginDt" value="${mbs.b_in}"/>
             <c:set var="finishDt" value="${mbs.b_out}"/>
@@ -136,7 +128,8 @@
                 <c:when test="${checkOut < now}">
                     <c:if test="${mbs.b_state == 1}">
                         <!--예약완료일 경우 -->
-                        <button class="btn_aa" onclick="showPopup()">후기작성하기</button>
+
+                        <button class="btn_aa" onclick="showPopup(${mbs.u_no},${mbs.gh_no})">후기작성하기</button>
                     </c:if>
                     <button class="btn_a" onclick="history.go(-1)">뒤로가기</button>
                 </c:when>

@@ -2,6 +2,7 @@ package com.javalec.project_zagoga.controller;
 
 import com.javalec.project_zagoga.dto.Booking;
 import com.javalec.project_zagoga.dto.BookingRoomGhouseUsers;
+import com.javalec.project_zagoga.dto.Reviews;
 import com.javalec.project_zagoga.dto.Users;
 import com.javalec.project_zagoga.mapper.UsersMapper;
 import com.javalec.project_zagoga.security.PrincipalUser;
@@ -138,4 +139,37 @@ public class UsersController {
 
 		return str;
 	}
+
+	@RequestMapping("/userBookingCancel/{b_no},{u_no}")
+	public String userBookingCancel(@PathVariable("b_no")int b_no, @PathVariable("u_no")int u_no){
+		userService.userBookingCancel(b_no, u_no);
+		return "main";
+	}
+//	@GetMapping("user/review_write")
+//	public String review_write(Reviews reviews) {
+//
+//		userService.reviewWrite(reviews);
+//
+//		return "room/review_write";
+//	}
+ 	@GetMapping("/review_write")
+	public String review_write(@RequestParam("u_no") int u_no, @RequestParam("gh_no") int gh_no, Model model) {
+			System.out.println(u_no);
+			System.out.println(gh_no);
+
+			model.addAttribute("u_no", u_no);
+			model.addAttribute("gh_no", gh_no);
+
+
+		return "room/review_write";
+	}
+
+		@PostMapping("/review.do")
+		@ResponseBody
+		public void insert_review(String rv_content, int rv_star, @RequestParam("rv_uno") int rv_uno , @RequestParam("rv_ghno") int rv_ghno){
+
+			userService.reviewWrite(rv_content, rv_star, rv_uno ,  rv_ghno);
+
+		}
+
 }

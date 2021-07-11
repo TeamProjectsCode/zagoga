@@ -153,8 +153,10 @@ $(function(){//닉네임 중복체크
     
 	
 //팝업		
-	function showPopup(){window.open("/user/review_write","후기","width=700, height=500,left=300,top=50");}
-   
+	function showPopup(u_no,gh_no){
+	    window.open("/user/review_write?u_no="+u_no+"&gh_no="+gh_no,"후기","width=700, height=500,left=300,top=50" );
+	}
+// "/user/review_write/"+u_no+"/"+gh_no
    
 $(document).ready(function() {
 	 $(".star_rating a").click(function() {

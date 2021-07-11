@@ -2,10 +2,7 @@ package com.javalec.project_zagoga.services;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.javalec.project_zagoga.dto.Booking;
-import com.javalec.project_zagoga.dto.BookingRoomGhouseUsers;
-import com.javalec.project_zagoga.dto.GhouseRoom;
-import com.javalec.project_zagoga.dto.Users;
+import com.javalec.project_zagoga.dto.*;
 import com.javalec.project_zagoga.mapper.AuthMapper;
 import com.javalec.project_zagoga.security.AuthValue;
 import com.javalec.project_zagoga.security.PrincipalUser;
@@ -86,4 +83,9 @@ public class UsersService {
 
     public BookingRoomGhouseUsers myBookSelectOneDetail(String b_no, String u_no){return usersMapper.myBookSelectOneDetail(b_no, u_no);}
 
+    public int userBookingCancel(int b_no, int u_no){return usersMapper.userBookingCancel(b_no, u_no);}
+
+    public void reviewWrite(String rv_content, int rv_star, int rv_uno , int rv_ghno){
+        usersMapper.reviewWrite(rv_content,  rv_star,  rv_uno,  rv_ghno);
+    }
 }
