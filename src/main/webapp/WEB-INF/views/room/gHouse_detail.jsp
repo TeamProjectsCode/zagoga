@@ -8,6 +8,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>게스트하우스 정보 + 방 정보(user용)</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<link rel="stylesheet"
 		  href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css"
 		  type="text/css" />
@@ -15,6 +17,7 @@
 	<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="/resources/css/ghouse_detail.css" />
 	<script type="text/javascript" src="/resources/js/guesthouse.js" charset="utf-8"></script>
+	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=q0a41zgk6j&submodules=geocoder"></script>
 </head>
 <body>
 <%@ include file="../header.jsp"%>
@@ -23,15 +26,16 @@
 		<div class="main">
 			<c:choose>
 			<c:when test="${fn:length(griList) ne 0}">
-			<img src="${pageContext.request.contextPath}/resources/gh_image/${griList.get(0).gh_image}" style="width: 650px; height: 550px;" alt="대표사진">
+			<img src="${pageContext.request.contextPath}/resources/gh_image/${griList.get(0).gh_image}" style="width: 750px; height: 400px;" alt="대표사진">
 			<%--				<img src="/resources/img/busan.jpg" width="650px" height="500px" alt="대표사진">--%>
 			<p>대표사진</p>
 			<p>
 <%--		<c:if test="${fn:length(griList)>0}">--%>
-			<h3>게스트하우스 업체명 : ${griList.get(0).gh_name}</h3>
-			<p>위치</p>
-				${griList.get(0).gh_addr1} ${griList.get(0).gh_addr2}
-			<p>상세내용</p>
+			<h3>게스트하우스 업체명 : ${griList.get(0).gh_name}</h3><br>
+			<p><img src="/resources/img/placeholder.png"><strong>위치</strong></p>
+					${griList.get(0).gh_addr1} ${griList.get(0).gh_addr2}
+				<br>
+			<strong><p>상세내용</p></strong>
 				${griList.get(0).gh_detail}
 			<p class="star_rating">
 				<a href="#" class="on">★</a>
@@ -40,39 +44,116 @@
 				<a href="#">★</a>
 				<a href="#">★</a>
 			</p>
-				<div style="width: 650px;">
-					<table style="width: 650px;">
-						<c:forEach items="${griList}" var="gri" varStatus="status">
-							<br><br><tr>
-								<td><a href="/room/getDetail/${gri.r_no}"
-									   style="text-decoration-line: none; color: black;">
-										<%--								 <img src="/resources/img/jeju.jpg" width="300px" style="float: left;">--%>
-									<img src="${pageContext.request.contextPath}/resources/rooms_image/${gri.i_name}" width="300px" style="float: left;">
-									<p>
-									<h2>방 : ${gri.r_name}</h2>
-									</p><br>
-									<p>
-										기준
-											${gri.r_pmin}명 / 최대
-											${gri.r_pmax}명
-									</p>
-									<p>
-										침대
-											${gri.r_pmax}</p> <br> <br> <br>
-									<p style="text-align: right;">
-										1박 :
-											${gri.r_fee}원
-									</p>
-									<p>
-										기타사항 <br><br>
-											${gri.r_detail}</p>
-								</a></td>
+				<c:forEach items="${griList}" var="gri" varStatus="status">
+				<div class="total">
+					<div class="product_view">
+						<h2>${gri.r_name}</h2>
+						<table>
+							<colgroup>
+								<col style="width:173px;">
+								<col>
+							</colgroup>
+							<tbody>
+							<tr>
+								<th>인원수</th>
+								<th>기준${gri.r_pmin} 명 /최대 ${gri.r_pmax}명</th>
+
 							</tr>
-							<br><br>
-						</c:forEach>
-					</table>
+							<tr>
+								<th>침대</th>
+								<td>${gri.r_pmax}</td>
+							</tr>
+							<tr>
+								<th>1박</th>
+								<td class="total"><b><span>\</span>${gri.r_fee}</b></td>
+							</tr>
+							<tr>
+								<th>기타사항</th>
+								<td>${gri.r_detail}</td>
+							</tr>
+							</tbody>
+						</table>
+						<div class="img">
+							<img src="${pageContext.request.contextPath}/resources/rooms_image/${gri.i_name}" alt="">
+							<ul>
+								<!-- <li class="on"><a href="#a"><img src="images/s-cof.jpg" alt=""></a></li> -->
+							</ul>
+						</div>
+						<div class="btns">
+							<a href="/room/getDetail/${gri.r_no}" class="btn2">예약하기</a>
+
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+					</c:forEach>
 
 					<%--			</c:if>--%>
+				<div class="section_map">
+					<p2>오시는길</p2>
+					<div id="map" class="link_map" style="width:100%;height:500px;"></div>
+				</div>
+				<script>
+					var map = new naver.maps.Map("map", {
+						center: new naver.maps.LatLng(37.3595316, 127.1052133),
+						zoom: 15,
+						mapTypeControl: true
+					});
+
+					var infoWindow = new naver.maps.InfoWindow({
+						anchorSkew: true
+					});
+
+					function searchAddressToCoordinate(address) {
+						naver.maps.Service.geocode({
+							query: address
+						}, function(status, response) {
+							if (status === naver.maps.Service.Status.ERROR) {
+								return alert('Something Wrong!');
+							}
+
+							if (response.v2.meta.totalCount === 0) {
+								return alert('totalCount' + response.v2.meta.totalCount);
+							}
+
+							var htmlAddresses = [],
+									item = response.v2.addresses[0],
+									point = new naver.maps.Point(item.x, item.y);
+
+							if (item.roadAddress) {
+								htmlAddresses.push('[도로명 주소] ' + item.roadAddress);
+							}
+
+							if (item.jibunAddress) {
+								htmlAddresses.push('[지번 주소] ' + item.jibunAddress);
+							}
+
+							if (item.englishAddress) {
+								htmlAddresses.push('[영문명 주소] ' + item.englishAddress);
+							}
+
+							infoWindow.setContent([//말풍선 크기 및 내용
+								'<div style="padding:10px;min-width:200px;line-height:100%;">',
+								'<h4 style="margin-top:5px;">위치 : '+ address +'</h4><br />',
+								htmlAddresses.join('<br />'),
+								'</div>'
+							].join('\n'));
+
+							map.setCenter(point);
+							infoWindow.open(map, point);
+						});
+					}
+
+					function initGeocoder() {
+						if (!map.isStyleMapReady) {
+							return;
+						}
+						//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@주소 입력할 부분@@@@@@@@@@@@@@@@@@@@@
+						searchAddressToCoordinate('${griList.get(0).gh_addr1}');
+					}
+					naver.maps.onJSContentLoaded = initGeocoder;
+					naver.maps.Event.once(map, 'init_stylemap', initGeocoder);
+				</script>
 					<table class="review">
 						<tr>
 							<th>평점</th>

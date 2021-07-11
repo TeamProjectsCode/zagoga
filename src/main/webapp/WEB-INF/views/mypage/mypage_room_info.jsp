@@ -42,16 +42,22 @@
 					<td style="padding-left: 30px"><textarea name="r_detail" cols="50" rows="10">${room.get(0).r_detail}</textarea></td>
 				</tr>
 
-					<td>등록된 이미지 파일<br>
-					<c:forEach items="${room}" var="room" varStatus="status">
-					<img src="${pageContext.request.contextPath}/resources/rooms_image/${room.i_name}">
-					</c:forEach>
-					</td>
+
 			</table>
-			<input type="hidden" value="${room.get(0).r_ghno}" name="r_ghno" readonly>
-				<div id="button">
+			<td>등록된 이미지 파일</td><br>
+				<c:forEach items="${room}" var="room" varStatus="status">
+					<img src="${pageContext.request.contextPath}/resources/rooms_image/${room.i_name}" style="width:290px; height: 290px">
+					<c:choose>
+						<c:when test="${status.count % 6 == 0}">
+							<br>
+						</c:when>
+					</c:choose>
+				</c:forEach>
+
+			<div id="button">
+<%--				<input type="hidden" value="${room.get(0).r_no}" name="r_no" readonly>--%>
 					<button type ="submit">수정완료</button>&nbsp;&nbsp;&nbsp;
-					<button type="button" onclick="roomDelete()" >삭제하기</button>&nbsp;&nbsp;&nbsp;
+					<input type="button" onclick="location.href='#'" value="삭제하기">&nbsp;
 					<button onclick="history.go(-1)">취소</button>
 				</div>
 		</div>
@@ -62,7 +68,7 @@
 		var ok = confirm("등록된 방을 삭제하시겠습니까?");
 
 		if(ok == true){
-			location.href="/room/delete/${room.get(0).r_ghno},${room.get(0).r_no}";
+			location.href="/room/ImagesDelete/${room.get(0).r_no}";
 		}
 	}
 

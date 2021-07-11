@@ -33,11 +33,11 @@
 
                     <h4>사업장 정보</h4>
                     <hr>
-                    <p>게스트하우스명</p>
+                    <p>${gh.gh_name}</p>
                     <br>
                     <p>규모 : ㅁㅇㅁ</p>
-                    <p>위치 : 제주 서귀포시</p>
-                    <p>등록 연락처: 000-0000-000</p>
+                    <p>위치 : ${gh.gh_addr1}</p>
+                    <p>등록 연락처: ${user.h_phone}</p>
                     <br>
                     <p style="float: right;">
                       <input type="button" value="수정하기" onclick="location.href='/host/mypage_house_info/${user.h_no}'">

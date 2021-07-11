@@ -88,7 +88,38 @@ public class HostSQL {
                 .WHERE("GH_HNO = #{h_no}")
                 .toString();
     }
-    
+
+//    public String myPageGhouseInfo(String h_no){
+//        return new SQL()
+//                .SELECT()
+//    }
+
+    public String HostGhouseDelete(int gh_no, int h_no){
+        return new SQL()
+                .DELETE_FROM("IMAGES")
+                .WHERE("I_HNO = #{h_no}")
+                .toString();
+    }
+
+    public String roomAndGhouse(String h_no){
+        return new SQL()
+                .SELECT("*")
+                .FROM("GHOUSE")
+                .JOIN("ROOMS R on GHOUSE.GH_NO = R.R_GHNO")
+                .WHERE("GH_HNO = #{h_no}")
+                .ORDER_BY("R_NO")
+                .toString();
+    }
+
+    public String mypageRoomInfo(int r_no){
+        return new SQL()
+                .SELECT("*")
+                .FROM("ROOMS")
+                .JOIN("IMAGES I on ROOMS.R_NO = I.I_RNO")
+                .WHERE("I_RNO = #{r_no}")
+                .ORDER_BY("I_NO DESC")
+                .toString();
+    }
 }
 
 

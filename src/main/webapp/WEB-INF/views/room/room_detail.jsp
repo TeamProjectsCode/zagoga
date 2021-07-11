@@ -15,6 +15,18 @@
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/resources/css/room.css" />
 	<script type="text/javascript" src="/resources/js/guesthouse.js" charset="utf-8"></script>
+    <script src="/resources/js/jquery.bxslider.min.js"></script>
+    <link rel="stylesheet" href="/resources/css/jquery.bxslider.min.css">
+    <script>
+        $(function(){
+            $('.silde_gallery').bxSlider({
+                auto:true,
+                autoControls:true,
+                stopAutoOnClick:true,
+                pager:true
+            })
+        })
+    </script>
 </head>
 <body>
 	<%@ include file="../header.jsp" %>
@@ -29,14 +41,18 @@
 <%--                <p><%=ghouse.getGh_name()%></p>--%>
                 <br>
                 <p>기준 인원 ${getDetail.get(0).r_pmin} (최대: ${getDetail.get(0).r_pmax})</p>
+                <div id="gallery_wrap" style="margin: 0 auto; width: 400px;">
+                    <ul class="silde_gallery">
             <c:forEach items="${getDetail}" var="dt" varStatus="status">
-                <img src="${pageContext.request.contextPath}/resources/rooms_image/${dt.i_name}">
+                        <li><img src="${pageContext.request.contextPath}/resources/rooms_image/${dt.i_name}"></li>
                 <c:choose>
                 <c:when test="${status.count % 6 == 0}">
                     <br>
                 </c:when>
                 </c:choose>
             </c:forEach>
+                    </ul>
+                </div>
         		</c:if>
 
 <%--                    권한에 따른 action url 지정해줘야하는데 .. 귀찮쓰--%>
@@ -54,7 +70,7 @@
                                     dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
                                     monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
                                     monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-                                    dateFormat: 'yymmdd',
+                                    dateFormat: "yymmdd",
                                     maxDate: 100,                       // 선택할수있는 최소날짜, ( 0 : 오늘 이후 날짜 선택 불가)
                                     onClose: function( selectedDate ) {
                                         //시작일(startDate) datepicker가 닫힐때
