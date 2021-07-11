@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="/resources/css/mypage_user_booking_detail.css">
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=q0a41zgk6j&submodules=geocoder"></script>
+    <script type="text/javascript" src="/resources/js/user.js" charset="utf-8"></script>
     <title>Title</title>
 </head>
 <body>
@@ -102,7 +103,35 @@
                     </div>
                 </div>
             </div>
-                <button class="btn_a" onclick="history.go(-1)">확인</button>
+            <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+            <c:set var="today" value="<%=new java.util.Date()%>"/>
+            <c:set var="beginDt" value="${mbs.b_in}"/>
+            <c:set var="finishDt" value="${mbs.b_out}"/>
+
+            <fmt:formatDate var="now" type="date" value="${today}" pattern="yyyy-MM-dd"/>
+            <fmt:parseDate var="checkIn" value="${beginDt}" pattern="yyyy-MM-dd"/>
+            <fmt:parseDate var="checkOut" value="${finishDt}" pattern="yyyy-MM-dd"/>
+
+            <c:choose>
+                <c:when test="${now lt checkIn}">
+                    <!--현재일 < checkin -->
+                    <c:if test="${mbs.b_state >= 1}">
+                    <button class="btn_aa" onclick="'#'">예약취소</button>
+                    <button class="btn_a" onclick="history.go(-1)">뒤로가기</button>
+                    </c:if>
+                    <button class="btn_aaa" onclick="history.go(-1)">뒤로가기</button>
+                </c:when>
+                <c:when test="${checkIn le now && now ge checkOut}">
+                    <!-- checkin <= 현재일 <= checkOut -->
+                    <button class="btn_aaa" onclick="history.go(-1)">뒤로가기</button>
+                </c:when>
+                <c:when test="${checkOut gt now && mbs.b_state >= 0}">
+                    <!-- checkout < 현재일 -->
+                    <button class="btn-aa" onclick="showPopup()">후기작성하기</button>
+                    <button class="btn_a" onclick="history.go(-1)">뒤로가기</button>
+                </c:when>
+            </c:choose>
         </div>
     </div>
 </div>
@@ -165,7 +194,6 @@
         //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@주소 입력할 부분@@@@@@@@@@@@@@@@@@@@@
         searchAddressToCoordinate('${mbs.gh_addr1}');
     }
-
     naver.maps.onJSContentLoaded = initGeocoder;
     naver.maps.Event.once(map, 'init_stylemap', initGeocoder);
 </script>

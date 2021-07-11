@@ -9,7 +9,7 @@
 }
 .main{
     max-width: 80%;
-    min-width: 70%;
+    min-width: 50%;
     margin: 0 auto;
 }
 
@@ -58,8 +58,27 @@ h3{
 }
 .btn_a{
     margin-top: 50px;
-    width: 1000px;
+    width: 350px;
     height: 35px;
     align-items: center; /*중앙정렬*/
     margin-bottom: 50px;
+    margin-left: 30px;
+}
+.btn_aa{
+    margin-top: 50px;
+    width: 350px;
+    height: 35px;
+    align-items: center; /*중앙정렬*/
+    margin-bottom: 50px;
+    margin-left: 140px;
+    margin-right:30px;
+
+}
+.btn_aaa{
+    margin-top: 50px;
+    width: 50%;
+    height: 35px;
+    align-items: center;
+    margin-bottom: 50px;
+    margin-left: 220px;
 }
