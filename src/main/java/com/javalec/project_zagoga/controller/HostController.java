@@ -1,13 +1,11 @@
 package com.javalec.project_zagoga.controller;
 
+import com.javalec.project_zagoga.dto.BookingForHost;
 import com.javalec.project_zagoga.dto.Ghouse;
 import com.javalec.project_zagoga.dto.Host;
 import com.javalec.project_zagoga.security.AuthValue;
 import com.javalec.project_zagoga.security.PrincipalUser;
-import com.javalec.project_zagoga.services.AuthService;
-import com.javalec.project_zagoga.services.GhouseService;
-import com.javalec.project_zagoga.services.HostService;
-import com.javalec.project_zagoga.services.RoomService;
+import com.javalec.project_zagoga.services.*;
 import com.javalec.project_zagoga.vo.AuthInfo;
 import com.javalec.project_zagoga.vo.HostVO;
 import lombok.AllArgsConstructor;
@@ -30,6 +28,7 @@ public class HostController {
 
     private final HostService hostService;
     private final AuthService authService;
+    private final BookService bookService;
 
     @RequestMapping(value = "/mypage_host_info")
     public String mypage_host_info( ) {
@@ -95,20 +94,28 @@ public class HostController {
 
     //host : 마이페이지 게스트 하우스 예약자 리스트 (승인/거절)
     @RequestMapping("/mypage_host_customerList")
-    public String mypage_host_customerList() {
+    public String mypage_host_customerList(@AuthenticationPrincipal PrincipalUser principalUser,  Model model) {
+        int h_no = ((HostVO) principalUser.getAuthInfo()).getH_no();
+        List<BookingForHost> hostList = bookService.bookingListForHost(h_no);
+        model.addAttribute("bookList", hostList);
         return "/mypage/mypage_host_customerList";
     }
 
     //host : 게스트 하우스 글 작성
-    @RequestMapping("/gHouse_write")
+    @GetMapping("/gHouse_write")
     public String gh_write() {
         return "/host/gHouse_write";
     }
 
-    @RequestMapping("/mypage_house_info/{h_no}") // �궗�뾽�옄 �벑濡앺쁽�솴, �벑濡앸맂 諛⑺쁽�솴(�궗�뾽�옄 �젙蹂대�寃�)
+    @GetMapping("/mypage_house_info/{h_no}") // �궗�뾽�옄 �벑濡앺쁽�솴, �벑濡앸맂 諛⑺쁽�솴(�궗�뾽�옄 �젙蹂대�寃�)
     public String mypage_house_info(@PathVariable("h_no") String h_no) {
         return "/mypage/mypage_house_info";
     }
 
+    @ResponseBody
+    @PostMapping("/updateBookingState")
+    public int updateBookingState(@RequestParam("b_no") int b_no, @RequestParam("b_state") int b_state) {
+        return bookService.updateBookingState(b_no, b_state);
+    }
 
 }

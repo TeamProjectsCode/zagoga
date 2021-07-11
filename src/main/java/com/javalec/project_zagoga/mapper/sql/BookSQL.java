@@ -4,6 +4,8 @@ import com.javalec.project_zagoga.dto.Booking;
 import com.javalec.project_zagoga.dto.BookingRoomGhouseUsers;
 import org.apache.ibatis.jdbc.SQL;
 
+import java.awt.print.Book;
+
 public class BookSQL {
     private static final String Booking = "BOOKING";
     private static final String Users = "USERS";
@@ -59,6 +61,26 @@ public class BookSQL {
                 .WHERE("GH_NO=(select R_GHNO from ROOMS where R_NO=#{info.r_no})")
                 .WHERE("R_NO = #{info.r_no}")
                 .WHERE("U_NO = #{info.u_no}")
+                .toString();
+    }
+
+    public String bookingListForHost(int h_no) {
+        return new SQL()
+                .SELECT("BOOKING.*, R_NAME, U.U_NAME, U.U_PHONE")
+                .FROM(Booking)
+                .JOIN("USERS U on BOOKING.B_UNO = U.U_NO")
+                .JOIN("ROOMS R on R.R_NO = BOOKING.B_RNO")
+                .JOIN("GHOUSE G on R.R_GHNO = G.GH_NO")
+                .JOIN("HOST H on G.GH_HNO = H.H_NO")
+                .WHERE("H.H_NO = #{h_no}")
+                .toString();
+    }
+
+    public String updateBookingState(int b_no, int b_state) {
+        return new SQL()
+                .UPDATE(Booking)
+                .SET("B_STATE = #{b_state}")
+                .WHERE("B_NO = #{b_no}")
                 .toString();
     }
 }

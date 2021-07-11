@@ -19,5 +19,6 @@ public class Booking {
     private Timestamp b_join;
     private int b_rno;
     private int b_uno;
+    private int b_price;
 
 }

@@ -1,6 +1,7 @@
 package com.javalec.project_zagoga.services;
 
 import com.javalec.project_zagoga.dto.Booking;
+import com.javalec.project_zagoga.dto.BookingForHost;
 import com.javalec.project_zagoga.dto.BookingRoomGhouseUsers;
 import com.javalec.project_zagoga.dto.Users;
 import com.javalec.project_zagoga.mapper.BookMapper;
@@ -22,6 +23,14 @@ public class BookService {
         return bookMapper.bookConfirmInfo(u_no, r_no);
     }
 
+    public List<BookingForHost> bookingListForHost(int h_no) {
+        return bookMapper.bookingListForHost(h_no);
+    }
+
+    public int updateBookingState(int b_no, int b_state) {
+        return bookMapper.updateBookingState(b_no, b_state);
+    }
+
     public int insertBook(Booking booking) {
         return bookMapper.insertBook(booking);
     }
@@ -33,4 +42,5 @@ public class BookService {
     public BookingRoomGhouseUsers getBookingConfirm(BookingRoomGhouseUsers info){
         return bookMapper.getBookingConfirm(info);
     }
+
 }
