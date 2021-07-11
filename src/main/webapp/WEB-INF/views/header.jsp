@@ -36,10 +36,11 @@
 			<div class="dropdown">
 				<button class="dropbtn">예약 하기</button>
 				<div class="dropdown-content">
-					<a href="/ghouse/getGhouseList">전체 보기</a> <a href="#">서울 특별시</a> <a href="#">부산 광역시</a>
-					<a href="#">인천 광역시</a> <a href="#">대전 광역시</a> <a href="#">대구광역시</a> 
-					<a href="#">광주 광역시</a> <a href="#">경기도</a> <a href="#">경상도</a>
-					<a href="#">강원도</a> <a href="#">충청도</a> <a href="#">전라도</a>
+					<a href="/ghouse/getGhouseList">전체 보기</a> <a href="/ghouse/localList?local=서울">서울 특별시</a> <a href="/ghouse/localList?local=부산">부산 광역시</a>
+					<a href="/ghouse/localList?local=인천">인천 광역시</a> <a href="/ghouse/localList?local=대전">대전 광역시</a> <a href="/ghouse/localList?local=대구">대구광역시</a> 
+					<a href="/ghouse/localList?local=광주">광주 광역시</a> <a href="/ghouse/localList?local=경기">경기도</a> <a href="/ghouse/localList?local=경남">경상도</a>
+					<a href="/ghouse/localList?local=강원">강원도</a> <a href="/ghouse/localList?local=충남">충청도</a> <a href="/ghouse/localList?local=전남">전라도</a>
+					<a href="/ghouse/localList?local=제주">제주도</a>
 				</div>
 			</div>
 			<c:choose>
