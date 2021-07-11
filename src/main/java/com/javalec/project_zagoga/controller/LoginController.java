@@ -42,9 +42,9 @@ public class LoginController {
 
     @ResponseBody
     @PostMapping("/Checkmail")
-    public boolean findPWByEmail(HttpServletRequest request, String jumin, String username, String name) {
+    public boolean findPWByJuminNameEmail(HttpServletRequest request, String jumin, String username, String name) {
         // security 확인 후 sc_no로 해당 권한 테이블에서 유저 정보 조회
-        int sc_no = authService.findPWByEmail(jumin, username, name);
+        int sc_no = authService.findPWByJuminNameEmail(jumin, username, name);
         if(0 < sc_no) {
             HttpSession session = request.getSession(); // 세션얻어옴
             session.setAttribute("sc_no", sc_no);

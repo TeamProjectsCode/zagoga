@@ -97,7 +97,7 @@
                 </tr>
                 <tr height="20">
                     <th class="title">비밀번호</th>
-                    <td><input type="button" name="u_pwd" id="pw" value="비밀번호 변경" onclick="pw_popup()">&nbsp</td>
+                    <td><input type="button" name="u_pwd" id="pw" value="비밀번호 변경" onclick="pw_popup('${user.u_mail}')">&nbsp</td>
                 </tr>
     <%--            <tr height="20">--%>
     <%--                <th class="title">E-mail</th>  --%>

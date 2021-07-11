@@ -33,18 +33,19 @@
         });
     </script>
     <script>
-        function pwdFieldCheck(now, new1) {
-            return now === "" || new1 === ""
+        function pwdFieldCheck(inputCode, new_pwd) {
+            return inputCode === "" || new_pwd === ""
         }
     </script>
     <script>
         function updatUserPWD(){
-            let now_pwd = $('#now_pw').val();
+            let inputCode = $('#inputCode').val();
+
             let new_pwd = $('#pw1').val();
             let new_pwd2 = $('#pw2').val();
 
-            if(pwdFieldCheck(now_pwd, new_pwd)){
-                alert("현재 비밀번호와 새 비밀번호는 반드시 입력하셔야 합니다.")
+            if(pwdFieldCheck(inputCode, new_pwd)){
+                alert("인증번호와 새 비밀번호는 반드시 입력하셔야 합니다.")
                 return 0;
             }
 
@@ -52,14 +53,14 @@
                 $.ajax({
                     type:"POST",
                     url:"/user/updatUserPWD",
-                    data:{password:now_pwd, new_password:new_pwd},
+                    data:{inputCode:inputCode, new_password:new_pwd},
                     success: function(isSuccess){
-                        console.log(data);
-                        if(0 < isSuccess){
+                        if( isSuccess === 1){
                             alert('비밀번호 변경 완료!');
                             self.close();
-                        }else{
-                            alert('현재 비밀번호가 다릅니다. 다시 확인해주세요.');
+                        }else if(isSuccess === -1){
+                            alert('인증번호가 잘못 되었습니다.\n새 인증 번호를 보내려면 비밀번호 변경 버튼을 다시 눌러주세요!');
+                            $('#inputCode').focus();
                         }
                     },
                     error: function(e){
@@ -79,8 +80,8 @@
     <div class="a">
 <%--        <form method="post" action="">--%>
     <h1>비밀번호 변경</h1>
-    <h3>현재 비밀번호</h3>
-    <input class="pw" type="password" name="now_pw" id="now_pw" maxlength="20" style="width: 330px"   required>
+    <h3>인증코드</h3>
+    <input class="pw" type="password" name="inputCode" id="inputCode" maxlength="20" style="width: 330px"   required>
     <br><br>
     <h3>새 비밀번호</h3>
     <input class="pw" type="password" name="new_pw" id="pw1" maxlength="20" style="width: 330px"   required>

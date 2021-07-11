@@ -5,13 +5,18 @@ import com.javalec.project_zagoga.dto.Users;
 import com.javalec.project_zagoga.mapper.UsersMapper;
 import com.javalec.project_zagoga.security.PrincipalUser;
 import com.javalec.project_zagoga.services.AjaxService;
+import com.javalec.project_zagoga.services.AuthService;
+import com.javalec.project_zagoga.services.MailService;
 import com.javalec.project_zagoga.services.UsersService;
 
 import com.javalec.project_zagoga.vo.AuthInfo;
 import lombok.AllArgsConstructor;
+
+import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,12 +30,10 @@ import java.util.List;
 public class UsersController {
 
     private final UsersMapper usersMapper;
-    private final UsersService userService;
 
-//	@RequestMapping("/mypage_user")
-//	public String mypage_user() {
-//		return "/mypage/mypage_user";
-//	}
+    private final UsersService userService;
+    private final AuthService authService;
+	private final MailService mailService;
 
 	@RequestMapping(value = "/mypage_user/{u_no}", method = RequestMethod.GET)
 	public String mypage_user(@PathVariable("u_no")String u_no, Model model) {
@@ -89,17 +92,25 @@ public class UsersController {
 		return "/mypage/pw_modify";
 	}
 
+	@ResponseBody
+	@PostMapping("/checkMail")
+	public boolean checkEmail(HttpServletRequest request, @Param("email") String email){
+		HttpSession session = request.getSession();
+		return mailService.mailSend(session, email);
+	}
+
 //	change password at mypage_user_info.jsp
 	@PostMapping("/updatUserPWD")
 	@ResponseBody
-	public int updateUserPWD(@AuthenticationPrincipal PrincipalUser principalUser, String password, String new_password) {
-		AuthInfo authInfo = (AuthInfo) principalUser.getAuthInfo();
-		int sc_no = authInfo.getAuthValue().getSc_no();
-		System.out.println(sc_no);
-		System.out.println(password+", "+new_password);
-		int result = userService.updateUserPWD(sc_no, password, new_password);
-		System.out.println(result);
-		return result;
+	public int updateUserPWD(HttpServletRequest request, @AuthenticationPrincipal PrincipalUser principalUser, String inputCode, String new_password) {
+		HttpSession session = request.getSession();
+		if(mailService.certification(session, Integer.parseInt(inputCode))){
+			AuthInfo authInfo = (AuthInfo) principalUser.getAuthInfo();
+			int sc_no = authInfo.getAuthValue().getSc_no();
+			authService.updatePW(sc_no,  new_password);
+			return 1;
+		}
+		return -1;
 	}
 
 //	 duplicate nickname checking  at mypage_user_info.jsp

@@ -61,7 +61,7 @@
             $.ajax({
                 type:"POST",
                 url:"/register/certification.do",
-                data:{u_mail:clientEmail, inputCode:inputCode},
+                data:{inputCode:inputCode},
                 success: function(data){
                     console.log(data);
                     if(data == true){

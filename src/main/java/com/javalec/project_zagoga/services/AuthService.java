@@ -17,7 +17,7 @@ public class AuthService {
     private final HostMapper hostMapper;
     private final PasswordEncoder passwordEncoder;
 
-    public int findPWByEmail(String jumin, String username, String name){
+    public int findPWByJuminNameEmail(String jumin, String username, String name){
         int isFind = 0;
         AuthValue authValue = authMapper.loadUserByName(username);
         if(authValue == null) {

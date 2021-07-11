@@ -12,7 +12,7 @@ import java.util.Random;
 @Service
 public class MailService {
 
-    private JavaMailSender mailSender;
+    private final JavaMailSender mailSender;
     private static final String FROM_ADDRESS = "leni.s.googol@gmail.com";
 
     private final UsersMapper mapper;
@@ -22,7 +22,7 @@ public class MailService {
         this.mailSender = mailSender;
     }
 
-    public void mailSend(HttpSession session, String u_mail) {
+    public boolean mailSend(HttpSession session, String u_mail) {
         try {
             MailHandler mailHandler = new MailHandler(mailSender);
             Random random = new Random(System.currentTimeMillis());
@@ -47,14 +47,15 @@ public class MailService {
 
             mailHandler.send();
 
-            session.setAttribute(""+u_mail, result); //세션 생성
+            session.setAttribute("authCode", result); //세션 생성
             System.out.println("@@@@@@@#############"+ u_mail);
 //            mapper.insert_authKey(result);
 //          데이터 넣기
-
+            return true;
         }
         catch(Exception e){
             e.printStackTrace();
+            return false;
         }
     }
 
@@ -64,17 +65,13 @@ public class MailService {
         return  mapper.check_mail(u_mail);
     }
 
-    public boolean certification(HttpSession session, String u_mail, int inputCode){
+    public boolean certification(HttpSession session, int inputCode){
         try {
-            int preparedCode = (int) session.getAttribute(u_mail);
+            int preparedCode = (int) session.getAttribute("authCode");
             System.out.println("preparedCode" + preparedCode);
             // u_mail로 보냈던 코드랑 비교하기 위해서 쓰는듯함
 
-            if(preparedCode == inputCode){
-                return true;
-            }else{
-                return false;
-            }
+            return preparedCode == inputCode;
         }catch (Exception e){
             throw e;
         }

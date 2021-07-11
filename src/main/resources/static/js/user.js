@@ -166,5 +166,24 @@ $(document).ready(function() {
 
 
 	//pw팝업
-    function pw_popup(){window.open("pw_modify","비밀번호변경","width=650, height=500,left=300,top=50")}
+    function pw_popup(clientEmail){
+        console.log("clientEmail: "+clientEmail);
+
+        $.ajax({
+            type:"POST",
+            url:"/user/checkMail",
+            data:{email:clientEmail},
+            success: function(isSuccess){
+                if(isSuccess){
+                    alert("인증번호가 발송되었습니다.")
+                    window.open("pw_modify","비밀번호변경","width=650, height=500,left=300,top=50");
+                }
+                console.log('오류없음', isSuccess);
+            },
+            error: function (e){
+                alert("인증번호 발송에 실패하였습니다. . 잠시 후 시도해주세요.")
+                console.log('실패',e);
+            }
+        });
+    }
 

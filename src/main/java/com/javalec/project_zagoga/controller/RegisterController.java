@@ -64,12 +64,9 @@ public class RegisterController {
 
     @PostMapping("/certification.do")
     @ResponseBody
-    private boolean certification(HttpServletRequest request, String u_mail, String inputCode){
+    private boolean certification(HttpServletRequest request, String inputCode){
         HttpSession session = request.getSession(); // 세션으로 넘긴값들을 받아옴
-
-        boolean result = mailService.certification(session, u_mail, Integer.parseInt(inputCode));
-
-        return result;
+        return mailService.certification(session, Integer.parseInt(inputCode));
     }
 
 
