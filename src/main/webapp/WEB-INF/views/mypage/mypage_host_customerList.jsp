@@ -65,6 +65,9 @@
 							<c:when test="${book.b_state eq 2}">
 								거부
 							</c:when>
+							<c:when test="${book.b_state eq 3}">
+								취소
+							</c:when>
 						</c:choose>
 					</td>
 					<td>

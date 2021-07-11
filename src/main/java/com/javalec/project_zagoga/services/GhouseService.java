@@ -25,18 +25,13 @@ public class GhouseService {
 		return ghouseMapper.roomAndGhouse(gh_no);
 	}
 
-	public List<GhouseRoomImages> ghouseDetail(int h_no){
-		return ghouseMapper.ghouseDetail(h_no);
+	public List<GhouseRoomImages> ghouseDetail(int gh_no){
+		return ghouseMapper.ghouseDetail(gh_no);
 	}
 
-	public List<GhouseRoom> getList(String local){
-		return ghouseMapper.getList(local);
+	public List<GhouseRoom> getGhouseList(String local){
+		return ghouseMapper.getGhouseList(local);
 	}
-	
-	  public List<GhouseRoom> localList(String local){
-		  return ghouseMapper.localList(local); 
-		  }
-	
 
 //	public void insert(String gh_name, String gh_addr1, String gh_addr2, String gh_detail, String gh_hno){
 //		this.GhouseMapper.insert(gh_name, gh_addr1, gh_addr2, gh_detail, gh_hno);

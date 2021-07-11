@@ -15,14 +15,16 @@
 		<div class = "table">
 		<h2>예약 정보</h2>
 			<table>
-			
-			 <c:forEach items="${bookingList }" var="booking" >
+
 				<tr>
 					<th>예약한 게스트 하우스</th>
 					<th>예약했던 방</th>
 					<th>예약 날짜</th>
 					<th>예약 완료 여부</th>
 				</tr>
+
+			 <c:forEach items="${bookingList }" var="booking" >
+
 				<tr>
 					<td>${booking.gh_name }</td>
 					<td>${booking.r_name}</td>

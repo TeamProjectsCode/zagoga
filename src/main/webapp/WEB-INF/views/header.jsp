@@ -36,7 +36,7 @@
 			<div class="dropdown">
 				<button class="dropbtn">예약 하기</button>
 				<div class="dropdown-content">
-					<a href="/ghouse/getList">전체 보기</a> <a href="#">서울 특별시</a> <a href="#">부산 광역시</a>
+					<a href="/ghouse/getGhouseList">전체 보기</a> <a href="#">서울 특별시</a> <a href="#">부산 광역시</a>
 					<a href="#">인천 광역시</a> <a href="#">대전 광역시</a> <a href="#">대구광역시</a> 
 					<a href="#">광주 광역시</a> <a href="#">경기도</a> <a href="#">경상도</a>
 					<a href="#">강원도</a> <a href="#">충청도</a> <a href="#">전라도</a>
@@ -72,6 +72,9 @@
 				<c:when test="${userType eq 'ADMIN' }">
 					<div class="dropdown">
 						<button class="dropbtn" onclick="location.href='/admin/user_list'">USERLIST</button>
+						<div class="dropdown-content">
+							<a href="/admin/user_booking_list">예약 정보 조회</a>
+						</div>
 					</div>
 					<div class="dropdown">
 						<button class="dropbtn" onclick="location.href='/admin/host_list'">HOSTLIST</button>

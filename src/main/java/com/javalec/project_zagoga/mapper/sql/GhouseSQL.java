@@ -10,19 +10,20 @@ public class GhouseSQL {
     private static final String Images="IMAGES";
     public static final String GET_ALL_LIST="select * from " + TABLE;
 
-    public String getList(String local){
-        String sql = 
-        		"select * from GHOUSE";
-        return sql;
+    public String getGhouseList(String local) {
+        // location에 따른 최소 값을 가진 ghouse 정보 출력
+        return new SQL()
+                .SELECT("*")
+                .FROM(Images)
+                .JOIN("ROOMS R on R.R_NO = IMAGES.I_RNO")
+                .JOIN("GHOUSE G on G.GH_NO = R.R_GHNO")
+                .WHERE("I_NO in (select min(I_NO) from IMAGES\n" +
+                        "                                                join ROOMS R2 on R2.R_NO = IMAGES.I_RNO\n" +
+                        "                                                join GHOUSE G2 on G2.GH_NO = R2.R_GHNO group by GH_NO)")
+                .AND()
+                .WHERE("GH_ADDR1 like '%"+local+"%'")
+                .toString();
     }
-	
-	  public String localList(String local) { 
-		  return new SQL()
-	  .SELECT("GH_NO, GH_NAME, GH_IMAGE, MIN(R_FEE)'R_FEE'") 
-	  .FROM(TABLE,Rooms)
-	  .WHERE("GH_ADDR1 LIKE '%"+local+"%'") 
-	  .GROUP_BY("GH_NO") .toString(); 
-	  }
 	
     
     public String insert(Ghouse ghouse){
@@ -49,7 +50,7 @@ public class GhouseSQL {
 // and I_RNO <= (select max(R_NO)'R_NO' from ROOMS where R_GHNO = 2)
 // order by I_RNO and I_NO desc;
     public String ghouseDetail(int h_no){
-        return new SQL()
+/*        return new SQL()
                 .SELECT("*")
                 .FROM("IMAGES")
                 .JOIN("ROOMS R2 on R2.R_NO = IMAGES.I_RNO")
@@ -58,6 +59,14 @@ public class GhouseSQL {
                         "join ROOMS R on R.R_NO = IMAGES.I_RNO " +
                         "join GHOUSE G on R.R_GHNO = G.GH_NO " +
                         "where GH_HNO=#{h_no} group by R_NO)")
+                .toString();*/
+        return new SQL()
+                .SELECT("*")
+                .FROM(Images)
+                .JOIN("ROOMS R on R.R_NO = IMAGES.I_RNO")
+                .JOIN("GHOUSE G on G.GH_NO = R.R_GHNO")
+                .WHERE(" I_NO in (select min(I_NO) from IMAGES\n" +
+                        "                where I_RNO in  (select R_NO from ROOMS where R_GHNO=#{gh_no}) group by I_RNO)")
                 .toString();
     }
 

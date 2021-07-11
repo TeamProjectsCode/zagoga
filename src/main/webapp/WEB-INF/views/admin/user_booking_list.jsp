@@ -17,7 +17,7 @@
 			<h2>예약 관리</h2>
 			<hr>
 			<p></p>
-		유저 이름 <input type="text" id="keyword">
+		유저 닉네임 <input type="text" id="keyword">
 		</div>
 		<table id="user-table">
 			<thead>
@@ -42,7 +42,7 @@
 			$("#keyword").keyup(function() {
 								var k = $(this).val();
 								$("#user-table > tbody > tr").hide();
-								var temp = $("#user-table > tbody > tr > td:nth-child(4):contains('"+ k + "')");
+								var temp = $("#user-table > tbody > tr > td:nth-child(2):contains('"+ k + "')");
 								$(temp).parent().show();
 							})
 		</script>
