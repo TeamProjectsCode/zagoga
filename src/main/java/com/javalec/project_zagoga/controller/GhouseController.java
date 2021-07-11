@@ -158,10 +158,6 @@ public class GhouseController {
 		return "/mypage/mypage_user";
 	}
 
-	@RequestMapping("/mypage_user_booking") // user �삁�빟紐⑸줉
-	public String mypage_user_booking() {
-		return "/mypage/mypage_user_booking";
-	}
 
 	@RequestMapping("/mypage_host_customerList") // �삁�빟 �듅�씤/嫄곕� �럹�씠吏�
 	public String mypage_host_customerList() {
