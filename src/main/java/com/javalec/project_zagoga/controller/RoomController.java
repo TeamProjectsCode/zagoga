@@ -107,15 +107,6 @@ public class RoomController {
         return "redirect:/ghouse/host_myPageHouseInfo/"+h_no;
     }
 
-    //0704 03:37 확인
-    @RequestMapping(value = "/mypageRoomInfo/{r_no}", method = RequestMethod.GET)
-    public String mypageRoomInfo(@PathVariable("r_no")int r_no, Model model){
-        List<RoomImages> roomImages = roomService.mypageRoomInfo(r_no);
-        System.out.println("roomImages.toString() : "+roomImages.toString());
-//        System.out.println(roomImages.get(0).toString());
-        model.addAttribute("room", roomImages);
-        return "/mypage/mypage_room_info";
-    }
 
 //  20210706 15:47 확인
     @RequestMapping("/update")

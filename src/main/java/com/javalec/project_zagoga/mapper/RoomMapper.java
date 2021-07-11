@@ -32,8 +32,7 @@ public interface RoomMapper {
 	@InsertProvider(type = RoomSQL.class,  method = "insertRoom")
 	int insertRoom(@Param("room") Room room );
 
-	@SelectProvider(type = RoomSQL.class, method = "mypageRoomInfo")
-	List<RoomImages> mypageRoomInfo(@Param("r_no")int r_no);
+
 
 	@UpdateProvider(type = RoomSQL.class, method = "update")
 	void update(@Param("room") Room room);

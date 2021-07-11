@@ -1,7 +1,9 @@
 package com.javalec.project_zagoga.controller;
 
 import com.javalec.project_zagoga.dto.Ghouse;
+import com.javalec.project_zagoga.dto.GhouseRoom;
 import com.javalec.project_zagoga.dto.Host;
+import com.javalec.project_zagoga.dto.RoomImages;
 import com.javalec.project_zagoga.security.AuthValue;
 import com.javalec.project_zagoga.security.PrincipalUser;
 import com.javalec.project_zagoga.services.AuthService;
@@ -108,7 +110,10 @@ public class HostController {
     }
 
     @RequestMapping("/mypage_house_info/{h_no}") // �궗�뾽�옄 �벑濡앺쁽�솴, �벑濡앸맂 諛⑺쁽�솴(�궗�뾽�옄 �젙蹂대�寃�)
-    public String mypage_house_info(@PathVariable("h_no") String h_no) {
+    public String mypage_house_info(@PathVariable("h_no") String h_no, Model model) {
+        List<GhouseRoom> ghouseRoom = this.hostService.roomAndGhouse(h_no);
+        model.addAttribute("grList", ghouseRoom);
+//		System.out.println(ghouseRoom.toString());
         return "/mypage/mypage_house_info";
     }
 
@@ -127,6 +132,15 @@ public class HostController {
 //        return "/mypage/mypage_house_info";
 //    }
 
+    //0704 03:37 확인
+    @RequestMapping(value = "/mypageRoomInfo/{r_no}", method = RequestMethod.GET)
+    public String mypageRoomInfo(@PathVariable("r_no")int r_no, Model model){
+        List<RoomImages> roomImages = hostService.mypageRoomInfo(r_no);
+    //        System.out.println("roomImages.toString() : "+roomImages.toString());
+    //        System.out.println(roomImages.get(0).toString());
+        model.addAttribute("room", roomImages);
+        return "/mypage/mypage_room_info";
+    }
 
 
 

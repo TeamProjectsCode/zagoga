@@ -54,7 +54,7 @@
 					<th>${gr.r_no}</th>
 					<th>${gr.r_name}</th>
 					<th>${gr.r_pmax} 인실</th>
-					<th><input type="button" onclick="location.href='/room/mypageRoomInfo/${gr.r_no}'" value="상세 보기"></th>
+					<th><input type="button" onclick="location.href='/host/mypageRoomInfo/${gr.r_no}'" value="상세 보기"></th>
 				</tr>
 				</c:forEach>
 			</table>

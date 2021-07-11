@@ -57,7 +57,7 @@
 			<div id="button">
 <%--				<input type="hidden" value="${room.get(0).r_no}" name="r_no" readonly>--%>
 					<button type ="submit">수정완료</button>&nbsp;&nbsp;&nbsp;
-					<input type="button" onclick="location.href='/room/ImagesDelete/${room.get(0).r_no},#{user.h_no}'" value="삭제하기">&nbsp;
+					<input type="button" onclick="location.href='#'" value="삭제하기">&nbsp;
 					<button onclick="history.go(-1)">취소</button>
 				</div>
 		</div>

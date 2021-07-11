@@ -27,15 +27,7 @@ public class RoomSQL {
                 .toString();
     }
 
-    public String mypageRoomInfo(int r_no){
-        return new SQL()
-                .SELECT("*")
-                .FROM(TABLE)
-                .JOIN("IMAGES I on ROOMS.R_NO = I.I_RNO")
-                .WHERE("I_RNO = #{r_no}")
-                .ORDER_BY("I_NO DESC")
-                .toString();
-    }
+
 
     public String imageInsert(Images images){
         return new SQL()

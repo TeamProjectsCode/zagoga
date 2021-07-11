@@ -39,9 +39,7 @@ public class RoomService {
         roomMapper.imageInsert(images);
     }
 
-    public List<RoomImages> mypageRoomInfo(int r_no){
-        return roomMapper.mypageRoomInfo(r_no);
-    }
+
 
     public int insertRoom(Room room){
         return roomMapper.insertRoom(room);
