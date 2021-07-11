@@ -40,4 +40,10 @@ public interface HostMapper {
 
     @SelectProvider(type = HostSQL.class, method = "myGhouse")
     Ghouse myGhouse(int h_no);
+
+//    @SelectProvider(type = HostSQL.class, method = "myPageGhouseInfo")
+//    Ghouse myPageGhouseInfo(String h_no);
+
+    @DeleteProvider(type = HostSQL.class, method = "HostGhouseDelete")
+    void HostGhouseDelete(int gh_no, int h_no);
 }

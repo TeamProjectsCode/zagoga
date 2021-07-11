@@ -44,8 +44,9 @@ public interface RoomMapper {
 	@InsertProvider(type = RoomSQL.class, method = "imageInsert")
 	void imageInsert(@Param("images") Images images);
 
-	@DeleteProvider(type = RoomSQL.class, method = "delete")
-	int delete(@Param("r_no")int r_no, @Param("r_ghno")int r_ghno);
+	@DeleteProvider(type = RoomSQL.class, method = "ImagesDelete")
+	int ImagesDelete(int r_no);
 
-
+	@DeleteProvider(type = RoomSQL.class, method = "RoomDelete")
+	int RoomDelete(@Param("r_no") int r_no);
 }

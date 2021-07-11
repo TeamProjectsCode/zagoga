@@ -25,8 +25,8 @@ public class GhouseService {
 		return ghouseMapper.roomAndGhouse(gh_no);
 	}
 
-	public List<GhouseRoomImages> ghouseDetail(int gh_no){
-		return ghouseMapper.ghouseDetail(gh_no);
+	public List<GhouseRoomImages> ghouseDetail(int h_no){
+		return ghouseMapper.ghouseDetail(h_no);
 	}
 
 	public List<GhouseRoom> getList(String local){

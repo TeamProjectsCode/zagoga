@@ -16,7 +16,8 @@
   <body>
   <%@ include file="../header.jsp" %>
 	<div class="total">
-	  <form name="form" action="/room/room_images/${RM.r_no}" method="post" enctype="multipart/form-data">
+	  <form name="form" action="/room/room_images/${RM.r_no},${user.h_no}" method="post" enctype="multipart/form-data">
+<%--		<input type="hidden" name="h_no" value="${user.h_no}">--%>
 	    <h1>방 소개</h1>
 	    <div class="section">
 		    <div class="title">

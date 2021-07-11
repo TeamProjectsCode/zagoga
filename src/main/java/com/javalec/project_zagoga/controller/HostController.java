@@ -77,11 +77,6 @@ public class HostController {
         return num;
     }
 
-    @RequestMapping(value = "/host_ghouseGetCheck/{h_no}")
-    public String ghouseGetCheck(@RequestParam("h_no")int h_no){
-        return "";
-    }
-
     @RequestMapping(value = "/host_myGhouse/{h_no}", method = RequestMethod.GET)
     public String myGhosue(@PathVariable("h_no") String h_no, Model model){
 //        Ghouse ghouse = this.hostService.myGhouse(Integer.parseInt(h_no));
@@ -89,8 +84,15 @@ public class HostController {
 //        HostVO hostInfo = hostService.getOneHost(Integer.parseInt(h_no));
 //        model.addAttribute("hostInfo", hostInfo);
         // 호스트 정보 조회 해서 넣을까?
-//        System.out.println("ghouse.toString : " + ghouse.toString());
         return "/mypage/mypage_host_info";
+    }
+
+    @RequestMapping(value = "/host_myGhouse2/{h_no}", method = RequestMethod.GET)
+    public String myGhosue2(@PathVariable("h_no") String h_no, Model model){
+        Ghouse ghouse = this.hostService.myGhouse(Integer.parseInt(h_no));
+        model.addAttribute("gh", ghouse);
+//        System.out.println("ghouse.toString : " + ghouse.toString());
+        return "/mypage/mypage_house_info";
     }
 
     //host : 마이페이지 게스트 하우스 예약자 리스트 (승인/거절)
@@ -109,6 +111,28 @@ public class HostController {
     public String mypage_house_info(@PathVariable("h_no") String h_no) {
         return "/mypage/mypage_house_info";
     }
+
+
+
+    @RequestMapping(value = "/HostGhouseDelete/{gh_no},{h_no}", method = RequestMethod.GET)
+    public String HostGhouseDelete(@PathVariable("gh_no")int gh_no, @PathVariable("gh_no")int h_no){
+        hostService.HostGhouseDelete(gh_no, h_no);
+        return "main";
+    }
+
+//    @RequestMapping(value = "/host_myPageHouseInfo/{h_no}", method = RequestMethod.GET)
+//    public String host_myPageHouseInfo(@PathVariable("h_no")String h_no, Model model){
+//        Ghouse ghouse = this.hostService.myPageGhouseInfo(h_no);
+//        model.addAttribute("gh", ghouse);
+//        return "/mypage/mypage_house_info";
+//    }
+
+
+
+
+
+
+
 
 
 }

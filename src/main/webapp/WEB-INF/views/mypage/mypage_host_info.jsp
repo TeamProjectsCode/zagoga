@@ -82,6 +82,7 @@
 				<td id="alert_a" style="font-size: smaller"></td>
 			</tr>
 		</table>
+		</form>
 		<div id = "button">
 			<!-- js 추가 필요 -->
 			<button type="submit" id="submitBtn" >수정하기</button>

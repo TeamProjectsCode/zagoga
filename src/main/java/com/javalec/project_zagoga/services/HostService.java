@@ -1,6 +1,7 @@
 package com.javalec.project_zagoga.services;
 
 import com.javalec.project_zagoga.dto.Ghouse;
+import com.javalec.project_zagoga.dto.GhouseRoom;
 import com.javalec.project_zagoga.dto.Host;
 import com.javalec.project_zagoga.mapper.AuthMapper;
 import com.javalec.project_zagoga.security.AuthValue;
@@ -62,4 +63,6 @@ public class HostService {
     	return hostMapper.hostList();
     }
     public Ghouse myGhouse(int h_no){return hostMapper.myGhouse(h_no);}
+//    public Ghouse myPageGhouseInfo(String h_no){return hostMapper.myPageGhouseInfo(h_no);}
+    public void HostGhouseDelete(int gh_no, int h_no){ hostMapper.HostGhouseDelete(gh_no, h_no);}
 }

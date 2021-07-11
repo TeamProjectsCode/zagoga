@@ -30,10 +30,10 @@ public class RoomSQL {
     public String mypageRoomInfo(int r_no){
         return new SQL()
                 .SELECT("*")
-                .FROM(TABLE,Images)
-                .WHERE("R_NO = #{r_no}")
+                .FROM(TABLE)
+                .JOIN("IMAGES I on ROOMS.R_NO = I.I_RNO")
                 .WHERE("I_RNO = #{r_no}")
-                .ORDER_BY("I_NO desc")
+                .ORDER_BY("I_NO DESC")
                 .toString();
     }
 
@@ -67,8 +67,8 @@ public class RoomSQL {
     public String getDetail(int r_no){
         return new SQL()
                 .SELECT("*")
-                .FROM(TABLE,Images)
-                .WHERE("R_NO = #{r_no}")
+                .FROM(TABLE)
+                .JOIN("IMAGES I on ROOMS.R_NO = I.I_RNO")
                 .WHERE("I_RNO = #{r_no}")
                 .ORDER_BY("I_NO DESC")
                 .toString();
@@ -87,14 +87,17 @@ public class RoomSQL {
         }}.toString();
     }
 
-    public String delete(int r_no, int r_ghno){
+    public String ImagesDelete(int r_no){
         return new SQL()
-                .DELETE_FROM(TABLE)
-                .WHERE("R_GHNO = #{r_ghno}")
-                .WHERE("R_NO = #{r_no}")
-//                .WHERE("R_NO = 1")
+                .DELETE_FROM("IMAGES")
+                .WHERE("I_RNO = #{r_no}")
                 .toString();
     }
-
+    public String RoomDelete(int r_no){
+        return new SQL()
+                .DELETE_FROM(TABLE)
+                .WHERE("R_NO = #{r_no}")
+                .toString();
+    }
 
 }

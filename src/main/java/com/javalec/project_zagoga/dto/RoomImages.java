@@ -20,4 +20,6 @@ public class RoomImages {
     private String i_name;
     private String i_path;
     private int i_rno;
+
+    private int h_no;
 }

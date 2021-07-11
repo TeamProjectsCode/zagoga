@@ -88,6 +88,18 @@ public class HostSQL {
                 .WHERE("GH_HNO = #{h_no}")
                 .toString();
     }
+
+//    public String myPageGhouseInfo(String h_no){
+//        return new SQL()
+//                .SELECT()
+//    }
+
+    public String HostGhouseDelete(int gh_no, int h_no){
+        return new SQL()
+                .DELETE_FROM("IMAGES")
+                .WHERE("I_HNO = #{h_no}")
+                .toString();
+    }
     
 }
 

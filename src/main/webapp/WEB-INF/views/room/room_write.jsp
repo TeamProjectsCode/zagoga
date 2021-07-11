@@ -9,14 +9,15 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="/resources/css/write.css" type="text/css">
 	<title>Insert title here</title>
-	<script type="text/javascript" src="/resources/js/guesthouse.js" charset="utf-8"></script>
-	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<%--	<script type="text/javascript" src="/resources/js/guesthouse.js" charset="utf-8"></script>--%>
+<%--	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>--%>
   </head>
   <body>
   <%@ include file="../header.jsp" %>
 	<div class="total">
 <%--	  <form name="form" action="/room/room_write/${ghno}" method="post">--%>
-	<form name="form" action="/room/room_write/7" method="post">
+	<form name="form" action="/room/room_write" method="post">
+		<input type="hidden" name="r_ghno" value="${gh_no}">
 	    <h1>방 소개</h1>
 	    <div class="section">
 		    <div class="title">
