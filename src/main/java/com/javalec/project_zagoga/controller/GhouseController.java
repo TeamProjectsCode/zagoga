@@ -31,22 +31,10 @@ public class GhouseController {
 		this.roomService = roomService;
 	}
 
-	// 210704 04:03 �솗�씤
-/*
-	@RequestMapping(value = "/getList", method = RequestMethod.GET)
-	public String getList(HttpServletRequest request, Model model) {
-		String local = request.getParameter("local");
-		List<GhouseRoom> show = this.ghouseService.getList(local);
-//		System.out.println(show);
-		model.addAttribute("list", show);
-		return "/room/gHouse_list";
-	}
-*/
-
 	@RequestMapping(value = "/getGhouseList", method = RequestMethod.GET)
 	public String getGhouseList(HttpServletRequest request, Model model) {
 		String local = request.getParameter("local");
-		System.out.println("local:" +local);
+//		System.out.println("local:" +local);
 		if(local == null) {
 			local = "";
 		}
@@ -65,7 +53,11 @@ public class GhouseController {
 	@PostMapping("/insert/{h_no}")
 	public String insert(Ghouse ghouse, @RequestParam("files") MultipartFile file, @PathVariable("h_no") int h_no)
 			throws IOException {
-		String fileAddr = "C:\\Users\\yeon\\IdeaProjects\\project_zagoga\\src\\main\\resources\\static\\gh_image\\";
+//		Linux path: /home/leni/gh_image
+//		Linux room path: /home/leni/rooms_image
+//		String fileAddr = "C:\\Users\\yeon\\IdeaProjects\\project_zagoga\\src\\main\\resources\\static\\gh_image\\";
+		String fileAddr = "D:\\_Proni\\Intelli J\\project_zagoga\\src\\main\\resources\\static\\gh_image\\";
+//		String fileAddr = "/home/leni/gh_image/";
 
 		String imageName = String.valueOf(System.currentTimeMillis());
 		String OriginName = file.getOriginalFilename();
@@ -107,7 +99,9 @@ public class GhouseController {
 	public String ghouseDetail(@PathVariable("gh_no") int gh_no, Model model) {
 		List<GhouseRoomImages> ghouseRoomImages = this.ghouseService.ghouseDetail(gh_no);
 		model.addAttribute("griList", ghouseRoomImages);
-		System.out.println("ghouseRoomImages : "+ghouseRoomImages);
+		model.addAttribute("reviewList", ghouseService.getReviewListByGHNO(gh_no));
+//		System.out.println("ghouseRoomImages.get(0).toString() : "+ghouseRoomImages);
+//		System.out.println(ghouseRoomImages.toString());
 		return "/room/gHouse_detail";
 	}
 

@@ -53,7 +53,7 @@ public class RoomController {
     public String detail(@PathVariable("r_ghno")int r_ghno, Model model){
         Room room = roomService.detail(r_ghno);
         model.addAttribute("RM", room);
-        System.out.println("room.toString() : " + room.toString());
+//        System.out.println("room.toString() : " + room.toString());
         return "/room/room_images";
     }
     
@@ -64,7 +64,10 @@ public class RoomController {
 //        System.out.println("room/room_images = room.toString() : " + room.toString());
 //        String Path = "/resources/rooms_image/";
         images.setI_rno(r_no1);
-        String fileAddr = "C:\\Users\\yeon\\IdeaProjects\\project-zagoga\\src\\main\\resources\\static\\rooms_image\\";
+        //		Linux path: /home/leni/gh_image
+//		Linux room path: /home/leni/rooms_image
+        String fileAddr = "D:\\_Proni\\Intelli J\\project_zagoga\\src\\main\\resources\\static\\rooms_image\\";
+//        String fileAddr = "/home/leni/rooms_image";
         List<String> safeDB = new ArrayList<>();
         List<Integer> r_no = new ArrayList<>();
 
@@ -96,7 +99,8 @@ public class RoomController {
             for (int i=0; i<safeDB.size(); i++){
                 images.setI_name(safeDB.get(i));
                 images.setI_rno(r_no.get(i));
-                images.setI_path("C:\\Users\\yeon\\IdeaProjects\\project_zagoga\\src\\main\\resources\\static\\rooms_image\\");
+//                images.setI_path("C:\\Users\\yeon\\IdeaProjects\\project_zagoga\\src\\main\\resources\\static\\rooms_image\\");
+                images.setI_path(fileAddr);
                 roomService.imageInsert(images);
             }
         } catch (IllegalStateException e){

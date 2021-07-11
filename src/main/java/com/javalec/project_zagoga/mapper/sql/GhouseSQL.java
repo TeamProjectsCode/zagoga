@@ -8,6 +8,7 @@ public class GhouseSQL {
     private static final String TABLE="GHOUSE";
     private static final String Rooms="ROOMS";
     private static final String Images="IMAGES";
+    private static final String Review="REVIEWS";
     public static final String GET_ALL_LIST="select * from " + TABLE;
 
     public String getGhouseList(String local) {
@@ -25,21 +26,17 @@ public class GhouseSQL {
                 .toString();
     }
 
-    /*public String getList(String local){
-        String sql = 
-        		"select * from GHOUSE";
-        return sql;
+	public String getReviewListByGHNO(int gh_no) {
+        // location에 따른 최소 값을 가진 ghouse 정보 출력
+        return new SQL()
+                .SELECT(" U_NICK, RV_STAR, RV_CONTENT, RV_NO")
+                .FROM(Review)
+                .JOIN("USERS U on REVIEWS.RV_UNO = U.U_NO")
+                .JOIN("GHOUSE G on G.GH_NO = REVIEWS.RV_GHNO")
+                .WHERE("G.GH_NO=#{gh_no}")
+                .toString();
     }
-	
-	  public String localList(String local) { 
-		  return new SQL()
-	  .SELECT("GH_NO, GH_NAME, GH_IMAGE, MIN(R_FEE)'R_FEE'") 
-	  .FROM(TABLE,Rooms)
-	  .WHERE("GH_ADDR1 LIKE '%"+local+"%'") 
-	  .GROUP_BY("GH_NO") .toString(); 
-	  }*/
-	
-    
+
     public String insert(Ghouse ghouse){
         return new SQL()
                 .INSERT_INTO(TABLE)
@@ -63,7 +60,7 @@ public class GhouseSQL {
 // where I_RNO >= (select min(R_NO)'R_NO' from ROOMS where R_GHNO = 2)
 // and I_RNO <= (select max(R_NO)'R_NO' from ROOMS where R_GHNO = 2)
 // order by I_RNO and I_NO desc;
-    public String ghouseDetail(int gh_no){
+    public String ghouseDetail(int h_no){
 /*        return new SQL()
                 .SELECT("*")
                 .FROM("IMAGES")
@@ -72,9 +69,8 @@ public class GhouseSQL {
                 .WHERE("I_NO in (select min(I_NO) from IMAGES " +
                         "join ROOMS R on R.R_NO = IMAGES.I_RNO " +
                         "join GHOUSE G on R.R_GHNO = G.GH_NO " +
-                        "where GH_NO=#{gh_no} group by R_NO)")
+                        "where GH_HNO=#{h_no} group by R_NO)")
                 .toString();*/
-//        gh_no에 속하는 방들의 이미지 정보 가져옴
         return new SQL()
                 .SELECT("*")
                 .FROM(Images)

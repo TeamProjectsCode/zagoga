@@ -2,10 +2,7 @@ package com.javalec.project_zagoga.services;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.javalec.project_zagoga.dto.Booking;
-import com.javalec.project_zagoga.dto.BookingRoomGhouseUsers;
-import com.javalec.project_zagoga.dto.GhouseRoom;
-import com.javalec.project_zagoga.dto.Users;
+import com.javalec.project_zagoga.dto.*;
 import com.javalec.project_zagoga.mapper.AuthMapper;
 import com.javalec.project_zagoga.security.AuthValue;
 import com.javalec.project_zagoga.security.PrincipalUser;
@@ -70,7 +67,7 @@ public class UsersService {
         user.setU_no(String.valueOf(orginUser.getU_no()));
         user.setU_phone(phone);
         int isSuccess = usersMapper.updateUserNickPhone(user);
-        System.out.println("isSuccess"+isSuccess);
+//        System.out.println("isSuccess"+isSuccess);
         if (isSuccess != 0){
             orginUser.setU_nick(user.getU_nick());
             orginUser.setU_phone(phone);
@@ -84,6 +81,13 @@ public class UsersService {
 
     public List<BookingRoomGhouseUsers> getMyBookList(String u_no){return usersMapper.getMyBookList(u_no);}
 
+    public List<BookingRoomGhouseUsers> userBookList(String u_no){return usersMapper.userBookingList(u_no);}
+    
     public BookingRoomGhouseUsers myBookSelectOneDetail(String b_no, String u_no){return usersMapper.myBookSelectOneDetail(b_no, u_no);}
 
+    public int userBookingCancel(int b_no, int u_no){return usersMapper.userBookingCancel(b_no, u_no);}
+
+    public void reviewWrite(String rv_content, int rv_star, int rv_uno , int rv_ghno){
+        usersMapper.reviewWrite(rv_content,  rv_star,  rv_uno,  rv_ghno);
+    }
 }

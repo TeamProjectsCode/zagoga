@@ -35,7 +35,6 @@
                     <hr>
                     <p>${gh.gh_name}</p>
                     <br>
-                    <p>규모 : ㅁㅇㅁ</p>
                     <p>위치 : ${gh.gh_addr1}</p>
                     <p>등록 연락처: ${user.h_phone}</p>
                     <br>

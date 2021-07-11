@@ -28,7 +28,6 @@ public class HostController {
     public String mypage_host(@PathVariable("h_no")int h_no,Model model){
         Ghouse ghouse = this.hostService.myPageHostGhouse(h_no);
         model.addAttribute("gh", ghouse);
-
         return"/mypage/mypage_host";
     }
 
@@ -37,7 +36,7 @@ public class HostController {
         HostVO hostInfo = (HostVO) principalUser.getAuthInfo();
 
         // 계정 정보 변경 필요
-        System.out.println("host: "+host.toString());
+//        System.out.println("host: "+host.toString());
         host.setH_no(hostInfo.getH_no());
          hostService.updateInfo(host);
 
@@ -102,8 +101,14 @@ public class HostController {
 
     @RequestMapping("/mypage_house_info/{h_no}") // �궗�뾽�옄 �벑濡앺쁽�솴, �벑濡앸맂 諛⑺쁽�솴(�궗�뾽�옄 �젙蹂대�寃�)
     public String mypage_house_info(@PathVariable("h_no") String h_no, Model model) {
+        // Ghouse 정보
+        Ghouse ghouse = this.hostService.myPageHostGhouse(Integer.parseInt(h_no));
+        model.addAttribute("ghInfo", ghouse);
+
+        // 룸 정 보
         List<GhouseRoom> ghouseRoom = this.hostService.roomAndGhouse(h_no);
-        model.addAttribute("grList", ghouseRoom);
+//        model.addAttribute("grList", ghouseRoom);
+        model.addAttribute("roomList", ghouseRoom);
 //		System.out.println(ghouseRoom.toString());
         return "/mypage/mypage_house_info";
     }

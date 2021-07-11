@@ -3,9 +3,9 @@ package com.javalec.project_zagoga.mapper;
 import com.javalec.project_zagoga.dto.Ghouse;
 import com.javalec.project_zagoga.dto.GhouseRoom;
 import com.javalec.project_zagoga.dto.GhouseRoomImages;
+import com.javalec.project_zagoga.dto.Reviews;
 import com.javalec.project_zagoga.mapper.sql.GhouseSQL;
 import org.apache.ibatis.annotations.*;
-import org.springframework.security.core.parameters.P;
 
 import java.util.List;
 
@@ -21,13 +21,7 @@ public interface GhouseMapper {
 
 	@SelectProvider(type = GhouseSQL.class, method = "getGhouseList")
 	List<GhouseRoom> getGhouseList(@Param("local") String local);
-//
-//	@SelectProvider(type = GhouseSQL.class, method = "getList")
-//	List<GhouseRoom> getList(String local);
-//
-//	  @SelectProvider(type = GhouseSQL.class, method = "localList")
-//	 List<GhouseRoom> localList(String local);
-//
+	 
 
 	//mypage_room_detail
 	@SelectProvider(type = GhouseSQL.class, method = "roomAndGhouse")
@@ -43,6 +37,8 @@ public interface GhouseMapper {
 	int insert(@Param("ghouse")Ghouse ghouse);
 
 
+	@SelectProvider(type = GhouseSQL.class, method = "getReviewListByGHNO")
+	List<Reviews> getReviewListByGHNO(@Param("gh_no") int gh_no);
 
 
 //	@Delete("DELETE FROM GHOUSE WHERE GH_NO = #{GH_NO}")

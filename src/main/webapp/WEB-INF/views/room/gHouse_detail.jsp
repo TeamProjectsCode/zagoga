@@ -198,11 +198,21 @@
 							<th>별명</th>
 							<th>내용</th>
 						</tr>
-						<tr>
-							<td>★</td>
-							<td>익명</td>
-							<td>내용123</td>
-						</tr>
+						<c:forEach items="${reviewList}" var="review">
+								<tr>
+									<td id="start_${review.rv_no}">
+									</td>
+									<td>${review.u_nick}</td>
+									<td>${review.rv_content}</td>
+									<script>
+										var startStr = "";
+										for(i=0; i<${review.rv_star}; i++){
+											startStr += "⭐";
+										}
+										$('#start_${review.rv_no}').text(startStr);
+								</script>
+								</tr>
+						</c:forEach>
 					</table>
 				</div>
 
@@ -220,7 +230,7 @@
 			</c:when>
 			<c:otherwise>
 				<center>
-					<p>준비중입니다 🥲.</p>
+					<p>준비중입니다 😥.</p>
 					<p>빠른시일내에 찾아뵙겠습니다.</p>
 				</center>
 			</c:otherwise>

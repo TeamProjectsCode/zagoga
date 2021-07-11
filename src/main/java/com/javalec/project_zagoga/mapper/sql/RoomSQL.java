@@ -65,5 +65,4 @@ public class RoomSQL {
                 .ORDER_BY("I_NO DESC")
                 .toString();
     }
-
 }

@@ -100,11 +100,10 @@ public class HomeController {
 	}
 
 	//user : 댓글 추가 기능
-	@RequestMapping("user/review_write")
-	public String review_write() {
-		return "room/review_write";
-	}
-
+//	@RequestMapping("user/review_write")
+//	public String review_write() {
+//		return "room/review_write";
+//	}
 	//board : 게스트 하우스 예약 취소 페이지 
 	@RequestMapping("board/room_cancel")
 	public String room_cancel() {
