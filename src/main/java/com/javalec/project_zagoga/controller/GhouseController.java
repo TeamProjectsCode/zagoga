@@ -1,5 +1,8 @@
 package com.javalec.project_zagoga.controller;
 
+import com.javalec.project_zagoga.dto.Host;
+import com.javalec.project_zagoga.services.GhouseService;
+import com.javalec.project_zagoga.services.RoomService;
 import com.javalec.project_zagoga.dto.Ghouse;
 import com.javalec.project_zagoga.dto.GhouseRoom;
 import com.javalec.project_zagoga.dto.GhouseRoomImages;
@@ -23,6 +26,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/ghouse")
 //@RestController �뒗 酉고럹�씠吏� 諛섑솚 �끂�끂 �뜲�씠�꽣留�! �꽕
 public class GhouseController {
+
 	private final GhouseService ghouseService;
 	private final RoomService roomService;
 	private ByteArrayInputStream files;
@@ -56,8 +60,7 @@ public class GhouseController {
 			throws IOException {
 //		Linux path: /home/leni/gh_image
 //		Linux room path: /home/leni/rooms_image
-//		String fileAddr = "C:\\Users\\yeon\\IdeaProjects\\project_zagoga\\src\\main\\resources\\static\\gh_image\\";
-		String fileAddr = "D:\\_Proni\\Intelli J\\project_zagoga\\src\\main\\resources\\static\\gh_image\\";
+		String fileAddr = "C:\\Users\\jieun\\Documents\\intelliJ\\project_zagoga\\src\\main\\resources\\static\\gh_image\\";
 //		String fileAddr = "/home/leni/gh_image/";
 
 		String imageName = String.valueOf(System.currentTimeMillis());

@@ -1,4 +1,5 @@
 package com.javalec.project_zagoga.controller;
+import com.javalec.project_zagoga.services.RoomService;
 
 
 import com.javalec.project_zagoga.dto.GhouseRoomImages;
@@ -66,7 +67,7 @@ public class RoomController {
         images.setI_rno(r_no1);
         //		Linux path: /home/leni/gh_image
 //		Linux room path: /home/leni/rooms_image
-        String fileAddr = "D:\\_Proni\\Intelli J\\project_zagoga\\src\\main\\resources\\static\\rooms_image\\";
+        String fileAddr = "C:\\Users\\jieun\\Documents\\intelliJ\\project_zagoga\\src\\main\\resources\\static\\rooms_image\\";
 //        String fileAddr = "/home/leni/rooms_image";
         List<String> safeDB = new ArrayList<>();
         List<Integer> r_no = new ArrayList<>();
