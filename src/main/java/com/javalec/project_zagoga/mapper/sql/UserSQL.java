@@ -132,10 +132,11 @@ public class UserSQL {
     public String check_mail(String u_mail){
         return new SQL()
                 .SELECT("count(*)")
-                .FROM(TABLE)
-                .WHERE("U_MAIL=#{U_MAIL}")
+                .FROM("SECURITY")
+                .WHERE("USERNAME=#{u_mail}")
                 .toString();
     }
+
     public String findID(String name,String jumin){
         return new SQL()
                 .SELECT ("U_MAIL")

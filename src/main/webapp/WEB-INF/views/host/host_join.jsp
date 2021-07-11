@@ -32,13 +32,14 @@
             <tr>
                 <td >
                     <input type="text" id="emailID" name="username" placeholder="이메일" disabled required>
-                    @ <select id="emailAddr" name="username" disabled required>
+                    @ <select id="emailAddr" name="username" disabled required >
                     <option>선택</option>
                     <option value="@naver.com" >naver.com</option>
                     <option value="@daum.net">daum.net</option>
                     <option value="@gmail.com">gmail.com</option>
                     <option value="@nate.com">nate.com</option>
                 </select>
+                    <div id="mail_check"></div>
                 </td>
             </tr>
             <tr>
@@ -83,6 +84,80 @@
             </tr>
         </table>
     </form>
+<script>
+    $(function(){
+        $('#emailID').change(function(){
+            var u_mail = document.getElementById('emailID').value + $('#emailAddr option:selected').val();
+
+            console.log(u_mail);
+            $.ajax({
+                type:"POST",
+                url:"/register/checkSignup",
+                data:{
+                    "u_mail":u_mail
+                },
+                success:function(data){	//data : checkSignup에서 넘겨준 결과값
+                    if($.trim(data)=="YES"){
+                        if($('#emailAddr option:selected').val() =='선택'){
+                            $("#mail_check").text("사용 불가능한 아이디입니다.");
+                            $("#mail_check").css("color", "red");
+                        }else{
+                            $("#mail_check").text("사용 가능한 아이디입니다.");
+                            $("#mail_check").css("color", "blue");
+                        }
+                    }else{
+                        if($('#emailID').val()+$('#emailAddr option:selected').val() !=''){
+                            $("#mail_check").text("사용중인 아이디입니다.");
+                            $("#mail_check").css("color", "red");
+                            $('#emailText').focus();
+                        }
+                    }
+                }
+
+            });
+        });
+    });
+
+    $(function(){
+
+        $('#emailAddr').blur(function(){
+            var u_mail = document.getElementById('emailID').value + $('#emailAddr option:selected').val();
+
+
+            console.log(u_mail);
+            $.ajax({
+                type:"POST",
+                url:"/register/checkSignup",
+                data:{
+                    "u_mail":u_mail
+                },
+                success:function(data){	//data : checkSignup에서 넘겨준 결과값
+                    if($.trim(data)=="YES"){
+                        if($('#emailID').val() + $('#emailAddr option:selected').val() !=''){
+                            $("#mail_check").text("사용 가능한 아이디입니다.");
+                            $("#mail_check").css("color", "blue");
+                            if($('#certificationYN').val() == "true"){
+                                document.getElementById('certificationYN').value = "false";
+                                console.log($('#certificationYN').val());
+                            }
+                        }
+                    }else{
+                        if($('#emailID').val()+$('#emailAddr option:selected').val() !=''){
+                            $("#mail_check").text("사용중인 아이디입니다.");
+                            $("#mail_check").css("color", "red");
+                            $('#emailText').focus();
+                            if($('#certificationYN').val() == "true"){
+                                document.getElementById('certificationYN').value = "false";
+                                console.log($('#certificationYN').val());
+                            }
+                        }
+                    }
+                }
+
+            });
+        });
+    });
+</script>
 <%@ include file="../footer.jsp" %>
 </body>
 </html>
