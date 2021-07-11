@@ -87,7 +87,6 @@
 						</div>
 						<div class="btns">
 							<a href="/room/getDetail/${gri.r_no}" class="btn2">예약하기</a>
-
 						</div>
 					</div>
 					<div class="clear"></div>
