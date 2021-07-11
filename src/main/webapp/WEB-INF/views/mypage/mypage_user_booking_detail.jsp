@@ -105,30 +105,37 @@
             </div>
             <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<%--            <c:set var="today" value="<%=new java.util.Date()%>"/>--%>
+<%--            <c:set var="beginDt" value="${mbs.b_in}"/>--%>
+<%--            <c:set var="finishDt" value="${mbs.b_out}"/>--%>
+
+<%--            <fmt:formatDate var="now" type="date" value="${today}" pattern="yyyy-MM-dd"/>--%>
+<%--            <fmt:parseDate var="checkIn" value="${beginDt}" pattern="yyyy-MM-dd"/>--%>
+<%--            <fmt:parseDate var="checkOut" value="${finishDt}" pattern="yyyy-MM-dd"/>--%>
+
             <c:set var="today" value="<%=new java.util.Date()%>"/>
             <c:set var="beginDt" value="${mbs.b_in}"/>
             <c:set var="finishDt" value="${mbs.b_out}"/>
 
             <fmt:formatDate var="now" type="date" value="${today}" pattern="yyyy-MM-dd"/>
-            <fmt:parseDate var="checkIn" value="${beginDt}" pattern="yyyy-MM-dd"/>
-            <fmt:parseDate var="checkOut" value="${finishDt}" pattern="yyyy-MM-dd"/>
+
+            <!-- Wed Jul 09 00:00:00 KST 2014 형태이므로 yyyy-MM-dd로 다시 변환 -->
+            <fmt:formatDate var="checkIn" type="date" value="${beginDt}" pattern="yyyy-MM-dd"/>
+            <fmt:formatDate var="checkOut" type="date" value="${finishDt}" pattern="yyyy-MM-dd"/>
 
             <c:choose>
-                <c:when test="${now lt checkIn}">
+                <c:when test="${now < checkIn}">
                     <!--현재일 < checkin -->
-                    <c:if test="${mbs.b_state >= 1}">
                     <button class="btn_aa" onclick="'#'">예약취소</button>
                     <button class="btn_a" onclick="history.go(-1)">뒤로가기</button>
-                    </c:if>
+                </c:when>
+                <c:when test="${checkIn <= now && now <= checkOut}">
+                    <!-- checkin <= 현재일 and 현재일 <= checkOut -->
                     <button class="btn_aaa" onclick="history.go(-1)">뒤로가기</button>
                 </c:when>
-                <c:when test="${checkIn le now && now ge checkOut}">
-                    <!-- checkin <= 현재일 <= checkOut -->
-                    <button class="btn_aaa" onclick="history.go(-1)">뒤로가기</button>
-                </c:when>
-                <c:when test="${checkOut gt now && mbs.b_state >= 0}">
+                <c:when test="${checkOut < now}">
                     <!-- checkout < 현재일 -->
-                    <button class="btn-aa" onclick="showPopup()">후기작성하기</button>
+                    <button class="btn_aa" onclick="showPopup()">후기작성하기</button>
                     <button class="btn_a" onclick="history.go(-1)">뒤로가기</button>
                 </c:when>
             </c:choose>

@@ -139,6 +139,28 @@ public class HostSQL {
                 .WHERE("R_NO = #{r_no}")
                 .toString();
     }
+    public String getHostByNo(int h_no) {
+        return new SQL()
+                .SELECT("*")
+                .FROM(TABLE)
+                .WHERE("H_NO = #{h_no}")
+                .toString();
+    }
+
+    public String admin_approve(int h_no){
+        return new SQL()
+                .UPDATE(TABLE)
+                .SET("H_ACTIVE= 1")
+                .WHERE("H_NO=#{h_no}")
+                .toString();
+    }
+    public String admin_reject(int h_no){
+        return new SQL()
+                .UPDATE(TABLE)
+                .SET("H_ACTIVE= 2")
+                .WHERE("H_NO=#{h_no}")
+                .toString();
+    }
 }
 
 

@@ -61,4 +61,15 @@ public interface HostMapper {
 
     @DeleteProvider(type = HostSQL.class, method = "RoomDelete")
     int RoomDelete(@Param("r_no") int r_no);
+
+    @SelectProvider(type= HostSQL.class, method = "getHostByNo")
+    HostVO getHostByNo(int h_no);
+
+    @UpdateProvider(type = HostSQL.class, method = "admin_approve")
+    void admin_approve(int h_no);
+
+    @UpdateProvider(type = HostSQL.class, method = "admin_reject")
+    void admin_reject(int h_no);
+
+
 }

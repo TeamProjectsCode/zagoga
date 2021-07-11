@@ -84,4 +84,15 @@ public class HostService {
     public int RoomDelete(int r_no){
         return hostMapper.RoomDelete(r_no);
     }
+    public HostVO getHostByNo(int h_no){
+        return hostMapper.getHostByNo(h_no);
+    }
+
+    public void admin_approve(int h_no){
+        hostMapper.admin_approve(h_no);
+    }
+    public void admin_reject(int h_no){
+        hostMapper.admin_reject(h_no);
+    }
+
 }

@@ -11,12 +11,15 @@
 .table{
 	margin: 0 auto;
 }
-.btn_a{
-	width: 70px;
-	height: 40px;
-}
 .btn_b{
-	width: 70px;
+	width: 100px;
 	height: 40px;
-	margin-left: 180px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.btn_m{
+	width: 150px;
+	height: 40px;
+	margin-left: 30px;
+	margin-right: 50px;
 }

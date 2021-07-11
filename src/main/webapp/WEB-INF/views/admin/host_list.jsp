@@ -15,12 +15,13 @@
 		<hr>
 			<h2>사업 등록 현황</h2>
 			<hr>
-			<p></p>
+			<p>사업자 번호 또는 승인 상태를 통해 선택할 수 있습니다.</p>
 		사업자번호 :<input type="text" id="keyword">
-		<select id = "keyword2">
-		<option>승인</option>
-		<option>비승인</option>
-		<option>거절</option>
+		<select id = "keyword2" onchange="typeSelect()">
+		<option value="">선택</option>
+		<option value="대기중">대기중</option>
+		<option value="승인">승인</option>
+		<option value="거절">거절</option>
 		</select>
 		</div>
 		<table id="user-table">
@@ -48,6 +49,9 @@
 						<c:when test="${hlist.h_active eq 0}">
 							<td>대기중</td>
 						</c:when>
+						<c:when test="${hlist.h_active eq 2}">
+							<td>거절</td>
+						</c:when>
 						<%--<c:when test="${hlist.h_active eq -1}">
 							<td>일시정지</td>
 						</c:when>--%>
@@ -58,12 +62,20 @@
 			</tbody>
 		</table>
 		<script>
-			$("#keyword").keyup(function() {
+			$("#keyword").keyup(function first() {
 								var k = $(this).val();
 								$("#user-table > tbody > tr").hide();
 								var temp = $("#user-table > tbody > tr > td:nth-child(1):contains('"+ k + "')");
 								$(temp).parent().show();
 							})
+		//동시에 안됨;
+			function typeSelect(){
+				var keyword = $('#keyword2 option:selected').val();
+					$("#user-table > tbody > tr").hide();
+					var temp = $("#user-table > tbody > tr > td:nth-child(5):contains('"+ keyword + "')");
+						$(temp).parent().show();
+				console.log(keyword);
+			}
 		</script>
 	</div>
 		<%@ include file="../footer.jsp" %>

@@ -9,9 +9,7 @@ import com.javalec.project_zagoga.vo.UsersVO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -67,6 +65,20 @@ public class AdminController {
     @RequestMapping("/user_booking_detail")
     public String user_booking_detail(){
     	return "/admin/user_booking_detail";
+    }
+
+    @GetMapping("/admin_approve")
+    public String admin_approve(@RequestParam("h_no") int h_no){ // 승인
+        hostService.admin_approve(h_no);
+
+        return "redirect:/admin/host_list";
+    }
+    @GetMapping("/admin_reject")
+    public String admin_reject(@RequestParam("h_no") int h_no){ // 거절 or 정지
+
+        hostService.admin_reject(h_no);
+
+        return "redirect:/admin/host_list";
     }
 
 }
