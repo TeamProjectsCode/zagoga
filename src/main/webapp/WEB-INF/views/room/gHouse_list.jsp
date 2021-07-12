@@ -29,28 +29,6 @@
 						</li>
 					</ul>
 				</DIV>
-				<c:choose >
-					<c:when test="${status.count % 3 == 0}">
-						<br>
-					</c:when>
-					<%--			<c:otherwise>--%>
-					<%--			<DIV>--%>
-					<%--				<ul class="product_list">--%>
-					<%--					<li>--%>
-					<%--						<dl>--%>
-					<%--							<dt>--%>
-					<%--								<a href="/ghouse/detail/${li.gh_no}">${li.gh_name}</a>--%>
-					<%--							</dt>--%>
-					<%--							<dd class="img">--%>
-					<%--								<a href="/ghouse/detail/${li.gh_no}"><img src="${pageContext.request.contextPath}/resources/gh_image/${li.gh_image}" width="370px" height="370px" ></a>--%>
-					<%--							</dd>--%>
-					<%--							<dd class="price">${li.r_fee} 원</dd>--%>
-					<%--						</dl>--%>
-					<%--					</li>--%>
-					<%--				</ul>--%>
-					<%--			</DIV>--%>
-					<%--			</c:otherwise>--%>
-				</c:choose>
 			</c:forEach>
 		</div>
 	</center>

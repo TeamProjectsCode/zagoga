@@ -27,9 +27,9 @@
 		<div class="main">
 			<c:choose>
 			<c:when test="${fn:length(griList) ne 0}">
-			<img src="${pageContext.request.contextPath}/resources/gh_image/${griList.get(0).gh_image}" style="width: 750px; height: 400px;" alt="대표사진">
-			<%--				<img src="/resources/img/busan.jpg" width="650px" height="500px" alt="대표사진">--%>
-			<p>대표사진</p>
+				<img src="${pageContext.request.contextPath}/resources/gh_image/${griList.get(0).gh_image}" style="width: 750px; height: 400px;" alt="대표사진">
+					<%--				<img src="/resources/img/busan.jpg" width="650px" height="500px" alt="대표사진">--%>
+				<p>대표사진</p>
 			<p>
 <%--		<c:if test="${fn:length(griList)>0}">--%>
 			<h3>게스트하우스 업체명 : ${griList.get(0).gh_name}</h3><br>
@@ -118,7 +118,6 @@
 						</div>
 						<div class="btns">
 							<a href="/room/getDetail/${gri.r_no}" class="btn2">예약하기</a>
-
 						</div>
 					</div>
 					<div class="clear"></div>

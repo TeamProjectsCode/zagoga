@@ -1,4 +1,5 @@
 package com.javalec.project_zagoga.controller;
+import com.javalec.project_zagoga.services.RoomService;
 
 
 import com.javalec.project_zagoga.dto.GhouseRoomImages;
@@ -60,14 +61,10 @@ public class RoomController {
     //이미지업로드 컨트롤러 20210703 정상작동
     @PostMapping("/room_images/{r_no1},{h_no}")
     public String room_images(Images images, @PathVariable("r_no1")int r_no1 , @PathVariable("h_no")int h_no, @RequestParam("files") List<MultipartFile> files) {
-//        Room room = roomService.detail(r_ghno);
-//        System.out.println("room/room_images = room.toString() : " + room.toString());
-//        String Path = "/resources/rooms_image/";
+
         images.setI_rno(r_no1);
-        //		Linux path: /home/leni/gh_image
-//		Linux room path: /home/leni/rooms_image
-        String fileAddr = "D:\\_Proni\\Intelli J\\project_zagoga\\src\\main\\resources\\static\\rooms_image\\";
-//        String fileAddr = "/home/leni/rooms_image";
+        String fileAddr = "C:\\Users\\yeon\\IdeaProjects\\project-zagoga\\src\\main\\resources\\static\\rooms_image\\";
+
         List<String> safeDB = new ArrayList<>();
         List<Integer> r_no = new ArrayList<>();
 
