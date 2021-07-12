@@ -63,7 +63,7 @@ public class RoomController {
     public String room_images(Images images, @PathVariable("r_no1")int r_no1 , @PathVariable("h_no")int h_no, @RequestParam("files") List<MultipartFile> files) {
 
         images.setI_rno(r_no1);
-        String fileAddr = "C:\\Users\\yeon\\IdeaProjects\\project_zagoga\\src\\main\\resources\\static\\rooms_image\\";
+        String fileAddr = "C:\\Users\\yeon\\IdeaProjects\\project-zagoga\\src\\main\\resources\\static\\rooms_image\\";
 
         List<String> safeDB = new ArrayList<>();
         List<Integer> r_no = new ArrayList<>();
