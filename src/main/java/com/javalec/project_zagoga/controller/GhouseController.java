@@ -59,7 +59,7 @@ public class GhouseController {
 	public String insert(Ghouse ghouse, @RequestParam("files") MultipartFile file, @PathVariable("h_no") int h_no)
 			throws IOException {
 
-		String fileAddr = "D:\\_Proni\\Intelli J\\project_zagoga\\src\\main\\resources\\static\\gh_image\\";
+		String fileAddr = "C:\\Users\\yeon\\IdeaProjects\\project_zagoga\\src\\main\\resources\\static\\gh_image\\";
 
 
 		String imageName = String.valueOf(System.currentTimeMillis());
