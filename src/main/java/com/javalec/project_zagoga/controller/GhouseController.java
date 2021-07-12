@@ -58,20 +58,15 @@ public class GhouseController {
 	@PostMapping("/insert/{h_no}")
 	public String insert(Ghouse ghouse, @RequestParam("files") MultipartFile file, @PathVariable("h_no") int h_no)
 			throws IOException {
-//		Linux path: /home/leni/gh_image
-//		Linux room path: /home/leni/rooms_image
-		String fileAddr = "C:\\Users\\jieun\\Documents\\intelliJ\\project-zagoga\\src\\main\\resources\\static\\gh_image\\";
-//		String fileAddr = "/home/leni/gh_image/";
+
+		String fileAddr = "D:\\_Proni\\Intelli J\\project_zagoga\\src\\main\\resources\\static\\gh_image\\";
+
 
 		String imageName = String.valueOf(System.currentTimeMillis());
 		String OriginName = file.getOriginalFilename();
 		String transfer = fileAddr + imageName + "_" + OriginName;
 		String safeDb = imageName + "_" + OriginName;
 
-//		System.out.println("ghouse.toString() : " + ghouse.toString());
-//		String filePath = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-//		String Path = "/resources/gh_image/";
-//		System.out.println("filePath : " + filePath);
 		try {
 			ghouse.setGh_image(imageName + "_" + OriginName);
 			File transfers = new File(transfer);
