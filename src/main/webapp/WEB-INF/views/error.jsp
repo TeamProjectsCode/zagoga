@@ -14,7 +14,7 @@
 <center>
 
     <h1 style="margin-top: 100px">접근권한 없어요. 돌아가 😜 !!</h1>
-    - FROM. ZAGOGA -
+    <a href="https://docs.google.com/spreadsheets/d/1ZoRh2h8WXY21vCQ3iBEIo6yYeJd4P687-I369UCOYbY/edit#gid=0" style="color: black">- FROM. ZAGOGA -</a>
     <br><br>
 
     <br><br>

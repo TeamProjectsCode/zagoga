@@ -18,7 +18,7 @@
 <body>
 <%@ include file="../header.jsp"%>
 <c:if test="${fn:length(myBookList) ne 0}">
-  <h1 class="main_title">${myBookList.get(0).u_name} 님의 예약내역리스트</h1>
+  <h1 class="main_title">예약내역리스트</h1>
 <div>
     <c:forEach items="${myBookList}" var="mbl" varStatus="status">
 <ul class="used_list" >
